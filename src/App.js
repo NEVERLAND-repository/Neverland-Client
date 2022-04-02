@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
+import SignUp from './pages/signUpPage/SignUp';
+
 
 function App() {
   return (
     <div className="App">
-      Neverland
+      <SignUp />
     </div>
   );
 }
