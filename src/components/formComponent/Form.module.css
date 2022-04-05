@@ -1,0 +1,15 @@
+form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3.2rem;
+}
+.formField{
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-self: center;
+}
+.submitButton{
+  align-self: center;
+}
