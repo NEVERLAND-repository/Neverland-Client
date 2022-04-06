@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useState } from "react";
 
-import styles from './InputField.module.css';
+import styles from "./InputField.module.css";
 
-const InputField = (props) => {
+const InputField = ({ labelName, type, placeholder, callback, ...props }) => {
+  const callbackFunc = (e) => callback(e.target.value);
+
+
   return (
     <div>
       <label className={styles.inputLabelContainer}>
-        <p> {`${props.labelName}:`} </p>
+        <p> {`${labelName}:`} </p>
 
         <input
-          type={props.type}
-          placeholder={props.placeholder}
+          type={type}
+          placeholder={placeholder}
           className={styles.inputField}
+          required
+          onChange={callbackFunc}
         />
-
-        
       </label>
     </div>
   );
-}
+};
 
 export default InputField;

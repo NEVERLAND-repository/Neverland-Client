@@ -1,0 +1,32 @@
+.formContainer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.loginCard {
+  background: #fff;
+  width: 39.2rem;
+  height: 51.2rem;
+  border-radius: 1.6rem;
+  margin-right: 17.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+
+@media screen and (max-width: 540px) {
+  .formContainer{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+  }
+  .loginCard{
+    width: 31.5rem;
+    height: 38.8rem;
+    margin: 0 auto;
+  }
+}

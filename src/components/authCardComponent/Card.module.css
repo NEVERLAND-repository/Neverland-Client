@@ -3,9 +3,18 @@
   width: 100%;
   background: url(../../assets/images/adventure-man.jpg) center center/cover;
 }
-.logoContainer{
+.imgContainer {
   margin-left: 14.6rem;
 }
-.logoContainer img{
+.imgContainer img {
   width: 100%;
+}
+
+@media screen and (max-width: 540px) {
+  .imgContainer{
+    width: 14rem;
+    height: 7.5rem;
+    margin: 0 auto;
+  }
+
 }
