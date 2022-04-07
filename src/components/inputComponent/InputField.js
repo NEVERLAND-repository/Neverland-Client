@@ -1,15 +1,20 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import styles from "./InputField.module.css";
+import styles from './InputField.module.css';
 
-const InputField = ({ labelName, type, placeholder, callback, ...props }) => {
+function InputField({
+  labelName, type, placeholder, callback, ...props
+}) {
   const callbackFunc = (e) => callback(e.target.value);
-
 
   return (
     <div>
       <label className={styles.inputLabelContainer}>
-        <p> {`${labelName}:`} </p>
+        <p>
+          {' '}
+          {`${labelName}:`}
+          {' '}
+        </p>
 
         <input
           type={type}
@@ -21,6 +26,6 @@ const InputField = ({ labelName, type, placeholder, callback, ...props }) => {
       </label>
     </div>
   );
-};
+}
 
 export default InputField;

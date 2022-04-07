@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
 
 import whiteLogo from '../../assets/images/neverLand-logo.png';
 import styles from './Card.module.css';
 
-const Card = (props) => {
+function Card(props) {
   return (
     <div className={`${styles.card} ${props.className}`}>
       <div className={styles.imgContainer}>
@@ -11,7 +11,7 @@ const Card = (props) => {
       </div>
 
       {props.children}
-      
+
     </div>
   );
 }
