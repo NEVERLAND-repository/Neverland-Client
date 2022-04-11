@@ -9,16 +9,18 @@ const HeroBanner = () => {
       <div className={styles.container}> 
         <nav>
           <a href='#'>
-            <img src={navLogo} alt="NeverLand-orange-color-logo" />
+            <div className={styles.navLogo}>
+              <img src={navLogo} alt="NeverLand-orange-color-logo" />
+            </div>
           </a>
         </nav>
       </div>
 
       <div className={styles.textContainer}> 
-        <h1> Take me to Neverland, where stories come alive. </h1>
-        <h4> Read over 30 books of various types and genres </h4>
+        <h1 className={styles.primaryText}> Take me to Neverland, where stories come alive. </h1>
+        <h4 className={styles.bottomText}> Read over 30 books of various types and genres </h4>
 
-        <button type='submit'> Get Started </button>
+        <button type='submit' className={styles.buttonCTA}> Get Started </button>
 
       </div>
 
