@@ -2,12 +2,12 @@ import React from 'react';
 
 import styles from './FormCard.module.css';
 
-function FormCard({
+const FormCard = ({
   formTitle, bottomText, altAction, children, className,
-}) {
+}) => {
   return (
-    <div className={`${styles.card} ${className}`}>
-      <p className={styles.formTitle}>
+    <div className={ `${ styles.card } ${ className }` }>
+      <p className={ styles.formTitle }>
         {' '}
         {formTitle}
         {' '}
@@ -15,11 +15,11 @@ function FormCard({
 
       {children}
 
-      <p className={styles.bottomText}>
+      <p className={ styles.bottomText }>
         {' '}
         {bottomText}
         {' '}
-        <a href="#">
+        <a href='#'>
           {altAction}
           {' '}
         </a>

@@ -5,7 +5,7 @@ import Form from '../../components/formComponent/Form';
 
 import styles from './authPages.module.css';
 
-function SignUp() {
+const SignUp = () => {
   const formDetails = [
     {
       labelName: 'Name',
@@ -23,15 +23,15 @@ function SignUp() {
 
   return (
     <div>
-      <Card className={styles.formContainer}>
+      <Card className={ styles.formContainer }>
 
         <FormCard
-          formTitle="Create Account"
-          altAction="Sign in"
-          bottomText="Already have an account? "
+          formTitle='Create Account'
+          altAction='Sign in'
+          bottomText='Already have an account? '
         >
 
-          <Form formDetails={formDetails} label="Create account" />
+          <Form formDetails={ formDetails } label='Create account' />
 
         </FormCard>
       </Card>
