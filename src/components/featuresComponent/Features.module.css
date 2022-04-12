@@ -1,0 +1,37 @@
+.featuresSection{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-top: 10rem;
+  background-color: #fff;
+}
+
+.quoteSection{
+  width: 65%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 1.7rem;
+}
+.imageContainer{
+  width: 29.7rem;
+}
+.imageContainer img{
+  width: 100%;
+}
+.textContainer{
+  flex-direction: column;
+  padding: 1rem 0;
+}
+.textContainer h3{
+  font-size: 4rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+
+.baloonSection{
+  width: 100%;
+  height: 90rem;
+  background: url(../../assets/images/ballon-element.png) no-repeat center center/cover;
+}
