@@ -1,0 +1,38 @@
+.card{
+  background: #fff;
+  width: 39.2rem;
+  height: 59.2rem;
+  border-radius: 1.6rem;
+  margin-right: 17.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+.formTitle{
+  font-size: 3.3rem;
+  font-weight: 700;
+  text-align: center;
+}
+.submitButton{
+  align-self: center;
+}
+
+.bottomText{
+  margin-top: -1rem;
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+
+@media screen and (max-width: 540px) {
+  .card{
+    width: 31.5rem;
+    height: 46.3rem;
+    margin: 0 auto;
+  }
+  .formTitle{
+    font-size: 2.1rem;
+  }
+}
