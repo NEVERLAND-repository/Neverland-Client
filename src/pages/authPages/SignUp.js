@@ -27,8 +27,9 @@ const SignUp = () => {
 
         <FormCard
           formTitle='Create Account'
-          altAction='Sign in'
+          altAction='Log in'
           bottomText='Already have an account? '
+          route='/login'
         >
 
           <Form formDetails={ formDetails } label='Create account' />

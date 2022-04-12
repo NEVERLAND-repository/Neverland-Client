@@ -38,7 +38,7 @@ const Form = ({ label }) => {
       />
       <div className={ styles.passwordInput }>
         <InputField
-          labelName='Pasword'
+          labelName='Password'
           type={ active ? 'password' : 'text' }
           placeholder='8 characters'
           callback={ setPassword }

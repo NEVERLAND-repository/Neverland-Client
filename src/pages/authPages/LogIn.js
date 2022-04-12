@@ -27,6 +27,7 @@ const LogIn = (props) => {
           bottomText={ 'Don\'t have an account? ' }
           altAction='Sign up'
           className={ styles.loginCard }
+          route='/register'
         >
 
           <Form formDetails={ formDetails } label='Log In' />
