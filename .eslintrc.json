@@ -18,6 +18,20 @@
     "no-param-reassign": 0,
     "linebreak-style": 0,
     "space-in-parens": [0, "always"],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": [
+      2, 
+      { "caseSensitive": false }
+   ],
     "template-curly-spacing": [1, "always"],
     "array-bracket-spacing": [0, "always"],
     "object-curly-spacing": [0, "always"],
@@ -46,7 +60,6 @@
     "no-console": "off",
     "react/prop-types": 0,
     "react/prefer-es6-class": 0,
-    "react/jsx-filename-extension": 0,
     "react/jsx-curly-spacing": [1, "always"],
     "react/jsx-indent": [2, 2],
     "react/no-array-index-key": 0,
