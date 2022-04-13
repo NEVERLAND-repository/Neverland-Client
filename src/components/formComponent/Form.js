@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
+import axios from 'axios';
 import InputField from '../inputComponent/InputField';
 import PrimaryButton from '../buttonComponent/PrimaryButton';
 
@@ -10,11 +11,12 @@ const Form = ({ label }) => {
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  console.log(username, password);
+  // console.log(username, password);
 
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
-    console.log('login');
+    const response = await axios.get('/')
+    console.log(response);
     setUsername('');
     setPassword('');
   };
