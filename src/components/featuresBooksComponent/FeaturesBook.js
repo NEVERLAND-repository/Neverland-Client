@@ -1,8 +1,8 @@
-import React from 'react'
-import SecondaryButton from "../buttonComponent/SecondaryButton";
-import styles from './FeaturesBooks.module.css'
+import React from 'react';
+import SecondaryButton from '../buttonComponent/SecondaryButton';
+import styles from './FeaturesBooks.module.css';
 
-const FeaturesBook = (props) => {
+function FeaturesBook(props) {
   return (
     <div className={styles.container}>
       <div className={styles.imageDiv}>
@@ -30,4 +30,4 @@ const FeaturesBook = (props) => {
   );
 }
 
-export default FeaturesBook
+export default FeaturesBook;

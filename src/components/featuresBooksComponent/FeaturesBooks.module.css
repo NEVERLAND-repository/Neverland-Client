@@ -28,6 +28,7 @@
   transform: scale(1.05);
 }
 .buttonDiv{
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;

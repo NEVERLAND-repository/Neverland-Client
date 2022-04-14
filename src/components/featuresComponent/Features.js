@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import FeaturesCard from '../featuresCardComponent/FeaturesCard';
 import FeaturesBook from '../featuresBooksComponent/FeaturesBook';
 
-import closedBookIcon from "../../assets/images/closedBook.svg";
-import musicIcon from "../../assets/images/musicIcon.svg";
-import openBookIcon from "../../assets/images/bookIcon.svg";
+import closedBookIcon from '../../assets/images/closedBook.svg';
+import musicIcon from '../../assets/images/musicIcon.svg';
+import openBookIcon from '../../assets/images/bookIcon.svg';
 import quoteImage from '../../assets/images/quoteImage.png';
-import styles from './Features.module.css'
+import styles from './Features.module.css';
 
-const Features = (props) => {
+function Features(props) {
   return (
     <section className={styles.featuresSection}>
       <div className={styles.quoteSection}>
