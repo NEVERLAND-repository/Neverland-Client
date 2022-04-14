@@ -128,4 +128,3 @@ function Form({ label }) {
 }
 
 export default Form;
-
