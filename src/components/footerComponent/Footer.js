@@ -14,13 +14,13 @@ const Footer = () => {
         </div>
         <div className={ styles.iconContainer }>
           <a href='#'>
-            <img src={ facebookIcon } />
+            <img src={ facebookIcon } alt='Link-to-Neverland-facebook-page' />
           </a>
           <a href='#'>
-            <img src={ twitterIcon } />
+            <img src={ twitterIcon } alt='Link-to-Neverland-twitter-handle' />
           </a>
           <a href='#'>
-            <img src={ instagramIcon } />
+            <img src={ instagramIcon } alt='Link-to-Neverland-instagram-page' />
           </a>
         </div>
       </div>
@@ -30,7 +30,7 @@ const Footer = () => {
         <a href='tel:+2348035678900'> +2348035678900 </a>
         <a href='mailto:info@neverland.com'> info@neverland.com </a>
       </div>
-      <div className={styles.line} />
+      <div className={ styles.line } />
     </footer>
   );
 }

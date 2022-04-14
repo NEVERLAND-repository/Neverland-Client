@@ -11,9 +11,7 @@ const InputField = ({
     <div>
       <label className={ styles.inputLabelContainer }>
         <p>
-          {' '}
-          {`${ labelName }:`}
-          {' '}
+          {`${ labelName }`}
         </p>
 
         <input

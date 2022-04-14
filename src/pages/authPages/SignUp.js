@@ -29,6 +29,7 @@ const SignUp = () => {
           formTitle='Create Account'
           altAction='Sign in'
           bottomText='Already have an account? '
+          route='/login'
         >
 
           <Form formDetails={ formDetails } label='Create account' />
