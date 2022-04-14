@@ -5,11 +5,11 @@ import {
 } from 'react-router-dom';
 import axios from 'axios';
 import axiosInstance from './services/axios';
+import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
 
 const App = () => {
-
   useEffect(() => {
     axios.get('http://localhost:8800/')
       .then((response) => {
@@ -32,7 +32,7 @@ const App = () => {
       <Router>
         <Routes>
           <Route path='/' element={ <Layout /> }>
-            {/* <Route index element={<Home />} /> */}
+            <Route index element={ <LandingPage /> } />
             <Route path='register' element={ <SignUp /> } />
             <Route path='login' element={ <LogIn /> } />
             {/* <Route path='*' element={<PageNotFound />} /> */}
