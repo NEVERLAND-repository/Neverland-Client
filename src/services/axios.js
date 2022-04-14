@@ -1,14 +1,22 @@
 import axios from 'axios';
-
-const token = '';
-const baseURL = process.env.NODE_ENV !== 'development' ? 'http://localhost:8800/' : 'https://neverland-test.herokuapp.com/'
+import { BASE_URL } from '../constants';
 
 const instance = axios.create({
-  baseURL,
-//   headers: {
-//     'Content-Type': 'application/json',
-//     Authorization: `Basic ${ token }`,
-//   },
+  baseURL: BASE_URL,
+  headers: {},
 });
+
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token')
+    console.log(config)
+    if (token) {
+      config.headers.Authorization = `Bearer ${ token }`;
+    }
+  },
+  (error) => {
+    return Promise.reject(error)
+  },
+);
 
 export default instance
