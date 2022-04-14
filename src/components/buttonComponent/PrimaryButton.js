@@ -1,11 +1,11 @@
 import React from 'react';
 
-import styles from './PrimaryButton.module.css';
+import styles from './Button.module.css';
 
-function PrimaryButton({ label }) {
+const PrimaryButton = ({ label }) => {
   return (
     <div>
-      <button className={styles.primary__button}>
+      <button className={ styles.primary__button }>
         {' '}
         {label}
         {' '}

@@ -1,28 +1,26 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './FormCard.module.css';
 
-function FormCard({
-  formTitle, bottomText, altAction, children, className,
-}) {
+const FormCard = ({
+  formTitle, bottomText, altAction, children, className, route,
+}) => {
   return (
-    <div className={`${styles.card} ${className}`}>
-      <p className={styles.formTitle}>
-        {' '}
+    <div className={ `${ styles.card } ${ className }` }>
+      <p className={ styles.formTitle }>
         {formTitle}
-        {' '}
       </p>
 
       {children}
 
-      <p className={styles.bottomText}>
-        {' '}
+      <p className={ styles.bottomText }>
         {bottomText}
-        {' '}
-        <a href="#">
-          {altAction}
-          {' '}
-        </a>
+        <span className={ styles.altAction }>
+          <Link to={ route }>
+            {altAction}
+          </Link>
+        </span>
       </p>
     </div>
   );

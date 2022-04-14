@@ -16,8 +16,8 @@
     height: 7.5rem;
     margin: 0 auto;
   }
-  .card{
-    background: url(../../assets/images/authBgImageSmall.png) ;
+  .card {
+    background: url(../../assets/images/authBgImageSmall.png);
     /* background-position-y: -200%; */
     background-size: 100%;
     background-repeat: no-repeat;
