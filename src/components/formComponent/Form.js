@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
-import axios from 'axios';
+import axiosInstance from '../../services/axios';
 import InputField from '../inputComponent/InputField';
 import PrimaryButton from '../buttonComponent/PrimaryButton';
 
@@ -15,15 +15,16 @@ const Form = ({ label }) => {
 
   const login = async (e) => {
     e.preventDefault();
-    const response = await axios.get('/')
-    console.log(response);
     setUsername('');
     setPassword('');
   };
 
-  const signup = (e) => {
+  const signup = async (e) => {
     e.preventDefault();
-    console.log('signup');
+    const response = await axiosInstance.post('api/v1/auth/signup', {
+      fullName, username, password,
+    })
+    console.log(response.data.status);
     setFullName('');
     setUsername('');
     setPassword('');
