@@ -2,16 +2,16 @@ import React from 'react';
 
 import styles from './FeaturesCard.module.css';
 
-function FeaturesCard(props) {
+const FeaturesCard = (props) => {
   return (
-    <div className={styles.featureCard}>
+    <div className={ styles.featureCard }>
       {props.children}
 
-      <div className={styles.textContainer}>
-        <p className={styles.headerText}>
+      <div className={ styles.textContainer }>
+        <p className={ styles.headerText }>
           {props.headerText}
         </p>
-        <p className={styles.descriptionText}>
+        <p className={ styles.descriptionText }>
           {props.descriptionText}
         </p>
       </div>

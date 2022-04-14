@@ -3,7 +3,7 @@ import Features from '../../components/featuresComponent/Features';
 import Footer from '../../components/footerComponent/Footer';
 import HeroBanner from '../../components/heroComponent/HeroBanner';
 
-function LandingPage() {
+const LandingPage = () => {
   return (
     <>
       <HeroBanner />

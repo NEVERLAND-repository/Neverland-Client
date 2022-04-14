@@ -4,9 +4,9 @@ import './App.css';
 // import LogIn from './pages/authPages/LogIn';
 import LandingPage from './pages/landingPage/LandingPage';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       {/* <LogIn /> */}
       {/* <SignUp /> */}
 

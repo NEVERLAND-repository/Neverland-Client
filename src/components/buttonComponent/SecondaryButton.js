@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './Button.module.css';
 
-function SecondaryButton(props) {
+const SecondaryButton = (props) => {
   return (
     <div>
-      <a href="#" className={styles.buttonCTA}>
+      <a href='#' className={ styles.buttonCTA }>
         {' '}
         {props.label}
         {' '}
