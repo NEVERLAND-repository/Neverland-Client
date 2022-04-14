@@ -1,4 +1,5 @@
 import React from 'react'
+import SecondaryButton from '../buttonComponent/SecondaryButton';
 
 import navLogo from '../../assets/images/neverLandLogo-orange.png';
 import styles from './HeroBanner.module.css';
@@ -20,8 +21,7 @@ const HeroBanner = () => {
         <h1 className={styles.primaryText}> Take me to Neverland, where stories come alive. </h1>
         <h4 className={styles.bottomText}> Read over 30 books of various types and genres </h4>
 
-        <button type='submit' className={styles.buttonCTA}> Get Started </button>
-
+        <SecondaryButton label="Get Started" />
       </div>
 
       

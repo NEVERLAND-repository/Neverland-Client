@@ -1,5 +1,6 @@
 import React from 'react'
 import FeaturesCard from '../featuresCardComponent/FeaturesCard';
+import FeaturesBook from '../featuresBooksComponent/FeaturesBook';
 
 import closedBookIcon from "../../assets/images/closedBook.svg";
 import musicIcon from "../../assets/images/musicIcon.svg";
@@ -53,6 +54,8 @@ const Features = (props) => {
           </FeaturesCard>
         </div>
       </div>
+
+      <FeaturesBook />
     </section>
   );
 }
