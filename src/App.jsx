@@ -8,6 +8,10 @@ import axiosInstance from './services/axios';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
+import Home from './pages/homePage/Home';
+import { Comics } from './pages/homePage/screens/comics';
+import { Novels } from './pages/homePage/screens/novels';
+import { Mangas } from './pages/homePage/screens/mangas';
 
 const App = () => {
   useEffect(() => {
@@ -35,6 +39,11 @@ const App = () => {
             <Route index element={ <LandingPage /> } />
             <Route path='register' element={ <SignUp /> } />
             <Route path='login' element={ <LogIn /> } />
+            <Route path='home' element={ <Home /> }>
+              <Route path='comics' element={ <Comics /> } />
+              <Route path='novels' element={ <Novels /> } />
+              <Route path='mangas' element={ <Mangas /> } />
+            </Route>
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>
         </Routes>

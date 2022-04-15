@@ -1,0 +1,66 @@
+.carouselItem {
+    width: 100%;
+    height: calc(100vh - 10vh);
+    background-position: right;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    color: #fff;
+    font-size: 2.4rem;
+}
+
+.carouselTextContainer {
+    width: 60%;
+}
+
+.primaryText {
+    font-size: 5.5rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.bottomText {
+    font-size: 2.2rem;
+    width: 60%;
+    line-height: 1.2;
+}
+
+.btn {
+    width: 30%;
+    height: 5rem;
+    border-radius: 1.5rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .carouselItem {
+        height: calc(100vh - 10vh);
+    }
+
+    .carouselTextContainer {
+        width: 90%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+    }
+
+    .primaryText {
+        font-size: 3rem;
+    }
+
+    .bottomText {
+        font-size: 1.8rem;
+        width: 90%;
+        text-align: center;
+    }
+
+    .btn {
+        width: 60%;
+    }
+}
