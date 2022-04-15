@@ -102,8 +102,12 @@ const Header = () => {
             </header>
             <span
                 className={ styles.menu_bg }
-                onClick={ toggleMenu }
-                onKeyDown={ toggleMenu }
+                onClick={ () => {
+                    setIsMenuOpen(false);
+                } }
+                onKeyDown={ () => {
+                    setIsMenuOpen(false);
+                } }
                 role='menu_bg'
             />
         </>

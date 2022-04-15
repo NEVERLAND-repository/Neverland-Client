@@ -12,6 +12,7 @@ import Home from './pages/homePage/Home';
 import { Comics } from './pages/homePage/screens/comics';
 import { Novels } from './pages/homePage/screens/novels';
 import { Mangas } from './pages/homePage/screens/mangas';
+import { Books } from './pages/homePage/screens/books';
 
 const App = () => {
   useEffect(() => {
@@ -40,6 +41,7 @@ const App = () => {
             <Route path='register' element={ <SignUp /> } />
             <Route path='login' element={ <LogIn /> } />
             <Route path='home' element={ <Home /> }>
+              <Route index element={ <Books /> } />
               <Route path='comics' element={ <Comics /> } />
               <Route path='novels' element={ <Novels /> } />
               <Route path='mangas' element={ <Mangas /> } />
