@@ -16,7 +16,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 5;
+  transition: all .5s;
   border-radius: 1.6rem;
 }
 .imageContainer img{
@@ -25,12 +25,24 @@
   border-radius: 1.6rem;
 }
 .imageContainer img:hover{
-  transform: scale(1.05);
+  transform: scale(1.2);
 }
 .buttonDiv{
   margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: fit-content;
+}
+
+@media screen and (max-width: 540px) {
+  .container{
+    padding: 0 7rem;
+  }
+  .imageDiv{
+    flex-direction: column;
+    gap: 6rem;
+  }
+  .imageContainer{
+    width: 100%;
+  }
 }

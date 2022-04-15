@@ -57,3 +57,20 @@ nav{
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
+
+@media screen and (max-width: 540px) {
+  .navLogo{
+    width: 5rem;
+    height: 5rem;
+  }
+  .textContainer{
+    width: 75%;
+  }
+  .primaryText{
+    font-size: 2.4rem;
+    line-height: 1.4;
+  }
+  .bottomText{
+    font-size: 1.2rem;
+  }
+}
