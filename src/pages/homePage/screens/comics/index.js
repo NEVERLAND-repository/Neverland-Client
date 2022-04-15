@@ -69,10 +69,10 @@ export const Comics = () => {
   ];
 
   return (
-    <Stack spacing={ 16 } alignItems={{ base: 'center', md: 'flex-start' }}>
+    <Stack spacing={ 16 } alignItems={ { base: 'center', md: 'flex-start' } }>
       <Heading
         as='h2'
-        fontSize={{ base: '3rem', md: '5rem' }}
+        fontSize={ { base: '3rem', md: '5rem' } }
         borderBottom='6px solid'
         borderRadius='.5rem'
         borderColor='var(--secondary-color)'

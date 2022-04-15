@@ -8,10 +8,10 @@
 /* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import logo from '../../assets/images/logo.svg';
-import burger from '../../assets/icons/burger.svg';
-import close from '../../assets/icons/cross.svg';
-import { NavContainer } from '../container/NavContainer';
+import logo from '../../../../assets/images/logo.svg';
+import burger from '../../../../assets/icons/burger.svg';
+import close from '../../../../assets/icons/cross.svg';
+import { NavContainer } from '../../../../components/container/NavContainer';
 import styles from './Header.module.css';
 
 const Header = () => {
