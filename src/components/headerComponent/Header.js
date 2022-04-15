@@ -11,14 +11,14 @@ import { NavLink, Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg';
 import burger from '../../assets/icons/burger.svg';
 import close from '../../assets/icons/cross.svg';
-import { Container } from '../container/Container';
+import { NavContainer } from '../container/NavContainer';
 import styles from './Header.module.css';
 
-function Header() {
+const Header = () => {
     const navLinks = [
-        { name: 'Comics', path: '/comics' },
-        { name: 'Mangas', path: '/mangas' },
-        { name: 'Novels', path: '/novels' },
+        { name: 'Comics', path: 'comics' },
+        { name: 'Mangas', path: 'mangas' },
+        { name: 'Novels', path: 'novels' },
     ];
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -30,67 +30,70 @@ function Header() {
     const icon = isMenuOpen ? close : burger;
     return (
         <>
-            <header className={styles.header}>
-                <Container>
-                    <Link to="/" className={styles.logo}>
-                        <img src={logo} alt="logo" />
+            <header className={ styles.header }>
+                <NavContainer>
+                    <Link to='/' className={ styles.logo }>
+                        <img src={ logo } alt='logo' />
                     </Link>
-                    <nav className={styles.nav}>
-                        <ul className={styles.navList}>
+                    <nav className={ styles.navbar }>
+                        <ul className={ styles.navbarList }>
                             {navLinks.map(({ name, path }) => (
-                                <li key={name} className={styles.navItem}>
+                                <li key={ name } className={ styles.navbarItem }>
                                     <NavLink
-                                        to={path}
-                                        className={styles.navLink}
-                                        activeClassName={styles.active}
+                                        to={ path }
+                                        className={ styles.navLink }
+                                        activeClassName={ styles.active }
                                     >
                                         {name}
                                     </NavLink>
                                 </li>
                             ))}
                         </ul>
-                        <div className={styles.navBtn}>
-                            <button className={styles.navBtnLink}>
-                                <Link to="/signup">Get Started</Link>
+                        <div className={ styles.navBtn }>
+                            <button className={ styles.navBtnLink }>
+                                <Link to='/signup'>Get Started</Link>
                             </button>
                         </div>
                     </nav>
-                    <div className={styles.burger} onClick={toggleMenu}>
-                        <img src={icon} alt="menu" />
+                    <div className={ styles.burger } onClick={ toggleMenu }>
+                        <img src={ icon } alt='menu' />
                     </div>
-                </Container>
+                </NavContainer>
                 {isMenuOpen && (
                     <span
-                        className={styles.menu_bg}
-                        onClick={toggleMenu}
-                        onKeyDown={toggleMenu}
-                        role="button"
+                        className={ styles.menu_bg }
+                        onClick={ toggleMenu }
+                        onKeyDown={ toggleMenu }
+                        role='button'
                     >
-                        <span className={styles.menu}>
-                            <div className={styles.menu_container}>
-                                <div className={styles.menu_body}>
-                                    <div className={styles.menu_item}>
-                                        <p>Features</p>
-                                    </div>
-                                    <div className={styles.menu_item}>
-                                        <p>About</p>
-                                    </div>
+                        <span className={ styles.menu }>
+                            <div className={ styles.menu_container }>
+                                <div className={ styles.menu_body }>
+                                    <ul className={ styles.menu_list }>
+                                        {navLinks.map(({ name, path }) => (
+                                            <li key={ name } className={ styles.menu_item }>
+                                                <NavLink
+                                                    to={ path }
+                                                    className={ styles.menu_link }
+                                                    activeClassName={ styles.active }
+                                                >
+                                                    {name}
+                                                </NavLink>
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                                 <div
-                                    className={styles.menu_footer}
-                                    onClick={toggleMenu}
-                                    onKeyDown={toggleMenu}
-                                    role="login_button"
+                                    className={ styles.menu_footer }
+                                    onClick={ toggleMenu }
+                                    onKeyDown={ toggleMenu }
+                                    role='get_started_button'
                                 >
-                                    <Link
-                                        to="/login"
-                                        className={styles.menu_link}
-                                        onClick={toggleMenu}
-                                        onKeyDown={toggleMenu}
-                                        role="button"
-                                    >
-                                        <p>Get Started</p>
-                                    </Link>
+                                    <div className={ styles.navBtn }>
+                                        <button className={ styles.navBtnLink }>
+                                            <Link to='/signup'>Get Started</Link>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </span>
@@ -98,10 +101,10 @@ function Header() {
                 )}
             </header>
             <span
-                className={styles.menu_bg}
-                onClick={toggleMenu}
-                onKeyDown={toggleMenu}
-                role="menu_bg"
+                className={ styles.menu_bg }
+                onClick={ toggleMenu }
+                onKeyDown={ toggleMenu }
+                role='menu_bg'
             />
         </>
     );

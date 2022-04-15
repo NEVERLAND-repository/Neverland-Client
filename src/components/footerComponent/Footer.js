@@ -7,30 +7,30 @@ import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.topDiv}>
-        <div className={styles.logoContainer}>
-          <img src={footerImage} alt='Neverland-logo-small-size' />
+    <footer className={ styles.footer }>
+      <div className={ styles.topDiv }>
+        <div className={ styles.logoContainer }>
+          <img src={ footerImage } alt='Neverland-logo-small-size' />
         </div>
-        <div className={styles.iconContainer}>
+        <div className={ styles.iconContainer }>
           <a href='#'>
-            <img src={facebookIcon} alt='Link-to-Neverland-facebook-page' />
+            <img src={ facebookIcon } alt='Link-to-Neverland-facebook-page' />
           </a>
           <a href='#'>
-            <img src={twitterIcon} alt='Link-to-Neverland-twitter-handle' />
+            <img src={ twitterIcon } alt='Link-to-Neverland-twitter-handle' />
           </a>
           <a href='#'>
-            <img src={instagramIcon} alt='Link-to-Neverland-instagram-page' />
+            <img src={ instagramIcon } alt='Link-to-Neverland-instagram-page' />
           </a>
         </div>
       </div>
 
-      <div className={styles.bottomDiv}>
+      <div className={ styles.bottomDiv }>
         <p>neverland-world.netlify.app</p>
         <a href='tel:+2348035678900'> +2348035678900 </a>
         <a href='mailto:info@neverland.com'> info@neverland.com </a>
       </div>
-      <div className={styles.line} />
+      <div className={ styles.line } />
     </footer>
   );
 }
