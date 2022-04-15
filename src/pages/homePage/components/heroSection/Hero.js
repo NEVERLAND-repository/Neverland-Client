@@ -44,8 +44,16 @@ const Hero = () => {
             } }
           >
             <Container>
-              <Stack spacing='24' className={ styles.carouselTextContainer }>
-                <Heading className={ styles.primaryText }>{book.title}</Heading>
+              <Stack spacing='8' className={ styles.carouselTextContainer }>
+                <Heading
+                  fontSize={ {
+                    base: '4rem', md: '6rem',
+                  } }
+                  className={ styles.primaryText }
+                >
+                  {book.title}
+
+                </Heading>
                 <Text className={ styles.bottomText }>{book.description}</Text>
                 <button className={ styles.btn }> Get Started </button>
               </Stack>

@@ -80,20 +80,17 @@ export const Comics = () => {
         Comics
 
       </Heading>
-      <Flex gap={ 66 } width='100%' flexWrap='wrap' margin='auto'>
+      <Flex gap={ 66 } width='100%' flexWrap='wrap' margin='auto' justifyContent='center'>
         {comics.map((comic) => (
-          <>
-            <BookCard
-              key={ comic.id }
-              imageUrl={ comic.imageUrl }
-              title={ comic.title }
-              author={ comic.author }
-              type={ comic.type }
-              genre={ comic.genre }
-              rated={ comic.rated }
-            />
-            <Spacer />
-          </>
+          <BookCard
+            key={ comic.id }
+            imageUrl={ comic.imageUrl }
+            title={ comic.title }
+            author={ comic.author }
+            type={ comic.type }
+            genre={ comic.genre }
+            rated={ comic.rated }
+          />
         ))}
 
       </Flex>

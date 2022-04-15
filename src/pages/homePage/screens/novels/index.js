@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Stack, Grid, GridItem, Heading,
+  Stack, Flex, Heading, Spacer,
 } from '@chakra-ui/react';
 import fly from '../../../../assets/images/fly.png';
 import captain from '../../../../assets/images/iron-man.png';
@@ -11,7 +11,7 @@ import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
 
 export const Novels = () => {
-  const comics = [
+  const novels = [
     {
       id: 1,
       title: 'Adventures of Fly',
@@ -69,10 +69,19 @@ export const Novels = () => {
   ];
 
   return (
-    <Stack spacing={ 8 }>
-      <Heading>Comics</Heading>
-      <Grid templateColumns='repeat(3, 1fr)' gap={ 6 }>
-        {comics.map((comic) => (
+    <Stack spacing={ 16 } alignItems={ { base: 'center', md: 'flex-start' } }>
+      <Heading
+        as='h2'
+        fontSize={ { base: '3rem', md: '5rem' } }
+        borderBottom='6px solid'
+        borderRadius='.5rem'
+        borderColor='var(--secondary-color)'
+      >
+        Novels
+
+      </Heading>
+      <Flex gap={ 66 } width='100%' flexWrap='wrap' margin='auto' justifyContent='center'>
+        {novels.map((comic) => (
           <BookCard
             key={ comic.id }
             imageUrl={ comic.imageUrl }
@@ -84,7 +93,7 @@ export const Novels = () => {
           />
         ))}
 
-      </Grid>
+      </Flex>
     </Stack>
   )
 }
