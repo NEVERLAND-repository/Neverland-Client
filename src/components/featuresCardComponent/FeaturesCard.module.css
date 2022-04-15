@@ -24,3 +24,20 @@
   text-align: center;
   margin-top: 3.6rem;
 }
+
+@media screen and (max-width: 540px) {
+  .featureCard{
+    width: 29.6rem;
+    height: 26.558rem;
+    margin: 0 auto;
+  }
+  .textContainer{
+    margin-top: 1rem;
+  }
+  .headerText{
+    font-size: 2rem;
+  }
+  .descriptionText{
+    font-size: 1.4rem;
+  }
+}

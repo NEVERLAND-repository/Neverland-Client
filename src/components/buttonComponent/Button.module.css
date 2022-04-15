@@ -26,3 +26,9 @@
   background-color: var(--primary-color);
   border: 0;
 }
+
+@media screen and (max-width: 540px) {
+  .buttonCTA{
+    padding: 1.5rem 2rem;
+  }
+}
