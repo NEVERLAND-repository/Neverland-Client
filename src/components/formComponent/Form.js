@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { AiOutlineEye } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../services/axios';
 import InputField from '../inputComponent/InputField';
 import PrimaryButton from '../buttonComponent/PrimaryButton';
@@ -11,12 +13,18 @@ const Form = ({ label }) => {
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // console.log(username, password);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const login = async (e) => {
     e.preventDefault();
+    console.log(username, password)
+    const response = await axiosInstance.post('api/v1/auth/login', {
+      username, password,
+    })
     setUsername('');
     setPassword('');
+    console.log(response);
   };
 
   const signup = async (e) => {
@@ -24,10 +32,13 @@ const Form = ({ label }) => {
     const response = await axiosInstance.post('api/v1/auth/signup', {
       fullName, username, password,
     })
-    console.log(response.data.status);
     setFullName('');
     setUsername('');
     setPassword('');
+
+    if (response.data.status === 'success') {
+      navigate('/login')
+    }
   };
 
   const renderLogin = () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './PrimaryButton.module.css';
+import styles from './Button.module.css';
 
 const PrimaryButton = ({ label }) => {
   return (
