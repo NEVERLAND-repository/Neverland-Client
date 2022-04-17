@@ -36,7 +36,7 @@ const Hero = () => {
   return (
     <section className={ styles.heroSection }>
       <form className={ styles.searchForm }>
-        <FormControl width='40%' color='white' fontSize='1.6rem' margin='1.6rem auto'>
+        <FormControl width={{base: '90%', md: '40%'}} color='white' fontSize='1.6rem' margin='1.6rem auto'>
           <InputGroup size='lg'>
             <Input border='.3rem solid white' color='white.500' fontSize='1.6rem' placeholder='Search book' padding='2rem' size='lg' />
             <InputRightElement>
