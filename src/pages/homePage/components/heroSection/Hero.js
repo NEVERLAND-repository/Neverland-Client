@@ -1,8 +1,9 @@
 import React from 'react';
 import Carousel from 'framer-motion-carousel';
 import {
-  Box, Text, Heading, Stack, Button,
+  Box, Text, Heading, Stack, Button, Input, InputGroup, InputRightElement, FormControl,
 } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 import { Container } from '../../../../components/container/Container';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
 import xmen from '../../../../assets/images/x-men.png';
@@ -34,6 +35,18 @@ const Hero = () => {
 
   return (
     <section className={ styles.heroSection }>
+      <form className={ styles.searchForm }>
+        <FormControl width='40%' color='white' fontSize='1.6rem' margin='1.6rem auto'>
+          <InputGroup size='lg'>
+            <Input border='.3rem solid white' color='white.500' fontSize='1.6rem' placeholder='Search book' padding='2rem' size='lg' />
+            <InputRightElement>
+              <Button variantColor='teal' fontSize='2rem' top='22%' right='20%' variant='ghost'>
+                <SearchIcon color='white.500' m='2rem' />
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+        </FormControl>
+      </form>
       <Carousel className={ styles.carousel }>
         {books.map((book) => (
           <div
