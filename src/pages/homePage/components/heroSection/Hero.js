@@ -34,7 +34,7 @@ const Hero = () => {
 
   return (
     <section className={ styles.heroSection }>
-      <Carousel className={ styles.carousel }>
+      <Carousel interval={ 5000 } className={ styles.carousel }>
         {books.map((book) => (
           <div
             key={ book.id }

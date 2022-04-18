@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../services/axios';
@@ -7,6 +7,8 @@ import InputField from '../inputComponent/InputField';
 import PrimaryButton from '../buttonComponent/PrimaryButton';
 
 import styles from './Form.module.css';
+import { addUser } from '../../store/slice/neverlandUserSlice';
+import { USER_DATA } from '../../constants';
 
 const Form = ({ label }) => {
   const [active, setActive] = useState(false);
@@ -18,13 +20,18 @@ const Form = ({ label }) => {
 
   const login = async (e) => {
     e.preventDefault();
-    console.log(username, password)
     const response = await axiosInstance.post('api/v1/auth/login', {
       username, password,
     })
-    setUsername('');
-    setPassword('');
-    console.log(response);
+    localStorage.setItem(USER_DATA, JSON.stringify(response.data))
+    dispatch(addUser({
+      token: response.data.token,
+      data: response.data.data,
+    }))
+
+    if (response.data.token) {
+      navigate('/home')
+    }
   };
 
   const signup = async (e) => {
@@ -32,9 +39,6 @@ const Form = ({ label }) => {
     const response = await axiosInstance.post('api/v1/auth/signup', {
       fullName, username, password,
     })
-    setFullName('');
-    setUsername('');
-    setPassword('');
 
     if (response.data.status === 'success') {
       navigate('/login')

@@ -77,7 +77,7 @@ export const Mangas = () => {
         borderRadius='.5rem'
         borderColor='var(--secondary-color)'
       >
-        Mangas
+        Manga
 
       </Heading>
       <Flex gap={ 66 } width='100%' flexWrap='wrap' margin='auto' justifyContent='center'>
