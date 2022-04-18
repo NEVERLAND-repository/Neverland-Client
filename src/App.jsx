@@ -3,8 +3,7 @@ import './App.css';
 import {
   Route, BrowserRouter as Router, Routes, Outlet,
 } from 'react-router-dom';
-import axios from 'axios';
-import axiosInstance from './services/axios';
+import { useDispatch } from 'react-redux';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
@@ -13,23 +12,22 @@ import { Comics } from './pages/homePage/screens/comics';
 import { Novels } from './pages/homePage/screens/novels';
 import { Mangas } from './pages/homePage/screens/mangas';
 import { Books } from './pages/homePage/screens/books';
+import { USER_DATA } from './constants';
+import { addUser } from './store/slice/neverlandUserSlice';
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  const getUserData = () => {
+    const userData = JSON.parse(localStorage.getItem(USER_DATA));
+    dispatch(addUser({
+      token: userData.token,
+      data: userData.data,
+    }))
+  }
+
   useEffect(() => {
-    axios.get('http://localhost:8800/')
-      .then((response) => {
-        // handle success
-        console.log(response);
-      })
-      .catch((err) => console.log(err))
-    // axios.post('http://localhost:8800/api/v1/users/signup', {
-    //   fullname: 'fullname', username: 'Fred', password: 'password',
-    // })
-    //   .then((response) => {
-    //     // handle success
-    //     console.log(response);
-    //   })
-    //   .catch((err) => console.log(err))
+    getUserData()
   }, [])
 
   return (
@@ -44,7 +42,7 @@ const App = () => {
               <Route index element={ <Books /> } />
               <Route path='comics' element={ <Comics /> } />
               <Route path='novels' element={ <Novels /> } />
-              <Route path='mangas' element={ <Mangas /> } />
+              <Route path='manga' element={ <Mangas /> } />
             </Route>
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>
@@ -58,12 +56,8 @@ export default App;
 
 const Layout = () => {
   return (
-    <>
-      {/* <Header /> */}
-      <main>
-        <Outlet />
-      </main>
-      {/* <Footer /> */}
-    </>
+    <main>
+      <Outlet />
+    </main>
   );
 }

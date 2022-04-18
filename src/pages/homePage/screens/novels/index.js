@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Stack, Flex, Heading, Spacer,
+  Stack, Flex, Heading,
 } from '@chakra-ui/react';
 import fly from '../../../../assets/images/fly.png';
 import captain from '../../../../assets/images/iron-man.png';
