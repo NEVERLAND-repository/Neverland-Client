@@ -1,14 +1,17 @@
 import React from 'react';
 import Carousel from 'framer-motion-carousel';
 import {
-  Box, Text, Heading, Stack, Button,
+  Box, Text, Heading, Stack, Button, Input, InputGroup, InputRightElement, FormControl,
 } from '@chakra-ui/react';
+import { SearchIcon } from '@chakra-ui/icons';
 import { Container } from '../../../../components/container/Container';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
 import xmen from '../../../../assets/images/x-men.png';
 import ease from '../../../../assets/images/no-longer-at-ease.png';
 import titan from '../../../../assets/images/attack-on-titan.png';
 import styles from './Hero.module.css';
+import SearchBar from '../../../../components/SearchComponent/SearchBar';
+import BookData from '../../../../Data.json';
 
 const Hero = () => {
   const books = [
@@ -34,6 +37,7 @@ const Hero = () => {
 
   return (
     <section className={ styles.heroSection }>
+      <SearchBar placeholder='Search for books' data={ BookData } />
       <Carousel interval={ 5000 } className={ styles.carousel }>
         {books.map((book) => (
           <div
