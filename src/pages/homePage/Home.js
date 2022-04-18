@@ -11,6 +11,7 @@ import getAxiosInstance from '../../services/axios';
 const Home = () => {
   const [category, setCategory] = useState('')
   const {token} = useSelector(getUserData);
+  const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -25,18 +26,24 @@ const Home = () => {
       console.log(response.data)
 
       if (response.data.status === 'success') {
-        dispatch(addHomepageData(response.data))
+        await dispatch(addHomepageData(response.data))
       }
+      setLoaded(true)
     }
     fetch()
   }, [token])
 
   return (
     <div className={ styles.home }>
-      <Header />
-      <Hero />
-      <BooksLayout />
-      <Footer />
+      { loaded
+      && (
+      <>
+        <Header />
+        <Hero />
+        <BooksLayout />
+        <Footer />
+      </>
+      )}
     </div>
   );
 }
