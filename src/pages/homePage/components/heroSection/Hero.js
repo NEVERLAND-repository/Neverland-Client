@@ -10,6 +10,8 @@ import xmen from '../../../../assets/images/x-men.png';
 import ease from '../../../../assets/images/no-longer-at-ease.png';
 import titan from '../../../../assets/images/attack-on-titan.png';
 import styles from './Hero.module.css';
+import SearchBar from '../../../../components/SearchComponent/SearchBar';
+import BookData from '../../../../Data.json';
 
 const Hero = () => {
   const books = [
@@ -35,18 +37,7 @@ const Hero = () => {
 
   return (
     <section className={ styles.heroSection }>
-      <form className={ styles.searchForm }>
-        <FormControl width={{base: '90%', md: '40%'}} color='white' fontSize='1.6rem' margin='1.6rem auto'>
-          <InputGroup size='lg'>
-            <Input border='.3rem solid white' color='white.500' fontSize='1.6rem' placeholder='Search book' padding='2rem' size='lg' />
-            <InputRightElement>
-              <Button variantColor='teal' fontSize='2rem' top='22%' right='20%' variant='ghost'>
-                <SearchIcon color='white.500' m='2rem' />
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-        </FormControl>
-      </form>
+      <SearchBar placeholder='Search for books' data={ BookData } />
       <Carousel className={ styles.carousel }>
         {books.map((book) => (
           <div
