@@ -9,9 +9,10 @@ import batman from '../../../../assets/images/batman.png';
 import xmen from '../../../../assets/images/new-x-men.png';
 import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
+import getAxiosInstance from '../../../../services/axios';
 
-export const Mangas = () => {
-  const mangas = [
+export const Books = () => {
+  const books = [
     {
       id: 1,
       title: 'Adventures of Fly',
@@ -77,11 +78,11 @@ export const Mangas = () => {
         borderRadius='.5rem'
         borderColor='var(--secondary-color)'
       >
-        Manga
+        Books
 
       </Heading>
       <Flex gap={ 66 } width='100%' flexWrap='wrap' margin='auto' justifyContent='center'>
-        {mangas.map((comic) => (
+        {books.map((comic) => (
           <BookCard
             key={ comic.id }
             imageUrl={ comic.imageUrl }

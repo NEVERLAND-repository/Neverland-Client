@@ -19,6 +19,7 @@ nav{
   z-index: 2;
 }
 .navLogo img{
+  margin-top: 10px;
   width: 100%;
   text-align: center;
 }

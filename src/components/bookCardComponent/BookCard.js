@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Box, GridItem, Text, Image, Badge, Icon, Center, Tooltip,
+  Box, Text, Image, Center, Tooltip,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import styles from './BookCard.module.css';
@@ -25,7 +25,7 @@ const BookCard = ({
     >
       <Image src={ imageUrl } alt={ title } />
 
-      <Box p='1.3rem' backgroundColor='white' color='black'>
+      <Box p='1.3rem' backgroundColor='white' color='black' className={ styles.bookCardInfo }>
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <Box
             fontWeight='semibold'
@@ -41,30 +41,26 @@ const BookCard = ({
               <AddIcon />
             </Center>
           </Tooltip>
-
         </Box>
 
         <Box>
           <Text fontSize='1.6rem' color='gray.600' py='1rem'>
             {author}
           </Text>
-          {/* <div
-            style={ { color: 'var(--black-color)' } }
-            onMouseEnter={ (e) => setStyle({display: 'block'}) }
-            onMouseLeave={ (e) => setStyle({display: 'none'}) }
-          >
+          <div className={ styles.bookDetails }>
             <Text fontSize='1.6rem'>
               rem ipsum dolor sit amet, consectetuer adipiscing elit.
               Aenean commodo ligula eget dolor
               {' '}
               <Link
                 to=':id'
-                color='var(--primary-color)'
+                as={ Link }
+                className={ styles.bookDetailsLink }
               >
                 continue reading
               </Link>
             </Text>
-          </div> */}
+          </div>
         </Box>
 
         <Box display='flex' mt='2' alignItems='center'>

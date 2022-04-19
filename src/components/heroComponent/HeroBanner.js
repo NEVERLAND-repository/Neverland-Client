@@ -1,6 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import SecondaryButton from '../buttonComponent/SecondaryButton';
-
 import navLogo from '../../assets/images/neverLandLogo-orange.png';
 import styles from './HeroBanner.module.css';
 
@@ -9,11 +9,11 @@ const HeroBanner = () => {
     <section className={ styles.heroSection }>
       <div className={ styles.container }>
         <nav>
-          <div className={ styles.navLogo }>
-            <a href='#'>
-              <img src={ navLogo } alt='NeverLand-orange-color-logo' />
-            </a>
-          </div>
+            <div className={ styles.navLogo }>
+              <Link to='/home'>
+                <img src={ navLogo } alt='NeverLand-orange-color-logo' />
+              </Link>
+            </div>
         </nav>
       </div>
 

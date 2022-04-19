@@ -3,7 +3,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userData: {},
   isLoaded: false,
-  token: '',
+  homePageData: {},
 };
 
 const neverlandUserSlice = createSlice({
@@ -18,13 +18,17 @@ const neverlandUserSlice = createSlice({
         ...state,
         userData: {},
         isLoaded: false,
-        token: '',
+        homePageData: {},
       }
+    },
+    addHomepageData: (state, {payload}) => {
+      state.homePageData = payload;
     },
   },
 });
 
-export const { addUser, deleteUser } = neverlandUserSlice.actions;
+export const { addUser, deleteUser, addHomepageData } = neverlandUserSlice.actions;
 export const getUserData = (state) => state.neverlandUser.userData;
+export const getHomePageData = (state) => state.neverlandUser.homePageData;
 export const getLoader = (state) => state.neverlandUserSlice.isLoaded;
 export default neverlandUserSlice.reducer;

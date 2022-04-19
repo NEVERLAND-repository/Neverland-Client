@@ -9,8 +9,19 @@ import batman from '../../../../assets/images/batman.png';
 import xmen from '../../../../assets/images/new-x-men.png';
 import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
+import getAxiosInstance from '../../../../services/axios';
 
 export const Comics = () => {
+  const category = 'comics'
+  const token = ''
+
+  const fetchData = async () => {
+    const response = await getAxiosInstance(token).post(
+      `api/v1/home/?category=${ category.toLowerCase() }`,
+    )
+    console.log(response.data.data.trendingBooks)
+  }
+
   const comics = [
     {
       id: 1,
