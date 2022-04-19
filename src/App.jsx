@@ -21,8 +21,8 @@ const App = () => {
   const getUserData = () => {
     const userData = JSON.parse(localStorage.getItem(USER_DATA));
     dispatch(addUser({
-      token: userData.token,
-      data: userData.data,
+      token: userData?.token,
+      data: userData?.data,
     }))
   }
 

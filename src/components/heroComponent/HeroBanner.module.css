@@ -61,8 +61,9 @@ nav{
 
 @media screen and (max-width: 540px) {
   .navLogo{
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
+    margin: 0 1.5rem;
   }
   .textContainer{
     width: 75%;
