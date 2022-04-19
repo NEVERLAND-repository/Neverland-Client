@@ -21,8 +21,8 @@ const App = () => {
   const getUserData = () => {
     const userData = JSON.parse(localStorage.getItem(USER_DATA));
     dispatch(addUser({
-      token: userData.token,
-      data: userData.data,
+      token: userData?.token,
+      data: userData?.data,
     }))
   }
 
@@ -38,11 +38,8 @@ const App = () => {
             <Route index element={ <LandingPage /> } />
             <Route path='register' element={ <SignUp /> } />
             <Route path='login' element={ <LogIn /> } />
-            <Route path='home' element={ <Home /> }>
-              <Route index element={ <Comics /> } />
-              <Route path='comics' element={ <Comics /> } />
-              <Route path='novels' element={ <Novels /> } />
-              <Route path='manga' element={ <Mangas /> } />
+            <Route path='home/:category' element={ <Home /> }>
+              {/* <Route path=':category' element={ <Books /> } /> */}
             </Route>
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>

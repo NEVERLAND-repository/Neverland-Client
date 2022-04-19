@@ -35,7 +35,7 @@ const Hero = () => {
                   {book?.name}
 
                 </Heading>
-                <Text className={ styles.bottomText }>{book?.description}</Text>
+                <Text className={ styles.bottomText }>{book?.description.slice(0, 200).concat('...')}</Text>
                 <button className={ styles.btn }> Get Started </button>
               </Stack>
             </Container>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from './components/footerSection/Footer';
 import Header from './components/headerComponent/Header';
@@ -9,10 +10,10 @@ import { addHomepageData, getUserData } from '../../store/slice/neverlandUserSli
 import getAxiosInstance from '../../services/axios';
 
 const Home = () => {
-  const [category, setCategory] = useState('comics')
   const {token} = useSelector(getUserData);
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
+  const { category } = useParams();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -21,9 +22,9 @@ const Home = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await getAxiosInstance(token).post(
-        `api/v1/home/?category=${ category.toLowerCase() }`,
+        `api/v1/home/?category=${ category || '' }`,
       )
-      console.log(response.data.data.trendingBooks)
+      console.log(response.data.data.categoryBooks)
 
       if (response.data.status === 'success') {
         dispatch(addHomepageData(response.data))
@@ -37,7 +38,7 @@ const Home = () => {
     <div className={ styles.home }>
       <Header />
       <Hero />
-      <BooksLayout />
+      {loaded && <BooksLayout category={ category } />}
       <Footer />
     </div>
   );
