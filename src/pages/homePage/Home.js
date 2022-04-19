@@ -9,7 +9,7 @@ import { addHomepageData, getUserData } from '../../store/slice/neverlandUserSli
 import getAxiosInstance from '../../services/axios';
 
 const Home = () => {
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('comics')
   const {token} = useSelector(getUserData);
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
@@ -21,29 +21,24 @@ const Home = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await getAxiosInstance(token).post(
-        `api/v1/home/?category=${ category }`,
+        `api/v1/home/?category=${ category.toLowerCase() }`,
       )
-      console.log(response.data)
+      console.log(response.data.data.trendingBooks)
 
       if (response.data.status === 'success') {
-        await dispatch(addHomepageData(response.data))
+        dispatch(addHomepageData(response.data))
       }
       setLoaded(true)
     }
     fetch()
-  }, [token])
+  }, [token, category])
 
   return (
     <div className={ styles.home }>
-      { loaded
-      && (
-      <>
-        <Header />
-        <Hero />
-        <BooksLayout />
-        <Footer />
-      </>
-      )}
+      <Header />
+      <Hero />
+      <BooksLayout />
+      <Footer />
     </div>
   );
 }

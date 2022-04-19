@@ -1,0 +1,1001 @@
+[{
+        "author": "Chinua Achebe",
+        "country": "Nigeria",
+        "imageLink": "data:image/jpeg;base64,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",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
+        "pages": 209,
+        "title": "Things Fall Apart",
+        "year": 1958
+    },
+    {
+        "author": "Hans Christian Andersen",
+        "country": "Denmark",
+        "imageLink": "images/fairy-tales.jpg",
+        "language": "Danish",
+        "link": "https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection.\n",
+        "pages": 784,
+        "title": "Fairy tales",
+        "year": 1836
+    },
+    {
+        "author": "Dante Alighieri",
+        "country": "Italy",
+        "imageLink": "images/the-divine-comedy.jpg",
+        "language": "Italian",
+        "link": "https://en.wikipedia.org/wiki/Divine_Comedy\n",
+        "pages": 928,
+        "title": "The Divine Comedy",
+        "year": 1315
+    },
+    {
+        "author": "Unknown",
+        "country": "Sumer and Akkadian Empire",
+        "imageLink": "images/the-epic-of-gilgamesh.jpg",
+        "language": "Akkadian",
+        "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh\n",
+        "pages": 160,
+        "title": "The Epic Of Gilgamesh",
+        "year": -1700
+    },
+    {
+        "author": "Unknown",
+        "country": "Achaemenid Empire",
+        "imageLink": "images/the-book-of-job.jpg",
+        "language": "Hebrew",
+        "link": "https://en.wikipedia.org/wiki/Book_of_Job\n",
+        "pages": 176,
+        "title": "The Book Of Job",
+        "year": -600
+    },
+    {
+        "author": "Unknown",
+        "country": "India/Iran/Iraq/Egypt/Tajikistan",
+        "imageLink": "images/one-thousand-and-one-nights.jpg",
+        "language": "Arabic",
+        "link": "https://en.wikipedia.org/wiki/One_Thousand_and_One_Nights\n",
+        "pages": 288,
+        "title": "One Thousand and One Nights",
+        "year": 1200
+    },
+    {
+        "author": "Unknown",
+        "country": "Iceland",
+        "imageLink": "images/njals-saga.jpg",
+        "language": "Old Norse",
+        "link": "https://en.wikipedia.org/wiki/Nj%C3%A1ls_saga\n",
+        "pages": 384,
+        "title": "Nj\u00e1l's Saga",
+        "year": 1350
+    },
+    {
+        "author": "Jane Austen",
+        "country": "United Kingdom",
+        "imageLink": "images/pride-and-prejudice.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Pride_and_Prejudice\n",
+        "pages": 226,
+        "title": "Pride and Prejudice",
+        "year": 1813
+    },
+    {
+        "author": "Honor\u00e9 de Balzac",
+        "country": "France",
+        "imageLink": "images/le-pere-goriot.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Le_P%C3%A8re_Goriot\n",
+        "pages": 443,
+        "title": "Le P\u00e8re Goriot",
+        "year": 1835
+    },
+    {
+        "author": "Samuel Beckett",
+        "country": "Republic of Ireland",
+        "imageLink": "images/molloy-malone-dies-the-unnamable.jpg",
+        "language": "French, English",
+        "link": "https://en.wikipedia.org/wiki/Molloy_(novel)\n",
+        "pages": 256,
+        "title": "Molloy, Malone Dies, The Unnamable, the trilogy",
+        "year": 1952
+    },
+    {
+        "author": "Giovanni Boccaccio",
+        "country": "Italy",
+        "imageLink": "images/the-decameron.jpg",
+        "language": "Italian",
+        "link": "https://en.wikipedia.org/wiki/The_Decameron\n",
+        "pages": 1024,
+        "title": "The Decameron",
+        "year": 1351
+    },
+    {
+        "author": "Jorge Luis Borges",
+        "country": "Argentina",
+        "imageLink": "images/ficciones.jpg",
+        "language": "Spanish",
+        "link": "https://en.wikipedia.org/wiki/Ficciones\n",
+        "pages": 224,
+        "title": "Ficciones",
+        "year": 1965
+    },
+    {
+        "author": "Emily Bront\u00eb",
+        "country": "United Kingdom",
+        "imageLink": "images/wuthering-heights.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Wuthering_Heights\n",
+        "pages": 342,
+        "title": "Wuthering Heights",
+        "year": 1847
+    },
+    {
+        "author": "Albert Camus",
+        "country": "Algeria, French Empire",
+        "imageLink": "images/l-etranger.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/The_Stranger_(novel)\n",
+        "pages": 185,
+        "title": "The Stranger",
+        "year": 1942
+    },
+    {
+        "author": "Paul Celan",
+        "country": "Romania, France",
+        "imageLink": "images/poems-paul-celan.jpg",
+        "language": "German",
+        "link": "\n",
+        "pages": 320,
+        "title": "Poems",
+        "year": 1952
+    },
+    {
+        "author": "Louis-Ferdinand C\u00e9line",
+        "country": "France",
+        "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Journey_to_the_End_of_the_Night\n",
+        "pages": 505,
+        "title": "Journey to the End of the Night",
+        "year": 1932
+    },
+    {
+        "author": "Miguel de Cervantes",
+        "country": "Spain",
+        "imageLink": "images/don-quijote-de-la-mancha.jpg",
+        "language": "Spanish",
+        "link": "https://en.wikipedia.org/wiki/Don_Quixote\n",
+        "pages": 1056,
+        "title": "Don Quijote De La Mancha",
+        "year": 1610
+    },
+    {
+        "author": "Geoffrey Chaucer",
+        "country": "England",
+        "imageLink": "images/the-canterbury-tales.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/The_Canterbury_Tales\n",
+        "pages": 544,
+        "title": "The Canterbury Tales",
+        "year": 1450
+    },
+    {
+        "author": "Anton Chekhov",
+        "country": "Russia",
+        "imageLink": "images/stories-of-anton-chekhov.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/List_of_short_stories_by_Anton_Chekhov\n",
+        "pages": 194,
+        "title": "Stories",
+        "year": 1886
+    },
+    {
+        "author": "Joseph Conrad",
+        "country": "United Kingdom",
+        "imageLink": "images/nostromo.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Nostromo\n",
+        "pages": 320,
+        "title": "Nostromo",
+        "year": 1904
+    },
+    {
+        "author": "Charles Dickens",
+        "country": "United Kingdom",
+        "imageLink": "images/great-expectations.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Great_Expectations\n",
+        "pages": 194,
+        "title": "Great Expectations",
+        "year": 1861
+    },
+    {
+        "author": "Denis Diderot",
+        "country": "France",
+        "imageLink": "images/jacques-the-fatalist.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Jacques_the_Fatalist\n",
+        "pages": 596,
+        "title": "Jacques the Fatalist",
+        "year": 1796
+    },
+    {
+        "author": "Alfred D\u00f6blin",
+        "country": "Germany",
+        "imageLink": "images/berlin-alexanderplatz.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/Berlin_Alexanderplatz\n",
+        "pages": 600,
+        "title": "Berlin Alexanderplatz",
+        "year": 1929
+    },
+    {
+        "author": "Fyodor Dostoevsky",
+        "country": "Russia",
+        "imageLink": "images/crime-and-punishment.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/Crime_and_Punishment\n",
+        "pages": 551,
+        "title": "Crime and Punishment",
+        "year": 1866
+    },
+    {
+        "author": "Fyodor Dostoevsky",
+        "country": "Russia",
+        "imageLink": "images/the-idiot.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/The_Idiot\n",
+        "pages": 656,
+        "title": "The Idiot",
+        "year": 1869
+    },
+    {
+        "author": "Fyodor Dostoevsky",
+        "country": "Russia",
+        "imageLink": "images/the-possessed.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/Demons_(Dostoyevsky_novel)\n",
+        "pages": 768,
+        "title": "The Possessed",
+        "year": 1872
+    },
+    {
+        "author": "Fyodor Dostoevsky",
+        "country": "Russia",
+        "imageLink": "images/the-brothers-karamazov.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/The_Brothers_Karamazov\n",
+        "pages": 824,
+        "title": "The Brothers Karamazov",
+        "year": 1880
+    },
+    {
+        "author": "George Eliot",
+        "country": "United Kingdom",
+        "imageLink": "images/middlemarch.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Middlemarch\n",
+        "pages": 800,
+        "title": "Middlemarch",
+        "year": 1871
+    },
+    {
+        "author": "Ralph Ellison",
+        "country": "United States",
+        "imageLink": "images/invisible-man.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Invisible_Man\n",
+        "pages": 581,
+        "title": "Invisible Man",
+        "year": 1952
+    },
+    {
+        "author": "Euripides",
+        "country": "Greece",
+        "imageLink": "images/medea.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Medea_(play)\n",
+        "pages": 104,
+        "title": "Medea",
+        "year": -431
+    },
+    {
+        "author": "William Faulkner",
+        "country": "United States",
+        "imageLink": "images/absalom-absalom.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Absalom,_Absalom!\n",
+        "pages": 313,
+        "title": "Absalom, Absalom!",
+        "year": 1936
+    },
+    {
+        "author": "William Faulkner",
+        "country": "United States",
+        "imageLink": "images/the-sound-and-the-fury.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/The_Sound_and_the_Fury\n",
+        "pages": 326,
+        "title": "The Sound and the Fury",
+        "year": 1929
+    },
+    {
+        "author": "Gustave Flaubert",
+        "country": "France",
+        "imageLink": "images/madame-bovary.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Madame_Bovary\n",
+        "pages": 528,
+        "title": "Madame Bovary",
+        "year": 1857
+    },
+    {
+        "author": "Gustave Flaubert",
+        "country": "France",
+        "imageLink": "images/l-education-sentimentale.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Sentimental_Education\n",
+        "pages": 606,
+        "title": "Sentimental Education",
+        "year": 1869
+    },
+    {
+        "author": "Federico Garc\u00eda Lorca",
+        "country": "Spain",
+        "imageLink": "images/gypsy-ballads.jpg",
+        "language": "Spanish",
+        "link": "https://en.wikipedia.org/wiki/Gypsy_Ballads\n",
+        "pages": 218,
+        "title": "Gypsy Ballads",
+        "year": 1928
+    },
+    {
+        "author": "Gabriel Garc\u00eda M\u00e1rquez",
+        "country": "Colombia",
+        "imageLink": "images/one-hundred-years-of-solitude.jpg",
+        "language": "Spanish",
+        "link": "https://en.wikipedia.org/wiki/One_Hundred_Years_of_Solitude\n",
+        "pages": 417,
+        "title": "One Hundred Years of Solitude",
+        "year": 1967
+    },
+    {
+        "author": "Gabriel Garc\u00eda M\u00e1rquez",
+        "country": "Colombia",
+        "imageLink": "images/love-in-the-time-of-cholera.jpg",
+        "language": "Spanish",
+        "link": "https://en.wikipedia.org/wiki/Love_in_the_Time_of_Cholera\n",
+        "pages": 368,
+        "title": "Love in the Time of Cholera",
+        "year": 1985
+    },
+    {
+        "author": "Johann Wolfgang von Goethe",
+        "country": "Saxe-Weimar",
+        "imageLink": "images/faust.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/Goethe%27s_Faust\n",
+        "pages": 158,
+        "title": "Faust",
+        "year": 1832
+    },
+    {
+        "author": "Nikolai Gogol",
+        "country": "Russia",
+        "imageLink": "images/dead-souls.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/Dead_Souls\n",
+        "pages": 432,
+        "title": "Dead Souls",
+        "year": 1842
+    },
+    {
+        "author": "G\u00fcnter Grass",
+        "country": "Germany",
+        "imageLink": "images/the-tin-drum.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/The_Tin_Drum\n",
+        "pages": 600,
+        "title": "The Tin Drum",
+        "year": 1959
+    },
+    {
+        "author": "Jo\u00e3o Guimar\u00e3es Rosa",
+        "country": "Brazil",
+        "imageLink": "images/the-devil-to-pay-in-the-backlands.jpg",
+        "language": "Portuguese",
+        "link": "https://en.wikipedia.org/wiki/The_Devil_to_Pay_in_the_Backlands\n",
+        "pages": 494,
+        "title": "The Devil to Pay in the Backlands",
+        "year": 1956
+    },
+    {
+        "author": "Knut Hamsun",
+        "country": "Norway",
+        "imageLink": "images/hunger.jpg",
+        "language": "Norwegian",
+        "link": "https://en.wikipedia.org/wiki/Hunger_(Hamsun_novel)\n",
+        "pages": 176,
+        "title": "Hunger",
+        "year": 1890
+    },
+    {
+        "author": "Ernest Hemingway",
+        "country": "United States",
+        "imageLink": "images/the-old-man-and-the-sea.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea\n",
+        "pages": 128,
+        "title": "The Old Man and the Sea",
+        "year": 1952
+    },
+    {
+        "author": "Homer",
+        "country": "Greece",
+        "imageLink": "images/the-iliad-of-homer.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Iliad\n",
+        "pages": 608,
+        "title": "Iliad",
+        "year": -735
+    },
+    {
+        "author": "Homer",
+        "country": "Greece",
+        "imageLink": "images/the-odyssey-of-homer.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Odyssey\n",
+        "pages": 374,
+        "title": "Odyssey",
+        "year": -800
+    },
+    {
+        "author": "Henrik Ibsen",
+        "country": "Norway",
+        "imageLink": "images/a-Dolls-house.jpg",
+        "language": "Norwegian",
+        "link": "https://en.wikipedia.org/wiki/A_Doll%27s_House\n",
+        "pages": 68,
+        "title": "A Doll's House",
+        "year": 1879
+    },
+    {
+        "author": "James Joyce",
+        "country": "Irish Free State",
+        "imageLink": "images/ulysses.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Ulysses_(novel)\n",
+        "pages": 228,
+        "title": "Ulysses",
+        "year": 1922
+    },
+    {
+        "author": "Franz Kafka",
+        "country": "Czechoslovakia",
+        "imageLink": "images/stories-of-franz-kafka.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/Franz_Kafka_bibliography#Short_stories\n",
+        "pages": 488,
+        "title": "Stories",
+        "year": 1924
+    },
+    {
+        "author": "Franz Kafka",
+        "country": "Czechoslovakia",
+        "imageLink": "images/the-trial.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/The_Trial\n",
+        "pages": 160,
+        "title": "The Trial",
+        "year": 1925
+    },
+    {
+        "author": "Franz Kafka",
+        "country": "Czechoslovakia",
+        "imageLink": "images/the-castle.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/The_Castle_(novel)\n",
+        "pages": 352,
+        "title": "The Castle",
+        "year": 1926
+    },
+    {
+        "author": "K\u0101lid\u0101sa",
+        "country": "India",
+        "imageLink": "images/the-recognition-of-shakuntala.jpg",
+        "language": "Sanskrit",
+        "link": "https://en.wikipedia.org/wiki/Abhij%C3%B1%C4%81na%C5%9B%C4%81kuntalam\n",
+        "pages": 147,
+        "title": "The recognition of Shakuntala",
+        "year": 150
+    },
+    {
+        "author": "Yasunari Kawabata",
+        "country": "Japan",
+        "imageLink": "images/the-sound-of-the-mountain.jpg",
+        "language": "Japanese",
+        "link": "https://en.wikipedia.org/wiki/The_Sound_of_the_Mountain\n",
+        "pages": 288,
+        "title": "The Sound of the Mountain",
+        "year": 1954
+    },
+    {
+        "author": "Nikos Kazantzakis",
+        "country": "Greece",
+        "imageLink": "images/zorba-the-greek.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Zorba_the_Greek\n",
+        "pages": 368,
+        "title": "Zorba the Greek",
+        "year": 1946
+    },
+    {
+        "author": "D. H. Lawrence",
+        "country": "United Kingdom",
+        "imageLink": "images/sons-and-lovers.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Sons_and_Lovers\n",
+        "pages": 432,
+        "title": "Sons and Lovers",
+        "year": 1913
+    },
+    {
+        "author": "Halld\u00f3r Laxness",
+        "country": "Iceland",
+        "imageLink": "images/independent-people.jpg",
+        "language": "Icelandic",
+        "link": "https://en.wikipedia.org/wiki/Independent_People\n",
+        "pages": 470,
+        "title": "Independent People",
+        "year": 1934
+    },
+    {
+        "author": "Giacomo Leopardi",
+        "country": "Italy",
+        "imageLink": "images/poems-giacomo-leopardi.jpg",
+        "language": "Italian",
+        "link": "\n",
+        "pages": 184,
+        "title": "Poems",
+        "year": 1818
+    },
+    {
+        "author": "Doris Lessing",
+        "country": "United Kingdom",
+        "imageLink": "images/the-golden-notebook.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/The_Golden_Notebook\n",
+        "pages": 688,
+        "title": "The Golden Notebook",
+        "year": 1962
+    },
+    {
+        "author": "Astrid Lindgren",
+        "country": "Sweden",
+        "imageLink": "images/pippi-longstocking.jpg",
+        "language": "Swedish",
+        "link": "https://en.wikipedia.org/wiki/Pippi_Longstocking\n",
+        "pages": 160,
+        "title": "Pippi Longstocking",
+        "year": 1945
+    },
+    {
+        "author": "Lu Xun",
+        "country": "China",
+        "imageLink": "images/diary-of-a-madman.jpg",
+        "language": "Chinese",
+        "link": "https://en.wikipedia.org/wiki/A_Madman%27s_Diary\n",
+        "pages": 389,
+        "title": "Diary of a Madman",
+        "year": 1918
+    },
+    {
+        "author": "Naguib Mahfouz",
+        "country": "Egypt",
+        "imageLink": "images/children-of-gebelawi.jpg",
+        "language": "Arabic",
+        "link": "https://en.wikipedia.org/wiki/Children_of_Gebelawi\n",
+        "pages": 355,
+        "title": "Children of Gebelawi",
+        "year": 1959
+    },
+    {
+        "author": "Thomas Mann",
+        "country": "Germany",
+        "imageLink": "images/buddenbrooks.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/Buddenbrooks\n",
+        "pages": 736,
+        "title": "Buddenbrooks",
+        "year": 1901
+    },
+    {
+        "author": "Thomas Mann",
+        "country": "Germany",
+        "imageLink": "images/the-magic-mountain.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/The_Magic_Mountain\n",
+        "pages": 720,
+        "title": "The Magic Mountain",
+        "year": 1924
+    },
+    {
+        "author": "Herman Melville",
+        "country": "United States",
+        "imageLink": "images/moby-dick.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Moby-Dick\n",
+        "pages": 378,
+        "title": "Moby Dick",
+        "year": 1851
+    },
+    {
+        "author": "Michel de Montaigne",
+        "country": "France",
+        "imageLink": "images/essais.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Essays_(Montaigne)\n",
+        "pages": 404,
+        "title": "Essays",
+        "year": 1595
+    },
+    {
+        "author": "Elsa Morante",
+        "country": "Italy",
+        "imageLink": "images/history.jpg",
+        "language": "Italian",
+        "link": "https://en.wikipedia.org/wiki/History_(novel)\n",
+        "pages": 600,
+        "title": "History",
+        "year": 1974
+    },
+    {
+        "author": "Toni Morrison",
+        "country": "United States",
+        "imageLink": "images/beloved.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Beloved_(novel)\n",
+        "pages": 321,
+        "title": "Beloved",
+        "year": 1987
+    },
+    {
+        "author": "Murasaki Shikibu",
+        "country": "Japan",
+        "imageLink": "images/the-tale-of-genji.jpg",
+        "language": "Japanese",
+        "link": "https://en.wikipedia.org/wiki/The_Tale_of_Genji\n",
+        "pages": 1360,
+        "title": "The Tale of Genji",
+        "year": 1006
+    },
+    {
+        "author": "Robert Musil",
+        "country": "Austria",
+        "imageLink": "images/the-man-without-qualities.jpg",
+        "language": "German",
+        "link": "https://en.wikipedia.org/wiki/The_Man_Without_Qualities\n",
+        "pages": 365,
+        "title": "The Man Without Qualities",
+        "year": 1931
+    },
+    {
+        "author": "Vladimir Nabokov",
+        "country": "Russia/United States",
+        "imageLink": "images/lolita.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Lolita\n",
+        "pages": 317,
+        "title": "Lolita",
+        "year": 1955
+    },
+    {
+        "author": "George Orwell",
+        "country": "United Kingdom",
+        "imageLink": "images/nineteen-eighty-four.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Nineteen_Eighty-Four\n",
+        "pages": 272,
+        "title": "Nineteen Eighty-Four",
+        "year": 1949
+    },
+    {
+        "author": "Ovid",
+        "country": "Roman Empire",
+        "imageLink": "images/the-metamorphoses-of-ovid.jpg",
+        "language": "Classical Latin",
+        "link": "https://en.wikipedia.org/wiki/Metamorphoses\n",
+        "pages": 576,
+        "title": "Metamorphoses",
+        "year": 100
+    },
+    {
+        "author": "Fernando Pessoa",
+        "country": "Portugal",
+        "imageLink": "images/the-book-of-disquiet.jpg",
+        "language": "Portuguese",
+        "link": "https://en.wikipedia.org/wiki/The_Book_of_Disquiet\n",
+        "pages": 272,
+        "title": "The Book of Disquiet",
+        "year": 1928
+    },
+    {
+        "author": "Edgar Allan Poe",
+        "country": "United States",
+        "imageLink": "images/tales-and-poems-of-edgar-allan-poe.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Edgar_Allan_Poe_bibliography#Tales\n",
+        "pages": 842,
+        "title": "Tales",
+        "year": 1950
+    },
+    {
+        "author": "Marcel Proust",
+        "country": "France",
+        "imageLink": "images/a-la-recherche-du-temps-perdu.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/In_Search_of_Lost_Time\n",
+        "pages": 2408,
+        "title": "In Search of Lost Time",
+        "year": 1920
+    },
+    {
+        "author": "Fran\u00e7ois Rabelais",
+        "country": "France",
+        "imageLink": "images/gargantua-and-pantagruel.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Gargantua_and_Pantagruel\n",
+        "pages": 623,
+        "title": "Gargantua and Pantagruel",
+        "year": 1533
+    },
+    {
+        "author": "Juan Rulfo",
+        "country": "Mexico",
+        "imageLink": "images/pedro-paramo.jpg",
+        "language": "Spanish",
+        "link": "https://en.wikipedia.org/wiki/Pedro_P%C3%A1ramo\n",
+        "pages": 124,
+        "title": "Pedro P\u00e1ramo",
+        "year": 1955
+    },
+    {
+        "author": "Rumi",
+        "country": "Sultanate of Rum",
+        "imageLink": "images/the-masnavi.jpg",
+        "language": "Persian",
+        "link": "https://en.wikipedia.org/wiki/Masnavi\n",
+        "pages": 438,
+        "title": "The Masnavi",
+        "year": 1236
+    },
+    {
+        "author": "Salman Rushdie",
+        "country": "United Kingdom, India",
+        "imageLink": "images/midnights-children.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Midnight%27s_Children\n",
+        "pages": 536,
+        "title": "Midnight's Children",
+        "year": 1981
+    },
+    {
+        "author": "Saadi",
+        "country": "Persia, Persian Empire",
+        "imageLink": "images/bostan.jpg",
+        "language": "Persian",
+        "link": "https://en.wikipedia.org/wiki/Bustan_(book)\n",
+        "pages": 298,
+        "title": "Bostan",
+        "year": 1257
+    },
+    {
+        "author": "Tayeb Salih",
+        "country": "Sudan",
+        "imageLink": "images/season-of-migration-to-the-north.jpg",
+        "language": "Arabic",
+        "link": "https://en.wikipedia.org/wiki/Season_of_Migration_to_the_North\n",
+        "pages": 139,
+        "title": "Season of Migration to the North",
+        "year": 1966
+    },
+    {
+        "author": "Jos\u00e9 Saramago",
+        "country": "Portugal",
+        "imageLink": "images/blindness.jpg",
+        "language": "Portuguese",
+        "link": "https://en.wikipedia.org/wiki/Blindness_(novel)\n",
+        "pages": 352,
+        "title": "Blindness",
+        "year": 1995
+    },
+    {
+        "author": "William Shakespeare",
+        "country": "England",
+        "imageLink": "images/hamlet.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Hamlet\n",
+        "pages": 432,
+        "title": "Hamlet",
+        "year": 1603
+    },
+    {
+        "author": "William Shakespeare",
+        "country": "England",
+        "imageLink": "images/king-lear.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/King_Lear\n",
+        "pages": 384,
+        "title": "King Lear",
+        "year": 1608
+    },
+    {
+        "author": "William Shakespeare",
+        "country": "England",
+        "imageLink": "images/othello.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Othello\n",
+        "pages": 314,
+        "title": "Othello",
+        "year": 1609
+    },
+    {
+        "author": "Sophocles",
+        "country": "Greece",
+        "imageLink": "images/oedipus-the-king.jpg",
+        "language": "Greek",
+        "link": "https://en.wikipedia.org/wiki/Oedipus_the_King\n",
+        "pages": 88,
+        "title": "Oedipus the King",
+        "year": -430
+    },
+    {
+        "author": "Stendhal",
+        "country": "France",
+        "imageLink": "images/le-rouge-et-le-noir.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/The_Red_and_the_Black\n",
+        "pages": 576,
+        "title": "The Red and the Black",
+        "year": 1830
+    },
+    {
+        "author": "Laurence Sterne",
+        "country": "England",
+        "imageLink": "images/the-life-and-opinions-of-tristram-shandy.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/The_Life_and_Opinions_of_Tristram_Shandy,_Gentleman\n",
+        "pages": 640,
+        "title": "The Life And Opinions of Tristram Shandy",
+        "year": 1760
+    },
+    {
+        "author": "Italo Svevo",
+        "country": "Italy",
+        "imageLink": "images/confessions-of-zeno.jpg",
+        "language": "Italian",
+        "link": "https://en.wikipedia.org/wiki/Zeno%27s_Conscience\n",
+        "pages": 412,
+        "title": "Confessions of Zeno",
+        "year": 1923
+    },
+    {
+        "author": "Jonathan Swift",
+        "country": "Ireland",
+        "imageLink": "images/gullivers-travels.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Gulliver%27s_Travels\n",
+        "pages": 178,
+        "title": "Gulliver's Travels",
+        "year": 1726
+    },
+    {
+        "author": "Leo Tolstoy",
+        "country": "Russia",
+        "imageLink": "images/war-and-peace.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/War_and_Peace\n",
+        "pages": 1296,
+        "title": "War and Peace",
+        "year": 1867
+    },
+    {
+        "author": "Leo Tolstoy",
+        "country": "Russia",
+        "imageLink": "images/anna-karenina.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/Anna_Karenina\n",
+        "pages": 864,
+        "title": "Anna Karenina",
+        "year": 1877
+    },
+    {
+        "author": "Leo Tolstoy",
+        "country": "Russia",
+        "imageLink": "images/the-death-of-ivan-ilyich.jpg",
+        "language": "Russian",
+        "link": "https://en.wikipedia.org/wiki/The_Death_of_Ivan_Ilyich\n",
+        "pages": 92,
+        "title": "The Death of Ivan Ilyich",
+        "year": 1886
+    },
+    {
+        "author": "Mark Twain",
+        "country": "United States",
+        "imageLink": "images/the-adventures-of-huckleberry-finn.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Adventures_of_Huckleberry_Finn\n",
+        "pages": 224,
+        "title": "The Adventures of Huckleberry Finn",
+        "year": 1884
+    },
+    {
+        "author": "Valmiki",
+        "country": "India",
+        "imageLink": "images/ramayana.jpg",
+        "language": "Sanskrit",
+        "link": "https://en.wikipedia.org/wiki/Ramayana\n",
+        "pages": 152,
+        "title": "Ramayana",
+        "year": -450
+    },
+    {
+        "author": "Virgil",
+        "country": "Roman Empire",
+        "imageLink": "images/the-aeneid.jpg",
+        "language": "Classical Latin",
+        "link": "https://en.wikipedia.org/wiki/Aeneid\n",
+        "pages": 442,
+        "title": "The Aeneid",
+        "year": -23
+    },
+    {
+        "author": "Vyasa",
+        "country": "India",
+        "imageLink": "images/the-mahab-harata.jpg",
+        "language": "Sanskrit",
+        "link": "https://en.wikipedia.org/wiki/Mahabharata\n",
+        "pages": 276,
+        "title": "Mahabharata",
+        "year": -700
+    },
+    {
+        "author": "Walt Whitman",
+        "country": "United States",
+        "imageLink": "images/leaves-of-grass.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Leaves_of_Grass\n",
+        "pages": 152,
+        "title": "Leaves of Grass",
+        "year": 1855
+    },
+    {
+        "author": "Virginia Woolf",
+        "country": "United Kingdom",
+        "imageLink": "images/mrs-dalloway.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/Mrs_Dalloway\n",
+        "pages": 216,
+        "title": "Mrs Dalloway",
+        "year": 1925
+    },
+    {
+        "author": "Virginia Woolf",
+        "country": "United Kingdom",
+        "imageLink": "images/to-the-lighthouse.jpg",
+        "language": "English",
+        "link": "https://en.wikipedia.org/wiki/To_the_Lighthouse\n",
+        "pages": 209,
+        "title": "To the Lighthouse",
+        "year": 1927
+    },
+    {
+        "author": "Marguerite Yourcenar",
+        "country": "France/Belgium",
+        "imageLink": "images/memoirs-of-hadrian.jpg",
+        "language": "French",
+        "link": "https://en.wikipedia.org/wiki/Memoirs_of_Hadrian\n",
+        "pages": 408,
+        "title": "Memoirs of Hadrian",
+        "year": 1951
+    }
+]

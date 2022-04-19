@@ -1,33 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Carousel from 'framer-motion-carousel';
-import {
-  Text, Heading, Stack,
-} from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
+import { Text, Heading, Stack } from '@chakra-ui/react';
 import { Container } from '../../../../components/container/Container';
-import xmen from '../../../../assets/images/x-men.png';
-import ease from '../../../../assets/images/no-longer-at-ease.png';
-import titan from '../../../../assets/images/attack-on-titan.png';
 import styles from './Hero.module.css';
 import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
+import SearchBar from '../../../../components/SearchComponent/SearchBar';
+import BookData from '../../../../Data.json';
 
 const Hero = () => {
-  // const trendingBooks = useSelector(getHomePageData).data?.trendingBooks;
-  // const [books, setBooks] = useState([])
-  // console.log(books)
-
-  // useEffect(() => {
-  //   if (trendingBooks) {
-  //     setBooks(trendingBooks.map(({
-  //       _id, bookImg, name, description,
-  //     }) => { _id; bookImg; name; description }));
-  //   }
-  // }, [trendingBooks])
+  const trendingBooks = useSelector(getHomePageData).data?.trendingBooks;
 
   return (
     <section className={ styles.heroSection }>
+      <SearchBar placeholder='Search for books' data={ BookData } />
+      {trendingBooks?.length !== 0 && (
       <Carousel interval={ 5000 } className={ styles.carousel }>
-        {books.length !== 0 && books.map((book) => (
+        {trendingBooks?.map((book) => (
           <div
             key={ book?._id }
             className={ styles.carouselItem }
@@ -53,8 +42,8 @@ const Hero = () => {
           </div>
         ))}
       </Carousel>
+      )}
     </section>
-
   )
 }
 

@@ -20,7 +20,7 @@ const Form = ({ label }) => {
 
   const login = async (e) => {
     e.preventDefault();
-    const response = await axiosInstance.post('api/v1/auth/login', {
+    const response = await axiosInstance().post('api/v1/auth/login', {
       username, password,
     })
     localStorage.setItem(USER_DATA, JSON.stringify(response.data))
@@ -36,7 +36,7 @@ const Form = ({ label }) => {
 
   const signup = async (e) => {
     e.preventDefault();
-    const response = await axiosInstance.post('api/v1/auth/signup', {
+    const response = await axiosInstance().post('api/v1/auth/signup', {
       fullName, username, password,
     })
 

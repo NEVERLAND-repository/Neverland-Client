@@ -9,6 +9,7 @@ import batman from '../../../../assets/images/batman.png';
 import xmen from '../../../../assets/images/new-x-men.png';
 import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
+import getAxiosInstance from '../../../../services/axios';
 
 export const Books = () => {
   const books = [
