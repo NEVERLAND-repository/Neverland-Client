@@ -1,7 +1,8 @@
 import React from 'react'
 import {
-  Stack, Flex, Heading, Spacer,
+  Stack, Flex, Heading,
 } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import fly from '../../../../assets/images/fly.png';
 import captain from '../../../../assets/images/iron-man.png';
 import spiderman from '../../../../assets/images/spider-man.png';
@@ -9,9 +10,11 @@ import batman from '../../../../assets/images/batman.png';
 import xmen from '../../../../assets/images/new-x-men.png';
 import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
-import getAxiosInstance from '../../../../services/axios';
+import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
 
-export const Books = () => {
+export const Books = ({ category }) => {
+  const categoryBooks = useSelector(getHomePageData).data?.categoryBooks;
+  console.log(category, categoryBooks)
   const books = [
     {
       id: 1,
@@ -69,7 +72,7 @@ export const Books = () => {
     },
   ];
 
-  return (
+  const renderBooks = () => (
     <Stack spacing={ 16 } alignItems={ { base: 'center', md: 'flex-start' } }>
       <Heading
         as='h2'
@@ -78,23 +81,26 @@ export const Books = () => {
         borderRadius='.5rem'
         borderColor='var(--secondary-color)'
       >
-        Books
+        {category[0].toUpperCase() + category.slice(1)}
 
       </Heading>
       <Flex gap={ 66 } width='100%' flexWrap='wrap' margin='auto' justifyContent='center'>
-        {books.map((comic) => (
+        {categoryBooks?.map((book) => (
           <BookCard
-            key={ comic.id }
-            imageUrl={ comic.imageUrl }
-            title={ comic.title }
-            author={ comic.author }
-            type={ comic.type }
-            genre={ comic.genre }
-            rated={ comic.rated }
+            key={ book?._id }
+            imageUrl={ book?.bookImg }
+            title={ book?.name }
+            author={ book?.author }
+            type={ book?.tags.join(',') }
+            genre={ book?.category }
+            rated={ book?.rated }
+            description={ book?.description }
           />
         ))}
 
       </Flex>
     </Stack>
   )
+
+  return renderBooks();
 }

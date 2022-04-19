@@ -7,7 +7,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import styles from './BookCard.module.css';
 
 const BookCard = ({
-  imageUrl, title, author, type, genre, rated,
+  imageUrl, title, author, type, genre, rated, description,
 }) => {
   const [style, setStyle] = useState({display: 'none'});
   return (
@@ -49,8 +49,7 @@ const BookCard = ({
           </Text>
           <div className={ styles.bookDetails }>
             <Text fontSize='1.6rem'>
-              rem ipsum dolor sit amet, consectetuer adipiscing elit.
-              Aenean commodo ligula eget dolor
+              {description.slice(0, 100)}
               {' '}
               <Link
                 to=':id'

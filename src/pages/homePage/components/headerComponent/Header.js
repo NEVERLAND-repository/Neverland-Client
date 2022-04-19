@@ -20,12 +20,14 @@ import {
 import lib from '../../../../assets/icons/book.svg';
 import pro from '../../../../assets/icons/pro-icon.svg';
 import logout from '../../../../assets/icons/log-out.svg';
-import logo from '../../../../assets/images/logo.svg';
+// import logo from '../../../../assets/images/logo.svg';
 import burger from '../../../../assets/icons/burger.svg';
 import close from '../../../../assets/icons/cross.svg';
 import profile from '../../../../assets/icons/profile-icon.svg';
 import { NavContainer } from '../../../../components/container/NavContainer';
+import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
+import PrimaryButton from '../../../../components/buttonComponent/PrimaryButton';
 
 const Header = () => {
   const navLinks = [
@@ -54,10 +56,10 @@ const Header = () => {
     <>
       <header className={ styles.header }>
         <NavContainer>
-          <Link to='/' className={ styles.logo }>
-            <img src={ logo } alt='logo' />
-          </Link>
           <nav className={ styles.navbar }>
+            <Link to='/' className={ styles.logo }>
+              <img src={ navLogo } alt='NeverLand-orange-color-logo' />
+            </Link>
             <ul className={ styles.navbarList }>
               {navLinks.map(({ name, path }) => (
                 <li key={ name } className={ styles.navbarItem }>
@@ -72,7 +74,7 @@ const Header = () => {
               ))}
             </ul>
             <div className={ styles.navBtn }>
-              {!isAuth ? (
+              {isAuth ? (
 
                 <Popover arrowSize='16' zIndex='10000' placement='bottom-end'>
                   <PopoverTrigger>
@@ -119,9 +121,7 @@ const Header = () => {
                   </Portal>
                 </Popover>
               ) : (
-                <button className={ styles.navBtnLink }>
-                  <Link to='/signup'>Get Started</Link>
-                </button>
+                <PrimaryButton label='Get Started' />
               )}
             </div>
           </nav>
