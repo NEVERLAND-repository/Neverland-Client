@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 import { Container } from '../../../../components/container/Container';
 import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
-import { Books } from '../../screens/books';
+import { Books } from '../books';
 
 import styles from './BooksLayout.module.css';
 
 const BooksLayout = ({ category }) => {
   const categoryBooks = useSelector(getHomePageData).data?.categoryBooks;
-  console.log(category, categoryBooks)
+
   return (
     <section className={ styles.booksLayout }>
       <Container className={ styles.container }>
