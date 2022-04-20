@@ -38,8 +38,8 @@ const App = () => {
             <Route index element={ <LandingPage /> } />
             <Route path='register' element={ <SignUp /> } />
             <Route path='login' element={ <LogIn /> } />
-            <Route path='home/:category' element={ <Home /> }>
-              {/* <Route path=':category' element={ <Books /> } /> */}
+            <Route path='home' element={ <Home /> }>
+              <Route path=':category' element={ <Home /> } />
             </Route>
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>

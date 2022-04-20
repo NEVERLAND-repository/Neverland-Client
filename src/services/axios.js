@@ -6,7 +6,11 @@ const getAxiosInstance = (token = '') => {
     baseURL: BASE_URL,
   });
 
-  instance.defaults.headers.authorization = `Bearer ${ token }`;
+  if (token !== '') {
+    instance.defaults.headers.authorization = `Bearer ${ token }`;
+  } else {
+    instance.defaults.headers.authorization = '';
+  }
 
   return instance
 }
