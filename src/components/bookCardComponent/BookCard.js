@@ -25,7 +25,7 @@ const BookCard = ({
     >
       <Image src={ imageUrl } alt={ title } />
 
-      <Box p='1.3rem' backgroundColor='white' color='black' className={ styles.bookCardInfo }>
+      <Box backgroundColor='white' color='black' className={ styles.bookCardInfo }>
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <Box
             fontWeight='semibold'

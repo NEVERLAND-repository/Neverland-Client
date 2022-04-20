@@ -8,10 +8,6 @@ import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
 import Home from './pages/homePage/Home';
-import { Comics } from './pages/homePage/screens/comics';
-import { Novels } from './pages/homePage/screens/novels';
-import { Mangas } from './pages/homePage/screens/mangas';
-import { Books } from './pages/homePage/screens/books';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
 
@@ -38,8 +34,8 @@ const App = () => {
             <Route index element={ <LandingPage /> } />
             <Route path='register' element={ <SignUp /> } />
             <Route path='login' element={ <LogIn /> } />
-            <Route path='home/:category' element={ <Home /> }>
-              {/* <Route path=':category' element={ <Books /> } /> */}
+            <Route path='home' element={ <Home /> }>
+              <Route path=':category' element={ <Home /> } />
             </Route>
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>
