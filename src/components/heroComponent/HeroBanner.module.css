@@ -4,19 +4,19 @@
   background: url(../../assets/images/NeverLand-tablet-mockup.png) center center/cover;
   color: #fff;
   position: relative;
+  padding-top: 1rem;
 }
 nav{
-  padding: 3rem 5rem;
+  padding: 20rem;
 }
 .navLogo{
-  width: 8.5rem;
-  height: 8.5rem;
+  width: 12rem;
+  height: 12rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  margin: 0 7rem;
   z-index: 2;
-  border-radius: 50%;
 }
 .navLogo img{
   margin-top: 10px;
@@ -52,17 +52,18 @@ nav{
 }
 .bottomText{
   font-size: 1.8rem;
-  line-height: 1.4rem;
+  line-height: 1.2rem;
   font-weight: 400;
   text-align: center;
   margin-top: 2rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 @media screen and (max-width: 540px) {
   .navLogo{
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 6rem;
+    margin: 0 1.5rem;
   }
   .textContainer{
     width: 75%;

@@ -4,17 +4,12 @@
   text-align: center;
   line-height: 1.16;
   color: #fff;
-  background: #F49F0A;
+  background: var(--primary-color);
   border: none;
   height: 4.585rem;
   width: 26.73rem;
   border-radius: 1.6rem;
 }
-
-.primary__button:hover{
-  background-color: #EB9A0C;
-}
-
 .buttonCTA {
   display: inline-block;
   padding: 2rem;
@@ -23,9 +18,14 @@
   font-size: 1.6rem;
   font-weight: 700;
   color: #fff;
-  background-color: var(--primary-color);
+  background: var(--primary-color);
   border: 0;
 }
+.primary__button:hover,
+.buttonCTA:hover {
+  background: var(--button-hover-color);
+}
+
 
 @media screen and (max-width: 540px) {
   .buttonCTA{
