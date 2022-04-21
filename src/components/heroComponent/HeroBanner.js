@@ -9,11 +9,11 @@ const HeroBanner = () => {
     <section className={ styles.heroSection }>
       <div className={ styles.container }>
         <nav>
-          <Link to='/home'>
-            <div clLinkssName={ styles.navLogo }>
+          <div className={ styles.navLogo }>
+            <Link to='/home'>
               <img src={ navLogo } alt='NeverLand-orange-color-logo' />
-            </div>
-          </Link>
+            </Link>
+          </div>
         </nav>
       </div>
 
