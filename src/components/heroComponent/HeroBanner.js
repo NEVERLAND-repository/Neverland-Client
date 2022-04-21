@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SecondaryButton from '../buttonComponent/SecondaryButton';
-import navLogo from '../../assets/images/neverLandLogo-orange.png';
+import navLogo from '../../assets/images/neverLand-logo-white.svg';
 import styles from './HeroBanner.module.css';
 
 const HeroBanner = () => {
