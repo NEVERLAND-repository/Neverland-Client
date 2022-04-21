@@ -1,0 +1,7 @@
+
+@media  screen and (max-width: 540px) {
+  .innerDiv {
+    flex-direction: column;
+    gap: 5rem;
+  }
+}

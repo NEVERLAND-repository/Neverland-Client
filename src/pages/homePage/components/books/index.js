@@ -3,6 +3,7 @@ import {
   Stack, Flex, Heading,
 } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from '@chakra-ui/react';
 import fly from '../../../../assets/images/fly.png';
 import captain from '../../../../assets/images/iron-man.png';
 import spiderman from '../../../../assets/images/spider-man.png';
@@ -11,8 +12,11 @@ import xmen from '../../../../assets/images/new-x-men.png';
 import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
 import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
+import styles from './books.module.css';
 
 export const Books = ({ category = 'comics' }) => {
+  const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
+  const [isLesserThan980] = useMediaQuery('(max-width: 980px)');
   const categoryBooks = useSelector(getHomePageData).data?.categoryBooks;
   let count = 0;
   const firstDiv = [];
@@ -32,21 +36,28 @@ export const Books = ({ category = 'comics' }) => {
         description={ book?.description }
       />)
     } else {
-      secondDiv?.push(<BookCard
-        key={ book?._id }
-        imageUrl={ book?.bookImg }
-        title={ book?.name }
-        author={ book?.author }
-        type={ book?.tags.join(', ') }
-        genre={ book?.category }
-        rated={ book?.rated }
-        description={ book?.description }
-      />)
+      secondDiv?.push(
+        <BookCard
+          key={ book?._id }
+          imageUrl={ book?.bookImg }
+          title={ book?.name }
+          author={ book?.author }
+          type={ book?.tags.join(', ') }
+          genre={ book?.category }
+          rated={ book?.rated }
+          description={ book?.description }
+        />,
+      )
     }
   })
 
   const renderBooks = () => (
-    <Stack spacing={ 16 } width='100%' marginBottom={ 4 } alignItems={ { base: 'center', md: 'flex-start' } }>
+    <Stack
+      spacing={ 16 }
+      width='100%'
+      marginBottom={ 4 }
+      alignItems={ { base: 'center', md: 'center' } }
+    >
       <Heading
         as='h2'
         fontSize={ { base: '3rem', md: '5rem' } }
@@ -55,30 +66,40 @@ export const Books = ({ category = 'comics' }) => {
         borderColor='var(--secondary-color)'
       >
         {category[0].toUpperCase() + category.slice(1)}
-
       </Heading>
-      <Flex flexDirection='column' width='100%' justifyContent='center'>
+      {/* {isLesserThan980 ? (
+
+      ) : (
+
+      )} */}
+      <Flex flexDirection='column' width='100%'>
         {firstDiv && (
-        <Flex flexDirection='row' width='100%' justifyContent='space-between'>
-          {
-          firstDiv?.map((book) => {
-            return book
-          })
-        }
-        </Flex>
+          <Flex
+            flexDirection={ isLesserThan740 ? 'column' : 'row' }
+            width='100%'
+            alignItems={ isLesserThan740 ? 'center' : 'space-between' }
+            justifyContent={ { base: 'center', md: 'space-between' } }
+          >
+            {firstDiv?.map((book) => {
+              return book;
+            })}
+          </Flex>
         )}
         {secondDiv && (
-        <Flex marginTop={ 40 } flexDirection='row' width='100%' justifyContent='space-between'>
-          {
-              secondDiv?.map((book) => {
-                return book
-              })
-          }
-        </Flex>
+          <Flex
+            flexDirection={ isLesserThan740 ? 'column' : 'row' }
+            width='100%'
+            alignItems={ isLesserThan740 ? 'center' : 'space-between' }
+            justifyContent='space-between'
+          >
+            {secondDiv?.map((book) => {
+              return book;
+            })}
+          </Flex>
         )}
       </Flex>
     </Stack>
-  )
+  );
 
   return renderBooks();
 }

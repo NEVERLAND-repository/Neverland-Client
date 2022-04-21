@@ -14,7 +14,6 @@
     -ms-transition: all 0.3s linear 0s;
     -o-transition: all 0.3s linear 0s;
     transition: all 0.3s linear 0s;
-    border: 2px solid yellow;
 }
 
 .bookCard:hover,
