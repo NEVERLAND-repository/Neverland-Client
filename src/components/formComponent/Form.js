@@ -1,30 +1,48 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineEye } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
+import axiosInstance from '../../services/axios';
 import InputField from '../inputComponent/InputField';
 import PrimaryButton from '../buttonComponent/PrimaryButton';
 
 import styles from './Form.module.css';
+import { addUser } from '../../store/slice/neverlandUserSlice';
+import { USER_DATA } from '../../constants';
 
 const Form = ({ label }) => {
   const [active, setActive] = useState(false);
   const [fullName, setFullName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  console.log(username, password);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const login = (e) => {
+  const login = async (e) => {
     e.preventDefault();
-    console.log('login');
-    setUsername('');
-    setPassword('');
+    const response = await axiosInstance().post('api/v1/auth/login', {
+      username, password,
+    })
+    localStorage.setItem(USER_DATA, JSON.stringify(response.data))
+    dispatch(addUser({
+      token: response.data.token,
+      data: response.data.data,
+    }))
+
+    if (response.data.token) {
+      navigate('/home')
+    }
   };
 
-  const signup = (e) => {
+  const signup = async (e) => {
     e.preventDefault();
-    console.log('signup');
-    setFullName('');
-    setUsername('');
-    setPassword('');
+    const response = await axiosInstance().post('api/v1/auth/signup', {
+      fullName, username, password,
+    })
+
+    if (response.data.status === 'success') {
+      navigate('/login')
+    }
   };
 
   const renderLogin = () => (
@@ -38,7 +56,7 @@ const Form = ({ label }) => {
       />
       <div className={ styles.passwordInput }>
         <InputField
-          labelName='Pasword'
+          labelName='Password'
           type={ active ? 'password' : 'text' }
           placeholder='8 characters'
           callback={ setPassword }

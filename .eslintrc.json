@@ -3,7 +3,11 @@
     "browser": true,
     "es2021": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true,
@@ -12,26 +16,28 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": [
+    "react"
+  ],
   "rules": {
     "import/prefer-default-export": "off",
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0,
+    "jsx-a11y/interactive-supports-focus": 0,
+    "jsx-a11y/aria-role": 0,
     "no-param-reassign": 0,
     "linebreak-style": 0,
+    "import/no-duplicates": 0,
+    "no-unused-expressions": 0,
     "space-in-parens": [0, "always"],
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "import/no-named-as-default": 0,
-    "import/no-unresolved": [
-      2, 
-      { "caseSensitive": false }
-   ],
+    "import/no-unresolved": [2, { "caseSensitive": false }],
     "template-curly-spacing": [1, "always"],
     "array-bracket-spacing": [0, "always"],
     "object-curly-spacing": [0, "always"],

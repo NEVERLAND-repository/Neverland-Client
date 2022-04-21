@@ -10,11 +10,11 @@ const InputField = ({
   return (
     <div>
       <label className={ styles.inputLabelContainer }>
-        <p>
-          {' '}
-          {`${ labelName }:`}
-          {' '}
-        </p>
+        {labelName && (
+          <p>
+            {`${ labelName }`}
+          </p>
+        )}
 
         <input
           type={ type }
