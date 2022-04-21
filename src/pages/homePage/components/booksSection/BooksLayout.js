@@ -8,8 +8,6 @@ import { Books } from '../books';
 import styles from './BooksLayout.module.css';
 
 const BooksLayout = ({ category }) => {
-  const categoryBooks = useSelector(getHomePageData).data?.categoryBooks;
-
   return (
     <section className={ styles.booksLayout }>
       <Container className={ styles.container }>

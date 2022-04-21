@@ -17,10 +17,10 @@ import {
   WrapItem,
   Avatar,
 } from '@chakra-ui/react';
+import { useSelector } from 'react-redux';
 import lib from '../../../../assets/icons/book.svg';
 import pro from '../../../../assets/icons/pro-icon.svg';
 import logout from '../../../../assets/icons/log-out.svg';
-// import logo from '../../../../assets/images/logo.svg';
 import burger from '../../../../assets/icons/burger.svg';
 import close from '../../../../assets/icons/cross.svg';
 import profile from '../../../../assets/icons/profile-icon.svg';
@@ -28,16 +28,17 @@ import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
 import PrimaryButton from '../../../../components/buttonComponent/PrimaryButton';
+import { getUserData } from '../../../../store/slice/neverlandUserSlice';
 
 const Header = () => {
   const navLinks = [
     { name: 'Comics', path: 'comics' },
-    { name: 'Mangas', path: 'mangas' },
+    { name: 'Manga', path: 'mangas' },
     { name: 'Novels', path: 'novels' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [isAuth, setIsAuth] = useState(false);
+  const isAuth = useSelector(getUserData)?.token
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen, () => {
@@ -85,24 +86,23 @@ const Header = () => {
                     </Wrap>
                   </PopoverTrigger>
                   <Portal zIndex='10000'>
-                    <PopoverContent fontSize='1.6rem'>
+                    <PopoverContent fontSize='1.6rem' marginTop='2.8rem' border='none' outline='0'>
                       <PopoverArrow />
-                      <PopoverHeader>Menu</PopoverHeader>
-                      <PopoverCloseButton />
-                      <PopoverBody>
+                      {/* <PopoverCloseButton /> */}
+                      <PopoverBody border='none'>
                         <List gap='6' p='4'>
-                          <NavLink to='/library' className={ styles.navLink } activeClassName={ styles.active }>
+                          <Link
+                            as='button'
+                            to=''
+                            className={ styles.navLink }
+                            activeClassName={ styles.active }
+                            onClick={ () => { } }
+                          >
                             <ListItem padding='4'>
                               <Image src={ lib } alt='library' width='1.2rem' display='inline' marginRight='1rem' />
                               My Library
                             </ListItem>
-                          </NavLink>
-                          <NavLink to='/profile' className={ styles.navLink } activeClassName={ styles.active }>
-                            <ListItem padding='4'>
-                              <Image src={ pro } alt='profile' width='1.2rem' display='inline' marginRight='1rem' />
-                              My Profile
-                            </ListItem>
-                          </NavLink>
+                          </Link>
                           <Link
                             as='button'
                             to=''
@@ -129,46 +129,7 @@ const Header = () => {
             <img src={ icon } alt='menu' />
           </div>
         </NavContainer>
-        {isMenuOpen && (
-        <span
-          className={ styles.menu_bg }
-          onClick={ toggleMenu }
-          onKeyDown={ toggleMenu }
-          role='button'
-        >
-          <span className={ styles.menu }>
-            <div className={ styles.menu_container }>
-              <div className={ styles.menu_body }>
-                <ul className={ styles.menu_list }>
-                  {navLinks.map(({ name, path }) => (
-                    <li key={ name } className={ styles.menu_item }>
-                      <NavLink
-                        to={ path }
-                        className={ styles.menu_link }
-                        activeClassName={ styles.active }
-                      >
-                        {name}
-                      </NavLink>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div
-                className={ styles.menu_footer }
-                onClick={ toggleMenu }
-                onKeyDown={ toggleMenu }
-                role='get_started_button'
-              >
-                <div className={ styles.navBtn }>
-                  <button className={ styles.navBtnLink }>
-                    <Link to='/signup'>Get Started</Link>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </span>
-        </span>
-        )}
+        {isMenuOpen && (<div />)}
       </header>
       <span
         className={ styles.menu_bg }
