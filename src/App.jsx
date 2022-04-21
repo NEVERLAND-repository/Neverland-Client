@@ -8,6 +8,7 @@ import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
 import Home from './pages/homePage/Home';
+import OverviewPage from './pages/bookOverview/OverviewPage';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
 
@@ -37,7 +38,7 @@ const App = () => {
             <Route path='home' element={ <Home /> }>
               <Route path=':category' element={ <Home /> } />
             </Route>
-            {/* <Route path='*' element={<PageNotFound />} /> */}
+            <Route path='bookOverview' element={ <OverviewPage /> } />
           </Route>
         </Routes>
       </Router>

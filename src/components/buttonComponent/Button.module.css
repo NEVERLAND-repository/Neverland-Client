@@ -25,7 +25,39 @@
 .buttonCTA:hover {
   background: var(--button-hover-color);
 }
-
+.readingButton{
+  width: fit-content;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  gap: rem;
+  background-color: var(--primary-color);
+  border-radius: 1.6rem;
+}
+.firstDiv,
+.secondDiv{
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 1.4rem 2.8rem;
+}
+.firstDiv{
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+}
+.secondDiv{
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  border-left: 2.8px solid #fff;
+}
+.libraryLink,
+.readingLink{
+  background-color: var(--primary-color);
+}
+.readingLink:hover,
+.libraryLink:hover{
+  background-color: var(--primary-color);
+}
 
 @media screen and (max-width: 540px) {
   .buttonCTA{
