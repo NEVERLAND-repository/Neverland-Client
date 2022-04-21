@@ -89,8 +89,8 @@ const Header = () => {
                     <PopoverContent fontSize='1.6rem' marginTop='2.8rem' border='none' outline='0'>
                       <PopoverArrow />
                       {/* <PopoverCloseButton /> */}
-                      <PopoverBody border='none'>
-                        <List gap='6' p='4'>
+                      <PopoverBody border='none' padding={ 10 }>
+                        <List gap='10' p='4'>
                           <Link
                             as='button'
                             to=''
@@ -98,7 +98,7 @@ const Header = () => {
                             activeClassName={ styles.active }
                             onClick={ () => { } }
                           >
-                            <ListItem padding='4'>
+                            <ListItem padding='4' marginTop='20px' _hover={ { cursor: 'pointer' } }>
                               <Image src={ lib } alt='library' width='1.2rem' display='inline' marginRight='1rem' />
                               My Library
                             </ListItem>
@@ -110,7 +110,7 @@ const Header = () => {
                             activeClassName={ styles.active }
                             onClick={ () => { } }
                           >
-                            <ListItem padding='4'>
+                            <ListItem padding='4' _hover={ { cursor: 'pointer', bg: 'white' } }>
                               <Image src={ logout } alt='logout' width='1.2rem' display='inline' marginRight='1rem' />
                               Logout
                             </ListItem>
