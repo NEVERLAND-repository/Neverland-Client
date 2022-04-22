@@ -49,6 +49,7 @@ footer a {
   width: 100%;
   background-color: #fff;
   order: 5;
+  opacity: 0.5;
 }
 
 .iconMobile {

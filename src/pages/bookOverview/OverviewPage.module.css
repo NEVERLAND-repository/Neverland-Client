@@ -52,6 +52,7 @@
 .bottomDiv{
   width: 100%;
   background-color: #fff;
+  padding: 5rem 7rem;
 }
 .bottomDiv h3{
   font-size: 2.4rem;
@@ -68,4 +69,15 @@
 }
 .bottomDiv p {
   font-size: 1.8rem;
+}
+.textArea{
+  height: fit-content;
+  line-height: 1.5;
+  text-align: justify;
+}
+.buttonDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7.2rem;
 }

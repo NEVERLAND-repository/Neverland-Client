@@ -1,6 +1,7 @@
 import React from 'react';
 import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
+import Footer from '../homePage/components/footerSection/Footer';
 import BookImage from '../../assets/images/bookImage.png';
 
 const OverviewPage = () => {
@@ -32,7 +33,7 @@ const OverviewPage = () => {
           <h3> Synopsis </h3>
           <div className={ styles.bottomLine } />
         </div>
-        <div>
+        <div className={ styles.textArea }>
           <p>
             Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -68,7 +69,15 @@ const OverviewPage = () => {
             Cras id dui. Aenean ut
           </p>
         </div>
+
+        <div className={ styles.buttonDiv }>
+          {' '}
+          <ReadingButton />
+          {' '}
+        </div>
       </section>
+
+      <Footer />
     </div>
   );
 }
