@@ -3,9 +3,10 @@ import logo from '../../assets/images/neverLandLogo-orange.png';
 import Hamburger from '../../assets/icons/burger.svg';
 import profilePatterns from '../../assets/dashboard/patterns.svg';
 import profileIcon from '../../assets/dashboard/profile-icon-dummy.svg';
-import styles from './dashboard.module.css';
 import PrimaryButton from '../../components/buttonComponent/PrimaryButton';
-import Footer from '../homePage/components/footerSection/Footer';
+// import Footer from '../homePage/components/footerSection/Footer';
+import { FormWrapper, DashboardForm } from './form.styles';
+import { ProfileContainer } from './profile.styles';
 
 const Profile = () => {
   const [person, setPerson] = useState({
@@ -30,74 +31,74 @@ const Profile = () => {
     }
   };
   return (
-    <div className={ styles.main__container }>
-      <header className={ styles.mobile__header }>
-        <div className={ styles.logo }>
-          <img src={ logo } alt={ logo } className={ styles.logo__img } />
+    <ProfileContainer>
+      <header className='mobile__header'>
+        <div className='logo'>
+          <img src={ logo } alt={ logo } className='logo__img' />
         </div>
-        <div className={ styles.hamburger }>
+        <div className='hamburger'>
           <img src={ Hamburger } alt={ Hamburger } />
         </div>
       </header>
-      <section className={ styles.profile__overview }>
-        <div className={ styles.profile__patterns }>
+      <section className='profile__overview'>
+        <div className='profile__patterns'>
           <img
             src={ profilePatterns }
             alt={ profilePatterns }
-            className={ styles.patterns }
+            className='patterns'
           />
         </div>
-        <div className={ styles.profile }>
-          <div className={ styles.profile__pic }>
+        <div className='profile '>
+          <div className='profile__pic'>
             <img
               src={ profileIcon }
               alt={ profileIcon }
-              className={ styles.profile__pic__icon }
+              className='profile__pic__icon '
             />
           </div>
         </div>
       </section>
-      <section className={ styles.form__section }>
-        <form className={ styles.form }>
-          <div className={ styles.form__group }>
-            <div className={ styles.form__group__content__side }>
-              <h1 className={ styles.title }>Full name</h1>
-              <p className={ styles.subtitle }>Customise your accounts</p>
+      <FormWrapper>
+        <DashboardForm>
+          <div className='form__group'>
+            <div className='form__group__content__side'>
+              <h1 className='title'>Full name</h1>
+              <p className='subtitle'>Customise your accounts</p>
             </div>
-            <div className={ styles.form_group_input__side }>
+            <div className='form_group_input__side'>
               <input
                 type='text'
                 name='FullName'
                 id='FullName'
                 value={ person.FullName }
-                className={ styles.form__group__input }
+                className='form__group__input'
                 onChange={ handleChange }
               />
             </div>
           </div>
-          <div className={ styles.form__group }>
-            <div className={ styles.form__group__content__side }>
-              <h1 className={ styles.title }>Username</h1>
-              <p className={ styles.subtitle }>Personalise your library</p>
+          <div className='form__group'>
+            <div className='form__group__content__side'>
+              <h1 className='title '>Username</h1>
+              <p className='subtitle'>Personalise your library</p>
             </div>
-            <div className={ styles.form_group_input__side }>
+            <div className='form_group_input__side'>
               <input
                 type='text'
                 name='username'
                 id='username'
                 value={ person.username }
-                className={ styles.form__group__input }
+                className='form__group__input '
                 onChange={ handleChange }
               />
             </div>
           </div>
-          <div className={ styles.form__group }>
-            <div className={ styles.form__group__content__side }>
-              <h1 className={ styles.title }>Gender</h1>
-              <p className={ styles.subtitle }>How you like to be identified</p>
+          <div className='form__group'>
+            <div className='form__group__content__side '>
+              <h1 className='title'>Gender</h1>
+              <p className='subtitle'>How you like to be identified</p>
             </div>
-            <div className={ `${ styles.form_group_input__side } ${ styles.radio }` }>
-              <div className={ styles.radio__control }>
+            <div className='form_group_input__side radio'>
+              <div className='radio__control'>
                 <input
                   id='male'
                   type='radio'
@@ -106,11 +107,9 @@ const Profile = () => {
                   checked={ person.gender === 'male' }
                   onChange={ handleChange }
                 />
-                <label htmlFor='male'>
-                  Male
-                </label>
+                <label htmlFor='male'>Male</label>
               </div>
-              <div className={ styles.radio__control }>
+              <div className='radio__control '>
                 <input
                   id='female'
                   type='radio'
@@ -119,11 +118,9 @@ const Profile = () => {
                   checked={ person.gender === 'female' }
                   onChange={ handleChange }
                 />
-                <label htmlFor='female'>
-                  Female
-                </label>
+                <label htmlFor='female'>Female</label>
               </div>
-              <div className={ styles.radio__control }>
+              <div className='radio__control'>
                 <input
                   id='other'
                   type='radio'
@@ -132,19 +129,17 @@ const Profile = () => {
                   checked={ person.gender === 'other' }
                   onChange={ handleChange }
                 />
-                <label htmlFor='other'>
-                  Other
-                </label>
+                <label htmlFor='other'>Other</label>
               </div>
             </div>
           </div>
-          <div className={ styles.save__changes__btn }>
+          <div className='save__changes__btn'>
             <PrimaryButton label='Save Changes' />
           </div>
-        </form>
-      </section>
+        </DashboardForm>
+      </FormWrapper>
       {/* <Footer /> */}
-    </div>
+    </ProfileContainer>
   );
 };
 
