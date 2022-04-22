@@ -31,6 +31,7 @@ const ReadingComponent = ({ scroll = false }) => {
         {pageNumber > 1 && <img onClick={ previousPage } className='nav-icon' src={ arrowLeft } alt='Next Page' />}
       </span>
       <div className={ styles.readingPage }>
+        <div className={ styles.bookTitle }>SCRUM</div>
         {scroll
           ? (
             <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
@@ -52,7 +53,6 @@ const ReadingComponent = ({ scroll = false }) => {
       <span className={ styles.navigation2 }>
         {pageNumber < numPage && <img onClick={ nextPage } src={ arrowRight } alt='Next Page' />}
       </span>
-
     </div>
   )
 }

@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     border: 2px solid red;
-    width: 1092px;
+    width: 1292px;
     height: 600px;
     margin: 2.4rem auto;
     background-color: var(--gray-background);
@@ -24,7 +24,6 @@
     flex: 1;
     align-items: center;
     border: 2px solid green;
-    /* padding-left: 20px; */
 }
 
 .navigation1 img,
@@ -35,45 +34,40 @@
 
 .readingPage {
     display: flex;
-    flex: 4;
-    float: right;
+    flex: 2.5;
+    gap: 5px;
     flex-direction: column;
     align-items: center;
-    width: 109.2rem;
-    overflow-y: scroll;
+    width: 129.2rem;
     border: 2px solid orange;
     height: 100%;
+    background-color: #fff;
 }
 
-/* .nav-icon {
-    width: 10px;
-} */
+.readingPage p {
+    color: #828282;
+}
+
+.bookTitle {
+    margin: 0 2px;
+    font-size: 16px;
+}
 
 .pdfDisplay {
     display: flex;
     align-items: center;
     flex-direction: column;
     width: fit-content;
-    height: 550px;
+    height: 570px;
     overflow-y: scroll;
     border: 2px solid purple;
 }
 
-/* .readingPage::-webkit-scrollbar-track
-{
-    box-shadow: inset 0 0 6px var(--secondary-color);
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
+.pdfDisplay::-webkit-scrollbar{
+	width: 3px;
 }
 
-.readingPage::-webkit-scrollbar
-{
-	width: 6px;
-	background-color: #F5F5F5;
-}
-
-.readingPage::-webkit-scrollbar-thumb
-{
+.pdfDisplay::-webkit-scrollbar-thumb {
     border-radius: 10px;
-	background-color: var(--secondary-color);
-} */
+	background-color: var(--gray-color);
+}
