@@ -3,27 +3,33 @@
   --title: 1.6rem;
   --subtitle-color: #828282;
 }
+.main__container {
+  width: 100%;
+  /* display: grid; */
+  /* margin: 0 auto; */
+  background: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  /* gap:4rem; */
+  /* min-height: 100vh; */
 
-.header {
+}
+.mobile__header {
   height: 2rem;
   padding: 2rem 2rem 7rem 2rem;
   display: flex;
   justify-content: space-between;
-}
-
-@media screen and (min-width:40rem) {
-.header{
-  display: none;
-
-}
-}
+};
 
 .profile__overview {
-  position: relative;
-  /* width: 100%; */
-
-  margin-bottom: 4rem;
-}
+  /* position: relative; */
+  /* width: 100% */
+  border:1px solid red;
+  width: 200px;
+  height: 200px;
+  background-color: aquamarine
+  
+};
 
 .profile__patterns {
   width: 100%;
@@ -39,11 +45,13 @@
 .profile {
   position: absolute;
   /* background: #000; */
-  width: 100%;
+  /* width: ; */
   display: flex;
   justify-content: center;
   top: 65%;
-  /* transform: translateX(-20%); */
+  /* right: 40%; */
+  /* transform: translateX(700%); */
+  /* transform: translateY(-55%); */
 }
 .profile__pic {
   width: 100px;
@@ -71,6 +79,7 @@
   padding: 2rem;
   width: 90%;
   margin: 0 auto;
+  margin-top: 4rem;
 }
 
 .form__section .form {
@@ -115,18 +124,18 @@
   color: var(--subtitle-color);
   border: 1px solid var(--primary-color);
 }
-.radio{
+.radio {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
-.radio__control{
+.radio__control {
   display: flex;
   gap: 2rem;
 }
 
 input[type="radio"] {
-  padding:2rem;
+  padding: 2rem;
   cursor: pointer;
   /* display: block; */
   width: 25px;
@@ -135,21 +144,24 @@ input[type="radio"] {
   outline: none;
   /* left: 0; */
   z-index: 7;
-  }
+}
 
-  /* input[type="radio"]:checked {
+/* input[type="radio"]:checked {
     border-color: #f49f0a;
     color: var(--primary-color) ;
   } */
 
-  .form_group_input__side label{
-    font-size: 2rem;
-  }
+.form_group_input__side label {
+  font-size: 2rem;
+}
 
 .save__changes__btn {
   margin: 0 auto;
 }
 
-
+@media screen and (min-width: 48rem) {
+  .mobile__header {
+    display: none;
+  };
+};
 /* Sidebar */
-

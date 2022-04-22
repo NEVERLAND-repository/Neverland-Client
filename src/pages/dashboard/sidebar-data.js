@@ -6,16 +6,16 @@ import profileImg from '../../assets/icons/book.svg';
 
 const sidebar = [
   {
-    category: ' Dashboard',
-    sideclass: 'dashboard',
+    category: ' Library',
+    sideclass: 'library',
     img: libraryImg,
     imgclass: 'img-dash',
     subsideclass: 'each-us',
     component: <Library />,
   },
   {
-    category: ' Billing',
-    sideclass: 'billing',
+    category: ' Profile',
+    sideclass: 'profile',
     img: profileImg,
     imgclass: 'img-billing',
     subsideclass: 'each-us',
@@ -23,4 +23,4 @@ const sidebar = [
   },
 ];
 
-export default nav;
+export default sidebar;

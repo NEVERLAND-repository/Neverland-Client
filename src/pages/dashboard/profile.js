@@ -30,8 +30,8 @@ const Profile = () => {
     }
   };
   return (
-    <>
-      <header className={ `${ styles.profile__Nav } ${ styles.header }` }>
+    <div className={ styles.main__container }>
+      <header className={ styles.mobile__header }>
         <div className={ styles.logo }>
           <img src={ logo } alt={ logo } className={ styles.logo__img } />
         </div>
@@ -143,8 +143,8 @@ const Profile = () => {
           </div>
         </form>
       </section>
-      <Footer />
-    </>
+      {/* <Footer /> */}
+    </div>
   );
 };
 
