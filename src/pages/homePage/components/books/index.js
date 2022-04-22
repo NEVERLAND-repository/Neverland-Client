@@ -1,18 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Stack, Flex, Heading,
 } from '@chakra-ui/react';
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from '@chakra-ui/react';
-import fly from '../../../../assets/images/fly.png';
-import captain from '../../../../assets/images/iron-man.png';
-import spiderman from '../../../../assets/images/spider-man.png';
-import batman from '../../../../assets/images/batman.png';
-import xmen from '../../../../assets/images/new-x-men.png';
-import spider from '../../../../assets/images/spiderman-2.png';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
 import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
-import styles from './books.module.css';
 
 export const Books = ({ category = 'comics' }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
@@ -56,7 +49,7 @@ export const Books = ({ category = 'comics' }) => {
       spacing={ 16 }
       width='100%'
       marginBottom={ 4 }
-      alignItems={ { base: 'center', md: 'center' } }
+      alignItems={ isLesserThan740 ? 'center' : 'start' }
     >
       <Heading
         as='h2'
@@ -104,59 +97,59 @@ export const Books = ({ category = 'comics' }) => {
   return renderBooks();
 }
 
-const books = [
-  {
-    id: 1,
-    title: 'Adventures of Fly',
-    author: 'Joe Simon',
-    type: 'Comic',
-    genre: 'Action',
-    rated: 'PG-13',
-    imageUrl: fly,
-  },
-  {
-    id: 2,
-    title: 'Captain America',
-    author: 'Derek Landy',
-    type: 'Comic',
-    genre: 'Action',
-    rated: 'PG-13',
-    imageUrl: captain,
-  },
-  {
-    id: 3,
-    title: 'Amazing Spiderman',
-    author: 'Stan Lee, Steve Ditko',
-    type: 'Comic',
-    genre: 'Action',
-    rated: 'PG-13',
-    imageUrl: spiderman,
-  },
-  {
-    id: 4,
-    title: 'Batman and Spiderman',
-    author: 'J.M Dematteis',
-    type: 'Comic',
-    genre: 'Action',
-    rated: 'PG-13',
-    imageUrl: batman,
-  },
-  {
-    id: 5,
-    title: 'New X-Men',
-    author: 'Grant Morrison',
-    type: 'Comic',
-    genre: 'Action',
-    rated: 'PG-13',
-    imageUrl: xmen,
-  },
-  {
-    id: 6,
-    title: 'Spiderman 2',
-    author: 'Stan Lee, Steve Ditko',
-    type: 'Comic',
-    genre: 'Action',
-    rated: 'PG-13',
-    imageUrl: spider,
-  },
-];
+// const books = [
+//   {
+//     id: 1,
+//     title: 'Adventures of Fly',
+//     author: 'Joe Simon',
+//     type: 'Comic',
+//     genre: 'Action',
+//     rated: 'PG-13',
+//     imageUrl: fly,
+//   },
+//   {
+//     id: 2,
+//     title: 'Captain America',
+//     author: 'Derek Landy',
+//     type: 'Comic',
+//     genre: 'Action',
+//     rated: 'PG-13',
+//     imageUrl: captain,
+//   },
+//   {
+//     id: 3,
+//     title: 'Amazing Spiderman',
+//     author: 'Stan Lee, Steve Ditko',
+//     type: 'Comic',
+//     genre: 'Action',
+//     rated: 'PG-13',
+//     imageUrl: spiderman,
+//   },
+//   {
+//     id: 4,
+//     title: 'Batman and Spiderman',
+//     author: 'J.M Dematteis',
+//     type: 'Comic',
+//     genre: 'Action',
+//     rated: 'PG-13',
+//     imageUrl: batman,
+//   },
+//   {
+//     id: 5,
+//     title: 'New X-Men',
+//     author: 'Grant Morrison',
+//     type: 'Comic',
+//     genre: 'Action',
+//     rated: 'PG-13',
+//     imageUrl: xmen,
+//   },
+//   {
+//     id: 6,
+//     title: 'Spiderman 2',
+//     author: 'Stan Lee, Steve Ditko',
+//     type: 'Comic',
+//     genre: 'Action',
+//     rated: 'PG-13',
+//     imageUrl: spider,
+//   },
+// ];
