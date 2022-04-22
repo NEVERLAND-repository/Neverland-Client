@@ -11,6 +11,7 @@ import Dashboard from './pages/dashboard'
 import Home from './pages/homePage/Home';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
+import BookReading from './pages/bookReadingPage/BookReading';
 
 const App = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const App = () => {
             <Route path='home' element={ <Home /> }>
               <Route path=':category' element={ <Home /> } />
             </Route>
+            <Route path='book/:bookId' element={ <BookReading /> } />
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>
           <Route path='dashboard' element={ <Dashboard /> } />
