@@ -49,3 +49,23 @@
   line-height: 1.5;
   color: #828282;
 }
+.bottomDiv{
+  width: 100%;
+  background-color: #fff;
+}
+.bottomDiv h3{
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.bottomLine{
+  height: .7rem;
+  width: 10rem;
+  border-radius: 1.6rem;
+  background-color: var(--secondary-color);
+  margin-top: .4rem;
+  margin-bottom: 4.8rem;
+}
+.bottomDiv p {
+  font-size: 1.8rem;
+}
