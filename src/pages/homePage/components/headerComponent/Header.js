@@ -30,7 +30,7 @@ import styles from './Header.module.css';
 import PrimaryButton from '../../../../components/buttonComponent/PrimaryButton';
 import { getUserData } from '../../../../store/slice/neverlandUserSlice';
 
-const Header = () => {
+const Header = ({ label }) => {
   const navLinks = [
     { name: 'Comics', path: 'comics' },
     { name: 'Manga', path: 'mangas' },
@@ -62,7 +62,7 @@ const Header = () => {
               <img src={ navLogo } alt='NeverLand-orange-color-logo' />
             </Link>
             <ul className={ styles.navbarList }>
-              {navLinks.map(({ name, path }) => (
+              {label && navLinks.map(({ name, path }) => (
                 <li key={ name } className={ styles.navbarItem }>
                   <NavLink
                     to={ path }
@@ -88,7 +88,7 @@ const Header = () => {
                   <Portal zIndex='10000'>
                     <PopoverContent fontSize='1.6rem' marginTop='2.8rem' border='none' outline='0'>
                       <PopoverArrow />
-                      {/* <PopoverCloseButton /> */}
+                      <PopoverCloseButton p={ 10 } />
                       <PopoverBody border='none' padding={ 10 }>
                         <List gap='10' p='4'>
                           <Link
@@ -98,7 +98,7 @@ const Header = () => {
                             activeClassName={ styles.active }
                             onClick={ () => { } }
                           >
-                            <ListItem padding='4' marginTop='20px' _hover={ { cursor: 'pointer' } }>
+                            <ListItem padding='2' fontSize='20px' marginTop='20px' _hover={ { cursor: 'pointer' } }>
                               <Image src={ lib } alt='library' width='1.2rem' display='inline' marginRight='1rem' />
                               My Library
                             </ListItem>
@@ -110,7 +110,7 @@ const Header = () => {
                             activeClassName={ styles.active }
                             onClick={ () => { } }
                           >
-                            <ListItem padding='4' _hover={ { cursor: 'pointer', bg: 'white' } }>
+                            <ListItem padding='2' fontSize='20px' _hover={ { cursor: 'pointer', bg: 'white' } }>
                               <Image src={ logout } alt='logout' width='1.2rem' display='inline' marginRight='1rem' />
                               Logout
                             </ListItem>
