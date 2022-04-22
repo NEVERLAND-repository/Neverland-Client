@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <div className={ styles.home }>
-      <Header />
+      <Header label='home' />
       <Hero />
       {loaded && <BooksLayout category={ categories } />}
       <Footer />

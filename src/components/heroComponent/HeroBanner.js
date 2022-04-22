@@ -11,7 +11,7 @@ const HeroBanner = () => {
         <nav>
           <div className={ styles.navLogo }>
             <Link to='/home'>
-              <img src={ navLogo } alt='NeverLand-orange-color-logo' />
+              <img src={ navLogo } alt='NeverLand-white-color-logo' />
             </Link>
           </div>
         </nav>
