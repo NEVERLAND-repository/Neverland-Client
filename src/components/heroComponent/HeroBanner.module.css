@@ -6,18 +6,18 @@
   position: relative;
   padding-top: 1rem;
 }
-
 .navLogo{
-  width: 12rem;
-  height: 12rem;
+  width: 8rem;
+  height: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 7rem;
-  z-index: 2;
+  margin: 2rem 7rem;
+  z-index: 100;
+  background: var(--primary-color);
+  border-radius: 50%;
 }
 .navLogo img{
-  margin-top: 10px;
   width: 100%;
   text-align: center;
 }
@@ -61,7 +61,7 @@
   .navLogo{
     width: 6rem;
     height: 6rem;
-    margin: 0 1.5rem;
+    margin: 1.5rem;
   }
   .textContainer{
     width: 75%;
