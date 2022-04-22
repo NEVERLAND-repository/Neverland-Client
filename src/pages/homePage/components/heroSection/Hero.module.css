@@ -1,6 +1,6 @@
 .carouselItem {
     width: 100%;
-    height: calc(100vh - 10vh);
+    height: calc(100vh - 9.5rem);
     background-position: right;
     background-repeat: no-repeat;
     transition: all 0.3s ease-in-out;

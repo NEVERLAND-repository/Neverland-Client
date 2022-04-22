@@ -1,0 +1,79 @@
+.wrapper {
+    display: flex;
+    border: 2px solid red;
+    width: 1092px;
+    height: 600px;
+    margin: 2.4rem auto;
+    background-color: var(--gray-background);
+}
+
+.navigation1 {
+    display: flex;
+    width: 40px;
+    height: 100%;
+    flex: 1;
+    justify-content: end;
+    align-items: center;
+    border: 2px solid green;
+}
+
+.navigation2 {
+    display: flex;
+    width: 40px;
+    height: 100%;
+    flex: 1;
+    align-items: center;
+    border: 2px solid green;
+    /* padding-left: 20px; */
+}
+
+.navigation1 img,
+.navigation2 img {
+    width: 30px;
+    height: 30px;
+}
+
+.readingPage {
+    display: flex;
+    flex: 4;
+    float: right;
+    flex-direction: column;
+    align-items: center;
+    width: 109.2rem;
+    overflow-y: scroll;
+    border: 2px solid orange;
+    height: 100%;
+}
+
+/* .nav-icon {
+    width: 10px;
+} */
+
+.pdfDisplay {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    height: 550px;
+    overflow-y: scroll;
+    border: 2px solid purple;
+}
+
+/* .readingPage::-webkit-scrollbar-track
+{
+    box-shadow: inset 0 0 6px var(--secondary-color);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.readingPage::-webkit-scrollbar
+{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+.readingPage::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+	background-color: var(--secondary-color);
+} */
