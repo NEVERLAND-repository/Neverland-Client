@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
+import Dashboard from './pages/dashboard'
 import Home from './pages/homePage/Home';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
@@ -41,6 +42,7 @@ const App = () => {
             <Route path='book/:bookId' element={ <BookReading /> } />
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>
+          <Route path='dashboard' element={ <Dashboard /> } />
         </Routes>
       </Router>
     </div>

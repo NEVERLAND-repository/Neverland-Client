@@ -20,6 +20,11 @@ html{
   font-size: 62.50%;
   line-height: 1.2;
   font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+}
+
+body{
+  min-height: 100vh;
 }
 
 ul{
