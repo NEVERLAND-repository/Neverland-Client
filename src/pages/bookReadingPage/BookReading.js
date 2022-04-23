@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import React from 'react';
+import MusicControl from '../../components/musicComponent/MusicControl';
 import ReadingComponent from '../../components/readingComponent/ReadingComponent';
+import Footer from '../homePage/components/footerSection/Footer';
 import Header from '../homePage/components/headerComponent/Header';
 import styles from './BookReading.module.css'
 
@@ -9,6 +10,8 @@ const BookReading = () => {
     <div className={ styles.wrapper }>
       <Header />
       <ReadingComponent />
+      <MusicControl />
+      <Footer />
     </div>
   )
 }
