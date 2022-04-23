@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import logo from '../../assets/images/neverLandLogo-orange.png';
-import Hamburger from '../../assets/icons/burger.svg';
 import profilePatterns from '../../assets/dashboard/patterns.svg';
 import profileIcon from '../../assets/dashboard/profile-icon-dummy.svg';
 import PrimaryButton from '../../components/buttonComponent/PrimaryButton';
-// import Footer from '../homePage/components/footerSection/Footer';
+import Footer from '../homePage/components/footerSection/Footer';
 import { FormWrapper, DashboardForm } from './form.styles';
 import { ProfileContainer } from './profile.styles';
 
@@ -32,15 +30,8 @@ const Profile = () => {
   };
   return (
     <ProfileContainer>
-      <header className='mobile__header'>
-        <div className='logo'>
-          <img src={ logo } alt={ logo } className='logo__img' />
-        </div>
-        <div className='hamburger'>
-          <img src={ Hamburger } alt={ Hamburger } />
-        </div>
-      </header>
       <section className='profile__overview'>
+        <h1 className='title profile-title'>Profile</h1>
         <div className='profile__patterns'>
           <img
             src={ profilePatterns }
@@ -60,7 +51,7 @@ const Profile = () => {
       </section>
       <FormWrapper>
         <DashboardForm>
-          <div className='form__group'>
+          <div className='form__group margin-b'>
             <div className='form__group__content__side'>
               <h1 className='title'>Full name</h1>
               <p className='subtitle'>Customise your accounts</p>
@@ -76,7 +67,7 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className='form__group'>
+          <div className='form__group margin-b'>
             <div className='form__group__content__side'>
               <h1 className='title '>Username</h1>
               <p className='subtitle'>Personalise your library</p>
@@ -138,7 +129,7 @@ const Profile = () => {
           </div>
         </DashboardForm>
       </FormWrapper>
-      {/* <Footer /> */}
+      <Footer />
     </ProfileContainer>
   );
 };

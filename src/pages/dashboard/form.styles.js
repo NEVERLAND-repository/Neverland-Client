@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.section`
- padding: 2rem;
-  width: 90%;
-  margin: 0 auto;
-  margin-top: 4rem;
-`
+  padding: 2rem;
+  background: #f5f7fa;
+  padding-top: 6rem;
+
+`;
 
 export const DashboardForm = styled.form`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 2.2rem;
-  /* align-items: center; */
-  /* flex-direction: column; */
+  width: 90%;
+  margin: 0 auto;
   .title {
     font-size: 2.3rem;
     font-weight: 600;
@@ -21,13 +20,19 @@ export const DashboardForm = styled.form`
 
   .subtitle {
     font-size: 1.5rem;
-    color: ${ ({theme}) => theme.color.secondaryColor };
+    color: ${({ theme }) => theme.color.secondaryColor};
   }
 
   .form__group {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    @media screen and (min-width: 48rem) {
+      display: grid;
+      grid-template-columns: 30% 70%;
+      gap: 3rem;
+    }
   }
 
   .form_group_input__side {
@@ -42,6 +47,10 @@ export const DashboardForm = styled.form`
     border-radius: 0.8rem;
     padding: 2rem;
     font-size: 2rem;
+
+    @media screen and (min-width:48rem) {
+      width: 60%;
+    }
   }
 
   .form__group__input:focus {
@@ -52,6 +61,11 @@ export const DashboardForm = styled.form`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+
+    @media screen and (min-width:48rem){
+      flex-direction: row;
+      gap: 3rem;
+    }
   }
   .radio__control {
     display: flex;
@@ -72,7 +86,7 @@ export const DashboardForm = styled.form`
 
   /* input[type='radio']:checked {
     border-color: #f49f0a;
-    color: ${ ({theme}) => theme.color.primaryColor } ;
+    color: ${({ theme }) => theme.color.primaryColor} ;
   } */
 
   .form_group_input__side label {
@@ -80,6 +94,6 @@ export const DashboardForm = styled.form`
   }
 
   .save__changes__btn {
-  margin: 0 auto;
-}
+    margin: 0 auto;
+  }
 `;

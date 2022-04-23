@@ -1,31 +1,44 @@
 import styled, {css} from 'styled-components';
 
-export const ProfileContainer = styled.div`
- width: 100%;
-  /* display: grid; */
-  /* margin: 0 auto; */
-  background: #f5f7fa;
-  display: flex;
-  flex-direction: column;
-  /* gap:4rem; */
-  /* min-height: 100vh; */
-
-  .mobile__header {
-  height: 2rem;
-  padding: 2rem 2rem 7rem 2rem;
+export const MobileNavigation = styled.header`
+  /* height: 2rem; */
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+
+  .hamburger:hover{
+    transform: rotate(90deg);
+    filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
+        brightness(105%) contrast(92%);
+    transition: all 0.50s;
+  };
 
   @media screen and (min-width: 48rem) {
     display: none;
 };
-};
+`
+
+export const ProfileContainer = styled.div`
+ width: 100%;
+  display: flex;
+  flex-direction: column;
+
 
 .profile__overview {
   position: relative;
   /* width: 100% */
 };
 
+.profile-title{
+  width: 90%;
+  margin: 1rem auto 3rem auto;
+  background-color: #fff;
+
+  @media screen and (min-width: 48rem){
+    display: none;
+  }
+}
 .profile__patterns {
   width: 100%;
   height: 200.4px;
