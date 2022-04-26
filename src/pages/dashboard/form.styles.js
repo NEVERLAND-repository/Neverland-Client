@@ -53,7 +53,7 @@ export const DashboardForm = styled.form`
 
   .form__group__input:focus {
     color: var(--subtitle-color);
-    border: 1px solid var(--primary-color);
+    border: 1px solid color ${ ({ theme }) => theme.color.primaryColor };
   }
   .radio {
     display: flex;
@@ -82,10 +82,10 @@ export const DashboardForm = styled.form`
     z-index: 7;
   }
 
-  /* input[type='radio']:checked {
+  input[type='radio']:checked {
     border-color: #f49f0a;
     color: ${ ({ theme }) => theme.color.primaryColor } ;
-  } */
+  }
 
   .form_group_input__side label {
     font-size: 2rem;
