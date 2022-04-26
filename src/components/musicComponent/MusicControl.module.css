@@ -11,7 +11,7 @@
 }
 
 .musicControl {
-    display: none;
+    display: block;
     height: 2.6rem;
     width: 30.5rem;
     justify-content: space-around;

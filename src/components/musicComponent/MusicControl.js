@@ -9,10 +9,9 @@ import 'react-h5-audio-player/lib/styles.css';
 import styles from './MusicControl.module.css';
 
 const MusicControl = () => {
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
-  const [isPlaying, setIsPlaying] = useState(false)
-
+  // const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  // const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
+  // const [isPlaying, setIsPlaying] = useState(false)
   const [trackIndex, setTrackIndex] = useState(0);
 
   const handleClickPrevious = () => {
@@ -44,7 +43,7 @@ const MusicControl = () => {
         onClickNext={ handleClickNext }
         onEnded={ handleClickNext }
       />
-      <div className={ styles.musicControl }>
+      {/* <div className={ styles.musicControl }>
         <div className={ styles.control } onClick={ handleClickPrevious }>
           <img src={ previous } alt='previous' />
         </div>
@@ -54,7 +53,7 @@ const MusicControl = () => {
         <div className={ styles.control } onClick={ handleClickNext }>
           <img src={ next } alt='next' />
         </div>
-      </div>
+      </div> */}
       {/* <div>Progress bar</div> */}
     </div>
   )

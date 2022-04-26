@@ -71,3 +71,10 @@
     border-radius: 10px;
 	background-color: var(--primary-color);
 }
+
+@media screen and (max-width: 540px) {
+    .readingPage {
+        width: 100vh;
+        overflow-x: scroll;
+    }
+}
