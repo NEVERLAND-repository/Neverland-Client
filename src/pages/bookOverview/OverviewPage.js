@@ -3,10 +3,12 @@ import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
 import Footer from '../homePage/components/footerSection/Footer';
 import BookImage from '../../assets/images/bookImage.png';
+import Header from '../homePage/components/headerComponent/Header';
 
 const OverviewPage = () => {
   return (
     <div>
+      <Header />
       <section className={ styles.upperDiv }>
         <div className={ styles.containerDiv }>
           <div className={ styles.imageDiv }>
