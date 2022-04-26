@@ -1,4 +1,5 @@
-.primary__button{
+.primary__button,
+.buttonCTA{
   font-size: 1.6rem;
   font-weight: 700;
   text-align: center;
@@ -6,26 +7,48 @@
   color: #fff;
   background: var(--primary-color);
   border: none;
-  height: 4.585rem;
-  width: 26.73rem;
+  padding: 1.5rem 3rem;
   border-radius: 1.6rem;
 }
 .buttonCTA {
   display: inline-block;
-  padding: 2rem;
-  text-align: center;
-  border-radius: 1.6rem;
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  background: var(--primary-color);
-  border: 0;
 }
 .primary__button:hover,
 .buttonCTA:hover {
   background: var(--button-hover-color);
 }
-
+.readingButton{
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  gap: rem;
+  background-color: var(--primary-color);
+  border-radius: 1.6rem;
+}
+.firstDiv,
+.secondDiv{
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 1.4rem 2.8rem;
+}
+.firstDiv{
+  border-top-left-radius: 1.2rem;
+  border-bottom-left-radius: 1.2rem;
+}
+.secondDiv{
+  border-top-right-radius: 1.2rem;
+  border-bottom-right-radius: 1.2rem;
+  border-left: 2.8px solid #fff;
+}
+.libraryLink,
+.readingLink{
+  background-color: var(--primary-color);
+}
+.readingLink:hover,
+.libraryLink:hover{
+  background-color: var(--primary-color);
+}
 
 @media screen and (max-width: 540px) {
   .buttonCTA{
