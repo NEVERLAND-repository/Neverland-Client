@@ -8,6 +8,7 @@ export const LibraryWapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  margin-bottom: 4rem;
 
   .library-search {
     /* border: 1px solid green; */
