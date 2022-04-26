@@ -82,6 +82,8 @@
   margin-top: 7.2rem;
 }
 
-@media screen {
-  
+@media only screen and (max-width: 540px) {
+  .upperDiv{
+    border: 2px solid red;
+  }
 }
