@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    height: 9.5rem;
+    height: 8rem;
     display: flex;
     position: sticky;
     background-color: #fff;
@@ -8,16 +8,10 @@
     z-index: 1000;
 }
 
-.header a {
-    color: #000;
-    text-decoration: none;
-}
-
 .header a:hover,
 .header a:active,
 .header a.active {
     color: var(--primary-color);
-
 }
 
 .logo .mobile {
@@ -54,7 +48,7 @@
 }
 .navLink{
     color: #000;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 500;
 }
 .navLink:hover{
