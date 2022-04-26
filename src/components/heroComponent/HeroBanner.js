@@ -32,7 +32,7 @@ const HeroBanner = () => {
           </h1>
           <h4 className={ styles.bottomText }> Read over 100 books of various types and genres </h4>
 
-          <SecondaryButton label='Get Started' />
+          <SecondaryButton label='Get Started' navigation='/home' />
         </div>
       </div>
     </section>
