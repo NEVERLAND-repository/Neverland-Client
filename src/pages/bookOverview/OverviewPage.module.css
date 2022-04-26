@@ -1,0 +1,128 @@
+.upperDiv{
+  background-color: #e5e5e5;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  padding: 5.8rem 0;
+}
+.containerDiv{
+  display: flex;
+  gap: 8rem;
+}
+.imageDiv{
+  width: 32.6rem;
+  height: 42.61rem;
+  border: 1.6rem;
+}
+.imageDiv img{
+  width: 100%;
+  height: 100%;
+  border-radius: 1.6rem;
+}
+.textDiv{
+  height: fit-content;
+  align-self: center;
+  justify-content: flex-start;
+}
+.textDiv h3{
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.3;
+}
+.textDiv p{
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.4;
+}
+.spanTags{
+  display: flex;
+  gap: 3.2rem;
+  margin-bottom: 4.8rem;
+  margin-top: 2.4rem;
+
+}
+.spanTags p{
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #828282;
+}
+.bottomDiv{
+  width: 100%;
+  background-color: #fff;
+  padding: 5rem 7rem;
+}
+.bottomDiv h3{
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.bottomLine{
+  height: .7rem;
+  width: 10rem;
+  border-radius: 1.6rem;
+  background-color: var(--secondary-color);
+  margin-top: .4rem;
+  margin-bottom: 4.8rem;
+}
+.bottomDiv p {
+  font-size: 1.8rem;
+}
+.textArea{
+  height: fit-content;
+  line-height: 1.5;
+  text-align: justify;
+}
+.buttonDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7.2rem;
+}
+
+@media only screen and (max-width: 540px) {
+  .upperDiv{
+    width: 100%;
+    flex-direction: column;
+    padding: 3rem;
+  }
+  .containerDiv{
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .imageDiv{
+    width: 20rem;
+    height: 30rem;
+  }
+  .textDiv{
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+  .textDiv h3{
+    font-size: 2.4rem;
+    line-height: 1.3;
+  }
+  .textDiv p{
+    font-size: 1.6rem;
+    line-height: 0.6;
+  }
+  .bottomDiv{
+    padding: 3rem;
+  }
+  .bottomLine {
+    height: .55rem;
+    margin-bottom: 3rem;
+  }
+  .bottomDiv p{
+    font-size: 1.6rem;
+  }
+  .textArea{
+    line-height: 1.4;
+    text-align: left;
+  }
+  .buttonDiv {
+    margin-top: 5rem;
+  }
+}

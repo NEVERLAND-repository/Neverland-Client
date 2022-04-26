@@ -20,7 +20,7 @@ export const DashboardForm = styled.form`
 
   .subtitle {
     font-size: 1.5rem;
-    color: ${({ theme }) => theme.color.secondaryColor};
+    color: ${ ({ theme }) => theme.color.secondaryColor };
   }
 
   .form__group {
@@ -86,7 +86,7 @@ export const DashboardForm = styled.form`
 
   /* input[type='radio']:checked {
     border-color: #f49f0a;
-    color: ${({ theme }) => theme.color.primaryColor} ;
+    color: ${ ({ theme }) => theme.color.primaryColor } ;
   } */
 
   .form_group_input__side label {
