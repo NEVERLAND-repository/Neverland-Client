@@ -6,22 +6,7 @@
   position: relative;
   object-fit: contain;
 }
-<<<<<<< HEAD
-.navLogo{
-  width: 8rem;
-  height: 8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 2rem 7rem;
-  z-index: 100;
-  background: var(--primary-color);
-  border-radius: 50%;
-}
-.navLogo img{
-=======
 .video {
->>>>>>> 01c1703c589f12e5c30aabf1a41db80d4315f512
   width: 100%;
   height: 100%;
   object-fit: fill;

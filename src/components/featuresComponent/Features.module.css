@@ -21,15 +21,14 @@
 }
 .textContainer{
   flex-direction: column;
-  padding: 1rem 0;
+  padding: 2.5rem 0;
 }
 .textContainer h3{
+  color: #828282;
   font-size: 4rem;
   font-weight: 500;
   line-height: 1.2;
 }
-
-
 .baloonSection{
   width: 100%;
   height: 83.522rem;

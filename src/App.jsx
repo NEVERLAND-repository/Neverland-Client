@@ -40,12 +40,9 @@ const App = () => {
             <Route path='home' element={ <Home /> }>
               <Route path=':category' element={ <Home /> } />
             </Route>
-<<<<<<< HEAD
-            <Route path='bookOverview' element={ <OverviewPage /> } />
-=======
+            <Route path='bookOverview/:bookId' element={ <OverviewPage /> } />
             <Route path='book/:bookId' element={ <BookReading /> } />
             {/* <Route path='*' element={<PageNotFound />} /> */}
->>>>>>> 01c1703c589f12e5c30aabf1a41db80d4315f512
           </Route>
           <Route path='dashboard' element={ <Dashboard /> } />
         </Routes>
