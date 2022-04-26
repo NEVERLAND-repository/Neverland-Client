@@ -13,6 +13,9 @@ const GlobalStyle = createGlobalStyle`
 .padding-l{
     padding-left: 2.5rem;
 }
+.padding-r{
+    padding-right: 2.5rem;
+}
 `;
 
 export default GlobalStyle;
