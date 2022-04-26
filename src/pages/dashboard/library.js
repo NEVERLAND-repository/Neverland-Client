@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Library = () => {
+const Library = (prop) => {
   return (
     <div>Library</div>
   )

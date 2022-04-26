@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { Transition } from '@headlessui/react';
 import dashLogo from '../../assets/dashboard/mobile-logo.svg';
 import sidebarData from './sidebar-data';
 import logoutIcon from '../../assets/icons/log-out.svg';
+
 import {
   SidebarWrapper,
   SidebarNavigationButtons,
   NavLinkLogo,
   Main,
 } from './sidebar-styles';
+import Navigation from './mobile/navigation';
 
 const allCategories = [...new Set(sidebarData.map((item) => item))];
 
@@ -16,13 +19,19 @@ const Sidebar = () => {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState(allCategories);
   const { component } = categories[value];
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar)
+  // const [sidebar, setSidebar] = useState(false);
+  const [isShowing, setIsShowing] = useState(false)
 
+  const showSidebar = () => setIsShowing(!isShowing);
+  const handleResize = () => window.innerWidth > 768 && isShowing && setIsShowing(false);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+  })
   return (
     <SidebarWrapper>
-      <SidebarNavigationButtons>
-        <header className='header'>
+      <SidebarNavigationButtons isShowing={ isShowing }>
+        <header className='header margin-b'>
           <nav className='sidebar__navbar'>
             <NavLinkLogo to='/home'>
               <img src={ dashLogo } alt={ dashLogo } />
@@ -30,7 +39,7 @@ const Sidebar = () => {
           </nav>
         </header>
         <Main>
-          <h1 className='title'>Hi, Jess</h1>
+          <h1 className='title margin-b'>Hi, Jess</h1>
           <section className='sidebar__navlinks__container'>
             <div className='sidebar__navlinks'>
               {categories.map((category, index) => {
@@ -38,7 +47,7 @@ const Sidebar = () => {
                   <div
                     className={ ` links  ${ index === value && 'active' }` }
                     key={ index }
-                    onClick={ () => setValue(index) }
+                    onClick={ () => { setValue(index); setIsShowing(false) } }
                   >
                     <img
                       src={ category.img }
@@ -57,6 +66,7 @@ const Sidebar = () => {
           </section>
         </Main>
       </SidebarNavigationButtons>
+      <Navigation showSidebar={ showSidebar } />
       {component}
     </SidebarWrapper>
   );

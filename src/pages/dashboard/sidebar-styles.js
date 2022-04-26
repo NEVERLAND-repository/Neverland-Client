@@ -1,15 +1,32 @@
 import { Link, NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const SidebarWrapper = styled.div`
+
   @media screen and (min-width: 48rem) {
     display: grid;
-    grid-template-columns: 15% 85%;
+    grid-template-columns: 20% 80%;
   }
 `;
 
 export const SidebarNavigationButtons = styled.section`
-display: none;
+  display: none;
+  ${ ({ isShowing }) => isShowing
+    && css`
+      background: #fff;
+      width: 250px;
+      height: 100vh;
+      padding-left: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      z-index: 200;
+    ` };
+  left: ${ ({ isShowing }) => (isShowing ? '0' : '-100%') };
+  transition: ease-in 0.35s;
+  -webkit-transition: ease-in 0.35s;
 
   .sidebar__navbar {
     height: 7rem;
