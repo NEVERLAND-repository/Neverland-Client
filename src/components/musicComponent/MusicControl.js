@@ -55,7 +55,7 @@ const MusicControl = () => {
           <img src={ next } alt='next' />
         </div>
       </div>
-      <div>Progress bar</div>
+      {/* <div>Progress bar</div> */}
     </div>
   )
 }

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import pdfjsLib from 'pdfjs-dist';
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
 import styles from './ReadingComponent.module.css'
@@ -24,6 +25,15 @@ const ReadingComponent = ({ scroll = false }) => {
   function nextPage() {
     changePage(1);
   }
+
+  useEffect(() => {
+    const fetchDoc = async () => {
+      const doc = await pdfjsLib.getDocument('/sample.pdf');
+      const {numPages} = doc;
+      console.log(numPages)
+    }
+    fetchDoc()
+  }, [])
 
   return (
     <div className={ styles.wrapper }>
