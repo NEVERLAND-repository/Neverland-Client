@@ -66,8 +66,10 @@ const Sidebar = () => {
           </section>
         </Main>
       </SidebarNavigationButtons>
-      <Navigation showSidebar={ showSidebar } />
-      {component}
+      <div className='side-component-wrapper'>
+        <Navigation showSidebar={ showSidebar } />
+        {component}
+      </div>
     </SidebarWrapper>
   );
 };

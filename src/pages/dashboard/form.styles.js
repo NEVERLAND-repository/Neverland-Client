@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.section`
   padding: 7rem 2rem;
-  background: #f5f7fa;
 `;
 
 export const DashboardForm = styled.form`

@@ -6,6 +6,10 @@ export const SidebarWrapper = styled.div`
     display: grid;
     grid-template-columns: 20% 80%;
   }
+
+  .side-component-wrapper{
+    background: #f5f7fa;
+  }
 `;
 
 export const SidebarNavigationButtons = styled.section`
