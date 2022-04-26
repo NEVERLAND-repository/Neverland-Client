@@ -80,7 +80,7 @@ const ReadingComponent = ({ scroll = false }) => {
             <div className={ styles.pdfDisplay }>
               <span>
                 <Document
-                  file='https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf'
+                  file='https://cors-anywhere.herokuapp.com/https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf'
                   onDocumentLoadSuccess={ onDocumentLoadSuccess }
                 >
                   <Page pageNumber={ pageNumber } height600px />
