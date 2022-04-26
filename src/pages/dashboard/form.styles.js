@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 export const FormWrapper = styled.section`
-  padding: 2rem;
+  padding: 7rem 2rem;
   background: #f5f7fa;
-  padding-top: 6rem;
-
 `;
 
 export const DashboardForm = styled.form`
@@ -20,7 +18,7 @@ export const DashboardForm = styled.form`
 
   .subtitle {
     font-size: 1.5rem;
-    color: ${({ theme }) => theme.color.secondaryColor};
+    color: ${ ({ theme }) => theme.color.secondaryColor };
   }
 
   .form__group {
@@ -31,6 +29,7 @@ export const DashboardForm = styled.form`
     @media screen and (min-width: 48rem) {
       display: grid;
       grid-template-columns: 30% 70%;
+      align-items: center;
       gap: 3rem;
     }
   }
@@ -86,7 +85,7 @@ export const DashboardForm = styled.form`
 
   /* input[type='radio']:checked {
     border-color: #f49f0a;
-    color: ${({ theme }) => theme.color.primaryColor} ;
+    color: ${ ({ theme }) => theme.color.primaryColor } ;
   } */
 
   .form_group_input__side label {
@@ -94,6 +93,6 @@ export const DashboardForm = styled.form`
   }
 
   .save__changes__btn {
-    margin: 0 auto;
+    margin: 4rem auto 0 auto;
   }
 `;

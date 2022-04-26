@@ -53,15 +53,10 @@ export const ProfileContainer = styled.div`
 
 .profile {
   position: absolute;
-  /* background: #000; */
   width: 100%;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   top: 65%;
-  /* right: 40%; */
-  /* transform: translateX(700%); */
-  /* transform: translateY(-55%); */
 }
 .profile__pic {
   width: 100px;
@@ -72,13 +67,6 @@ export const ProfileContainer = styled.div`
   background-color: #ffc27d;
   border-radius: 50%;
 }
-
-/* .profile__pic{
-    position: absolute;
-    display: flex;
-    justify-self: center;
-    top: 50;
-} */
 
 .profile__pic__icon {
   height: 100%;

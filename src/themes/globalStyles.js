@@ -9,6 +9,10 @@ const GlobalStyle = createGlobalStyle`
 .margin-b{
     margin-bottom: 2rem;
 }
+
+.padding-l{
+    padding-left: 2.5rem;
+}
 `;
 
 export default GlobalStyle;
