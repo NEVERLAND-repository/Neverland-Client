@@ -1,35 +1,5 @@
 export const musicTracks = [
   {
-    song1: 'http://streaming.tdiradio.com:8000/house.mp3',
-    desc: '01. Clouds In The Forest',
-    time: '3:20',
-  },
-  {
-    song1: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3',
-    desc: '02. Rat In The River',
-    time: '2:48',
-  },
-  {
-    song1: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-    desc: '03. Giants And Companions',
-    time: '2:27',
-  },
-  {
-    song1: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3',
-    desc: '04. Ashamed Of Light',
-    time: '3:32',
-  },
-  {
-    song1: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3',
-    desc: '05. Doubting The Forest',
-    time: '2:40',
-  },
-  {
-    song1: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3',
-    desc: '06. Criminals Of The Lake',
-    time: '2:55',
-  },
-  {
     name: 'Memories',
     src: 'https://www.bensound.com/bensound-music/bensound-memories.mp3',
   },
