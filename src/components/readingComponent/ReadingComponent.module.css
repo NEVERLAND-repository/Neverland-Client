@@ -10,6 +10,7 @@
     display: flex;
     width: 40px;
     height: 100%;
+    margin-right: 20px;
     flex: 1;
     justify-content: end;
     align-items: center;
@@ -19,6 +20,7 @@
     display: flex;
     width: 40px;
     height: 100%;
+    margin-left: 20px;
     flex: 1;
     align-items: center;
 }
@@ -72,9 +74,24 @@
 	background-color: var(--primary-color);
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 640px) {
     .readingPage {
         width: 100vh;
         overflow-x: scroll;
+        border: 2px solid red;
+    }
+
+    .navigation1 {
+        display: block;
+        position: absolute;
+        margin-top: 5px;
+        left: 0;
+    }
+
+    .navigation2 {
+        display: block;
+        position: absolute;
+        margin-top: 5px;
+        right: 0;
     }
 }

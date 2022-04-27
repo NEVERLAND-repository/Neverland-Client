@@ -25,7 +25,7 @@ export const LibraryWapper = styled.div`
       }
       input {
         background-color: #fff;
-        color: ${({ theme }) => theme.color.secondaryColor};
+        color: ${ ({ theme }) => theme.color.secondaryColor };
         &:focus {
           outline: none;
           outline: none;
@@ -66,7 +66,7 @@ export const LibraryWapper = styled.div`
     border-top-left-radius: 3px;
   }
   .no-active {
-    border-bottom: 4px solid ${({ theme }) => theme.color.secondaryColor};
+    border-bottom: 4px solid ${ ({ theme }) => theme.color.secondaryColor };
     opacity: 0.5;
   }
   .library-title {
@@ -76,7 +76,7 @@ export const LibraryWapper = styled.div`
   }
 
   .active {
-    border-bottom: 4px solid ${({ theme }) => theme.color.primaryColor};
+    border-bottom: 4px solid ${ ({ theme }) => theme.color.primaryColor };
   }
   .read-books {
     display: grid;

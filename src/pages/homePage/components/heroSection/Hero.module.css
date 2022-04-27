@@ -1,7 +1,12 @@
+/* .carousel{
+    border: 2px solid green;
+    display: none;
+} */
 .carouselItem {
     width: 100%;
-    height: calc(100vh - 9.5rem);
+    height: calc(100vh - 8rem);
     background-position: right;
+    background-size: cover;
     background-repeat: no-repeat;
     transition: all 0.3s ease-in-out;
     display: flex;
@@ -19,18 +24,18 @@
 
 .carouselTextContainer {
     width: 60%;
+    margin-top: 10rem;
 }
 
 .primaryText {
-    font-size: 5.5rem;
     font-weight: bold;
     line-height: 1.2;
 }
 
 .bottomText {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     width: 60%;
-    line-height: 1.2;
+    line-height: 1.5;
 }
 
 @media screen and (max-width: 768px) {
