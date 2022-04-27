@@ -21,14 +21,16 @@ const Hero = () => {
             key={ book?._id }
             className={ styles.carouselItem }
             style={ {
-              backgroundImage: `linear-gradient(91.47deg, #000000 43.02%, rgba(0, 0, 0, 0.576392) 55.28%, rgba(0, 0, 0, 0) 77.66%), url(${ book?.bookImg })`,
+              backgroundImage: `linear-gradient(91.47deg,
+            #000000 43.02%, rgba(0, 0, 0, 0.576392) 55.28%,
+            rgba(0, 0, 0, 0) 77.66%), url(${ book?.bookImg })`,
             } }
           >
             <Container>
               <Stack spacing='8' className={ styles.carouselTextContainer }>
                 <Heading
                   fontSize={ {
-                    base: '4rem', md: '6rem',
+                    base: '4rem', md: '4rem',
                   } }
                   className={ styles.primaryText }
                 >

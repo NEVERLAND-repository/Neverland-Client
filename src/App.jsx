@@ -40,7 +40,7 @@ const App = () => {
             <Route path='home' element={ <Home /> }>
               <Route path=':category' element={ <Home /> } />
             </Route>
-            <Route path='bookOverview' element={ <OverviewPage /> } />
+            <Route path='overview/:bookId' element={ <OverviewPage /> } />
             <Route path='book/:bookId' element={ <BookReading /> } />
             {/* <Route path='*' element={<PageNotFound />} /> */}
           </Route>

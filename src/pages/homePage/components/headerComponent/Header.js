@@ -31,7 +31,7 @@ import { getUserData } from '../../../../store/slice/neverlandUserSlice';
 const Header = ({ label }) => {
   const navLinks = [
     { name: 'Comics', path: 'comics' },
-    { name: 'Manga', path: 'mangas' },
+    { name: 'Manga', path: 'manga' },
     { name: 'Novels', path: 'novels' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);

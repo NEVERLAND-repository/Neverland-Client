@@ -13,7 +13,7 @@ const Home = () => {
   const {token} = useSelector(getUserData);
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
-  const categories = useParams()?.category;
+  const category = useParams()?.category;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await getAxiosInstance(token).post(
-        `api/v1/home/?category=${ categories || '' }`,
+        `api/v1/home/?category=${ category || '' }`,
       )
 
       if (response.data.status === 'success') {
@@ -31,13 +31,13 @@ const Home = () => {
       setLoaded(true)
     }
     fetch()
-  }, [token, categories])
+  }, [token, category])
 
   return (
     <div className={ styles.home }>
       <Header label='home' />
       <Hero />
-      {loaded && <BooksLayout category={ categories } />}
+      {loaded && <BooksLayout category={ category } />}
       <Footer />
     </div>
   );
