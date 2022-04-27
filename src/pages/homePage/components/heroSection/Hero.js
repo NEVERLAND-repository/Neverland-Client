@@ -7,6 +7,7 @@ import styles from './Hero.module.css';
 import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
 import SearchBar from '../../../../components/SearchComponent/SearchBar';
 import BookData from '../../../../Data.json';
+import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
 
 const Hero = () => {
   const trendingBooks = useSelector(getHomePageData).data?.trendingBooks;
@@ -15,7 +16,7 @@ const Hero = () => {
     <section className={ styles.heroSection }>
       <SearchBar placeholder='Search for books' data={ BookData } />
       {trendingBooks?.length !== 0 && (
-      <Carousel interval={ 5000 } className={ styles.carousel }>
+      <Carousel renderDots={ null } interval={ 5000 } className={ styles.carousel }>
         {trendingBooks?.map((book) => (
           <div
             key={ book?._id }
@@ -29,16 +30,14 @@ const Hero = () => {
             <Container>
               <Stack spacing='8' className={ styles.carouselTextContainer }>
                 <Heading
-                  fontSize={ {
-                    base: '4rem', md: '4rem',
-                  } }
+                  fontSize='4.5rem'
                   className={ styles.primaryText }
                 >
                   {book?.name}
 
                 </Heading>
                 <Text className={ styles.bottomText }>{book?.description.slice(0, 200).concat('...')}</Text>
-                <button className={ styles.btn }> Get Started </button>
+                <SecondaryButton label='Get Started' navigation='/login' />
               </Stack>
             </Container>
           </div>
