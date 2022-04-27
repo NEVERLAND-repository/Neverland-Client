@@ -2,10 +2,13 @@ import { Link, NavLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 export const SidebarWrapper = styled.div`
-
   @media screen and (min-width: 48rem) {
     display: grid;
     grid-template-columns: 20% 80%;
+  }
+
+  .side-component-wrapper{
+    background: #f5f7fa;
   }
 `;
 
@@ -39,10 +42,9 @@ export const SidebarNavigationButtons = styled.section`
   /* Media query */
   @media screen and (min-width: 48rem) {
     display: flex;
-    padding: 2rem 1rem;
+    padding: 2rem 0;
     flex-direction: column;
     border-right: 1px solid #e6eff5;
-    position: sticky;
     position: sticky;
     top: 0;
     height: 100vh;
@@ -58,11 +60,11 @@ export const Main = styled.main`
     display: flex;
     align-items: center;
     height: 48px;
-    padding: 16px;
+    /* padding: 16px; */
     margin-bottom: 8px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 600;
     width: 100%;
     transition-duration: 0.3s;
@@ -85,11 +87,13 @@ export const Main = styled.main`
       border-left: 8px solid ${ ({ theme }) => theme.color.primaryColor };
       color: ${ ({ theme }) => theme.color.primaryColor };
     }
+  }
 
-    &.image__active {
-      filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
-        brightness(105%) contrast(92%);
-    }
+  &.image__active {
+    -webkit-filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
+      brightness(105%) contrast(92%);
+    filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
+      brightness(105%) contrast(92%);
   }
 
   .sidebar__navlinks__container {

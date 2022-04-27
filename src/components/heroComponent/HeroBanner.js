@@ -30,9 +30,9 @@ const HeroBanner = () => {
           <h1 className={ styles.primaryText }>
             Take me to Neverland, where stories come alive.
           </h1>
-          <h4 className={ styles.bottomText }> Read over 30 books of various types and genres </h4>
+          <h4 className={ styles.bottomText }> Read over 100 books of various types and genres </h4>
 
-          <SecondaryButton label='Get Started' />
+          <SecondaryButton label='Get Started' navigation='/home' />
         </div>
       </div>
     </section>

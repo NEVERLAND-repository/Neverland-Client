@@ -1,6 +1,6 @@
 .wrapper {
     display: flex;
-    width: 1292px;
+    width: 100%;
     height: 600px;
     margin: 2.4rem auto;
     background-color: var(--gray-background);
@@ -70,4 +70,11 @@
 .pdfDisplay::-webkit-scrollbar-thumb {
     border-radius: 10px;
 	background-color: var(--primary-color);
+}
+
+@media screen and (max-width: 540px) {
+    .readingPage {
+        width: 100vh;
+        overflow-x: scroll;
+    }
 }

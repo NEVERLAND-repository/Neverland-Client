@@ -31,21 +31,21 @@ const Sidebar = () => {
   return (
     <SidebarWrapper>
       <SidebarNavigationButtons isShowing={ isShowing }>
-        <header className='header margin-b'>
-          <nav className='sidebar__navbar'>
+        <header className='header margin-b padding-l'>
+          <nav className='sidebar__navbar padding-l'>
             <NavLinkLogo to='/home'>
               <img src={ dashLogo } alt={ dashLogo } />
             </NavLinkLogo>
           </nav>
         </header>
         <Main>
-          <h1 className='title margin-b'>Hi, Jess</h1>
+          <h1 className='title margin-b padding-l'>Hi, Jess</h1>
           <section className='sidebar__navlinks__container'>
             <div className='sidebar__navlinks'>
               {categories.map((category, index) => {
                 return (
                   <div
-                    className={ ` links  ${ index === value && 'active' }` }
+                    className={ ` links padding-l  ${ index === value && 'active' }` }
                     key={ index }
                     onClick={ () => { setValue(index); setIsShowing(false) } }
                   >
@@ -59,15 +59,17 @@ const Sidebar = () => {
                 );
               })}
             </div>
-            <div className='links' onClick={ () => {} }>
+            <div className='links padding-l' onClick={ () => {} }>
               <img src={ logoutIcon } alt={ logoutIcon } />
               Logout
             </div>
           </section>
         </Main>
       </SidebarNavigationButtons>
-      <Navigation showSidebar={ showSidebar } />
-      {component}
+      <div className='side-component-wrapper'>
+        <Navigation showSidebar={ showSidebar } />
+        {component}
+      </div>
     </SidebarWrapper>
   );
 };

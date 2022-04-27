@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
@@ -7,6 +7,7 @@ import styles from './ReadingComponent.module.css'
 const ReadingComponent = ({ scroll = false }) => {
   const [numPage, setNumPages] = useState(5);
   const [pageNumber, setPageNumber] = useState(1);
+  const [pdf, setPdf] = useState('')
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -32,22 +33,25 @@ const ReadingComponent = ({ scroll = false }) => {
       </span>
       <div className={ styles.readingPage }>
         <div className={ styles.bookTitle }>SCRUM</div>
-        {scroll
+        {/* {scroll
           ? (
             <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
               {Array.from(new Array(numPage), (el, index) => (
                 <Page key={ `page_${ index + 1 }` } pageNumber={ index + 1 } />
               ))}
             </Document>
-          ) : (
-            <div className={ styles.pdfDisplay }>
-              <span>
-                <Document file='/sample.pdf' onDocumentLoadSuccess={ onDocumentLoadSuccess }>
-                  <Page pageNumber={ pageNumber } height600px />
-                </Document>
-              </span>
-            </div>
-          )}
+          ) : ( */}
+        <div className={ styles.pdfDisplay }>
+          <span>
+            <Document
+              file='https://cors-anywhere.herokuapp.com/https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf'
+              onDocumentLoadSuccess={ onDocumentLoadSuccess }
+            >
+              <Page pageNumber={ pageNumber } height600px />
+            </Document>
+          </span>
+        </div>
+        {/* )} */}
         <p>{`${ pageNumber } of ${ numPage }`}</p>
       </div>
       <span className={ styles.navigation2 }>

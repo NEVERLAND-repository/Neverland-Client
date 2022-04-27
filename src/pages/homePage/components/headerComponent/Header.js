@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import {
-  Button,
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverArrow,
-  PopoverHeader,
   PopoverCloseButton,
   PopoverBody,
   List,
@@ -76,7 +74,6 @@ const Header = ({ label }) => {
             </ul>
             <div className={ styles.navBtn }>
               {isAuth ? (
-
                 <Popover arrowSize='16' zIndex='10000' placement='bottom-end'>
                   <PopoverTrigger>
                     <Wrap>
@@ -121,7 +118,7 @@ const Header = ({ label }) => {
                   </Portal>
                 </Popover>
               ) : (
-                <SecondaryButton label='Get Started' />
+                <SecondaryButton label='Get Started' navigation='/login' />
               )}
             </div>
           </nav>
