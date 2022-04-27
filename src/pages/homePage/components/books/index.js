@@ -9,7 +9,7 @@ import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
 
 export const Books = ({ category = 'comics' }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
-  const [isLesserThan980] = useMediaQuery('(max-width: 980px)');
+  // const [isLesserThan980] = useMediaQuery('(max-width: 980px)');
   const categoryBooks = useSelector(getHomePageData).data?.categoryBooks;
   let count = 0;
   const firstDiv = [];
