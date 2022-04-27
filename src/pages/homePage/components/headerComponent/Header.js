@@ -27,7 +27,7 @@ import profile from '../../../../assets/icons/profile-icon.svg';
 import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
-import PrimaryButton from '../../../../components/buttonComponent/PrimaryButton';
+import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
 import { getUserData } from '../../../../store/slice/neverlandUserSlice';
 
 const Header = ({ label }) => {
@@ -121,7 +121,7 @@ const Header = ({ label }) => {
                   </Portal>
                 </Popover>
               ) : (
-                <PrimaryButton label='Get Started' />
+                <SecondaryButton label='Get Started' />
               )}
             </div>
           </nav>

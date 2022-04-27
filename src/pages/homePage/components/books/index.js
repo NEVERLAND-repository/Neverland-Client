@@ -18,16 +18,18 @@ export const Books = ({ category = 'comics' }) => {
   categoryBooks?.map((book) => {
     if (count !== 3) {
       count += 1;
-      firstDiv?.push(<BookCard
-        key={ book?._id }
-        imageUrl={ book?.bookImg }
-        title={ book?.name }
-        author={ book?.author }
-        type={ book?.tags.join(', ') }
-        genre={ book?.category }
-        rated={ book?.rated }
-        description={ book?.description }
-      />)
+      firstDiv?.push(
+        <BookCard
+          key={ book?._id }
+          imageUrl={ book?.bookImg }
+          title={ book?.name }
+          author={ book?.author }
+          type={ book?.tags.join(' • ') }
+          genre={ book?.category }
+          rated={ book?.rated }
+          description={ book?.description }
+        />,
+      );
     } else {
       secondDiv?.push(
         <BookCard
@@ -35,12 +37,12 @@ export const Books = ({ category = 'comics' }) => {
           imageUrl={ book?.bookImg }
           title={ book?.name }
           author={ book?.author }
-          type={ book?.tags.join(', ') }
+          type={ book?.tags.join(' • ') }
           genre={ book?.category }
           rated={ book?.rated }
           description={ book?.description }
         />,
-      )
+      );
     }
   })
 
@@ -53,7 +55,7 @@ export const Books = ({ category = 'comics' }) => {
     >
       <Heading
         as='h2'
-        fontSize={ { base: '3rem', md: '5rem' } }
+        fontSize={ { base: '4rem' } }
         borderBottom='6px solid'
         borderRadius='.5rem'
         borderColor='var(--secondary-color)'
@@ -65,7 +67,7 @@ export const Books = ({ category = 'comics' }) => {
       ) : (
 
       )} */}
-      <Flex flexDirection='column' width='100%'>
+      <Flex flexDirection='column' width='100%' gap='7rem'>
         {firstDiv && (
           <Flex
             flexDirection={ isLesserThan740 ? 'column' : 'row' }

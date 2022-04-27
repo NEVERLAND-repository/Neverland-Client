@@ -33,18 +33,6 @@
     line-height: 1.2;
 }
 
-.btn {
-    width: 30%;
-    height: 5rem;
-    border-radius: 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
-
 @media screen and (max-width: 768px) {
     .carouselItem {
         height: calc(100vh - 10vh);
@@ -68,7 +56,4 @@
         text-align: center;
     }
 
-    .btn {
-        width: 60%;
-    }
 }

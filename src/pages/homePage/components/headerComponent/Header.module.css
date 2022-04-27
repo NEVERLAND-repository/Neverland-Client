@@ -14,6 +14,10 @@
     color: var(--primary-color);
 }
 
+.logo{
+    width: 10rem;
+}
+
 .logo .mobile {
     display: block;
 }
@@ -82,7 +86,6 @@
 
 .menu {
     display: none;
-    border: 2px solid red
 }
 
 @media screen and (max-width: 768px) {
@@ -105,8 +108,8 @@
         display: block;
         position: absolute;
         right: 0;
-        top: 0;
-        transform: translate(-30%, 100%);
+        top: 50%;
+        transform: translate(-30%, -50%);
         font-size: 1.4rem;
         cursor: pointer;
     }
