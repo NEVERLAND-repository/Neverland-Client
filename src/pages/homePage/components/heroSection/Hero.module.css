@@ -7,7 +7,6 @@
     transition: all 0.3s ease-in-out;
     display: flex;
     color: #fff;
-    font-size: 2.4rem;
 }
 .carousel{
     display: none;
@@ -36,27 +35,29 @@
 }
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 540px) {
     .carouselItem {
         height: calc(100vh - 10vh);
     }
 
     .carouselTextContainer {
         width: 90%;
-        text-align: center;
+        height: fit-content;
         justify-content: center;
-        align-items: center;
+        align-items:flex-start;
         margin: auto;
-    }
+        /* border: 2px solid brown;*/
+    } 
 
     .primaryText {
-        font-size: 3rem;
+        margin-top: 10rem;
+        /* border: 2px solid blue; */
     }
 
     .bottomText {
         font-size: 1.8rem;
         width: 90%;
-        text-align: center;
+        text-align: left;
     }
 
     .btn {

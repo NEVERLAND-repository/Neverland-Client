@@ -56,9 +56,9 @@ export const Books = ({ category = 'comics' }) => {
       <Heading
         as='h2'
         fontSize={ { base: '3rem', md: '5rem' } }
-        borderBottom='6px solid'
-        borderRadius='.5rem'
+        borderBottom='5px solid'
         borderColor='var(--secondary-color)'
+        paddingBottom='.5rem'
       >
         {category[0].toUpperCase() + category.slice(1)}
       </Heading>

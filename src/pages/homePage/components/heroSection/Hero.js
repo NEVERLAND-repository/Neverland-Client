@@ -30,7 +30,7 @@ const Hero = () => {
             <Container>
               <Stack spacing='8' className={ styles.carouselTextContainer }>
                 <Heading
-                  fontSize='4.5rem'
+                  fontSize={ { base: ' 3rem ', md: ' 5rem ' } }
                   className={ styles.primaryText }
                 >
                   {book?.name}
