@@ -5,7 +5,6 @@ import { Text, Heading, Stack } from '@chakra-ui/react';
 import { Container } from '../../../../components/container/Container';
 import styles from './Hero.module.css';
 import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
-import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton'
 import SearchBar from '../../../../components/SearchComponent/SearchBar';
 import BookData from '../../../../Data.json';
 
@@ -39,7 +38,7 @@ const Hero = () => {
 
                 </Heading>
                 <Text className={ styles.bottomText }>{book?.description.slice(0, 200).concat('...')}</Text>
-                <SecondaryButton label='Get Started' />
+                <button className={ styles.btn }> Get Started </button>
               </Stack>
             </Container>
           </div>

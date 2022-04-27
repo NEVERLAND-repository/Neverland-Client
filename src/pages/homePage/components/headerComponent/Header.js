@@ -25,7 +25,7 @@ import profile from '../../../../assets/icons/profile-icon.svg';
 import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
-import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
+import PrimaryButton from '../../../../components/buttonComponent/PrimaryButton';
 import { getUserData } from '../../../../store/slice/neverlandUserSlice';
 
 const Header = ({ label }) => {

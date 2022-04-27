@@ -15,8 +15,8 @@ const BookCard = ({
     <Box
       maxW='md'
       borderWidth='1px'
-      borderRadius='1.6rem'
-      marginTop={ isLesserThan740 ? '10px' : ' ' }
+      borderRadius='1.4rem'
+      marginTop={ isLesserThan740 ? '10px' : '' }
       overflow='hidden'
       boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'
       className={ styles.bookCard }
@@ -25,15 +25,9 @@ const BookCard = ({
         transform: 'translateY(-2px)',
       } }
     >
-      <Box className={ styles.imageContainer }>
-        <Image src={ imageUrl } alt={ title } />
-      </Box>
+      <Image src={ imageUrl } alt={ title } />
 
-      <Box
-        backgroundColor='white'
-        color='black'
-        className={ styles.bookCardInfo }
-      >
+      <Box backgroundColor='white' color='black' className={ styles.bookCardInfo }>
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <Box
             fontWeight='semibold'
@@ -45,14 +39,7 @@ const BookCard = ({
             {title}
           </Box>
           <Tooltip label='Add to my library!' aria-label='A tooltip'>
-            <Center
-              margin='4'
-              padding='4'
-              borderRadius='50%'
-              color='white'
-              backgroundColor='var(--primary-color)'
-              fontSize='1.3rem'
-            >
+            <Center margin='4' padding='4' borderRadius='50%' color='white' backgroundColor='var(--primary-color)' fontSize='1.3rem'>
               <AddIcon />
             </Center>
           </Tooltip>
@@ -66,7 +53,11 @@ const BookCard = ({
             <Text fontSize='1.6rem'>
               {description.slice(0, 100)}
               {' '}
-              <Link to=':id' as={ Link } className={ styles.bookDetailsLink }>
+              <Link
+                to=':id'
+                as={ Link }
+                className={ styles.bookDetailsLink }
+              >
                 continue reading
               </Link>
             </Text>
@@ -78,21 +69,24 @@ const BookCard = ({
             color='var(--gray-color)'
             fontWeight='semibold'
             letterSpacing='wide'
-            fontSize='1.1rem'
+            fontSize='1.2rem'
             textTransform='uppercase'
             my='2'
           >
-            {' '}
             {type}
-            {' '}
+            {'  '}
             &bull;
-            {' '}
+            {'  '}
             {genre}
+            {'  '}
+            &bull;
+            {'  '}
+            {rated}
           </Box>
         </Box>
       </Box>
     </Box>
-  );
+  )
 }
 
 export default BookCard
