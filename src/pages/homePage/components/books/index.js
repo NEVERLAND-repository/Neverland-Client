@@ -15,6 +15,8 @@ export const Books = ({ category = 'comics' }) => {
   const firstDiv = [];
   const secondDiv = [];
 
+  console.log(categoryBooks)
+
   categoryBooks?.map((book) => {
     console.log(book)
     if (count !== 3) {

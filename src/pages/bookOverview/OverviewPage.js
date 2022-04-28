@@ -11,16 +11,16 @@ import getAxiosInstance from '../../services/axios';
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
-  const bookId = useParams()?.bookId;
+  const { bookId } = useParams();
   const { token } = useSelector(getUserData);
   const [count, setCount] = useState(1)
-  console.log(bookId)
+  // console.log(bookId)
 
   const fetch = async () => {
-    const response = await getAxiosInstance(token).post(
-      `api/v1/book/overview?bookId=${ bookId }`,
+    const response = await getAxiosInstance(token).get(
+      `api/v1/book/overview/${ bookId }`,
     )
-
+    console.log(response)
     if (response.data.status === 'success') {
       console.log(response.data)
       setBook(response.data.data)
@@ -38,8 +38,8 @@ const OverviewPage = () => {
 
   useEffect(() => {
     fetch()
-  }, [bookId])
-  console.log(book)
+    console.log('heeey', bookId)
+  }, [])
 
   return (
     <div>
