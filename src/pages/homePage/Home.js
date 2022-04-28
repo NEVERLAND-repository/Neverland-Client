@@ -8,9 +8,10 @@ import Hero from './components/heroSection/Hero';
 import styles from './Home.module.css';
 import { addHomepageData, getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
+import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 const Home = () => {
-  const {token} = useSelector(getUserData);
+  const { token } = useSelector(getUserData);
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
   const category = useParams()?.category;
@@ -36,14 +37,15 @@ const Home = () => {
   return (
     <div className={ styles.home }>
       <Header label='home' />
-      <Hero />
-      <BooksLayout category={ category } />
-      {/* {!loaded ?
-         : (
-          <div>
-
-          </div>
-      )} */}
+      {loaded
+        ? (
+          <>
+            <Hero />
+            <BooksLayout category={ category } />
+          </>
+        ) : (
+          <LoadingComponent />
+        )}
       <Footer />
     </div>
   );

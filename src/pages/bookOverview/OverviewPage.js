@@ -8,6 +8,7 @@ import Footer from '../homePage/components/footerSection/Footer';
 import Header from '../homePage/components/headerComponent/Header';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
+import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
@@ -38,17 +39,17 @@ const OverviewPage = () => {
             <div className={ styles.containerDiv }>
               <div className={ styles.imageDiv }>
                 <img
-                  src={ book.bookImg }
-                  alt={ book.name }
+                  src={ book?.bookImg }
+                  alt={ book?.name }
                 />
               </div>
               <div className={ styles.textDiv }>
-                <h3>{book.name}</h3>
-                <p>{book.author}</p>
+                <h3>{book?.name}</h3>
+                <p>{book?.author}</p>
                 <span className={ styles.spanTags }>
-                  <p>{book.tags.join(' • ')}</p>
+                  <p>{book?.tags?.join(' • ')}</p>
                 </span>
-                <ReadingButton />
+                <ReadingButton bookId={ bookId } />
               </div>
             </div>
           </section>
@@ -58,17 +59,17 @@ const OverviewPage = () => {
               <div className={ styles.bottomLine } />
             </div>
             <div className={ styles.textArea }>
-              <p>{book.description}</p>
+              <p>{book?.description}</p>
             </div>
             <div className={ styles.buttonDiv }>
               {' '}
-              <ReadingButton />
+              <ReadingButton bookId={ bookId } />
               {' '}
             </div>
           </section>
         </>
       ) : (
-        <div />
+        <LoadingComponent />
       )}
       <Footer />
     </div>

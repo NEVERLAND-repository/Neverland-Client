@@ -36,7 +36,7 @@ const Header = ({ label }) => {
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const isAuth = useSelector(getUserData)
+  const isAuth = useSelector(getUserData)?.token
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen, () => {
@@ -63,7 +63,7 @@ const Header = ({ label }) => {
               {label && navLinks.map(({ name, path }) => (
                 <li key={ name } className={ styles.navbarItem }>
                   <NavLink
-                    to={ `/home/${ path }` }
+                    to={ path }
                     className={ styles.navLink }
                     activeClassName={ styles.active }
                   >
