@@ -8,7 +8,7 @@ import Header from '../homePage/components/headerComponent/Header';
 const OverviewPage = () => {
   return (
     <div>
-      <Header />
+      <Header label='overviewPage' />
       <section className={ styles.upperDiv }>
         <div className={ styles.containerDiv }>
           <div className={ styles.imageDiv }>

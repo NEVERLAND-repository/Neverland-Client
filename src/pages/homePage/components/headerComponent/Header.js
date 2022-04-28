@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import {
-  Button,
   Popover,
   PopoverTrigger,
   PopoverContent,
   PopoverArrow,
-  PopoverHeader,
   PopoverCloseButton,
   PopoverBody,
   List,
@@ -27,18 +25,26 @@ import profile from '../../../../assets/icons/profile-icon.svg';
 import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
-import PrimaryButton from '../../../../components/buttonComponent/PrimaryButton';
+import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
 import { getUserData } from '../../../../store/slice/neverlandUserSlice';
 
 const Header = ({ label }) => {
   const navLinks = [
     { name: 'Comics', path: 'comics' },
-    { name: 'Manga', path: 'mangas' },
+    { name: 'Manga', path: 'manga' },
     { name: 'Novels', path: 'novels' },
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const isAuth = useSelector(getUserData)?.token
+
+  document.addEventListener('scroll', (e) => {
+    if (window.scrollY > 1) {
+      document.getElementById('header').style.position = 'fixed';
+    } else {
+      document.getElementById('header').style.position = 'relative';
+    }
+  })
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen, () => {
@@ -55,7 +61,7 @@ const Header = ({ label }) => {
   const icon = isMenuOpen ? close : burger;
   return (
     <>
-      <header className={ styles.header }>
+      <header className={ styles.header } id='header'>
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/' className={ styles.logo }>
@@ -76,7 +82,6 @@ const Header = ({ label }) => {
             </ul>
             <div className={ styles.navBtn }>
               {isAuth ? (
-
                 <Popover arrowSize='16' zIndex='10000' placement='bottom-end'>
                   <PopoverTrigger>
                     <Wrap>
@@ -121,7 +126,7 @@ const Header = ({ label }) => {
                   </Portal>
                 </Popover>
               ) : (
-                <PrimaryButton label='Get Started' />
+                <SecondaryButton label='Get Started' navigation='/login' />
               )}
             </div>
           </nav>

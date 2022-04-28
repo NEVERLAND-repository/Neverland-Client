@@ -26,6 +26,7 @@
     "jsx-a11y/interactive-supports-focus": 0,
     "jsx-a11y/no-noninteractive-element-interactions": 0,
     "jsx-a11y/aria-role": 0,
+    "import/no-unresolved": 0,
     "no-param-reassign": 0,
     "react/jsx-no-bind": 0,
     "linebreak-style": 0,
@@ -39,7 +40,6 @@
       }
     ],
     "import/no-named-as-default": 0,
-    "import/no-unresolved": [2, { "caseSensitive": false }],
     "template-curly-spacing": [1, "always"],
     "array-bracket-spacing": [0, "always"],
     "object-curly-spacing": [0, "always"],

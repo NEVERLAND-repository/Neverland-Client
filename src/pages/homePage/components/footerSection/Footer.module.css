@@ -70,46 +70,40 @@ footer a {
   display: flex;
 }
 
-@media (max-width: 768px) {
+
+@media (max-width: 540px) {
   .navbarList {
-    gap: 4rem;
+    gap: 3rem;
   }
-
-  .topDiv,
-  .bottomDiv {
-    padding: 0 4rem;
-  }
-
+  
   .iconContainer {
     display: none;
   }
-
+  
   .copyright {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
     padding: 0;
   }
-
+  
   .iconMobile {
     display: flex;
     gap: 2rem;
     flex-direction: column;
   }
-
+  
   .bottomDiv {
     flex-direction: row;
-  }
-}
-
-@media (max-width: 428px) {
-  .navbarList {
-    gap: 2rem
   }
 
   .topDiv,
   .bottomDiv {
-    padding: 0 2rem;
+    padding: 0 3rem;
+  }
+
+  .logoContainer{
+    width: 9rem;
   }
 
 }

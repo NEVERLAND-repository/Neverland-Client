@@ -2,7 +2,7 @@ import React from 'react';
 import SecondaryButton from '../buttonComponent/SecondaryButton';
 import styles from './FeaturesBooks.module.css';
 
-const FeaturesBook = (props) => {
+const FeaturesBook = () => {
   return (
     <div className={ styles.container }>
       <div className={ styles.imageDiv }>
@@ -24,7 +24,7 @@ const FeaturesBook = (props) => {
       </div>
 
       <div className={ styles.buttonDiv }>
-        <SecondaryButton label='Get Started' />
+        <SecondaryButton label='Get Started' navigation='/home' />
       </div>
     </div>
   );
