@@ -16,10 +16,12 @@ export const Books = ({ category = 'comics' }) => {
   const secondDiv = [];
 
   categoryBooks?.map((book) => {
+    console.log(book)
     if (count !== 3) {
       count += 1;
       firstDiv?.push(<BookCard
         key={ book?._id }
+        id={ book?._id }
         imageUrl={ book?.bookImg }
         title={ book?.name }
         author={ book?.author }
@@ -32,6 +34,7 @@ export const Books = ({ category = 'comics' }) => {
       secondDiv?.push(
         <BookCard
           key={ book?._id }
+          id={ book?._id }
           imageUrl={ book?.bookImg }
           title={ book?.name }
           author={ book?.author }
