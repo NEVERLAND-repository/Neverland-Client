@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from '@chakra-ui/react';
 import SecondaryButton from '../buttonComponent/SecondaryButton';
@@ -9,32 +9,46 @@ import styles from './HeroBanner.module.css';
 
 const HeroBanner = () => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
+  const [isActve, setIsActive] = useState(false);
+
+  document.addEventListener('scroll', (e) => {
+    if (window.scrollY > 150) {
+      setIsActive(true);
+    } else {
+      setIsActive(false);
+    }
+  })
 
   return (
     <section className={ styles.heroSection }>
       <video autoPlay muted loop className={ styles.video }>
-        <source src={ !isLesserThan740 ? desktopVideo : mobileVideo } type='video/mp4' />
+        <source
+          src={ !isLesserThan740 ? desktopVideo : mobileVideo }
+          type='video/mp4'
+        />
       </video>
-      <div className={ styles.heroSubSection }>
-        <div className={ styles.container }>
-          <nav>
-            <div className={ styles.navLogo }>
-              <Link to='/home'>
-                <img src={ navLogo } alt='NeverLand-white-color-logo' />
-              </Link>
-            </div>
-          </nav>
-        </div>
 
-        <div className={ styles.textContainer }>
-          <h1 className={ styles.primaryText }>
-            Take me to Neverland, where stories come alive.
-          </h1>
-          <h4 className={ styles.bottomText }> Read over 100 books of various types and genres </h4>
-
-          <SecondaryButton label='Get Started' navigation='/home' />
+      <nav className={ `${styles.nav} ${isActve ? styles.scroll : ''}` }>
+        <div className={ styles.navLogo }>
+          <Link to='/home'>
+            <img src={ navLogo } alt='NeverLand-white-color-logo' />
+          </Link>
         </div>
+      </nav>
+
+      <div className={ styles.textContainer }>
+        <h1 className={ styles.primaryText }>
+          Take me to Neverland, where stories come alive.
+        </h1>
+        <h4 className={ styles.bottomText }>
+          {' '}
+          Read over 100 books of various types and genres
+          {' '}
+        </h4>
+
+        <SecondaryButton label='Get Started' navigation='/home' />
       </div>
+
     </section>
   );
 }
