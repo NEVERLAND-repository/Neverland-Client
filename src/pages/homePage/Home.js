@@ -21,7 +21,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await getAxiosInstance(token).post(
+      const response = await getAxiosInstance(token).get(
         `api/v1/home/?category=${ category || '' }`,
       )
 
@@ -37,7 +37,13 @@ const Home = () => {
     <div className={ styles.home }>
       <Header label='home' />
       <Hero />
-      {loaded && <BooksLayout category={ category } />}
+      <BooksLayout category={ category } />
+      {/* {!loaded ?
+         : (
+          <div>
+
+          </div>
+      )} */}
       <Footer />
     </div>
   );

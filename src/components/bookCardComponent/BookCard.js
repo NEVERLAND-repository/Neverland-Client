@@ -4,34 +4,13 @@ import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-import { useSelector } from 'react-redux';
 import styles from './BookCard.module.css';
-import getAxiosInstance from '../../services/axios';
-import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const BookCard = ({
   id, imageUrl, title, author, type, genre, rated, description,
 }) => {
   // const [style, setStyle] = useState({display: 'none'});
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
-  const [book, setBook] = useState(null)
-  const { token } = useSelector(getUserData);
-  const navigate = useNavigate();
-
-  // const fetch = async () => {
-  //   const response = await getAxiosInstance(token).post(
-  //     `api/v1/book/overview?bookId=${ id }`,
-  //   )
-
-  //   if (response.data.status === 'success') {
-  //     console.log(response.data)
-  //     setBook(response.data.data)
-  //   }
-
-  //   if (response.data.data) {
-  //     Navigate(`/overview/${ id }`)
-  //   }
-  // }
 
   return (
     <Box
@@ -78,7 +57,7 @@ const BookCard = ({
               <Link
                 onClick={ fetch }
                 to={ `/overview/${ id }` }
-                // as={ Link }
+                as={ Link }
                 className={ styles.bookDetailsLink }
               >
                 continue reading

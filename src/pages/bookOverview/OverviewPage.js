@@ -13,32 +13,20 @@ const OverviewPage = () => {
   const [book, setBook] = useState('');
   const { bookId } = useParams();
   const { token } = useSelector(getUserData);
-  const [count, setCount] = useState(1)
-  // console.log(bookId)
 
-  const fetch = async () => {
+  const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
-    console.log(response)
+
     if (response.data.status === 'success') {
       console.log(response.data)
       setBook(response.data.data)
-      // if (count)
-      // count -= 1;
     }
   }
 
-  // do {
-  //   setTimeout(() => {
-  //     window.location.reload(false)
-  //   }, 2000);
-  //   // setCount(count - 1);
-  // } while ( bookId !== null )
-
   useEffect(() => {
-    fetch()
-    console.log('heeey', bookId)
+    fetchBookDetail()
   }, [])
 
   return (

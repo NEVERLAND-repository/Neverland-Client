@@ -9,7 +9,7 @@ import styles from './Footer.module.css';
 const Footer = () => {
   const navLinks = [
     { name: 'Comics', path: 'comics' },
-    { name: 'Mangas', path: 'mangas' },
+    { name: 'Manga', path: 'manga' },
     { name: 'Novels', path: 'novels' },
   ];
 
@@ -24,7 +24,7 @@ const Footer = () => {
             {navLinks.map(({ name, path }) => (
               <li key={ name } className={ styles.navbarItem }>
                 <NavLink
-                  to={ path }
+                  to={ `/home/${ path }` }
                   className={ styles.navLink }
                   activeClassName={ styles.active }
                 >

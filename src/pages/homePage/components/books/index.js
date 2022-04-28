@@ -11,14 +11,12 @@ export const Books = ({ category = 'comics' }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
   // const [isLesserThan980] = useMediaQuery('(max-width: 980px)');
   const categoryBooks = useSelector(getHomePageData).data?.categoryBooks;
+  console.log(categoryBooks)
   let count = 0;
   const firstDiv = [];
   const secondDiv = [];
 
-  console.log(categoryBooks)
-
   categoryBooks?.map((book) => {
-    console.log(book)
     if (count !== 3) {
       count += 1;
       firstDiv?.push(<BookCard
