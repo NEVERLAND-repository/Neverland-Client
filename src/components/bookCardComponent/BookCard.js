@@ -16,8 +16,8 @@ const BookCard = ({
     <Box
       maxW='md'
       borderWidth='1px'
-      borderRadius='1.4rem'
-      marginTop={ isLesserThan740 ? '10px' : '' }
+      borderRadius='1.6rem'
+      marginTop={ isLesserThan740 ? '10px' : ' ' }
       overflow='hidden'
       boxShadow='rgba(0, 0, 0, 0.24) 0px 3px 8px'
       className={ styles.bookCard }
@@ -26,9 +26,15 @@ const BookCard = ({
         transform: 'translateY(-2px)',
       } }
     >
-      <Image src={ imageUrl } alt={ title } />
+      <Box className={ styles.imageContainer }>
+        <Image src={ imageUrl } alt={ title } />
+      </Box>
 
-      <Box backgroundColor='white' color='black' className={ styles.bookCardInfo }>
+      <Box
+        backgroundColor='white'
+        color='black'
+        className={ styles.bookCardInfo }
+      >
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <Box
             fontWeight='semibold'
@@ -40,7 +46,14 @@ const BookCard = ({
             {title}
           </Box>
           <Tooltip label='Add to my library!' aria-label='A tooltip'>
-            <Center margin='4' padding='4' borderRadius='50%' color='white' backgroundColor='var(--primary-color)' fontSize='1.3rem'>
+            <Center
+              margin='4'
+              padding='4'
+              borderRadius='50%'
+              color='white'
+              backgroundColor='var(--primary-color)'
+              fontSize='1.3rem'
+            >
               <AddIcon />
             </Center>
           </Tooltip>
@@ -55,7 +68,6 @@ const BookCard = ({
               {description.slice(0, 100)}
               {' '}
               <Link
-                onClick={ fetch }
                 to={ `/overview/${ id }` }
                 as={ Link }
                 className={ styles.bookDetailsLink }
@@ -71,24 +83,20 @@ const BookCard = ({
             color='var(--gray-color)'
             fontWeight='semibold'
             letterSpacing='wide'
-            fontSize='1.2rem'
+            fontSize='1.1rem'
             textTransform='uppercase'
             my='2'
           >
             {type}
-            {'  '}
+            {' '}
             &bull;
-            {'  '}
+            {' '}
             {genre}
-            {'  '}
-            &bull;
-            {'  '}
-            {rated}
           </Box>
         </Box>
       </Box>
     </Box>
-  )
+  );
 }
 
 export default BookCard

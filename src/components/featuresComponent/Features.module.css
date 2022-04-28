@@ -20,12 +20,16 @@
   width: 100%;
 }
 .textContainer{
+  display: flex;
   flex-direction: column;
-  padding: 2.5rem 0;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+  height: fit-content;
 }
 .textContainer h3{
   color: #828282;
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 500;
   line-height: 1.2;
 }

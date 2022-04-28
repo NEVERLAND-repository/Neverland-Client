@@ -1,7 +1,3 @@
-/* .carousel{
-    border: 2px solid green;
-    display: none;
-} */
 .carouselItem {
     width: 100%;
     height: calc(100vh - 8rem);
@@ -11,16 +7,16 @@
     transition: all 0.3s ease-in-out;
     display: flex;
     color: #fff;
-    font-size: 2.4rem;
 }
-
+.carousel{
+    display: none;
+}
 .heroSection {
     display: flex;
     flex-direction: column;
     width: 100%;
     position: relative;
 }
-
 
 .carouselTextContainer {
     width: 60%;
@@ -38,39 +34,28 @@
     line-height: 1.5;
 }
 
-.btn {
-    width: 30%;
-    height: 5rem;
-    border-radius: 1.5rem;
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 540px) {
     .carouselItem {
         height: calc(100vh - 10vh);
     }
 
     .carouselTextContainer {
         width: 90%;
-        text-align: center;
+        height: fit-content;
         justify-content: center;
-        align-items: center;
+        align-items:flex-start;
         margin: auto;
-    }
+    } 
 
     .primaryText {
-        font-size: 3rem;
+        margin-top: 10rem;
     }
 
     .bottomText {
         font-size: 1.8rem;
         width: 90%;
-        text-align: center;
+        text-align: left;
     }
 
     .btn {
