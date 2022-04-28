@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/dashboard';
 import Home from './pages/homePage/Home';
 import OverviewPage from './pages/bookOverview/OverviewPage';
 import { USER_DATA } from './constants';

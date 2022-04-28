@@ -18,16 +18,18 @@ export const Books = ({ category = 'comics' }) => {
   categoryBooks?.map((book) => {
     if (count !== 3) {
       count += 1;
-      firstDiv?.push(<BookCard
-        key={ book?._id }
-        imageUrl={ book?.bookImg }
-        title={ book?.name }
-        author={ book?.author }
-        type={ book?.tags.join(', ') }
-        genre={ book?.category }
-        rated={ book?.rated }
-        description={ book?.description }
-      />)
+      firstDiv?.push(
+        <BookCard
+          key={ book?._id }
+          imageUrl={ book?.bookImg }
+          title={ book?.name }
+          author={ book?.author }
+          type={ book?.tags.join(' • ') }
+          genre={ book?.category }
+          rated={ book?.rated }
+          description={ book?.description }
+        />,
+      );
     } else {
       secondDiv?.push(
         <BookCard
@@ -35,12 +37,12 @@ export const Books = ({ category = 'comics' }) => {
           imageUrl={ book?.bookImg }
           title={ book?.name }
           author={ book?.author }
-          type={ book?.tags.join(', ') }
+          type={ book?.tags.join(' • ') }
           genre={ book?.category }
           rated={ book?.rated }
           description={ book?.description }
         />,
-      )
+      );
     }
   })
 
@@ -54,9 +56,9 @@ export const Books = ({ category = 'comics' }) => {
       <Heading
         as='h2'
         fontSize={ { base: '3rem', md: '5rem' } }
-        borderBottom='6px solid'
-        borderRadius='.5rem'
+        borderBottom='5px solid'
         borderColor='var(--secondary-color)'
+        paddingBottom='.5rem'
       >
         {category[0].toUpperCase() + category.slice(1)}
       </Heading>
@@ -65,13 +67,14 @@ export const Books = ({ category = 'comics' }) => {
       ) : (
 
       )} */}
-      <Flex flexDirection='column' width='100%'>
+      <Flex flexDirection='column' width='100%' gap='7rem'>
         {firstDiv && (
           <Flex
+            gap='10rem'
             flexDirection={ isLesserThan740 ? 'column' : 'row' }
             width='100%'
             alignItems={ isLesserThan740 ? 'center' : 'space-between' }
-            justifyContent={ { base: 'center', md: 'space-between' } }
+            justifyContent='center'
           >
             {firstDiv?.map((book) => {
               return book;
@@ -80,10 +83,11 @@ export const Books = ({ category = 'comics' }) => {
         )}
         {secondDiv && (
           <Flex
+            gap='10rem'
             flexDirection={ isLesserThan740 ? 'column' : 'row' }
             width='100%'
             alignItems={ isLesserThan740 ? 'center' : 'space-between' }
-            justifyContent='space-between'
+            justifyContent='center'
           >
             {secondDiv?.map((book) => {
               return book;
