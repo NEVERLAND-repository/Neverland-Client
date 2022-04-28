@@ -1,4 +1,7 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchAsyncHome, fetchAsyncLogin, fetchAsyncLogout, fetchAsyncOverview,
+} from './aysncThunkActions';
 
 const initialState = {
   userData: {},
@@ -23,6 +26,27 @@ const neverlandUserSlice = createSlice({
     },
     addHomepageData: (state, {payload}) => {
       state.homePageData = payload;
+    },
+  },
+  extraReducers: {
+    [fetchAsyncHome.pending]: (state, { payload }) => {
+      state.isLoaded = false;
+    },
+    [fetchAsyncHome.rejected]: (state, { payload }) => {
+    },
+    [fetchAsyncHome.fulfilled]: (state, { payload }) => {
+      return {
+        ...state,
+        homePageData: payload,
+        isLoaded: true,
+      }
+    },
+    [fetchAsyncOverview.fulfilled]: (state, { payload }) => {
+    },
+    [fetchAsyncLogout.fulfilled]: (state, { payload }) => {
+    },
+    [fetchAsyncLogin.fulfilled]: (state, { payload }) => {
+      return { ...state, userData: payload }
     },
   },
 });

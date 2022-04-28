@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import axiosInstance from '../../services/axios';
@@ -20,6 +20,9 @@ const Form = ({ label }) => {
 
   const login = async (e) => {
     e.preventDefault();
+    // const response = axiosPost('api/v1/auth/login', {
+    //   username, password,
+    // })
     const response = await axiosInstance().post('api/v1/auth/login', {
       username, password,
     })

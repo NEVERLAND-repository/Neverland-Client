@@ -4,10 +4,9 @@ import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
 import styles from './ReadingComponent.module.css'
 
-const ReadingComponent = ({ scroll = false }) => {
+const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf' }) => {
   const [numPage, setNumPages] = useState(5);
   const [pageNumber, setPageNumber] = useState(1);
-  const [pdf, setPdf] = useState('')
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -44,7 +43,7 @@ const ReadingComponent = ({ scroll = false }) => {
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              file='https://cors-anywhere.herokuapp.com/https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf'
+              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
               <Page pageNumber={ pageNumber } height600px />
