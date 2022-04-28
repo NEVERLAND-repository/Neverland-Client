@@ -46,12 +46,10 @@
         justify-content: center;
         align-items:flex-start;
         margin: auto;
-        /* border: 2px solid brown;*/
     } 
 
     .primaryText {
         margin-top: 10rem;
-        /* border: 2px solid blue; */
     }
 
     .bottomText {
