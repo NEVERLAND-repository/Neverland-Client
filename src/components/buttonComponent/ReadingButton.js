@@ -10,7 +10,7 @@ const ReadingButton = ({ bookId }) => {
   return (
     <div className={ styles.readingButton }>
       <div className={ styles.firstDiv }>
-        <Link to={ token ? `/overview/${ bookId }` : '/login' } className={ styles.readingLink }>
+        <Link to={ token ? `/book/${ bookId }` : '/login' } className={ styles.readingLink }>
           Start Reading
         </Link>
       </div>

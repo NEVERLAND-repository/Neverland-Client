@@ -3,6 +3,7 @@
     height: 8rem;
     display: flex;
     position: sticky;
+    top: 0;
     background-color: #fff;
     box-shadow: 0px 2px 2px 0 rgba(0,0, 0, 0.2);
     z-index: 1000;
@@ -104,10 +105,6 @@
 
     .burger {
         display: block;
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translate(-30%, -50%);
         font-size: 1.4rem;
         cursor: pointer;
     }
