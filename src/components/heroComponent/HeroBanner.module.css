@@ -1,14 +1,6 @@
-/* .heroSubSection{
-  border: 2px solid red;
-  /* display: none; 
-  background-color: #fff;
-  z-index: 100000;
-  position: fixed;
-} */
 .heroSection { 
   width: 100%;
   height: 100vh;
-  /* background: url(../../assets/images/NeverLand-tablet-mockup.png) center center/cover; */
   color: #fff;
   position: relative;
   object-fit: contain;
@@ -54,18 +46,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 100;
 }
 .primaryText {
   font-size: 6rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
   text-align: center;
 }
 .bottomText {
   font-size: 1.8rem;
   line-height: 1.2rem;
-  font-weight: 400;
+  font-weight: 700;
   text-align: center;
   margin-top: 2rem;
   margin-bottom: 3rem;
