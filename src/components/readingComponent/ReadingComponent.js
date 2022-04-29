@@ -11,7 +11,7 @@ import styles from './ReadingComponent.module.css'
 const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf' }) => {
   const [numPage, setNumPages] = useState(5);
   const [pageNumber, setPageNumber] = useState(1);
-  const { token } = useSelector(getUserData);
+  const token = useSelector(getUserData)?.token;
   const { bookId } = useParams();
   console.log(bookId)
 
