@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import {
   Popover,
   PopoverTrigger,
@@ -15,7 +15,7 @@ import {
   WrapItem,
   Avatar,
 } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import lib from '../../../../assets/icons/book.svg';
 import pro from '../../../../assets/icons/pro-icon.svg';
 import logout from '../../../../assets/icons/log-out.svg';
@@ -26,9 +26,14 @@ import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
-import { getUserData } from '../../../../store/slice/neverlandUserSlice';
+import { deleteUser, getUserData } from '../../../../store/slice/neverlandUserSlice';
+import { USER_DATA } from '../../../../constants';
+// import { signout } from '../../../../services/utils';
 
 const Header = ({ label }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
+
   const navLinks = [
     { name: 'Comics', path: 'comics' },
     { name: 'Manga', path: 'manga' },
@@ -58,7 +63,14 @@ const Header = ({ label }) => {
     });
   };
 
+  const signout = () => {
+    localStorage.removeItem(USER_DATA);
+    dispatch(deleteUser())
+    navigate('/home')
+  }
+
   const icon = isMenuOpen ? close : burger;
+
   return (
     <>
       <header className={ styles.header } id='header'>
@@ -132,18 +144,8 @@ const Header = ({ label }) => {
                             activeClassName={ styles.active }
                             onClick={ () => {} }
                           >
-                            <ListItem
-                              padding='2'
-                              fontSize='20px'
-                              _hover={ { cursor: 'pointer', bg: 'white' } }
-                            >
-                              <Image
-                                src={ logout }
-                                alt='logout'
-                                width='1.2rem'
-                                display='inline'
-                                marginRight='1rem'
-                              />
+                            <ListItem onClick={ signout } padding='2' fontSize='20px' _hover={ { cursor: 'pointer', bg: 'white' } }>
+                              <Image src={ logout } alt='logout' width='1.2rem' display='inline' marginRight='1rem' />
                               Logout
                             </ListItem>
                           </Link>

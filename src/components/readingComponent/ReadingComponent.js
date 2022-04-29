@@ -8,8 +8,8 @@ import getAxiosInstance from '../../services/axios';
 import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './ReadingComponent.module.css'
 
-const ReadingComponent = ({ scroll = false }) => {
-  const { token } = useSelector(getUserData);
+const ReadingComponent = () => {
+  const token = useSelector(getUserData)?.token;
   const book = useSelector(getBook);
   const [numPage, setNumPages] = useState(book?.pageTotal);
   const [pageNumber, setPageNumber] = useState(10);
@@ -53,12 +53,12 @@ const ReadingComponent = ({ scroll = false }) => {
   // }, [])
 
   return (
-    <div className={ styles.wrapper }>
-      <span className={ styles.navigation1 }>
-        {pageNumber > 1 && <img onClick={ previousPage } className='nav-icon' src={ arrowLeft } alt='Next Page' />}
+    <div className={styles.wrapper}>
+      <span className={styles.navigation1}>
+        {pageNumber > 1 && <img onClick={previousPage} className='nav-icon' src={arrowLeft} alt='Next Page' />}
       </span>
-      <div className={ styles.readingPage }>
-        <div className={ styles.bookTitle }>{ book.name }</div>
+      <div className={styles.readingPage}>
+        <div className={styles.bookTitle}>{book.name}</div>
         {/* {scroll
           ? (
             <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
@@ -67,21 +67,21 @@ const ReadingComponent = ({ scroll = false }) => {
               ))}
             </Document>
           ) : ( */}
-        <div className={ styles.pdfDisplay }>
+        <div className={styles.pdfDisplay}>
           <span>
             <Document
-              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
-              onDocumentLoadSuccess={ onDocumentLoadSuccess }
+              file={`https://cors-anywhere.herokuapp.com/${url}`}
+              onDocumentLoadSuccess={onDocumentLoadSuccess}
             >
-              <Page pageNumber={ pageNumber } height600px />
+              <Page pageNumber={pageNumber} height600px />
             </Document>
           </span>
         </div>
         {/* )} */}
-        <p>{`${ pageNumber } of ${ numPage }`}</p>
+        <p>{`${pageNumber} of ${numPage}`}</p>
       </div>
-      <span className={ styles.navigation2 }>
-        {pageNumber < numPage && <img onClick={ nextPage } src={ arrowRight } alt='Next Page' />}
+      <span className={styles.navigation2}>
+        {pageNumber < numPage && <img onClick={nextPage} src={arrowRight} alt='Next Page' />}
       </span>
     </div>
   )
