@@ -21,7 +21,7 @@ const HeroBanner = () => {
 
   return (
     <section className={ styles.heroSection }>
-      <video autoPlay playsinline muted loop className={ styles.video }>
+      <video autoPlay muted loop className={ styles.video }>
         <source
           src={ !isLesserThan740 ? desktopVideo : mobileVideo }
           type='video/mp4'
