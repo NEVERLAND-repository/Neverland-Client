@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
 import Footer from '../homePage/components/footerSection/Footer';
 // import BookImage from '../../assets/images/bookImage.png';
 import Header from '../homePage/components/headerComponent/Header';
-import { getUserData } from '../../store/slice/neverlandUserSlice';
+import { addBookData, getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
@@ -14,6 +14,7 @@ const OverviewPage = () => {
   const [book, setBook] = useState('');
   const { bookId } = useParams();
   const { token } = useSelector(getUserData);
+  const dispatch = useDispatch()
 
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
@@ -21,8 +22,8 @@ const OverviewPage = () => {
     )
 
     if (response.data.status === 'success') {
-      console.log(response.data)
       setBook(response.data.data)
+      dispatch(addBookData(response.data.data))
     }
   }
 
