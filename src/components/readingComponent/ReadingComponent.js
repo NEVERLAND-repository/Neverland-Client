@@ -9,7 +9,7 @@ import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './ReadingComponent.module.css'
 
 const ReadingComponent = ({ scroll = false }) => {
-  const { token } = useSelector(getUserData);
+  const token = useSelector(getUserData)?.token;
   const book = useSelector(getBook);
   const [numPage, setNumPages] = useState(book?.pageTotal);
   const [pageNumber, setPageNumber] = useState(10);
@@ -34,23 +34,23 @@ const ReadingComponent = ({ scroll = false }) => {
     changePage(1);
   }
 
-  // const fetchBookPdf = async () => {
-  //   const response = await getAxiosInstance(token).post(
-  //     `api/v1/book/read/?bookId=${ bookId }`,
-  //   )
+  const fetchBookPdf = async () => {
+    const response = await getAxiosInstance(token).get(
+      `api/v1/book/overview/${ bookId }`,
+    )
 
-  //   if (response.data.status === 'success') {
-  //     console.log(response.data)
-  //     // setBook(response.data.data)
-  //   }
-  // }
+    if (response.data.status === 'success') {
+      console.log(response.data)
+      // setBook(response.data.data)
+    }
+  }
 
-  // useEffect(() => {
-  //   fetchBookPdf()
-  //   // return () => {
+  useEffect(() => {
+    fetchBookPdf()
+    // return () => {
 
-  //   // }
-  // }, [])
+    // }
+  }, [])
 
   return (
     <div className={ styles.wrapper }>
