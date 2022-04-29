@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Transition } from '@headlessui/react';
+import { useDispatch } from 'react-redux';
 import dashLogo from '../../assets/dashboard/mobile-logo.svg';
 import sidebarData from './sidebar-data';
 import logoutIcon from '../../assets/icons/log-out.svg';
@@ -12,18 +13,28 @@ import {
   Main,
 } from './sidebar-styles';
 import Navigation from './mobile/navigation';
+import { USER_DATA } from '../../constants';
+import { deleteUser } from '../../store/slice/neverlandUserSlice';
 
 const allCategories = [...new Set(sidebarData.map((item) => item))];
 
 const Sidebar = () => {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState(allCategories);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { component } = categories[value];
   // const [sidebar, setSidebar] = useState(false);
   const [isShowing, setIsShowing] = useState(false)
 
   const showSidebar = () => setIsShowing(!isShowing);
   const handleResize = () => window.innerWidth > 768 && isShowing && setIsShowing(false);
+
+  const signout = () => {
+    localStorage.removeItem(USER_DATA);
+    dispatch(deleteUser())
+    navigate('/home')
+  }
 
   useEffect(() => {
     window.addEventListener('resize', handleResize)
@@ -59,7 +70,7 @@ const Sidebar = () => {
                 );
               })}
             </div>
-            <div className='links padding-l' onClick={ () => {} }>
+            <div className='links padding-l' onClick={ signout }>
               <img src={ logoutIcon } alt={ logoutIcon } />
               Logout
             </div>
