@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
+import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
+import getAxiosInstance from '../../services/axios';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './ReadingComponent.module.css'
 
 const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf' }) => {
   const [numPage, setNumPages] = useState(5);
   const [pageNumber, setPageNumber] = useState(1);
+  const { token } = useSelector(getUserData);
+  const { bookId } = useParams();
+  console.log(bookId)
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -24,6 +31,24 @@ const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amaz
   function nextPage() {
     changePage(1);
   }
+
+  const fetchBookPdf = async () => {
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/read/?bookId=${ bookId }`,
+    )
+
+    if (response.data.status === 'success') {
+      console.log(response.data)
+      // setBook(response.data.data)
+    }
+  }
+
+  useEffect(() => {
+    fetchBookPdf()
+    // return () => {
+
+    // }
+  }, [])
 
   return (
     <div className={ styles.wrapper }>
