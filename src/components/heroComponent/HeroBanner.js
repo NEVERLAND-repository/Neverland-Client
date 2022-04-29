@@ -20,7 +20,8 @@ const HeroBanner = () => {
   })
 
   return (
-    <section className={ styles.heroSection }>
+    <section className={styles.heroSection}>
+      <div className={ styles.overlay } />
       <video autoPlay muted loop className={ styles.video }>
         <source
           src={ !isLesserThan740 ? desktopVideo : mobileVideo }
