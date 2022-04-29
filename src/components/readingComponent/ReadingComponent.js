@@ -5,15 +5,17 @@ import { useParams } from 'react-router-dom';
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
 import getAxiosInstance from '../../services/axios';
-import { getUserData } from '../../store/slice/neverlandUserSlice';
+import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './ReadingComponent.module.css'
 
-const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amazonaws.com/novels/Wife+of+the+Gods.pdf' }) => {
-  const [numPage, setNumPages] = useState(5);
-  const [pageNumber, setPageNumber] = useState(1);
+const ReadingComponent = ({ scroll = false }) => {
   const { token } = useSelector(getUserData);
+  const book = useSelector(getBook);
+  const [numPage, setNumPages] = useState(book?.pageTotal);
+  const [pageNumber, setPageNumber] = useState(10);
   const { bookId } = useParams();
-  console.log(bookId)
+  const url = book.content;
+  console.log(bookId, book)
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -32,23 +34,23 @@ const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amaz
     changePage(1);
   }
 
-  const fetchBookPdf = async () => {
-    const response = await getAxiosInstance(token).post(
-      `api/v1/book/read/?bookId=${ bookId }`,
-    )
+  // const fetchBookPdf = async () => {
+  //   const response = await getAxiosInstance(token).post(
+  //     `api/v1/book/read/?bookId=${ bookId }`,
+  //   )
 
-    if (response.data.status === 'success') {
-      console.log(response.data)
-      // setBook(response.data.data)
-    }
-  }
+  //   if (response.data.status === 'success') {
+  //     console.log(response.data)
+  //     // setBook(response.data.data)
+  //   }
+  // }
 
-  useEffect(() => {
-    fetchBookPdf()
-    // return () => {
+  // useEffect(() => {
+  //   fetchBookPdf()
+  //   // return () => {
 
-    // }
-  }, [])
+  //   // }
+  // }, [])
 
   return (
     <div className={ styles.wrapper }>
@@ -56,7 +58,7 @@ const ReadingComponent = ({ scroll = false, url = 'https://neverland-api.s3.amaz
         {pageNumber > 1 && <img onClick={ previousPage } className='nav-icon' src={ arrowLeft } alt='Next Page' />}
       </span>
       <div className={ styles.readingPage }>
-        <div className={ styles.bookTitle }>SCRUM</div>
+        <div className={ styles.bookTitle }>{ book.name }</div>
         {/* {scroll
           ? (
             <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
