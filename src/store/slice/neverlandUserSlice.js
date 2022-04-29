@@ -7,8 +7,9 @@ import {
   updateUser,
 } from './aysncThunkActions';
 
+const userData = JSON.parse(localStorage.getItem('UserData'));
 const initialState = {
-  userData: {},
+  userData: userData || null,
   isSuccess: false,
   message: '',
   isLoaded: false,
@@ -32,6 +33,12 @@ const neverlandUserSlice = createSlice({
     },
     addHomepageData: (state, { payload }) => {
       state.homePageData = payload;
+    },
+    reset: (state) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = false;
+      state.message = '';
     },
   },
   extraReducers: (builder) => {
@@ -75,7 +82,9 @@ const neverlandUserSlice = createSlice({
   },
 });
 
-export const { addUser, deleteUser, addHomepageData } = neverlandUserSlice.actions;
+export const {
+  addUser, deleteUser, addHomepageData, reset,
+} = neverlandUserSlice.actions;
 export const getUserData = (state) => state.neverlandUser.userData;
 export const getHomePageData = (state) => state.neverlandUser.homePageData;
 export const getLoader = (state) => state.neverlandUserSlice.isLoaded;

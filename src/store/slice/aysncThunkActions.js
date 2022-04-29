@@ -27,8 +27,7 @@ export const updateUser = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const {token} = thunkAPI.getState().neverlandUser.userData;
-      console.log('token', token)
-      return await userService.updateUser(token, userData);
+      return await userService.updateUser(userData, token);
     } catch (error) {
       const message = (error.response
           && error.response.data

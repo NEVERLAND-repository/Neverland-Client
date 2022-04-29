@@ -10,6 +10,7 @@ import { updateUser } from '../../store/slice/aysncThunkActions'
 import Footer from '../homePage/components/footerSection/Footer';
 import { FormWrapper, DashboardForm } from './form.styles';
 import { ProfileContainer } from './profile.styles';
+import { reset } from '../../store/slice/neverlandUserSlice';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -21,7 +22,6 @@ const Profile = () => {
     gender: data.gender,
   });
   const { username, fullName, gender } = person;
-  const [people, setPeople] = useState(data);
   const {
     userData,
     isLoading, isError, isSuccess, message,
@@ -37,6 +37,8 @@ const Profile = () => {
     if (isSuccess) {
       toast.success('User details updated');
     }
+
+    dispatch(reset())
   }, [userData, isError, isSuccess, message, dispatch]);
 
   const handleChange = (e) => {
@@ -49,12 +51,9 @@ const Profile = () => {
     e.preventDefault();
     if (!fullName) {
       toast.error('Name filled can"t be empty')
-    } else {
-      const newPerson = { ...person };
-      setPeople({...people, newPerson});
-      console.log('people', people)
-      dispatch(updateUser(people))
     }
+    const newPerson = { ...person };
+    dispatch(updateUser(newPerson))
   };
 
   return (

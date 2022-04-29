@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
-import { Transition } from '@headlessui/react';
 import dashLogo from '../../assets/dashboard/mobile-logo.svg';
 import sidebarData from './sidebar-data';
 import logoutIcon from '../../assets/icons/log-out.svg';
@@ -44,7 +42,7 @@ const Sidebar = () => {
           <h1 className='title margin-b padding-l'>
             Hi,
             {' '}
-            {/* {data.username} */}
+            {data.username}
           </h1>
           <section className='sidebar__navlinks__container'>
             <div className='sidebar__navlinks'>
