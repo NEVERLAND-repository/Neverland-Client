@@ -24,7 +24,7 @@ const FeaturesBook = () => {
       </div>
 
       <div className={ styles.buttonDiv }>
-        <SecondaryButton label='Get Started' navigation='/home' />
+        <SecondaryButton label='Explore' navigation='/home' />
       </div>
     </div>
   );

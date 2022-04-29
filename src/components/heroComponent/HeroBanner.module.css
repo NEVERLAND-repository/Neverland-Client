@@ -24,7 +24,7 @@
   width: 100%;
 }
 .nav.scroll{
-  z-index: 20;
+  z-index: 10000;
   position: fixed;
   background-color: #fff;
   opacity: 0.4;
