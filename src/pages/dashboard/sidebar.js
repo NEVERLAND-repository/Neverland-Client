@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { Transition } from '@headlessui/react';
 import dashLogo from '../../assets/dashboard/mobile-logo.svg';
@@ -12,6 +13,7 @@ import {
   Main,
 } from './sidebar-styles';
 import Navigation from './mobile/navigation';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const allCategories = [...new Set(sidebarData.map((item) => item))];
 
@@ -19,7 +21,7 @@ const Sidebar = () => {
   const [value, setValue] = useState(0);
   const [categories, setCategories] = useState(allCategories);
   const { component } = categories[value];
-  // const [sidebar, setSidebar] = useState(false);
+  const { data } = useSelector(getUserData);
   const [isShowing, setIsShowing] = useState(false)
 
   const showSidebar = () => setIsShowing(!isShowing);
@@ -39,7 +41,11 @@ const Sidebar = () => {
           </nav>
         </header>
         <Main>
-          <h1 className='title margin-b padding-l'>Hi, Jess</h1>
+          <h1 className='title margin-b padding-l'>
+            Hi,
+            {' '}
+            {/* {data.username} */}
+          </h1>
           <section className='sidebar__navlinks__container'>
             <div className='sidebar__navlinks'>
               {categories.map((category, index) => {

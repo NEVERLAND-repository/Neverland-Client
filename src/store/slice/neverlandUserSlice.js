@@ -1,10 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchAsyncHome, fetchAsyncLogin, fetchAsyncLogout, fetchAsyncOverview,
+  fetchAsyncHome,
+  fetchAsyncLogin,
+  fetchAsyncLogout,
+  fetchAsyncOverview,
+  updateUser,
 } from './aysncThunkActions';
 
 const initialState = {
   userData: {},
+  isSuccess: false,
+  message: '',
   isLoaded: false,
   homePageData: {},
 };
@@ -22,32 +28,50 @@ const neverlandUserSlice = createSlice({
         userData: {},
         isLoaded: false,
         homePageData: {},
-      }
+      };
     },
-    addHomepageData: (state, {payload}) => {
+    addHomepageData: (state, { payload }) => {
       state.homePageData = payload;
     },
   },
-  extraReducers: {
-    [fetchAsyncHome.pending]: (state, { payload }) => {
-      state.isLoaded = false;
-    },
-    [fetchAsyncHome.rejected]: (state, { payload }) => {
-    },
-    [fetchAsyncHome.fulfilled]: (state, { payload }) => {
-      return {
-        ...state,
-        homePageData: payload,
-        isLoaded: true,
-      }
-    },
-    [fetchAsyncOverview.fulfilled]: (state, { payload }) => {
-    },
-    [fetchAsyncLogout.fulfilled]: (state, { payload }) => {
-    },
-    [fetchAsyncLogin.fulfilled]: (state, { payload }) => {
-      return { ...state, userData: payload }
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAsyncHome.pending, (state, { payload }) => {
+        state.isLoaded = false;
+      })
+      .addCase(fetchAsyncHome.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          homePageData: payload,
+          isLoaded: true,
+        };
+      })
+      .addCase(fetchAsyncHome.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = payload;
+        state.userData = null;
+      })
+      .addCase(fetchAsyncOverview.fulfilled, (state, { payload }) => {})
+      .addCase(fetchAsyncLogout.fulfilled, (state, { payload }) => {
+        state.userData = null
+      })
+      .addCase(fetchAsyncLogin.fulfilled, (state, { payload }) => {
+        return { ...state, userData: payload };
+      })
+      .addCase(updateUser.pending, (state, {payload}) => {
+        state.isLoaded = true;
+      })
+      .addCase(updateUser.fulfilled, (state, {payload}) => {
+        state.userData = {...state.userData, payload}
+        state.isLoaded = false;
+        state.isSuccess = true;
+      })
+      .addCase(updateUser.rejected, (state, {payload}) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = payload;
+      })
   },
 });
 
