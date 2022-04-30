@@ -1,9 +1,13 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import {
-  Route, BrowserRouter as Router, Routes, Outlet,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Outlet,
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { ToastContainer } from 'react-toastify';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
@@ -13,24 +17,27 @@ import OverviewPage from './pages/bookOverview/OverviewPage';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
 import BookReading from './pages/bookReadingPage/BookReading';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const dispatch = useDispatch();
 
   const getUserData = () => {
     const userData = JSON.parse(localStorage.getItem(USER_DATA));
-    dispatch(addUser({
-      token: userData?.token,
-      data: userData?.data,
-    }))
-  }
+    dispatch(
+      addUser({
+        token: userData?.token,
+        data: userData?.data,
+      }),
+    );
+  };
 
   useEffect(() => {
-    getUserData()
-  }, [])
+    getUserData();
+  }, []);
 
   return (
-    <div className='App'>
+    <>
       <Router>
         <Routes>
           <Route path='/' element={ <Layout /> }>
@@ -47,9 +54,10 @@ const App = () => {
           <Route path='dashboard' element={ <Dashboard /> } />
         </Routes>
       </Router>
-    </div>
+      <ToastContainer />
+    </>
   );
-}
+};
 
 export default App;
 
@@ -59,4 +67,4 @@ const Layout = () => {
       <Outlet />
     </main>
   );
-}
+};

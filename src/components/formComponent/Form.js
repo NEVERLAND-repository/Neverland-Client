@@ -20,6 +20,7 @@ const Form = ({ label }) => {
 
   const login = async (e) => {
     e.preventDefault();
+    console.log('hereeee')
     const response = await axiosInstance().post('api/v1/auth/login', {
       username, password,
     })

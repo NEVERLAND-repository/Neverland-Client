@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
-import { Transition } from '@headlessui/react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import dashLogo from '../../assets/dashboard/mobile-logo.svg';
 import sidebarData from './sidebar-data';
@@ -13,8 +13,9 @@ import {
   Main,
 } from './sidebar-styles';
 import Navigation from './mobile/navigation';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import { USER_DATA } from '../../constants';
-import { deleteUser } from '../../store/slice/neverlandUserSlice';
+import { logout } from '../../store/slice/aysncThunkActions';
 
 const allCategories = [...new Set(sidebarData.map((item) => item))];
 
@@ -24,7 +25,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { component } = categories[value];
-  // const [sidebar, setSidebar] = useState(false);
+  const data = useSelector(getUserData)?.data;
   const [isShowing, setIsShowing] = useState(false)
 
   const showSidebar = () => setIsShowing(!isShowing);
@@ -32,7 +33,7 @@ const Sidebar = () => {
 
   const signout = () => {
     localStorage.removeItem(USER_DATA);
-    dispatch(deleteUser())
+    dispatch(logout())
     navigate('/home')
   }
 
@@ -50,7 +51,11 @@ const Sidebar = () => {
           </nav>
         </header>
         <Main>
-          <h1 className='title margin-b padding-l'>Hi, Jess</h1>
+          <h1 className='title margin-b padding-l'>
+            Hi,
+            {' '}
+            {data && data.username}
+          </h1>
           <section className='sidebar__navlinks__container'>
             <div className='sidebar__navlinks'>
               {categories.map((category, index) => {
