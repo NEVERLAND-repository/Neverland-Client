@@ -5,11 +5,12 @@ import {
   fetchAsyncLogout,
   fetchAsyncOverview,
   updateUser,
+  logout,
 } from './aysncThunkActions';
 
 const userData = JSON.parse(localStorage.getItem('UserData'));
 const initialState = {
-  userData: userData || null,
+  userData: userData || {},
   isSuccess: false,
   message: '',
   isLoaded: false,
@@ -83,6 +84,12 @@ const neverlandUserSlice = createSlice({
         state.isLoading = false;
         state.isError = true;
         state.message = payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.userData = {};
+        state.isLoaded = false;
+        state.homePageData = {};
+        state.book = {};
       })
   },
 });

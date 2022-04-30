@@ -38,3 +38,7 @@ export const updateUser = createAsyncThunk(
     }
   },
 );
+// logout
+export const logout = createAsyncThunk('neverlandUser/logout', async () => {
+  await userService.logout()
+} )

@@ -1,17 +1,25 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getUserData } from '../../store/slice/neverlandUserSlice';
-// import Profile from './profile'
+import { getUserData, reset } from '../../store/slice/neverlandUserSlice';
 import Sidebar from './sidebar'
 
 const Dashboard = () => {
   const token = useSelector(getUserData)?.token;
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-  if (!token) {
-    navigate('/home')
-  }
+  useEffect(() => {
+    if (!token ) {
+      navigate('/home')
+    }
+    return () => {
+      dispatch(reset());
+    };
+  }, [dispatch])
+  // if (!token ) {
+  //   navigate('/home')
+  // }
   return (
     <Sidebar />
   )
