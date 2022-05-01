@@ -7,6 +7,10 @@ import Footer from '../homePage/components/footerSection/Footer';
 import BookCard from '../../components/bookCardComponent/BookCard';
 
 const Library = () => {
+  const fetchLibraryData = () => {
+    
+  }
+
   return (
     <>
       <LibraryWapper>

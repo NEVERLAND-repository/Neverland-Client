@@ -6,16 +6,17 @@ import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
 import getAxiosInstance from '../../services/axios';
 import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
+import LoadingComponent from '../loadingComponent/LoadingComponent';
 import styles from './ReadingComponent.module.css'
 
-const ReadingComponent = ({ scroll = false }) => {
+const ReadingComponent = () => {
   const token = useSelector(getUserData)?.token;
-  const book = useSelector(getBook);
+  // const book = useSelector(getBook);
+  const [book, setBook] = useState(null)
   const [numPage, setNumPages] = useState(book?.pageTotal);
-  const [pageNumber, setPageNumber] = useState(10);
+  const [pageNumber, setPageNumber] = useState(1);
   const { bookId } = useParams();
-  const url = book.content;
-  console.log(bookId, book)
+  const url = book?.content;
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -40,8 +41,8 @@ const ReadingComponent = ({ scroll = false }) => {
     )
 
     if (response.data.status === 'success') {
-      console.log(response.data)
-      // setBook(response.data.data)
+      console.log(response.data);
+      setBook(response.data.data);
     }
   }
 
@@ -51,14 +52,15 @@ const ReadingComponent = ({ scroll = false }) => {
 
     // }
   }, [])
+  console.log(book)
 
-  return (
+  const renderPDF = (
     <div className={ styles.wrapper }>
       <span className={ styles.navigation1 }>
         {pageNumber > 1 && <img onClick={ previousPage } className='nav-icon' src={ arrowLeft } alt='Next Page' />}
       </span>
       <div className={ styles.readingPage }>
-        <div className={ styles.bookTitle }>{ book.name }</div>
+        <div className={ styles.bookTitle }>{book?.name}</div>
         {/* {scroll
           ? (
             <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
@@ -85,6 +87,8 @@ const ReadingComponent = ({ scroll = false }) => {
       </span>
     </div>
   )
+
+  return <>{book ? renderPDF() : <LoadingComponent />}</>
 }
 
 export default ReadingComponent;

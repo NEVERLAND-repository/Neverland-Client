@@ -11,7 +11,7 @@ import getAxiosInstance from '../../services/axios';
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 const Home = () => {
-  const { token } = useSelector(getUserData);
+  const token = useSelector(getUserData)?.token;
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
   const category = useParams()?.category;

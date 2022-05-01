@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import {
+  NavLink, Link, useNavigate, useParams,
+} from 'react-router-dom';
 import {
   Popover,
   PopoverTrigger,
@@ -15,7 +17,7 @@ import {
   WrapItem,
   Avatar,
 } from '@chakra-ui/react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import lib from '../../../../assets/icons/book.svg';
 import pro from '../../../../assets/icons/pro-icon.svg';
 import logout from '../../../../assets/icons/log-out.svg';
@@ -26,9 +28,14 @@ import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
-import { getUserData } from '../../../../store/slice/neverlandUserSlice';
+import { deleteUser, getUserData } from '../../../../store/slice/neverlandUserSlice';
+import { USER_DATA } from '../../../../constants';
+// import { signout } from '../../../../services/utils';
 
 const Header = ({ label }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const navLinks = [
     { name: 'Comics', path: 'comics' },
     { name: 'Manga', path: 'manga' },
@@ -38,13 +45,13 @@ const Header = ({ label }) => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const isAuth = useSelector(getUserData)?.token
 
-  document.addEventListener('scroll', (e) => {
-    if (window.scrollY > 1) {
-      document.getElementById('header').style.position = 'fixed';
-    } else {
-      document.getElementById('header').style.position = 'relative';
-    }
-  })
+  // document.addEventListener('scroll', (e) => {
+  //   if (window.scrollY > 1) {
+  //     document.getElementById('header').style.position = 'fixed';
+  //   } else {
+  //     document.getElementById('header').style.position = 'relative';
+  //   }
+  // })
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen, () => {
@@ -58,7 +65,14 @@ const Header = ({ label }) => {
     });
   };
 
+  const signout = () => {
+    localStorage.removeItem(USER_DATA);
+    dispatch(deleteUser())
+    navigate('/home')
+  }
+
   const icon = isMenuOpen ? close : burger;
+
   return (
     <>
       <header className={ styles.header } id='header'>
@@ -68,17 +82,18 @@ const Header = ({ label }) => {
               <img src={ navLogo } alt='NeverLand-orange-color-logo' />
             </Link>
             <ul className={ styles.navbarList }>
-              {label && navLinks.map(({ name, path }) => (
-                <li key={ name } className={ styles.navbarItem }>
-                  <NavLink
-                    to={ path }
-                    className={ styles.navLink }
-                    activeClassName={ styles.active }
-                  >
-                    {name}
-                  </NavLink>
-                </li>
-              ))}
+              {label
+                && navLinks.map(({ name, path }) => (
+                  <li key={ name } className={ styles.navbarItem }>
+                    <NavLink
+                      to={ `home/${ path }` }
+                      className={ styles.navLink }
+                      activeClassName={ styles.active }
+                    >
+                      {name}
+                    </NavLink>
+                  </li>
+                ))}
             </ul>
             <div className={ styles.navBtn }>
               {isAuth ? (
@@ -91,7 +106,12 @@ const Header = ({ label }) => {
                     </Wrap>
                   </PopoverTrigger>
                   <Portal zIndex='10000'>
-                    <PopoverContent fontSize='1.6rem' marginTop='2.8rem' border='none' outline='0'>
+                    <PopoverContent
+                      fontSize='1.6rem'
+                      marginTop='2.8rem'
+                      border='none'
+                      outline='0'
+                    >
                       <PopoverArrow />
                       <PopoverCloseButton p={ 10 } />
                       <PopoverBody border='none' padding={ 10 }>
@@ -101,10 +121,21 @@ const Header = ({ label }) => {
                             to=''
                             className={ styles.navLink }
                             activeClassName={ styles.active }
-                            onClick={ () => { } }
+                            onClick={ () => {} }
                           >
-                            <ListItem padding='2' fontSize='20px' marginTop='20px' _hover={ { cursor: 'pointer' } }>
-                              <Image src={ lib } alt='library' width='1.2rem' display='inline' marginRight='1rem' />
+                            <ListItem
+                              padding='2'
+                              fontSize='20px'
+                              marginTop='20px'
+                              _hover={ { cursor: 'pointer' } }
+                            >
+                              <Image
+                                src={ lib }
+                                alt='library'
+                                width='1.2rem'
+                                display='inline'
+                                marginRight='1rem'
+                              />
                               My Library
                             </ListItem>
                           </Link>
@@ -113,9 +144,9 @@ const Header = ({ label }) => {
                             to=''
                             className={ styles.navLink }
                             activeClassName={ styles.active }
-                            onClick={ () => { } }
+                            onClick={ () => {} }
                           >
-                            <ListItem padding='2' fontSize='20px' _hover={ { cursor: 'pointer', bg: 'white' } }>
+                            <ListItem onClick={ signout } padding='2' fontSize='20px' _hover={ { cursor: 'pointer', bg: 'white' } }>
                               <Image src={ logout } alt='logout' width='1.2rem' display='inline' marginRight='1rem' />
                               Logout
                             </ListItem>
@@ -134,9 +165,48 @@ const Header = ({ label }) => {
             <img src={ icon } alt='menu' />
           </div>
         </NavContainer>
-        {isMenuOpen && (<div />)}
+        {isMenuOpen && (
+          <span
+            className={ styles.menu_bg }
+            onClick={ toggleMenu }
+            onKeyDown={ toggleMenu }
+            role='button'
+          >
+            <span className={ styles.menu }>
+              <div className={ styles.menu_container }>
+                <div className={ styles.menu_body }>
+                  <ul className={ styles.menu_list }>
+                    {navLinks.map(({ name, path }) => (
+                      <li key={ name } className={ styles.menu_item }>
+                        <NavLink
+                          to={ path }
+                          className={ styles.menu_link }
+                          activeClassName={ styles.active }
+                        >
+                          {name}
+                        </NavLink>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div
+                  className={ styles.menu_footer }
+                  onClick={ toggleMenu }
+                  onKeyDown={ toggleMenu }
+                  role='get_started_button'
+                >
+                  <div className={ styles.navBtn }>
+                    <button className={ styles.navBtnLink }>
+                      <Link to='/signup'>Get Started</Link>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </span>
+          </span>
+        )}
       </header>
-      <span
+      {/* <span
         className={ styles.menu_bg }
         onClick={ () => {
           setIsMenuOpen(false);
@@ -145,7 +215,7 @@ const Header = ({ label }) => {
           setIsMenuOpen(false);
         } }
         role='menu_bg'
-      />
+      /> */}
     </>
   );
 }

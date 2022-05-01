@@ -12,8 +12,8 @@ import LoadingComponent from '../../components/loadingComponent/LoadingComponent
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
-  const bookId = useParams()?.bookId;
   const token = useSelector(getUserData)?.token;
+  const bookId = useParams()?.bookId;
   const dispatch = useDispatch()
 
   const fetchBookDetail = async () => {

@@ -1,33 +1,61 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import profilePatterns from '../../assets/dashboard/patterns.svg';
 import profileIcon from '../../assets/dashboard/profile-icon-dummy.svg';
 import PrimaryButton from '../../components/buttonComponent/PrimaryButton';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
+import { updateUser } from '../../store/slice/aysncThunkActions'
 import Footer from '../homePage/components/footerSection/Footer';
 import { FormWrapper, DashboardForm } from './form.styles';
 import { ProfileContainer } from './profile.styles';
+import { reset } from '../../store/slice/neverlandUserSlice';
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { data } = useSelector(getUserData);
   const [person, setPerson] = useState({
-    username: '',
-    FullName: '',
-    gender: 'other',
+    username: data.username,
+    fullName: data.fullName,
+    gender: data.gender,
   });
+  const { username, fullName, gender } = person;
+  const {
+    userData,
+    isLoading, isError, isSuccess, message,
+  } = useSelector(
+    (state) => state.neverlandUser,
+  );
 
-  const [people, setPeople] = useState([]);
+  useEffect(() => {
+    // console.log('dataaa', people)
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      toast.success('User details updated');
+    }
+
+    dispatch(reset())
+  }, [userData, isError, isSuccess, message, dispatch]);
 
   const handleChange = (e) => {
-    const { name } = e.target;
-    const { value } = e.target;
+    const { name, value } = e.target;
+    // const { value } = e.target;
     setPerson({ ...person, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (person.firstName || person.email || person.age) {
-      const newPerson = { ...person };
-      setPeople([...people, newPerson]);
+    if (!fullName) {
+      toast.error('Name filled can"t be empty')
     }
+    const newPerson = { ...person };
+    dispatch(updateUser(newPerson))
   };
+
   return (
     <ProfileContainer>
       <section className='profile__overview'>
@@ -50,7 +78,7 @@ const Profile = () => {
         </div>
       </section>
       <FormWrapper>
-        <DashboardForm>
+        <DashboardForm onSubmit={ handleSubmit }>
           <div className='form__group margin-b'>
             <div className='form__group__content__side'>
               <h1 className='title'>Full name</h1>
@@ -59,9 +87,9 @@ const Profile = () => {
             <div className='form_group_input__side'>
               <input
                 type='text'
-                name='FullName'
-                id='FullName'
-                value={ person.FullName }
+                name='fullName'
+                id='fullName'
+                value={ fullName }
                 className='form__group__input'
                 onChange={ handleChange }
               />
@@ -77,7 +105,8 @@ const Profile = () => {
                 type='text'
                 name='username'
                 id='username'
-                value={ person.username }
+                disabled
+                value={ username }
                 className='form__group__input '
                 onChange={ handleChange }
               />
@@ -95,7 +124,7 @@ const Profile = () => {
                   type='radio'
                   value='male'
                   name='gender'
-                  checked={ person.gender === 'male' }
+                  checked={ gender === 'male' }
                   onChange={ handleChange }
                 />
                 <label htmlFor='male'>Male</label>
@@ -106,26 +135,26 @@ const Profile = () => {
                   type='radio'
                   value='female'
                   name='gender'
-                  checked={ person.gender === 'female' }
+                  checked={ gender === 'female' }
                   onChange={ handleChange }
                 />
                 <label htmlFor='female'>Female</label>
               </div>
               <div className='radio__control'>
                 <input
-                  id='other'
+                  id='none'
                   type='radio'
-                  value='other'
+                  value='none'
                   name='gender'
-                  checked={ person.gender === 'other' }
+                  checked={ gender === 'none' }
                   onChange={ handleChange }
                 />
-                <label htmlFor='other'>Other</label>
+                <label htmlFor='none'>None</label>
               </div>
             </div>
           </div>
           <div className='save__changes__btn'>
-            <PrimaryButton label='Save Changes' />
+            <PrimaryButton label='Save Changes' btnType='submit' />
           </div>
         </DashboardForm>
       </FormWrapper>

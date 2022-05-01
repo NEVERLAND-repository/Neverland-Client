@@ -2,12 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './Button.module.css';
 
-const PrimaryButton = ({ label, navigation }) => {
+const PrimaryButton = ({ label, navigation, btnType }) => {
   const navigate = useNavigate()
 
   return (
     <div>
-      <button className={ styles.primary__button } onClick={ () => navigate(navigation) }>
+      <button
+        type={ btnType }
+        className={ styles.primary__button }
+        onClick={ () => navigate(navigation) }
+      >
         {' '}
         {label}
         {' '}
