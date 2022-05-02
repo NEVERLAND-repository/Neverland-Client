@@ -8,8 +8,8 @@ import getAxiosInstance from '../../services/axios';
 import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './ReadingComponent.module.css'
 
-const ReadingComponent = ({ scroll = false }) => {
-  const { token } = useSelector(getUserData);
+const ReadingComponent = () => {
+  const token = useSelector(getUserData)?.token;
   const book = useSelector(getBook);
   const [numPage, setNumPages] = useState(book?.pageTotal);
   const [pageNumber, setPageNumber] = useState(10);
@@ -58,7 +58,7 @@ const ReadingComponent = ({ scroll = false }) => {
         {pageNumber > 1 && <img onClick={ previousPage } className='nav-icon' src={ arrowLeft } alt='Next Page' />}
       </span>
       <div className={ styles.readingPage }>
-        <div className={ styles.bookTitle }>{ book.name }</div>
+        <div className={ styles.bookTitle }>{book.name}</div>
         {/* {scroll
           ? (
             <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>

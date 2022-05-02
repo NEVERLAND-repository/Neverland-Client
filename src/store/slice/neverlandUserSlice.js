@@ -1,10 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
-  fetchAsyncHome, fetchAsyncLogin, fetchAsyncLogout, fetchAsyncOverview,
+  fetchAsyncHome,
+  fetchAsyncLogin,
+  fetchAsyncLogout,
+  fetchAsyncOverview,
+  updateUser,
+  logout,
 } from './aysncThunkActions';
 
+const userData = JSON.parse(localStorage.getItem('UserData'));
 const initialState = {
-  userData: {},
+  userData: userData || {},
+  isSuccess: false,
+  message: '',
   isLoaded: false,
   homePageData: {},
   book: {},
@@ -32,32 +40,62 @@ const neverlandUserSlice = createSlice({
     addBookData: (state, {payload}) => {
       return { ...state, book: payload }
     },
+    reset: (state) => {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = false;
+      state.message = '';
+    },
   },
-  extraReducers: {
-    [fetchAsyncHome.pending]: (state, { payload }) => {
-      state.isLoaded = false;
-    },
-    [fetchAsyncHome.rejected]: (state, { payload }) => {
-    },
-    [fetchAsyncHome.fulfilled]: (state, { payload }) => {
-      return {
-        ...state,
-        homePageData: payload,
-        isLoaded: true,
-      }
-    },
-    [fetchAsyncOverview.fulfilled]: (state, { payload }) => {
-    },
-    [fetchAsyncLogout.fulfilled]: (state, { payload }) => {
-    },
-    [fetchAsyncLogin.fulfilled]: (state, { payload }) => {
-      return { ...state, userData: payload }
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAsyncHome.pending, (state, { payload }) => {
+        state.isLoaded = false;
+      })
+      .addCase(fetchAsyncHome.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          homePageData: payload,
+          isLoaded: true,
+        };
+      })
+      .addCase(fetchAsyncHome.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = payload;
+        state.userData = null;
+      })
+      .addCase(fetchAsyncOverview.fulfilled, (state, { payload }) => {})
+      .addCase(fetchAsyncLogout.fulfilled, (state, { payload }) => {
+        state.userData = null
+      })
+      .addCase(fetchAsyncLogin.fulfilled, (state, { payload }) => {
+        return { ...state, userData: payload };
+      })
+      .addCase(updateUser.pending, (state, {payload}) => {
+        state.isLoaded = true;
+      })
+      .addCase(updateUser.fulfilled, (state, {payload}) => {
+        state.userData = {...state.userData, payload}
+        state.isLoaded = false;
+        state.isSuccess = true;
+      })
+      .addCase(updateUser.rejected, (state, {payload}) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = payload;
+      })
+      .addCase(logout.fulfilled, (state) => {
+        state.userData = {};
+        state.isLoaded = false;
+        state.homePageData = {};
+        state.book = {};
+      })
   },
 });
 
 export const {
-  addUser, deleteUser, addHomepageData, addBookData,
+  addUser, deleteUser, addHomepageData, addBookData, reset,
 } = neverlandUserSlice.actions;
 export const getUserData = (state) => state.neverlandUser.userData;
 export const getHomePageData = (state) => state.neverlandUser.homePageData;
