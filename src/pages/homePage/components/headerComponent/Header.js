@@ -41,6 +41,7 @@ const Header = ({ label }) => {
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isNavBar, setIsNavBar] = useState(true);
   const isAuth = useSelector(getUserData)?.token;
 
   const toggleMenu = () => {
@@ -65,7 +66,7 @@ const Header = ({ label }) => {
 
   return (
     <>
-      <header className={ styles.header } id='header'>
+      <header className={` ${styles.header_nav} ${ isNavBar ? styles.navBarHeader : ''} `}>
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/' className={ styles.logo }>
