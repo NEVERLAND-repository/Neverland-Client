@@ -51,6 +51,7 @@ export const Books = ({ category = 'comics' }) => {
       spacing={ 16 }
       width='100%'
       marginBottom={ 0 }
+      paddingBottom='10rem'
       alignItems={ isLesserThan740 ? 'center' : 'start' }
     >
       <Heading
