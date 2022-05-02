@@ -15,4 +15,14 @@ const getAxiosInstance = (token = '') => {
   return instance
 }
 
+// export const axiosGet = (url, token) => {
+
+// }
+
+// export const axiosPost = async (url, body = {}, token = '') => {
+//   const response = await getAxiosInstance(token).post(url, {
+//     username, password,
+//   })
+// }
+
 export default getAxiosInstance;

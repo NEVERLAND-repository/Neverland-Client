@@ -1,17 +1,15 @@
 .container {
     width: 90%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 0;
-    margin: 0 auto;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
 @media screen and (max-width: 768px) {
     .container {
         width: 95%;
+        margin: auto;
     }
 }
 

@@ -15,6 +15,9 @@ footer a {
   font-size: 1.4rem;
   color: #fff;
 }
+footer a:hover{
+  background-color: inherit;
+}
 
 .topDiv,
 .bottomDiv {
@@ -73,6 +76,7 @@ footer a {
 
 @media (max-width: 540px) {
   .navbarList {
+    margin-top: 2rem;
     gap: 3rem;
   }
   

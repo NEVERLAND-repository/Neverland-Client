@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
@@ -7,10 +7,11 @@ import { AddIcon } from '@chakra-ui/icons';
 import styles from './BookCard.module.css';
 
 const BookCard = ({
-  imageUrl, title, author, type, genre, rated, description,
+  id, imageUrl, title, author, type, genre, rated, description,
 }) => {
-  const [style, setStyle] = useState({display: 'none'});
+  // const [style, setStyle] = useState({display: 'none'});
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
+
   return (
     <Box
       maxW='md'
@@ -66,7 +67,11 @@ const BookCard = ({
             <Text fontSize='1.6rem'>
               {description.slice(0, 100)}
               {' '}
-              <Link to=':id' as={ Link } className={ styles.bookDetailsLink }>
+              <Link
+                to={ `/overview/${ id }` }
+                as={ Link }
+                className={ styles.bookDetailsLink }
+              >
                 continue reading
               </Link>
             </Text>

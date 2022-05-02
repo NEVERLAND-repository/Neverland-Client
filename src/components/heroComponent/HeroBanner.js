@@ -21,6 +21,7 @@ const HeroBanner = () => {
 
   return (
     <section className={ styles.heroSection }>
+      <div className={ styles.overlay } />
       <video autoPlay muted loop className={ styles.video }>
         <source
           src={ !isLesserThan740 ? desktopVideo : mobileVideo }
@@ -28,7 +29,7 @@ const HeroBanner = () => {
         />
       </video>
 
-      <nav className={ `${styles.nav} ${isActve ? styles.scroll : ''}` }>
+      <nav className={ `${ styles.nav } ${ isActve ? styles.scroll : '' }` }>
         <div className={ styles.navLogo }>
           <Link to='/home'>
             <img src={ navLogo } alt='NeverLand-white-color-logo' />
@@ -46,7 +47,7 @@ const HeroBanner = () => {
           {' '}
         </h4>
 
-        <SecondaryButton label='Get Started' navigation='/home' />
+        <SecondaryButton label='Explore' navigation='/home' />
       </div>
 
     </section>
