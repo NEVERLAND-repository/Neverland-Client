@@ -36,6 +36,7 @@
 .navLogo {
   width: 6rem;
   height: 6rem;
+  padding: 0 .2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +47,7 @@
 }
 .navLogo img {
   width: 100%;
+  margin: auto;
   text-align: center;
 }
 .textContainer {
