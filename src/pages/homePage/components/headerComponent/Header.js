@@ -64,9 +64,11 @@ const Header = ({ label }) => {
 
   const icon = isMenuOpen ? close : burger;
 
+  // ${ isNavBar ? styles.navBarHeader : ''}
+
   return (
     <>
-      <header className={` ${styles.header_nav} ${ isNavBar ? styles.navBarHeader : ''} `}>
+      <header className={ styles.header }>
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/' className={ styles.logo }>
