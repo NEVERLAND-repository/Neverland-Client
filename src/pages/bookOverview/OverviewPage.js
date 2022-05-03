@@ -12,18 +12,19 @@ import LoadingComponent from '../../components/loadingComponent/LoadingComponent
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
-  const { bookId } = useParams();
-  const { token } = useSelector(getUserData);
+  const token = useSelector(getUserData)?.token;
+  const bookId = useParams()?.bookId;
   const dispatch = useDispatch()
 
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
+    console.log(response.data)
 
     if (response.data.status === 'success') {
       setBook(response.data.data)
-      dispatch(addBookData(response.data.data))
+      // dispatch(addBookData(response.data.data))
     }
   }
 

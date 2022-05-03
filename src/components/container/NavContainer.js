@@ -1,9 +1,9 @@
 import React from 'react'
-import classes from './NavContainer.module.css'
+import styles from './NavContainer.module.css'
 
 export const NavContainer = (props) => {
   return (
-    <div className={ classes.container }>
+    <div className={ styles.container }>
       {props.children}
     </div>
   )

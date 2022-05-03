@@ -7,12 +7,13 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
 import Dashboard from './pages/dashboard';
 import Home from './pages/homePage/Home';
+import ErrorPage from './pages/errorPage/Error'
 import OverviewPage from './pages/bookOverview/OverviewPage';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
@@ -49,12 +50,12 @@ const App = () => {
             </Route>
             <Route path='overview/:bookId' element={ <OverviewPage /> } />
             <Route path='book/:bookId' element={ <BookReading /> } />
-            {/* <Route path='*' element={<PageNotFound />} /> */}
+            <Route path='*' element={ <ErrorPage /> } />
           </Route>
           <Route path='dashboard' element={ <Dashboard /> } />
         </Routes>
       </Router>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 };
