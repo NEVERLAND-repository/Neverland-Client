@@ -17,9 +17,11 @@ const Home = () => {
   const category = useParams()?.category;
   const navigate = useNavigate();
 
+  const homeRoutes = ['comics', 'manga', 'novels', undefined]
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    if (category !== 'comics' || category !== 'manga' || category !== 'manga') {
+    if (!homeRoutes.includes(category)) {
       navigate('/pagenotfound')
     }
   }, [])
