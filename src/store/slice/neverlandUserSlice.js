@@ -9,7 +9,6 @@ import {
 } from './aysncThunkActions';
 
 const userData = JSON.parse(localStorage.getItem('UserData'));
-
 const initialState = {
   userData: userData || {},
   isSuccess: false,

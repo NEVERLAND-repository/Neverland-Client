@@ -1,35 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
 import { Tab } from '@headlessui/react';
-import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { LibraryWapper } from './library.styles';
 import SearchBar from '../../components/SearchComponent/SearchBar';
 import Footer from '../homePage/components/footerSection/Footer';
 import BookCard from '../../components/bookCardComponent/BookCard';
-import getAxiosInstance from '../../services/axios';
-import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const Library = () => {
-  const token = useSelector(getUserData)?.token;
-  const [library, setLibrary] = useState(null)
-
-  const getLibrary = async () => {
-    console.log('Hellllo')
-    const response = await getAxiosInstance(token).get(
-      'api/v1/user/library',
-    )
-
-    if (response.data.status === 'success') {
-      setLibrary(response.data.data);
-    }
-  }
-  console.log(library);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    getLibrary()
-  }, [])
-
   return (
     <>
       <LibraryWapper>

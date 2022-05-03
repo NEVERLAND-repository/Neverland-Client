@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-  NavLink, Link, useNavigate, useParams,
-} from 'react-router-dom';
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import {
   Popover,
   PopoverTrigger,
@@ -34,7 +32,7 @@ import { USER_DATA } from '../../../../constants';
 
 const Header = ({ label }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const navLinks = [
     { name: 'Comics', path: 'comics' },
@@ -43,6 +41,7 @@ const Header = ({ label }) => {
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [isNavBar, setIsNavBar] = useState(true);
   const isAuth = useSelector(getUserData)?.token;
 
   const toggleMenu = () => {
@@ -65,6 +64,8 @@ const Header = ({ label }) => {
 
   const icon = isMenuOpen ? close : burger;
 
+  // ${ isNavBar ? styles.navBarHeader : ''}
+
   return (
     <>
       <header className={ styles.header }>
@@ -78,7 +79,7 @@ const Header = ({ label }) => {
                 && navLinks.map(({ name, path }) => (
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
-                      to={ `/home/${ path }` }
+                      to={ path }
                       className={ styles.navLink }
                       activeClassName={ styles.active }
                     >
@@ -110,7 +111,7 @@ const Header = ({ label }) => {
                         <List gap='10' p='4'>
                           <Link
                             as='button'
-                            to='/dashboard'
+                            to=''
                             className={ styles.navLink }
                             activeClassName={ styles.active }
                             onClick={ () => {} }
@@ -138,19 +139,8 @@ const Header = ({ label }) => {
                             activeClassName={ styles.active }
                             onClick={ () => {} }
                           >
-                            <ListItem
-                              onClick={ signout }
-                              padding='2'
-                              fontSize='20px'
-                              _hover={ { cursor: 'pointer', bg: 'white' } }
-                            >
-                              <Image
-                                src={ logout }
-                                alt='logout'
-                                width='1.2rem'
-                                display='inline'
-                                marginRight='1rem'
-                              />
+                            <ListItem onClick={ signout } padding='2' fontSize='20px' _hover={ { cursor: 'pointer', bg: 'white' } }>
+                              <Image src={ logout } alt='logout' width='1.2rem' display='inline' marginRight='1rem' />
                               Logout
                             </ListItem>
                           </Link>
@@ -207,6 +197,16 @@ const Header = ({ label }) => {
           </span>
         )}
       </header>
+      {/* <span
+        className={ styles.menu_bg }
+        onClick={ () => {
+          setIsMenuOpen(false);
+        } }
+        onKeyDown={ () => {
+          setIsMenuOpen(false);
+        } }
+        role='menu_bg'
+      /> */}
     </>
   );
 }
