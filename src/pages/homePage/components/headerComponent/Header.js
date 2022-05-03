@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import {
+  NavLink, Link, useNavigate, useParams,
+} from 'react-router-dom';
 import {
   Popover,
   PopoverTrigger,
@@ -32,7 +34,7 @@ import { USER_DATA } from '../../../../constants';
 
 const Header = ({ label }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const navLinks = [
     { name: 'Comics', path: 'comics' },
@@ -76,7 +78,7 @@ const Header = ({ label }) => {
                 && navLinks.map(({ name, path }) => (
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
-                      to={ path }
+                      to={ `/home/${ path }` }
                       className={ styles.navLink }
                       activeClassName={ styles.active }
                     >
@@ -108,7 +110,7 @@ const Header = ({ label }) => {
                         <List gap='10' p='4'>
                           <Link
                             as='button'
-                            to=''
+                            to='/dashboard'
                             className={ styles.navLink }
                             activeClassName={ styles.active }
                             onClick={ () => {} }

@@ -54,7 +54,7 @@ const Sidebar = () => {
           <h1 className='title margin-b padding-l'>
             Hi,
             {' '}
-            {data && data.username}
+            { data && data.username.slice(0, 15) }
           </h1>
           <section className='sidebar__navlinks__container'>
             <div className='sidebar__navlinks'>

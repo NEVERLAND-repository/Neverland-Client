@@ -20,7 +20,6 @@ const Form = ({ label }) => {
 
   const login = async (e) => {
     e.preventDefault();
-    console.log('hereeee')
     const response = await axiosInstance().post('api/v1/auth/login', {
       username, password,
     })
@@ -41,8 +40,15 @@ const Form = ({ label }) => {
       fullName, username, password,
     })
 
-    if (response.data.status === 'success') {
-      navigate('/login')
+    localStorage.setItem(USER_DATA, JSON.stringify(response.data))
+
+    dispatch(addUser({
+      token: response.data.token,
+      data: response.data.data,
+    }))
+
+    if (response.data.token) {
+      navigate('/home')
     }
   };
 
@@ -58,7 +64,7 @@ const Form = ({ label }) => {
       <div className={ styles.passwordInput }>
         <InputField
           labelName='Password'
-          type={ active ? 'password' : 'text' }
+          type={ !active ? 'password' : 'text' }
           placeholder='8 characters'
           callback={ setPassword }
         />
@@ -104,7 +110,7 @@ const Form = ({ label }) => {
       <div className={ styles.passwordInput }>
         <InputField
           labelName='Password'
-          type={ active ? 'password' : 'text' }
+          type={ !active ? 'password' : 'text' }
           placeholder='8 characters'
           callback={ setPassword }
         />

@@ -1,22 +1,29 @@
+import { CloseIcon, SearchIcon } from '@chakra-ui/icons';
 import React, { useState } from 'react';
-import { SearchIcon, CloseIcon } from '@chakra-ui/icons';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import getAxiosInstance from '../../services/axios';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './SearchBar.module.css';
 
-const SearchBar = ({ placeholder, data }) => {
+const SearchBar = ({ placeholder }) => {
+  const token = useSelector(getUserData)?.token;
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
 
-  const handleFilter = (event) => {
+  const handleFilter = async (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
+
+    const response = await getAxiosInstance(token).get(
+      `api/v1/home/search?searchQuery=${ searchWord?.toLowerCase() || '' }`,
+    )
+    console.log(response.data.data)
 
     if (searchWord === '') {
       setFilteredData([]);
     } else {
-      setFilteredData(newFilter);
+      setFilteredData(response.data.data);
     }
   };
 
@@ -44,17 +51,17 @@ const SearchBar = ({ placeholder, data }) => {
       </div>
       {filteredData.length !== 0 && (
         <div className={ styles.dataResult }>
-          {filteredData.slice(0, 15).map((value, key) => {
+          {filteredData.map((value, key) => {
             return (
               <div key={ key } className={ styles.dataResultItem }>
-                <img src={ value.imageLink } alt={ value.title } />
+                <img src={ value.bookImg } alt={ value.title } />
                 <div className={ styles.dataResultItemText }>
                   <h3>
-                    <a className={ styles.dataItem } href={ value.link } target='_blank' rel='noreferrer'>
-                      { value.title }
+                    <Link className={ styles.dataItem } to={ `/overview/${ value._id }` } target='_blank' rel='noreferrer'>
+                      {value.name }
                       {' '}
                       &rarr;
-                    </a>
+                    </Link>
                   </h3>
                   <p>{ value.author }</p>
                 </div>

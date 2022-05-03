@@ -17,9 +17,7 @@ const Dashboard = () => {
       dispatch(reset());
     };
   }, [dispatch])
-  // if (!token ) {
-  //   navigate('/home')
-  // }
+
   return (
     <Sidebar />
   )

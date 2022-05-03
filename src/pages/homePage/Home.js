@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Footer from './components/footerSection/Footer';
 import Header from './components/headerComponent/Header';
@@ -11,13 +11,19 @@ import getAxiosInstance from '../../services/axios';
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 
 const Home = () => {
-  const { token } = useSelector(getUserData);
+  const token = useSelector(getUserData)?.token;
   const [loaded, setLoaded] = useState(false)
   const dispatch = useDispatch()
   const category = useParams()?.category;
+  const navigate = useNavigate();
+
+  const homeRoutes = ['comics', 'manga', 'novels', undefined]
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    if (!homeRoutes.includes(category)) {
+      navigate('/pagenotfound')
+    }
   }, [])
 
   useEffect(() => {

@@ -42,8 +42,8 @@ const Profile = () => {
   }, [userData, isError, isSuccess, message, dispatch]);
 
   const handleChange = (e) => {
-    const { name } = e.target;
-    const { value } = e.target;
+    const { name, value } = e.target;
+    // const { value } = e.target;
     setPerson({ ...person, [name]: value });
   };
 
