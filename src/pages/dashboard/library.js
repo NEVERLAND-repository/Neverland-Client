@@ -11,19 +11,19 @@ import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const Library = () => {
   const token = useSelector(getUserData)?.token;
-  const bookId = useParams()?.bookId;
   const [library, setLibrary] = useState(null)
 
   const getLibrary = async () => {
     console.log('Hellllo')
-    const response = await getAxiosInstance(token).post(
-      `api/v1/user/library/?bookId=${ bookId }`,
+    const response = await getAxiosInstance(token).get(
+      'api/v1/user/library',
     )
 
     if (response.data.status === 'success') {
       setLibrary(response.data.data);
     }
   }
+  console.log(library);
 
   useEffect(() => {
     window.scrollTo(0, 0);
