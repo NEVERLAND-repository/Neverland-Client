@@ -62,106 +62,92 @@ const Header = ({ label }) => {
   }
 
   const icon = isMenuOpen ? close : burger;
-
-  // ${ isNavBar ? styles.navBarHeader : ''}
-
+  
   return (
     <>
-      <header
-        className={styles.header}
-        style={{
-          height: '8rem',
-          display: 'flex',
-          justifyContent: 'center',
-          position: 'sticky',
-          top: '0%',
-          backgroundColor: '#FFF',
-          zIndex: '1000',
-          boxShadow: '0px 2px 2px 0 rgba(0,0, 0, 0.2)',
-        }}
-      >
+      <header className={ styles.header }>
         <NavContainer>
-          <nav className={styles.navbar}>
-            <Link to="/" className={styles.logo}>
-              <img src={navLogo} alt="NeverLand-orange-color-logo" />
+          <nav className={ styles.navbar }>
+            <Link to='/' className={ styles.logo }>
+              <img src={ navLogo } alt='NeverLand-orange-color-logo' />
             </Link>
-            <ul className={styles.navbarList}>
-              {label &&
-                navLinks.map(({ name, path }) => (
-                  <li key={name} className={styles.navbarItem}>
+            <ul className={ styles.navbarList }>
+              {label
+                && navLinks.map(({ name, path }) => (
+                  <li key={ name } className={ styles.navbarItem }>
                     <NavLink
-                      to={path}
-                      className={styles.navLink}
-                      activeClassName={styles.active}
+                      to={ path }
+                      className={ styles.navLink }
+                      activeClassName={ styles.active }
                     >
                       {name}
                     </NavLink>
                   </li>
                 ))}
             </ul>
-            <div className={styles.navBtn}>
+            <div className={ styles.navBtn }>
               {isAuth ? (
-                <Popover arrowSize="16" zIndex="10000" placement="bottom-end">
+                <Popover arrowSize='16' zIndex='10000' placement='bottom-end'>
                   <PopoverTrigger>
                     <Wrap>
                       <WrapItem>
-                        <Avatar size="lg" name="User" src={profile} />
+                        <Avatar size='lg' name='User' src={ profile } />
                       </WrapItem>
                     </Wrap>
                   </PopoverTrigger>
-                  <Portal zIndex="10000">
+                  <Portal zIndex='10000'>
                     <PopoverContent
-                      fontSize="1.6rem"
-                      marginTop="2.8rem"
-                      border="none"
-                      outline="0"
+                      fontSize='1.6rem'
+                      marginTop='2.8rem'
+                      border='none'
+                      outline='0'
                     >
                       <PopoverArrow />
-                      <PopoverCloseButton p={10} />
-                      <PopoverBody border="none" padding={10}>
-                        <List gap="10" p="4">
+                      <PopoverCloseButton p={ 10 } />
+                      <PopoverBody border='none' padding={ 10 }>
+                        <List gap='10' p='4'>
                           <Link
-                            as="button"
-                            to=""
-                            className={styles.navLink}
-                            activeClassName={styles.active}
-                            onClick={() => {}}
+                            as='button'
+                            to=''
+                            className={ styles.navLink }
+                            activeClassName={ styles.active }
+                            onClick={ () => {} }
                           >
                             <ListItem
-                              padding="2"
-                              fontSize="20px"
-                              marginTop="20px"
-                              _hover={{ cursor: 'pointer' }}
+                              padding='2'
+                              fontSize='20px'
+                              marginTop='20px'
+                              _hover={ { cursor: 'pointer' } }
                             >
                               <Image
-                                src={lib}
-                                alt="library"
-                                width="1.2rem"
-                                display="inline"
-                                marginRight="1rem"
+                                src={ lib }
+                                alt='library'
+                                width='1.2rem'
+                                display='inline'
+                                marginRight='1rem'
                               />
                               My Library
                             </ListItem>
                           </Link>
                           <Link
-                            as="button"
-                            to=""
-                            className={styles.navLink}
-                            activeClassName={styles.active}
-                            onClick={() => {}}
+                            as='button'
+                            to=''
+                            className={ styles.navLink }
+                            activeClassName={ styles.active }
+                            onClick={ () => {} }
                           >
                             <ListItem
-                              onClick={signout}
-                              padding="2"
-                              fontSize="20px"
-                              _hover={{ cursor: 'pointer', bg: 'white' }}
+                              onClick={ signout }
+                              padding='2'
+                              fontSize='20px'
+                              _hover={ { cursor: 'pointer', bg: 'white' } }
                             >
                               <Image
-                                src={logout}
-                                alt="logout"
-                                width="1.2rem"
-                                display="inline"
-                                marginRight="1rem"
+                                src={ logout }
+                                alt='logout'
+                                width='1.2rem'
+                                display='inline'
+                                marginRight='1rem'
                               />
                               Logout
                             </ListItem>
@@ -172,30 +158,30 @@ const Header = ({ label }) => {
                   </Portal>
                 </Popover>
               ) : (
-                <SecondaryButton label="Get Started" navigation="/login" />
+                <SecondaryButton label='Get Started' navigation='/login' />
               )}
             </div>
           </nav>
-          <div className={styles.burger} onClick={toggleMenu}>
-            <img src={icon} alt="menu" />
+          <div className={ styles.burger } onClick={ toggleMenu }>
+            <img src={ icon } alt='menu' />
           </div>
         </NavContainer>
         {isMenuOpen && (
           <span
-            className={styles.menu_bg}
-            onClick={toggleMenu}
-            onKeyDown={toggleMenu}
-            role="button"
+            className={ styles.menu_bg }
+            onClick={ toggleMenu }
+            onKeyDown={ toggleMenu }
+            role='button'
           >
-            <span className={styles.menu}>
-              <div className={styles.menu_body}>
-                <ul className={styles.menu_list}>
+            <span className={ styles.menu }>
+              <div className={ styles.menu_body }>
+                <ul className={ styles.menu_list }>
                   {navLinks.map(({ name, path }) => (
-                    <li key={name} className={styles.menu_item}>
+                    <li key={ name } className={ styles.menu_item }>
                       <NavLink
-                        to={path}
-                        className={styles.menu_link}
-                        activeClassName={styles.active}
+                        to={ path }
+                        className={ styles.menu_link }
+                        activeClassName={ styles.active }
                       >
                         {name}
                       </NavLink>
@@ -204,14 +190,14 @@ const Header = ({ label }) => {
                 </ul>
               </div>
               <div
-                className={styles.menu_footer}
-                onClick={toggleMenu}
-                onKeyDown={toggleMenu}
-                role="get_started_button"
+                className={ styles.menu_footer }
+                onClick={ toggleMenu }
+                onKeyDown={ toggleMenu }
+                role='get_started_button'
               >
-                <div className={styles.navBtn}>
-                  <button className={styles.navBtnLink}>
-                    <Link to="/signup">Get Started</Link>
+                <div className={ styles.navBtn }>
+                  <button className={ styles.navBtnLink }>
+                    <Link to='/signup'>Get Started</Link>
                   </button>
                 </div>
               </div>
