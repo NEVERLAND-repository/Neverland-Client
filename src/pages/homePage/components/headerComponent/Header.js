@@ -86,7 +86,7 @@ const Header = ({ label }) => {
                 && navLinks.map(({ name, path }) => (
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
-                      to={ `home/${ path }` }
+                      to={ `/home/${ path }` }
                       className={ styles.navLink }
                       activeClassName={ styles.active }
                     >
@@ -118,7 +118,7 @@ const Header = ({ label }) => {
                         <List gap='10' p='4'>
                           <Link
                             as='button'
-                            to=''
+                            to='/dashboard'
                             className={ styles.navLink }
                             activeClassName={ styles.active }
                             onClick={ () => {} }

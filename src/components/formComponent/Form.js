@@ -40,8 +40,15 @@ const Form = ({ label }) => {
       fullName, username, password,
     })
 
-    if (response.data.status === 'success') {
-      navigate('/login')
+    localStorage.setItem(USER_DATA, JSON.stringify(response.data))
+
+    dispatch(addUser({
+      token: response.data.token,
+      data: response.data.data,
+    }))
+
+    if (response.data.token) {
+      navigate('/home')
     }
   };
 

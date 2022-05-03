@@ -15,7 +15,7 @@ const Hero = () => {
 
   return (
     <section className={ styles.heroSection }>
-      <SearchBar placeholder='Search for books' data={ BookData } />
+      <SearchBar placeholder='Search for books' />
       {trendingBooks?.length !== 0 && (
       <Carousel renderDots={ null } interval={ 5000 } className={ styles.carousel }>
         {trendingBooks?.map((book) => (
