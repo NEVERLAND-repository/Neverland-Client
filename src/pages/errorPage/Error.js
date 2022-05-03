@@ -17,7 +17,7 @@ const Error = () => {
           <h3 className={ styles.containerText }> page not found </h3>
         </div>
 
-        <h3 className={ styles.bottomText }> Loooks like you fell into a rabbit hole </h3>
+        <h3 className={ styles.errorBottomText }> Loooks like you fell into a rabbit hole </h3>
       </section>
 
       <Footer />
