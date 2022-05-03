@@ -205,16 +205,6 @@ const Header = ({ label }) => {
           </span>
         )}
       </header>
-      {/* <span
-        className={ styles.menu_bg }
-        onClick={ () => {
-          setIsMenuOpen(false);
-        } }
-        onKeyDown={ () => {
-          setIsMenuOpen(false);
-        } }
-        role='menu_bg'
-      /> */}
     </>
   );
 }
