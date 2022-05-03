@@ -63,11 +63,12 @@ const Header = ({ label }) => {
     navigate('/home')
   }
 
+  const [isScrolling, setIsScrolling] = useState(false)
   const icon = isMenuOpen ? close : burger;
 
   return (
     <>
-      <header className={ styles.header }>
+      <header className={ styles.headers }>
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/' className={ styles.logo }>
