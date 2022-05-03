@@ -43,15 +43,7 @@ const Header = ({ label }) => {
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const isAuth = useSelector(getUserData)?.token
-
-  // document.addEventListener('scroll', (e) => {
-  //   if (window.scrollY > 1) {
-  //     document.getElementById('header').style.position = 'fixed';
-  //   } else {
-  //     document.getElementById('header').style.position = 'relative';
-  //   }
-  // })
+  const isAuth = useSelector(getUserData)?.token;
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen, () => {
@@ -75,7 +67,7 @@ const Header = ({ label }) => {
 
   return (
     <>
-      <header className={ styles.header } id='header'>
+      <header className={ styles.header }>
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/' className={ styles.logo }>
@@ -146,8 +138,19 @@ const Header = ({ label }) => {
                             activeClassName={ styles.active }
                             onClick={ () => {} }
                           >
-                            <ListItem onClick={ signout } padding='2' fontSize='20px' _hover={ { cursor: 'pointer', bg: 'white' } }>
-                              <Image src={ logout } alt='logout' width='1.2rem' display='inline' marginRight='1rem' />
+                            <ListItem
+                              onClick={ signout }
+                              padding='2'
+                              fontSize='20px'
+                              _hover={ { cursor: 'pointer', bg: 'white' } }
+                            >
+                              <Image
+                                src={ logout }
+                                alt='logout'
+                                width='1.2rem'
+                                display='inline'
+                                marginRight='1rem'
+                              />
                               Logout
                             </ListItem>
                           </Link>
@@ -173,33 +176,31 @@ const Header = ({ label }) => {
             role='button'
           >
             <span className={ styles.menu }>
-              <div className={ styles.menu_container }>
-                <div className={ styles.menu_body }>
-                  <ul className={ styles.menu_list }>
-                    {navLinks.map(({ name, path }) => (
-                      <li key={ name } className={ styles.menu_item }>
-                        <NavLink
-                          to={ path }
-                          className={ styles.menu_link }
-                          activeClassName={ styles.active }
-                        >
-                          {name}
-                        </NavLink>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div
-                  className={ styles.menu_footer }
-                  onClick={ toggleMenu }
-                  onKeyDown={ toggleMenu }
-                  role='get_started_button'
-                >
-                  <div className={ styles.navBtn }>
-                    <button className={ styles.navBtnLink }>
-                      <Link to='/signup'>Get Started</Link>
-                    </button>
-                  </div>
+              <div className={ styles.menu_body }>
+                <ul className={ styles.menu_list }>
+                  {navLinks.map(({ name, path }) => (
+                    <li key={ name } className={ styles.menu_item }>
+                      <NavLink
+                        to={ path }
+                        className={ styles.menu_link }
+                        activeClassName={ styles.active }
+                      >
+                        {name}
+                      </NavLink>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div
+                className={ styles.menu_footer }
+                onClick={ toggleMenu }
+                onKeyDown={ toggleMenu }
+                role='get_started_button'
+              >
+                <div className={ styles.navBtn }>
+                  <button className={ styles.navBtnLink }>
+                    <Link to='/signup'>Get Started</Link>
+                  </button>
                 </div>
               </div>
             </span>

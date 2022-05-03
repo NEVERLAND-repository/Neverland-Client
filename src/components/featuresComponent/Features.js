@@ -28,7 +28,7 @@ const Features = (props) => {
         <div className={ styles.cardContainer }>
           <FeaturesCard
             headerText='Read novels, comics and manga'
-            descriptionText=' A brief description of the feature in the page'
+            descriptionText='Read your favourite types of books.'
           >
             <div className={ styles.iconContainer }>
               <img src={ closedBookIcon } alt='open-book-icon' />
@@ -37,7 +37,7 @@ const Features = (props) => {
 
           <FeaturesCard
             headerText='Listen to music as you read'
-            descriptionText=' A brief description of the feature in the page'
+            descriptionText='Listen to soothing music while you read.'
           >
             <div className={ styles.iconContainer }>
               <img src={ musicIcon } alt='open-book-icon' />
@@ -46,7 +46,7 @@ const Features = (props) => {
 
           <FeaturesCard
             headerText='Have your own personalised collection'
-            descriptionText=' A brief description of the feature in the page'
+            descriptionText='Organise your books for easy access'
           >
             <div className={ styles.iconContainer }>
               <img src={ openBookIcon } alt='open-book-icon' />

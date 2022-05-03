@@ -50,7 +50,7 @@ export const Books = ({ category = 'comics' }) => {
     <Stack
       spacing={ 16 }
       width='100%'
-      marginBottom={ 4 }
+      marginBottom={ 0 }
       alignItems={ isLesserThan740 ? 'center' : 'start' }
     >
       <Heading
@@ -59,13 +59,18 @@ export const Books = ({ category = 'comics' }) => {
         borderBottom='5px solid'
         borderColor='var(--secondary-color)'
         paddingBottom='.5rem'
+        marginBottom='2rem'
       >
         {category[0].toUpperCase() + category.slice(1)}
       </Heading>
-      <Flex flexDirection='column' width='100%' gap='7rem'>
+      <Flex
+        flexDirection='column'
+        width='100%'
+        gap={ isLesserThan740 ? '4rem' : '7rem' }
+      >
         {firstDiv && (
           <Flex
-            gap='10rem'
+            gap={ isLesserThan740 ? '4rem' : '10rem' }
             flexDirection={ isLesserThan740 ? 'column' : 'row' }
             width='100%'
             alignItems={ isLesserThan740 ? 'center' : 'space-between' }
@@ -78,7 +83,7 @@ export const Books = ({ category = 'comics' }) => {
         )}
         {secondDiv && (
           <Flex
-            gap='10rem'
+            gap={ isLesserThan740 ? '4rem' : '10rem' }
             flexDirection={ isLesserThan740 ? 'column' : 'row' }
             width='100%'
             alignItems={ isLesserThan740 ? 'center' : 'space-between' }
