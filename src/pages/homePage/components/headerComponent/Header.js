@@ -63,6 +63,7 @@ const Header = ({ label }) => {
     navigate('/home')
   }
 
+  const [isScrolling, setIsScrolling] = useState(false)
   const icon = isMenuOpen ? close : burger;
 
   return (
