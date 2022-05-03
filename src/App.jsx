@@ -7,7 +7,7 @@ import {
   Outlet,
 } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { ToastContainer } from 'react-toastify';
+// import { ToastContainer } from 'react-toastify';
 import LandingPage from './pages/landingPage/LandingPage';
 import SignUp from './pages/authPages/SignUp';
 import LogIn from './pages/authPages/LogIn';
@@ -54,7 +54,7 @@ const App = () => {
           <Route path='dashboard' element={ <Dashboard /> } />
         </Routes>
       </Router>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 };

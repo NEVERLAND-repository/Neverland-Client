@@ -10,17 +10,6 @@
     box-shadow: 0px 2px 2px 0 rgba(0,0, 0, 0.2);
     z-index: 1000;
 }
-/* .header.navBarHeader{
-    height: 8rem;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    position: sticky;
-    box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.2);
-    top: 0%;
-    box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.2);
-    z-index: 100000;
-} */
 
 .header a:hover,
 .header a:active,
