@@ -62,7 +62,7 @@ const Header = ({ label }) => {
   }
 
   const icon = isMenuOpen ? close : burger;
-  
+
   return (
     <>
       <header className={ styles.header }>
