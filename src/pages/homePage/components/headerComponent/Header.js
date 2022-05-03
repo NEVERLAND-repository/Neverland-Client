@@ -41,7 +41,6 @@ const Header = ({ label }) => {
   ];
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [isNavBar, setIsNavBar] = useState(true);
   const isAuth = useSelector(getUserData)?.token;
 
   const toggleMenu = () => {
