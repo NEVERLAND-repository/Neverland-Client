@@ -1,5 +1,6 @@
 .container {
     width: 90%;
+    height: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
