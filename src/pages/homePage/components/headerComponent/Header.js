@@ -68,7 +68,7 @@ const Header = ({ label }) => {
 
   return (
     <>
-      <header className={ styles.header }>
+      <header className={ styles.headers }>
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/' className={ styles.logo }>
