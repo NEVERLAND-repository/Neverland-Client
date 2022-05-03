@@ -1,9 +1,11 @@
 .container {
     width: 90%;
+    height: inherit;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: auto;
+    padding: 3rem 0;
 }
 
 @media screen and (max-width: 768px) {
