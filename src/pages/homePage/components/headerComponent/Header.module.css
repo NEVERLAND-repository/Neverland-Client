@@ -96,6 +96,8 @@
         top: 0;
         align-items: center;
         height: 7rem;
+        background-color: #fff;
+        z-index: 20000;
     }
     .logo{
         width: 7rem;
