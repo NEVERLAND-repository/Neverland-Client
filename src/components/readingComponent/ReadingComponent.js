@@ -11,7 +11,6 @@ import styles from './ReadingComponent.module.css'
 
 const ReadingComponent = () => {
   const token = useSelector(getUserData)?.token;
-  // const book = useSelector(getBook);
   const [book, setBook] = useState(null)
   const [numPage, setNumPages] = useState(book?.pageTotal);
   const [pageNumber, setPageNumber] = useState(1);
@@ -41,18 +40,32 @@ const ReadingComponent = () => {
     )
 
     if (response.data.status === 'success') {
-      console.log(response.data);
       setBook(response.data.data);
+      console.log(response.data.data)
+      setNumPages(response.data.data.pageTotal)
     }
+  }
+
+  // response.data.data.pageNo
+  const savePage = async () => {
+    // const response = await getAxiosInstance(token).put(
+    //   `api/v1/book/read/${ bookId }`,
+    //   {},
+    // )
+
+    // if (response.data.status === 'success') {
+    //   setBook(response.data.data);
+    //   console.log(response.data.data)
+    //   setNumPages(response.data.data.pageTotal)
+    // }
   }
 
   useEffect(() => {
     fetchBookPdf()
-    // return () => {
-
-    // }
+    return () => {
+      savePage()
+    }
   }, [])
-  console.log(book)
 
   const renderPDF = (
     <div className={ styles.wrapper }>
@@ -88,7 +101,7 @@ const ReadingComponent = () => {
     </div>
   )
 
-  return <>{book ? renderPDF() : <LoadingComponent />}</>
+  return <>{book ? renderPDF : <LoadingComponent />}</>
 }
 
 export default ReadingComponent;

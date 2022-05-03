@@ -12,19 +12,23 @@ import LoadingComponent from '../../components/loadingComponent/LoadingComponent
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
+  const [pageNo, setPageNo] = useState(undefined)
   const token = useSelector(getUserData)?.token;
   const bookId = useParams()?.bookId;
-  const dispatch = useDispatch()
 
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
-    console.log(response.data)
+    console.log(response.data.data)
 
     if (response.data.status === 'success') {
-      setBook(response.data.data)
-      // dispatch(addBookData(response.data.data))
+      if (response.data.data?.bookId) {
+        setBook(response.data.data.bookId)
+        setPageNo(response.data.data.pageNo)
+      } else {
+        setBook(response.data.data)
+      }
     }
   }
 
@@ -51,7 +55,7 @@ const OverviewPage = () => {
                 <span className={ styles.spanTags }>
                   <p>{book?.tags?.join(' • ')}</p>
                 </span>
-                <ReadingButton bookId={ bookId } />
+                <ReadingButton bookId={ bookId } pageNo={ pageNo } />
               </div>
             </div>
           </section>
@@ -65,7 +69,7 @@ const OverviewPage = () => {
             </div>
             <div className={ styles.buttonDiv }>
               {' '}
-              <ReadingButton bookId={ bookId } />
+              <ReadingButton bookId={ bookId } pageNo={ pageNo } />
               {' '}
             </div>
           </section>

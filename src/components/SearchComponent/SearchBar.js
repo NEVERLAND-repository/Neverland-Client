@@ -18,7 +18,6 @@ const SearchBar = ({ placeholder }) => {
     const response = await getAxiosInstance(token).get(
       `api/v1/home/search?searchQuery=${ searchWord?.toLowerCase() || '' }`,
     )
-    console.log(response.data.data)
 
     if (searchWord === '') {
       setFilteredData([]);
@@ -57,7 +56,7 @@ const SearchBar = ({ placeholder }) => {
                 <img src={ value.bookImg } alt={ value.title } />
                 <div className={ styles.dataResultItemText }>
                   <h3>
-                    <Link className={ styles.dataItem } to={ `/overview/${ value._id }` } target='_blank' rel='noreferrer'>
+                    <Link className={ styles.dataItem } to={ `/overview/${ value._id }` }>
                       {value.name }
                       {' '}
                       &rarr;
