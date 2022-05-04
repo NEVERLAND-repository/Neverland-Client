@@ -11,11 +11,6 @@
     z-index: 1000;
 }
 
-.header a:hover,
-.header a:active,
-.header a.active {
-    color: var(--primary-color);
-}
 .logo{
     width: 8rem;
 }
@@ -38,7 +33,7 @@
 }
 
 .active {
-    color: var(--primary-color) !important;
+    color: var(--primary-color);
 }
 
 .navbarItem {
@@ -57,7 +52,7 @@
 }
 .navLink:hover{
     text-decoration: none;
-    background-color: #fff !important;
+    background-color: #fff;
     color: var(--primary-color);
 }
 
@@ -66,16 +61,22 @@
     align-items: center;
     margin-right: 1rem;
 }
+.navBtn:hover {
+    color: #fff;
+}
 
-.navBtnLink:disabled {
+.navBtnLink:hover {
     background-color: #F4F5F7;
-    color: #A5ADBA;
+    color: #fff;
     cursor: not-allowed;
     font-size: .8rem;
 }
 
 .navBtnLink a {
-    color: #fff !important;
+    color: #fff;
+}
+.navBtnLink a:hover {
+    color: #fff;
 }
 
 .burger {

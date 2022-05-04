@@ -1,6 +1,10 @@
+.overview {
+  height: 100vh;
+}
+
 .upperDiv{
   background-color: #e5e5e5;
-  height: fit-content;
+  /* height: fit-content; */
   display: flex;
   justify-content: center;
   padding: 5.8rem 0;
@@ -20,7 +24,7 @@
   border-radius: 1.6rem;
 }
 .textDiv{
-  height: fit-content;
+  /* height: fit-content; */
   align-self: center;
   justify-content: flex-start;
 }

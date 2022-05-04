@@ -70,7 +70,7 @@ const Header = ({ label }) => {
       <header className={ styles.header }>
         <NavContainer>
           <nav className={ styles.navbar }>
-            <Link to='/' className={ styles.logo }>
+            <Link to='/home' className={ styles.logo }>
               <img src={ navLogo } alt='NeverLand-orange-color-logo' />
             </Link>
             <ul className={ styles.navbarList }>
@@ -198,9 +198,9 @@ const Header = ({ label }) => {
                 role='get_started_button'
               >
                 <div className={ styles.navBtn }>
-                  <button className={ styles.navBtnLink }>
-                    <Link to='/signup'>Get Started</Link>
-                  </button>
+                  <div className={ styles.navBtnLink }>
+                    <SecondaryButton label='Get Started' navigation='/signup' />
+                  </div>
                 </div>
               </div>
             </span>

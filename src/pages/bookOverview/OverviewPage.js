@@ -37,7 +37,7 @@ const OverviewPage = () => {
   }, [])
 
   return (
-    <div>
+    <div className={ styles.overview }>
       <Header label='overviewPage' />
       {book ? (
         <>

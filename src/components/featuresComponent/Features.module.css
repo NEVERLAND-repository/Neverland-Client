@@ -41,6 +41,7 @@
 }
 .cardContainer{
   display: flex;
+  justify-content: center;
   gap: 6.2rem;
   padding: 0 7rem;
   width: 100%;

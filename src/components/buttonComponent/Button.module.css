@@ -17,6 +17,9 @@
 .buttonCTA:hover {
   background: var(--button-hover-color);
 }
+.buttonCTA a:hover {
+  background: green;
+}
 .readingButton{
   width: fit-content;
   display: flex;

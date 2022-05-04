@@ -64,7 +64,7 @@ export default App;
 
 const Layout = () => {
   return (
-    <main>
+    <main className='app'>
       <Outlet />
     </main>
   );
