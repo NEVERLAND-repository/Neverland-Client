@@ -8,10 +8,6 @@
     display: flex;
     color: #fff;
  }
-/*.carousel{
-    display: none;
-    border: 2px solid green;
-} */
 .heroSection {
     display: flex;
     flex-direction: column;

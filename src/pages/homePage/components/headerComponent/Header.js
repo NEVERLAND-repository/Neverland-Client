@@ -19,7 +19,6 @@ import {
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import lib from '../../../../assets/icons/book.svg';
-import pro from '../../../../assets/icons/pro-icon.svg';
 import logout from '../../../../assets/icons/log-out.svg';
 import burger from '../../../../assets/icons/burger.svg';
 import close from '../../../../assets/icons/cross.svg';
@@ -62,17 +61,17 @@ const Header = ({ label }) => {
     dispatch(deleteUser())
     navigate('/home')
   }
-
+  
   const [isScrolling, setIsScrolling] = useState(false)
   const icon = isMenuOpen ? close : burger;
 
   return (
     <>
-      <header className={ styles.headers }>
+      <header className={ styles.header }>
         <NavContainer>
           <nav className={ styles.navbar }>
-            <Link to='/' className={ styles.logo }>
-              <img src={ navLogo } alt='NeverLand-orange-color-logo' />
+            <Link to='/home' className={ styles.logo }>
+              <img src={ navLogo } alt='NeverLand-orange-color-logo' className={ styles.imgLogo } />
             </Link>
             <ul className={ styles.navbarList }>
               {label
@@ -90,7 +89,7 @@ const Header = ({ label }) => {
             </ul>
             <div className={ styles.navBtn }>
               {isAuth ? (
-                <Popover arrowSize='16' zIndex='10000' placement='bottom-end'>
+                <Popover arrowSize='0' zIndex='10000' placement='bottom-end' marginTop='0' border='red'>
                   <PopoverTrigger>
                     <Wrap>
                       <WrapItem>

@@ -31,8 +31,8 @@ const HeroBanner = () => {
 
       <nav className={ `${ styles.nav } ${ isActve ? styles.scroll : '' }` }>
         <div className={ styles.navLogo }>
-          <Link to='/home'>
-            <img src={ navLogo } alt='NeverLand-white-color-logo' />
+          <Link to='/'>
+            <img src={ navLogo } alt='NeverLand-white-color-logo' className={ styles.imageLogo } />
           </Link>
         </div>
       </nav>

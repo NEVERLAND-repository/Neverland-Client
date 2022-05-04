@@ -88,6 +88,7 @@ export const Books = ({ category = 'comics' }) => {
             width='100%'
             alignItems={ isLesserThan740 ? 'center' : 'space-between' }
             justifyContent='center'
+            paddingBottom='3rem'
           >
             {secondDiv?.map((book) => {
               return book;

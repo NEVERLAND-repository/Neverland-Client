@@ -16,6 +16,7 @@
 .primary__button:hover,
 .buttonCTA:hover {
   background: var(--button-hover-color);
+  color: #fff;
 }
 .readingButton{
   width: fit-content;
