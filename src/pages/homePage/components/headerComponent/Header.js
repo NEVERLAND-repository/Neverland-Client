@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import {
-  NavLink, Link, useNavigate, useParams,
+  NavLink,
+  Link,
+  useNavigate,
+  useParams,
+  useLocation,
 } from 'react-router-dom';
 import {
   Popover,
@@ -27,13 +31,18 @@ import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
-import { deleteUser, getUserData } from '../../../../store/slice/neverlandUserSlice';
+import {
+  deleteUser,
+  getUserData,
+} from '../../../../store/slice/neverlandUserSlice';
 import { USER_DATA } from '../../../../constants';
 // import { signout } from '../../../../services/utils';
 
 const Header = ({ label }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const activePath = pathname.split('/')[2];
 
   const navLinks = [
     { name: 'Comics', path: 'comics' },
@@ -58,11 +67,10 @@ const Header = ({ label }) => {
 
   const signout = () => {
     localStorage.removeItem(USER_DATA);
-    dispatch(deleteUser())
-    navigate('/home')
-  }
-  
-  const [isScrolling, setIsScrolling] = useState(false)
+    dispatch(deleteUser());
+    navigate('/home');
+  };
+
   const icon = isMenuOpen ? close : burger;
 
   return (
@@ -71,7 +79,11 @@ const Header = ({ label }) => {
         <NavContainer>
           <nav className={ styles.navbar }>
             <Link to='/home' className={ styles.logo }>
-              <img src={ navLogo } alt='NeverLand-orange-color-logo' className={ styles.imgLogo } />
+              <img
+                src={ navLogo }
+                alt='NeverLand-orange-color-logo'
+                className={ styles.imgLogo }
+              />
             </Link>
             <ul className={ styles.navbarList }>
               {label
@@ -79,8 +91,9 @@ const Header = ({ label }) => {
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
                       to={ `/home/${ path }` }
-                      className={ styles.navLink }
-                      activeClassName={ styles.active }
+                      className={ `${ styles.navLink } ${
+                        path === activePath ? styles.active : ''
+                      }` }
                     >
                       {name}
                     </NavLink>
@@ -89,7 +102,13 @@ const Header = ({ label }) => {
             </ul>
             <div className={ styles.navBtn }>
               {isAuth ? (
-                <Popover arrowSize='0' zIndex='10000' placement='bottom-end' marginTop='0' border='red'>
+                <Popover
+                  arrowSize='0'
+                  zIndex='10000'
+                  placement='bottom-end'
+                  marginTop='0'
+                  border='red'
+                >
                   <PopoverTrigger>
                     <Wrap>
                       <WrapItem>
@@ -198,9 +217,7 @@ const Header = ({ label }) => {
                 role='get_started_button'
               >
                 <div className={ styles.navBtn }>
-                  <button className={ styles.navBtnLink }>
-                    <Link to='/signup'>Get Started</Link>
-                  </button>
+                  <SecondaryButton label='Get Started' navigation='/signup' />
                 </div>
               </div>
             </span>
@@ -209,6 +226,6 @@ const Header = ({ label }) => {
       </header>
     </>
   );
-}
+};
 
 export default Header;
