@@ -61,7 +61,7 @@ const Header = ({ label }) => {
     dispatch(deleteUser())
     navigate('/home')
   }
-  
+
   const [isScrolling, setIsScrolling] = useState(false)
   const icon = isMenuOpen ? close : burger;
 
