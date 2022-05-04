@@ -11,7 +11,7 @@
   display: flex;
   width: 30%;
   height: 30%;
-  animation: rotation 2s 3s infinite;
+  animation: rotation 1s 0.5s infinite;
 }
 
 @keyframes rotation {
