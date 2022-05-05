@@ -61,8 +61,9 @@ const Library = () => {
             <Tab.Panels>
               <Tab.Panel className='read-books'>
                 {
-                  keepReading && keepReading.map((book) => (
+                  yetToRead && yetToRead.map((book) => (
                     <BookCard
+                      library
                       id={ book.bookId._id }
                       imageUrl={ book.bookId.bookImg }
                       title={ book.bookId.name }
@@ -76,8 +77,9 @@ const Library = () => {
               </Tab.Panel>
               <Tab.Panel className='read-books'>
                 {
-                  yetToRead && yetToRead.map((book) => (
+                  keepReading && keepReading.map((book) => (
                     <BookCard
+                      library
                       id={ book.bookId._id }
                       imageUrl={ book.bookId.bookImg }
                       title={ book.bookId.name }
