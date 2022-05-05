@@ -6,6 +6,8 @@ import {
   fetchAsyncOverview,
   updateUser,
   logout,
+  login,
+  signup,
 } from './aysncThunkActions';
 
 const userData = JSON.parse(localStorage.getItem('UserData'));
@@ -33,13 +35,13 @@ const neverlandUserSlice = createSlice({
         isLoaded: false,
         homePageData: {},
         book: {},
-      }
+      };
     },
-    addHomepageData: (state, {payload}) => {
-      return { ...state, homePageData: payload }
+    addHomepageData: (state, { payload }) => {
+      return { ...state, homePageData: payload };
     },
-    addBookData: (state, {payload}) => {
-      return { ...state, book: payload }
+    addBookData: (state, { payload }) => {
+      return { ...state, book: payload };
     },
     reset: (state) => {
       state.isLoading = false;
@@ -51,13 +53,13 @@ const neverlandUserSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAsyncHome.pending, (state, { payload }) => {
-        state.isLoaded = false;
+        state.isLoaded = true;
       })
       .addCase(fetchAsyncHome.fulfilled, (state, { payload }) => {
         return {
           ...state,
           homePageData: payload,
-          isLoaded: true,
+          isLoaded: false,
         };
       })
       .addCase(fetchAsyncHome.rejected, (state, { payload }) => {
@@ -68,20 +70,50 @@ const neverlandUserSlice = createSlice({
       })
       .addCase(fetchAsyncOverview.fulfilled, (state, { payload }) => {})
       .addCase(fetchAsyncLogout.fulfilled, (state, { payload }) => {
-        state.userData = null
+        state.userData = null;
       })
       .addCase(fetchAsyncLogin.fulfilled, (state, { payload }) => {
         return { ...state, userData: payload };
       })
-      .addCase(updateUser.pending, (state, {payload}) => {
+      .addCase(signup.pending, (state) => {
         state.isLoaded = true;
       })
-      .addCase(updateUser.fulfilled, (state, {payload}) => {
-        state.userData = {...state.userData, payload}
+      .addCase(signup.fulfilled, (state, action) => {
+        state.isLoaded = false;
+        state.isSuccess = true;
+        state.userData = action.payload;
+        state.message = action.payload.message
+      })
+      .addCase(signup.rejected, (state, action) => {
+        state.isLoaded = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.userData = {};
+      })
+      .addCase(login.pending, (state) => {
+        state.isLoaded = true;
+      })
+      .addCase(login.fulfilled, (state, action) => {
+        state.isLoaded = false;
+        state.isSuccess = true;
+        state.userData = action.payload;
+        state.message = action.payload.message
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.isLoaded = false;
+        state.isError = true;
+        state.message = action.payload;
+        state.userData = {};
+      })
+      .addCase(updateUser.pending, (state, { payload }) => {
+        state.isLoaded = true;
+      })
+      .addCase(updateUser.fulfilled, (state, { payload }) => {
+        state.userData = { ...state.userData, payload };
         state.isLoaded = false;
         state.isSuccess = true;
       })
-      .addCase(updateUser.rejected, (state, {payload}) => {
+      .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.isError = true;
         state.message = payload;
@@ -91,7 +123,7 @@ const neverlandUserSlice = createSlice({
         state.isLoaded = false;
         state.homePageData = {};
         state.book = {};
-      })
+      });
   },
 });
 

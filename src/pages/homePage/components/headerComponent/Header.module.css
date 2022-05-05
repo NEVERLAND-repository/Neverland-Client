@@ -10,12 +10,15 @@
     box-shadow: 0px 2px 2px 0 rgba(0,0, 0, 0.2);
     z-index: 1000;
 }
+
 .logo{
     width: 8rem;
 }
+
 .logo:hover{
     background: none;
 }
+
 .logo .mobile {
     display: block;
 }
@@ -35,7 +38,7 @@
 }
 
 .active {
-    color: var(--primary-color) !important;
+    color: var(--primary-color);
 }
 
 .navbarItem {
@@ -55,7 +58,7 @@
 .navLink:hover,
 .navLink:active{
     text-decoration: none;
-    background-color: #fff !important;
+    background-color: #fff;
     color: var(--primary-color);
 }
 .active{
@@ -67,16 +70,22 @@
     align-items: center;
     margin-right: 1rem;
 }
+.navBtn:hover {
+    color: #fff;
+}
 
-.navBtnLink:disabled {
+.navBtnLink:hover {
     background-color: #F4F5F7;
-    color: #A5ADBA;
+    color: #fff;
     cursor: not-allowed;
     font-size: .8rem;
 }
 
 .navBtnLink a {
-    color: #fff !important;
+    color: #fff;
+}
+.navBtnLink a:hover {
+    color: #fff;
 }
 
 .burger {

@@ -35,9 +35,10 @@ html {
   font-family: "Inter", sans-serif;
 }
 
-body{
+.app {
   min-height: 100vh;
-  max-width: 2160px;
+  max-width: 1840px;
+  margin: 0 auto;
 }
 
 ul {
