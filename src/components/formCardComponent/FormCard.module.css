@@ -52,4 +52,9 @@
   .formTitle{
     font-size: 2.1rem;
   }
+  .loginCard {
+    width: 31.5rem;
+    height: 38.8rem;
+    margin: 0 auto;
+  }
 }
