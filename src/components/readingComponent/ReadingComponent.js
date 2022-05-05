@@ -36,7 +36,7 @@ const ReadingComponent = () => {
 
   const fetchBookPdf = async () => {
     const response = await getAxiosInstance(token).get(
-      `api/v1/book/overview/${ bookId }`,
+      `api/v1/book/overview/${bookId}`,
     )
 
     if (response.data.status === 'success') {
@@ -76,28 +76,28 @@ const ReadingComponent = () => {
   }, [])
 
   const renderPDF = (
-    <div className={ styles.wrapper }>
-      <span className={ styles.navigation1 }>
-        {pageNumber > 1 && <img onClick={ previousPage } className='nav-icon' src={ arrowLeft } alt='Next Page' />}
+    <div className={styles.wrapper}>
+      <span className={styles.navigation1}>
+        {pageNumber > 1 && <img onClick={previousPage} className='nav-icon' src={arrowLeft} alt='Next Page' />}
       </span>
-      <div className={ styles.readingPage }>
-        <div className={ styles.bookTitle }>{book?.name}</div>
-        <div className={ styles.pdfDisplay }>
+      <div className={styles.readingPage}>
+        <div className={styles.bookTitle}>{book?.name}</div>
+        <div className={styles.pdfDisplay}>
           <span>
             <Document
               // file='./../../../public/sample.pdf'
               // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
-              file={ url }
-              onDocumentLoadSuccess={ onDocumentLoadSuccess }
+              file={url}
+              onDocumentLoadSuccess={onDocumentLoadSuccess}
             >
-              <Page pageNumber={ pageNumber } height600px />
+              <Page pageNumber={pageNumber} height600px />
             </Document>
           </span>
         </div>
-        <div className={ styles.pageNo }>{`${ pageNumber } of ${ numPage }`}</div>
+        <div className={styles.pageNo}>{`${pageNumber} of ${numPage}`}</div>
       </div>
-      <span className={ styles.navigation2 }>
-        {pageNumber < numPage && <img onClick={ nextPage } src={ arrowRight } alt='Next Page' />}
+      <span className={styles.navigation2}>
+        {pageNumber < numPage && <img onClick={nextPage} src={arrowRight} alt='Next Page' />}
       </span>
     </div>
   )
