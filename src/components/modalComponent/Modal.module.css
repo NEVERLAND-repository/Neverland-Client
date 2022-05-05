@@ -1,8 +1,8 @@
 .backdrop{
   width: 100%;
-  height: calc(48%);
+  height: calc(93%);
   position: absolute;
-  top: 9rem;
+  top: 8.3rem;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -13,7 +13,7 @@
 }
 .modal{
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 35.4rem;
@@ -35,4 +35,20 @@
 .buttonContainer{
   display: flex;
   gap: 2rem;
+}
+
+
+@media screen and (max-width:540px) {
+  .backdrop {
+    top: 7.2rem;
+    height: calc(93.5%);
+  }
+  .modal {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 35.4rem;
+    height: 22rem;
+  }
 }
