@@ -1,0 +1,7 @@
+.modalContainer{
+  width: 31.4rem;
+  height: 14rem;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+}

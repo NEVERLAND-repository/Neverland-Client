@@ -17,7 +17,7 @@ const Hero = () => {
     <section className={ styles.heroSection }>
       <SearchBar placeholder='Search for books' />
       {trendingBooks?.length !== 0 && (
-      <Carousel renderDots={ null } interval={ 5000 } className={ styles.carousel }>
+      <Carousel interval={ 5000 } className={ styles.carousel }>
         {trendingBooks?.map((book) => (
           <div
             key={ book?._id }

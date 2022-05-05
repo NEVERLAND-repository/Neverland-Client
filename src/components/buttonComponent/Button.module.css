@@ -5,17 +5,36 @@
   text-align: center;
   line-height: 1.16;
   color: #fff;
-  background: var(--primary-color);
-  border: none;
   padding: 1.5rem 3rem;
   border-radius: 1.6rem;
 }
 .buttonCTA {
   display: inline-block;
 }
+.primary__button,
+.buttonCTA.primary {
+  background: var(--primary-color);
+  border: none;
+}
+.buttonCTA.transparent{
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  background-color: transparent;
+}
+.buttonCTA.alert{
+  background-color: var(--alert-color);
+  color: #fff;
+}
+.buttonCTA.alertTransparent{
+  background-color: transparent;
+  border: 1px solid var(--alert-color);
+  color: var(--alert-color);
+}
+
 .primary__button:hover,
-.buttonCTA:hover {
+.buttonCTA.primary:hover {
   background: var(--button-hover-color);
+  color: #fff;
 }
 .buttonCTA a:hover {
   background: green;
@@ -51,6 +70,9 @@
 .readingLink:hover,
 .libraryLink:hover{
   background-color: var(--primary-color);
+}
+.libraryLink{
+  font-weight: 900;
 }
 
 @media screen and (max-width: 540px) {

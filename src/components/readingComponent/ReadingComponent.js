@@ -85,7 +85,7 @@ const ReadingComponent = () => {
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              file='./sample'
+              file='./../../../public/sample.pdf'
               // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
