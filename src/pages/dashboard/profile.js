@@ -142,14 +142,14 @@ const Profile = () => {
               </div>
               <div className='radio__control'>
                 <input
-                  id='none'
+                  id='non-binary'
                   type='radio'
-                  value='none'
+                  value='non-binary'
                   name='gender'
-                  checked={ gender === 'none' }
+                  checked={ gender === 'non-binary' }
                   onChange={ handleChange }
                 />
-                <label htmlFor='none'>None</label>
+                <label htmlFor='non-binary'>Non-binary</label>
               </div>
             </div>
           </div>

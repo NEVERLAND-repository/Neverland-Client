@@ -60,6 +60,7 @@ export const Books = ({ category = 'comics' }) => {
         borderColor='var(--secondary-color)'
         paddingBottom='.5rem'
         marginBottom='2rem'
+        marginTop='3rem'
       >
         {category[0].toUpperCase() + category.slice(1)}
       </Heading>
@@ -67,6 +68,7 @@ export const Books = ({ category = 'comics' }) => {
         flexDirection='column'
         width='100%'
         gap={ isLesserThan740 ? '4rem' : '7rem' }
+        paddingBottom='4rem'
       >
         {firstDiv && (
           <Flex
@@ -89,6 +91,7 @@ export const Books = ({ category = 'comics' }) => {
             alignItems={ isLesserThan740 ? 'center' : 'space-between' }
             justifyContent='center'
             paddingBottom='3rem'
+
           >
             {secondDiv?.map((book) => {
               return book;

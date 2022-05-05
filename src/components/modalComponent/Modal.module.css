@@ -1,8 +1,8 @@
 .backdrop{
   width: 100%;
-  height: calc(100% - 18.9rem);
+  height: calc(48%);
   position: absolute;
-  top: 0;
+  top: 9rem;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
 }
@@ -13,7 +13,7 @@
 }
 .modal{
   position: absolute;
-  top: 30%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 35.4rem;
