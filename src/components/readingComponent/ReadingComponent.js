@@ -89,7 +89,7 @@ const ReadingComponent = () => {
             </Document>
           </span>
         </div>
-        <div className={ styles.pageNo }>{`${ divageNumber } of ${ numPage }`}</div>
+        <div className={ styles.pageNo }>{`${ pageNumber } of ${ numPage }`}</div>
       </div>
       <span className={ styles.navigation2 }>
         {pageNumber < numPage && <img onClick={ nextPage } src={ arrowRight } alt='Next Page' />}

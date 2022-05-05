@@ -4,13 +4,17 @@ import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
+<<<<<<< HEAD
 import { useSelector } from 'react-redux';
+=======
+import { MinusIcon } from '@chakra-ui/icons';
+>>>>>>> eab069ab9811ff975235956151456a74b1885fb2
 import styles from './BookCard.module.css';
 import getAxiosInstance from '../../services/axios';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const BookCard = ({
-  id, imageUrl, title, author, type, genre, rated, description,
+  id, imageUrl, title, author, type, genre, rated, description, library,
 }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
   const token = useSelector(getUserData)?.token;
@@ -60,11 +64,19 @@ const BookCard = ({
               margin='4'
               padding='4'
               borderRadius='50%'
-              color='white'
-              backgroundColor='var(--primary-color)'
+              border={ `${ library ? '1px solid var(--primary-color)' : 'none' }` }
+              color={ `${ library ? 'var(--primary-color)' : 'white' }` }
+              backgroundColor={ `${
+                library ? 'transparent' : 'var(--primary-color)'
+              }` }
               fontSize='1.3rem'
+              className={ styles.addIcon }
             >
+<<<<<<< HEAD
               <AddIcon onClick={ addToLibrary } />
+=======
+              {library ? <MinusIcon /> : <AddIcon />}
+>>>>>>> eab069ab9811ff975235956151456a74b1885fb2
             </Center>
           </Tooltip>
         </Box>
@@ -100,7 +112,6 @@ const BookCard = ({
             {type}
             {' '}
             &bull;
-            {' '}
             {genre}
           </Box>
         </Box>

@@ -42,7 +42,9 @@
     background-color: #fff;
 }
 
-.readingPage 
+.pageNo {
+    height: fit-content;
+} 
 
 .bookTitle {
     padding-top: 5px;
