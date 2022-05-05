@@ -16,16 +16,16 @@ const Modal = ({
   const navigate = useNavigate();
 
   const addToLibrary = async () => {
-    // const response = await getAxiosInstance(token).post(
-    //   `api/v1/book/add/?bookId=${ bookId }`,
-    // )
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/add/?bookId=${ bookId }`,
+    )
     console.log('added', 'response')
   }
 
   const removeFromLibrary = async () => {
-    // const response = await getAxiosInstance(token).post(
-    //   `api/v1/book/remove/?bookId=${ bookId }`,
-    // )
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/remove/?bookId=${ bookId }`,
+    )
     console.log('removed', 'response')
   }
 
@@ -47,7 +47,7 @@ const Modal = ({
 
           <div className={ styles.buttonContainer }>
             <UtilityButton label='Cancel' removeModal={ handleremoveModal } />
-            <SecondaryButton label='Add' navigation='/' callback={ addToLibrary } />
+            <SecondaryButton label={ remove ? 'Remove' : 'Add' } navigation='/' alert={ remove ? true : undefined } callback={ addToLibrary } />
           </div>
         </div>
       </div>
