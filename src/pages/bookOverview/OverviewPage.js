@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
 import Footer from '../homePage/components/footerSection/Footer';
-// import BookImage from '../../assets/images/bookImage.png';
 import Header from '../homePage/components/headerComponent/Header';
-import { addBookData, getUserData } from '../../store/slice/neverlandUserSlice';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
 import Modal from '../../components/modalComponent/Modal';
@@ -16,15 +15,13 @@ const OverviewPage = () => {
   const [renderModal, setRenderModal] = useState(false);
   const token = useSelector(getUserData)?.token;
   const bookId = useParams()?.bookId;
-  const [pageNo, setPageNo] = useState(undefined)
-  const dispatch = useDispatch();
+  const [pageNo, setPageNo] = useState(undefined);
 
   const handleRender = () => {
     setRenderModal(true);
   };
 
   const removeModal = () => {
-    console.log('Have fun and smoke weed!!!')
     setRenderModal(false);
   }
 
@@ -32,7 +29,6 @@ const OverviewPage = () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
-    console.log(response.data.data)
 
     if (response.data.status === 'success') {
       if (response.data.data?.bookId) {
@@ -95,7 +91,7 @@ const OverviewPage = () => {
           actionText='Add to Library'
           imageSrc='BellIcon'
           handleremoveModal={ removeModal }
-          bookId={bookId}
+          bookId={ bookId }
         />
       )}
       <Footer />

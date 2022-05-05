@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
 import getAxiosInstance from '../../services/axios';
-import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import LoadingComponent from '../loadingComponent/LoadingComponent';
 import styles from './ReadingComponent.module.css'
 
@@ -38,8 +38,6 @@ const ReadingComponent = () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
-
-    console.log(response.data)
 
     if (response.data.status === 'success') {
       if (response.data.data.bookId) {
@@ -79,19 +77,11 @@ const ReadingComponent = () => {
       </span>
       <div className={ styles.readingPage }>
         <div className={ styles.bookTitle }>{book?.name}</div>
-        {/* {scroll
-          ? (
-            <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
-              {Array.from(new Array(numPage), (el, index) => (
-                <Page key={ `page_${ index + 1 }` } pageNumber={ index + 1 } />
-              ))}
-            </Document>
-          ) : ( */}
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
               // file='./../../../public/sample.pdf'
-              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               // file={ url }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
@@ -99,8 +89,7 @@ const ReadingComponent = () => {
             </Document>
           </span>
         </div>
-        {/* )} */}
-        <p>{`${ pageNumber } of ${ numPage }`}</p>
+        <div className={ styles.pageNo }>{`${ divageNumber } of ${ numPage }`}</div>
       </div>
       <span className={ styles.navigation2 }>
         {pageNumber < numPage && <img onClick={ nextPage } src={ arrowRight } alt='Next Page' />}

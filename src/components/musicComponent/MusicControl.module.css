@@ -1,13 +1,11 @@
 .musicWrapper {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
-    justify-content: center;
     align-items: center;
-    margin: 20px auto;
+    margin: 0 auto;
+    margin-bottom: 20px;
     width: 52%;
     height: 100px;
-    /* border: 2px solid red; */
 }
 
 .musicControl {
@@ -16,7 +14,6 @@
     width: 30.5rem;
     justify-content: space-around;
     align-items: center;
-    border: 2px solid green;
 }
 
 .control {
