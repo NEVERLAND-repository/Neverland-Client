@@ -46,7 +46,7 @@ const OverviewPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className={ styles.overviewPage}>
       <Header label='overviewPage' />
       {book ? (
         <>
@@ -83,7 +83,7 @@ const OverviewPage = () => {
       ) : (
         <LoadingComponent />
       )}
-      {renderModal && <Modal />}
+      {renderModal && <Modal actionText='Add to Library' />}
       <Footer />
     </div>
   );

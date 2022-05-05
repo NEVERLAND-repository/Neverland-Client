@@ -1,3 +1,8 @@
+.overviewPage{
+  position: relative;
+  width: 100%;
+}
+
 .upperDiv{
   background-color: #e5e5e5;
   height: fit-content;

@@ -33,11 +33,11 @@ const ReadingButton = ({ bookId, handleClick, pageNo = undefined }) => {
   }
 
   return (
-    <div className={styles.readingButton}>
-      <div className={styles.firstDiv}>
+    <div className={ styles.readingButton }>
+      <div className={ styles.firstDiv }>
         <Link
-          to={token ? `/book/${bookId}` : '/login'}
-          className={styles.readingLink}
+          to={ token ? `/book/${ bookId }` : '/login' }
+          className={ styles.readingLink }
         >
           {pageNo === undefined || pageNo === 0
             ? 'Start Reading'
@@ -46,10 +46,10 @@ const ReadingButton = ({ bookId, handleClick, pageNo = undefined }) => {
       </div>
 
       <div
-        onClick={token ? handleClick : navigate('/login')}
-        className={styles.secondDiv}
+        onClick={ token ? handleClick : navigate('/login') }
+        className={ styles.secondDiv }
       >
-        <button className={styles.libraryLink}>
+        <button className={ styles.libraryLink }>
           {pageNo === undefined ? '+' : '--'}
         </button>
       </div>
