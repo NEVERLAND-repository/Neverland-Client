@@ -22,6 +22,13 @@ const BookCard = ({
     console.log('added', response);
   }
 
+  const removeFromLibrary = async () => {
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/add/?bookId=${ id }`,
+    )
+    console.log('added', response);
+  }
+
   return (
     <Box
       maxW='md'
@@ -68,11 +75,8 @@ const BookCard = ({
               fontSize='1.3rem'
               className={ styles.addIcon }
             >
-<<<<<<< HEAD
-              <AddIcon onClick={ addToLibrary } />
-=======
-              {library ? <MinusIcon /> : <AddIcon />}
->>>>>>> eab069ab9811ff975235956151456a74b1885fb2
+              {library ? <MinusIcon onClick={ removeFromLibrary } />
+                : <AddIcon onClick={ addToLibrary } /> }
             </Center>
           </Tooltip>
         </Box>
