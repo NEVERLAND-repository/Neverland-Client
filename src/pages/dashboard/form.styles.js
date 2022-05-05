@@ -36,7 +36,6 @@ export const DashboardForm = styled.form`
   .form_group_input__side {
     width: 100%;
   }
-
   .form__group__input {
     width: 90%;
     outline: none;
@@ -46,15 +45,19 @@ export const DashboardForm = styled.form`
     padding: 2rem;
     font-size: 2rem;
 
+    &:focus {
+    color: var(--subtitle-color);
+    /* outline: none; */
+    border: 1px solid ${ ({ theme }) => theme.color.primaryColor };
+  }
+
     @media screen and (min-width:48rem) {
       width: 60%;
     }
   }
 
-  .form__group__input:focus {
-    color: var(--subtitle-color);
-    border: 1px solid color ${ ({ theme }) => theme.color.primaryColor };
-  }
+
+  
   .radio {
     display: flex;
     flex-direction: column;
@@ -68,28 +71,40 @@ export const DashboardForm = styled.form`
   .radio__control {
     display: flex;
     gap: 2rem;
-  }
 
-  input[type='radio'] {
-    padding: 2rem;
-    cursor: pointer;
-    /* display: block; */
-    width: 25px;
-    height: 25px;
-    /* position: absolute; */
-    outline: none;
-    /* left: 0; */
-    z-index: 7;
-  }
+  input[type="radio"] {
+  display: none; 
+}
 
-  input[type='radio']:checked {
-    border-color: #f49f0a;
-    color: orange;
-    color: ${ ({ theme }) => theme.color.primaryColor } ;
-  }
+input[type="radio"]+label:before {
+  content: "";
+  /* create custom radiobutton appearance */
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+  margin-right: 6px;
+  /* background-color only for content */
+  background-clip: content-box;
+  border: 2px solid #bbbbbb;
+
+  border-radius: 50%;
+}
+
+/* appearance for checked radiobutton */
+input[type="radio"]:checked + label:before {
+  background-color: ${ ({ theme }) => theme.color.primaryColor };
+  border: 2px solid ${ ({ theme }) => theme.color.primaryColor };
+}
+}
+
+
 
   .form_group_input__side label {
     font-size: 2rem;
+  display: flex;
+  align-items: center;
+
   }
 
   .save__changes__btn {

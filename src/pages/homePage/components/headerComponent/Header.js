@@ -103,11 +103,11 @@ const Header = ({ label }) => {
             <div className={ styles.navBtn }>
               {isAuth ? (
                 <Popover
-                  arrowSize='0'
+                  arrowSize='10px'
                   zIndex='10000'
                   placement='bottom-end'
                   marginTop='0'
-                  border='red'
+                  border='none'
                 >
                   <PopoverTrigger>
                     <Wrap>
@@ -118,14 +118,15 @@ const Header = ({ label }) => {
                   </PopoverTrigger>
                   <Portal zIndex='10000'>
                     <PopoverContent
-                      fontSize='1.6rem'
-                      marginTop='2.8rem'
+                      fontSize='1.5rem'
+                      marginTop='2.5rem'
                       border='none'
                       outline='0'
+                      _focus={ { boxShadow: 'none' } }
                     >
                       <PopoverArrow />
                       <PopoverCloseButton p={ 10 } />
-                      <PopoverBody border='none' padding={ 10 }>
+                      <PopoverBody border='none' padding={ 4 }>
                         <List gap='10' p='4'>
                           <Link
                             as='button'
@@ -162,6 +163,7 @@ const Header = ({ label }) => {
                               padding='2'
                               fontSize='20px'
                               _hover={ { cursor: 'pointer', bg: 'white' } }
+                              paddingTop={ 7 }
                             >
                               <Image
                                 src={ logout }
