@@ -68,7 +68,6 @@ export const Books = ({ category = 'comics' }) => {
         flexDirection='column'
         width='100%'
         gap={ isLesserThan740 ? '4rem' : '7rem' }
-        border='2px solid red'
         paddingBottom='4rem'
       >
         {firstDiv && (
