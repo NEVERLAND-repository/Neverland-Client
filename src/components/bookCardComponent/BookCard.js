@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { MinusIcon } from '@chakra-ui/icons';
+import { useSelector } from 'react-redux';
 import styles from './BookCard.module.css';
 import getAxiosInstance from '../../services/axios';
 import { getUserData } from '../../store/slice/neverlandUserSlice';

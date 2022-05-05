@@ -19,9 +19,11 @@ const Library = () => {
       'api/v1/user/library',
     )
 
-    if (response.data.status === 'success') {
-      setLibrary(response.data.data);
-    }
+    console.log(response)
+
+    // if (response.data.status === 'success') {
+    //   setLibrary(response.data.data);
+    // }
   }
   console.log(library);
 
