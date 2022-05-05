@@ -1,20 +1,38 @@
 import React from 'react'
-import styles from './Modal.module.css'
+import SecondaryButton from '../buttonComponent/SecondaryButton';
+import UtilityButton from '../buttonComponent/UtilityButton';
+import BellIcon from '../../assets/icons/bell.svg';
+import BinIcon from '../../assets/icons/bin.svg';
+import styles from './Modal.module.css';
 
-const Modal = () => {
+const Modal = ({
+  actionText, remove, handleremoveModal,
+}) => {
   return (
-    <div>
-      <div className={styles.imageContainer}>
-        <img src={props.imageSrc} alt='action icon' />
-      </div>
+    <div className={ styles.backdrop }>
+      <div className={ styles.modalContainer }>
+        <div className={ styles.modal }>
+          <div className={ styles.imageContainer }>
+            <img src={ remove ? BinIcon : BellIcon } alt='action icon' />
+          </div>
 
-      <div>
-        <p className={ styles.actionText }> {props.actionText} </p>
-      </div>
+          <div>
+            <p className={ styles.actionText }>
+              {' '}
+              {actionText}
+              {' '}
+            </p>
+          </div>
 
-      <div></div>
+          <div className={ styles.buttonContainer }>
+            <UtilityButton label='Cancel' removeModal={ handleremoveModal } />
+            <SecondaryButton label='Add' navigation='/' />
+          </div>
+        </div>
+      </div>
     </div>
-  )
-}
+
+  );
+};
 
 export default Modal

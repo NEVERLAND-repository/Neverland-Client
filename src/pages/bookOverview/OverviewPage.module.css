@@ -1,3 +1,8 @@
+.overviewPage{
+  position: relative;
+  width: 100%;
+}
+
 .upperDiv{
   background-color: #e5e5e5;
   height: fit-content;
@@ -41,10 +46,10 @@
   gap: 3.2rem;
   margin-bottom: 4.8rem;
   margin-top: 2.4rem;
-
+  text-transform: uppercase;
 }
 .spanTags p{
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
   color: #828282;
