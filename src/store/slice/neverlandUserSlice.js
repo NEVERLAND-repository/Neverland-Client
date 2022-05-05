@@ -19,6 +19,7 @@ const initialState = {
   isLoaded: false,
   homePageData: {},
   book: {},
+  pageCount: 1,
 };
 
 const neverlandUserSlice = createSlice({
@@ -48,6 +49,12 @@ const neverlandUserSlice = createSlice({
       state.isSuccess = false;
       state.isError = false;
       state.message = '';
+    },
+    updatePageCount: (state, { payload }) => {
+      console.log(state.pageCount, payload)
+      return {
+        ...state, pageCount: payload,
+      }
     },
   },
   extraReducers: (builder) => {
@@ -128,10 +135,11 @@ const neverlandUserSlice = createSlice({
 });
 
 export const {
-  addUser, deleteUser, addHomepageData, addBookData, reset,
+  addUser, deleteUser, addHomepageData, addBookData, reset, updatePageCount,
 } = neverlandUserSlice.actions;
 export const getUserData = (state) => state.neverlandUser.userData;
 export const getHomePageData = (state) => state.neverlandUser.homePageData;
 export const getBook = (state) => state.neverlandUser.book;
 export const getLoader = (state) => state.neverlandUserSlice.isLoaded;
+export const getPageCount = (state) => state.neverlandUserSlice.pageCount;
 export default neverlandUserSlice.reducer;

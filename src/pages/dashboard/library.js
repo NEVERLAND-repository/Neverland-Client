@@ -19,8 +19,8 @@ const Library = () => {
     )
 
     if (response.data.status === 'success') {
-      setKeepReading(response.data.data.yetToRead);
-      setYetToRead(response.data.data.keepReading);
+      setKeepReading(response.data.data.keepReading);
+      setYetToRead(response.data.data.yetToRead);
     }
   }
 
@@ -33,7 +33,7 @@ const Library = () => {
     <>
       <LibraryWapper>
         <div className='library-search'>
-          <SearchBar placeholder='Search for books' />
+          <SearchBar placeholder='Search for books' query='user' />
         </div>
         <div className='tab-group'>
           <h1 className='title library-title'>Library</h1>
@@ -61,7 +61,7 @@ const Library = () => {
             <Tab.Panels>
               <Tab.Panel className='read-books'>
                 {
-                  yetToRead && yetToRead.map((book) => (
+                  keepReading && keepReading.map((book) => (
                     <BookCard
                       library
                       id={ book.bookId._id }
@@ -77,7 +77,7 @@ const Library = () => {
               </Tab.Panel>
               <Tab.Panel className='read-books'>
                 {
-                  keepReading && keepReading.map((book) => (
+                  yetToRead && yetToRead.map((book) => (
                     <BookCard
                       library
                       id={ book.bookId._id }

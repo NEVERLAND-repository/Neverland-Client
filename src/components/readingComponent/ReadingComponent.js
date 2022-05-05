@@ -61,7 +61,8 @@ const ReadingComponent = () => {
       'api/v1/book/read',
       { bookId, pageNo: pageNumber },
     )
-
+    console.log(pageNumber)
+    console.log(response.data)
     if (response.data.status === 'success') {
       setBook(response.data.data);
       setNumPages(response.data.data.pageTotal)
@@ -71,7 +72,8 @@ const ReadingComponent = () => {
   useEffect(() => {
     fetchBookPdf()
     return () => {
-      if (pageNumber !== 1) savePage();
+      console.log(pageNumber)
+      savePage();
     }
   }, [])
 
@@ -85,8 +87,6 @@ const ReadingComponent = () => {
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              // file='./../../../public/sample.pdf'
-              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               file={ url }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
