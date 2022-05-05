@@ -4,11 +4,7 @@ import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
-<<<<<<< HEAD
-import { useSelector } from 'react-redux';
-=======
 import { MinusIcon } from '@chakra-ui/icons';
->>>>>>> eab069ab9811ff975235956151456a74b1885fb2
 import styles from './BookCard.module.css';
 import getAxiosInstance from '../../services/axios';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
