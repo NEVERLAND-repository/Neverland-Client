@@ -2,53 +2,80 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AiOutlineEye } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import axiosInstance from '../../services/axios';
 import InputField from '../inputComponent/InputField';
 import PrimaryButton from '../buttonComponent/PrimaryButton';
-
+import { signup, login } from '../../store/slice/aysncThunkActions';
 import styles from './Form.module.css';
-import { addUser } from '../../store/slice/neverlandUserSlice';
+import { addUser, reset } from '../../store/slice/neverlandUserSlice';
 import { USER_DATA } from '../../constants';
+import LoadingComponent from '../loadingComponent/LoadingComponent';
 
 const Form = ({ label }) => {
+  const [formData, setFormData] = useState({
+    fullName: '',
+    username: '',
+    password: '',
+  });
   const [active, setActive] = useState(false);
-  const [fullName, setFullName] = useState('');
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const {
+    userData, isLoaded, isError, isSuccess, message,
+  } = useSelector(
+    (state) => state.neverlandUser,
+  );
+  const { fullName, username, password } = formData;
 
-  const login = async (e) => {
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+    if (isSuccess) {
+      if (userData.status === 'error') {
+        toast.error(message)
+      } else {
+        toast.success(message)
+      }
+    }
+    if (userData.token) {
+      navigate('/home');
+    }
+    return () => dispatch(reset());
+  }, [userData, isError, isSuccess, message, navigate, dispatch]);
+
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const onSubmitSignup = (e) => {
     e.preventDefault();
-    const response = await axiosInstance().post('api/v1/auth/login', {
-      username, password,
-    })
-    localStorage.setItem(USER_DATA, JSON.stringify(response.data))
-    dispatch(addUser({
-      token: response.data.token,
-      data: response.data.data,
-    }))
-
-    if (response.data.token) {
-      navigate('/home')
+    if (!password || !username || !fullName) {
+      toast.error("Fields can't be left empty");
+    } else {
+      const userDetails = {
+        fullName,
+        username,
+        password,
+      };
+      dispatch(signup(userDetails));
     }
   };
 
-  const signup = async (e) => {
+  const onSubmitLogin = (e) => {
     e.preventDefault();
-    const response = await axiosInstance().post('api/v1/auth/signup', {
-      fullName, username, password,
-    })
-
-    localStorage.setItem(USER_DATA, JSON.stringify(response.data))
-
-    dispatch(addUser({
-      token: response.data.token,
-      data: response.data.data,
-    }))
-
-    if (response.data.token) {
-      navigate('/home')
+    if ( !username || !password) {
+      toast.error("Fields can't be left empty");
+    } else {
+      const userDetails = {
+        username,
+        password,
+      };
+      dispatch(login(userDetails));
     }
   };
 
@@ -56,17 +83,18 @@ const Form = ({ label }) => {
     <>
       <InputField
         labelName='Username'
+        name='username'
         type='text'
         placeholder='johndoe123'
-        callback={ setUsername }
-
+        callback={ onChange }
       />
       <div className={ styles.passwordInput }>
         <InputField
           labelName='Password'
+          name='password'
           type={ !active ? 'password' : 'text' }
           placeholder='8 characters'
-          callback={ setPassword }
+          callback={ onChange }
         />
 
         {!active ? (
@@ -98,21 +126,24 @@ const Form = ({ label }) => {
       <InputField
         labelName='Name'
         type='text'
+        name='fullName'
         placeholder='John Doe'
-        callback={ setFullName }
+        callback={ onChange }
       />
       <InputField
         labelName='Username'
+        name='username'
         type='text'
         placeholder='johndoe123'
-        callback={ setUsername }
+        callback={ onChange }
       />
       <div className={ styles.passwordInput }>
         <InputField
           labelName='Password'
+          name='password'
           type={ !active ? 'password' : 'text' }
           placeholder='8 characters'
-          callback={ setPassword }
+          callback={ onChange }
         />
 
         {!active ? (
@@ -140,7 +171,7 @@ const Form = ({ label }) => {
   );
 
   return (
-    <form onSubmit={ label === 'Log In' ? login : signup }>
+    <form onSubmit={ label === 'Log In' ? onSubmitLogin : onSubmitSignup }>
       <div className={ styles.formField }>
         {label === 'Log In' ? renderLogin() : renderSignUp()}
       </div>
@@ -150,6 +181,6 @@ const Form = ({ label }) => {
       </div>
     </form>
   );
-}
+};
 
 export default Form;

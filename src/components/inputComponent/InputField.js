@@ -5,7 +5,7 @@ import styles from './InputField.module.css';
 const InputField = ({
   labelName, type, placeholder, callback, ...props
 }) => {
-  const callbackFunc = (e) => callback(e.target.value);
+  const callbackFunc = (e) => callback(e);
 
   return (
     <div>
@@ -18,6 +18,7 @@ const InputField = ({
 
         <input
           type={ type }
+          name={ props.name }
           placeholder={ placeholder }
           className={ styles.inputField }
           required

@@ -6,6 +6,10 @@ export const SidebarWrapper = styled.div`
     display: grid;
     grid-template-columns: 20% 80%;
   }
+  
+  .sidebar-header a{
+    text-decoration: none;
+  }
 
   .side-component-wrapper{
     background: #f5f7fa;
@@ -86,15 +90,19 @@ export const Main = styled.main`
     &.active {
       border-left: 8px solid ${ ({ theme }) => theme.color.primaryColor };
       color: ${ ({ theme }) => theme.color.primaryColor };
-    }
-  }
 
-  &.image__active {
+   
+    }
+
+    .image__active {
     -webkit-filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
       brightness(105%) contrast(92%);
     filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
       brightness(105%) contrast(92%);
   }
+  }
+
+ 
 
   .sidebar__navlinks__container {
     display: flex;
