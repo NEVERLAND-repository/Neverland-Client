@@ -28,6 +28,7 @@ export const Books = ({ category = 'comics' }) => {
         genre={ book?.category }
         rated={ book?.rated }
         description={ book?.description }
+        library
       />);
     } else {
       secondDiv?.push(

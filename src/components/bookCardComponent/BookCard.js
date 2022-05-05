@@ -4,10 +4,11 @@ import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
+import { MinusIcon } from '@chakra-ui/icons';
 import styles from './BookCard.module.css';
 
 const BookCard = ({
-  id, imageUrl, title, author, type, genre, rated, description,
+  id, imageUrl, title, author, type, genre, rated, description, library,
 }) => {
   // const [style, setStyle] = useState({display: 'none'});
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
@@ -50,11 +51,15 @@ const BookCard = ({
               margin='4'
               padding='4'
               borderRadius='50%'
-              color='white'
-              backgroundColor='var(--primary-color)'
+              border={ `${ library ? '1px solid var(--primary-color)' : 'none' }` }
+              color={ `${ library ? 'var(--primary-color)' : 'white' }` }
+              backgroundColor={ `${
+                library ? 'transparent' : 'var(--primary-color)'
+              }` }
               fontSize='1.3rem'
+              className={ styles.addIcon }
             >
-              <AddIcon />
+              {library ? <MinusIcon /> : <AddIcon />}
             </Center>
           </Tooltip>
         </Box>
@@ -90,7 +95,6 @@ const BookCard = ({
             {type}
             {' '}
             &bull;
-            {' '}
             {genre}
           </Box>
         </Box>
