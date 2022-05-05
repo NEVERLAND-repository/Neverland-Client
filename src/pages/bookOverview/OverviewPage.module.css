@@ -1,5 +1,6 @@
-.overview {
-  height: 100vh;
+.overviewPage{
+  position: relative;
+  width: 100%;
 }
 
 .upperDiv{

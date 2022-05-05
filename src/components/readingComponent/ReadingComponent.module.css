@@ -59,6 +59,7 @@
 .pdfDisplay {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: fit-content;
     height: 570px;
@@ -78,7 +79,6 @@
     .readingPage {
         width: 100vh;
         overflow-x: scroll;
-        border: 2px solid red;
     }
 
     .navigation1 {
@@ -86,6 +86,8 @@
         position: absolute;
         margin-top: 5px;
         left: 0;
+        padding-left: 5px;
+        margin-top: 95%;
     }
 
     .navigation2 {
@@ -93,5 +95,7 @@
         position: absolute;
         margin-top: 5px;
         right: 0;
+        padding-right: 5px;
+        margin-top: 95%;
     }
 }

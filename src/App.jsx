@@ -55,7 +55,7 @@ const App = () => {
           <Route path='dashboard' element={ <Dashboard /> } />
         </Routes>
       </Router>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </>
   );
 };

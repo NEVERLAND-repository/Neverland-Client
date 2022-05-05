@@ -16,6 +16,7 @@ const ReadingComponent = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const bookId = useParams()?.bookId;
   const url = book?.content;
+  console.log(book);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -49,11 +50,10 @@ const ReadingComponent = () => {
   // response.data.data.pageNo
   const savePage = async () => {
     const response = await getAxiosInstance(token).put(
-      `api/v1/book/read/${ bookId }`,
+      'api/v1/book/read',
       { bookId, pageNo: pageNumber },
     )
-
-    console.log(response.data.data)
+    console.log(response)
     if (response.data.status === 'success') {
       setBook(response.data.data);
       setNumPages(response.data.data.pageTotal)
@@ -85,8 +85,9 @@ const ReadingComponent = () => {
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              file='./../../../public/sample.pdf'
-              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              // file='./../../../public/sample.pdf'
+              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              // file={ url }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
               <Page pageNumber={ pageNumber } height600px />

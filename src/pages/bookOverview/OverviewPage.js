@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { render } from '@testing-library/react';
 import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
 import Footer from '../homePage/components/footerSection/Footer';
@@ -25,6 +24,11 @@ const OverviewPage = () => {
     setRenderModal(true);
   };
 
+  const removeRender = () => {
+    console.log('remove my modal you piece of shit!!');
+    setRenderModal(false);
+  };
+
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
@@ -46,7 +50,7 @@ const OverviewPage = () => {
   }, []);
 
   return (
-    <div className={ styles.overview }>
+    <div className={ styles.overviewPage }>
       <Header label='overviewPage' />
       {book ? (
         <>
@@ -75,7 +79,7 @@ const OverviewPage = () => {
             </div>
             <div className={ styles.buttonDiv }>
               {' '}
-              <ReadingButton bookId={ bookId } pageNo={ pageNo } />
+              <ReadingButton bookId={ bookId } handleClick={ handleRender } pageNo={ pageNo } />
               {' '}
             </div>
           </section>
@@ -83,7 +87,7 @@ const OverviewPage = () => {
       ) : (
         <LoadingComponent />
       )}
-      {renderModal && <Modal />}
+      {renderModal && <Modal actionText='Add to Library' handleClick={ removeRender } bookId={ bookId } />}
       <Footer />
     </div>
   );
