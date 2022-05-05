@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { render } from '@testing-library/react';
 import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
 import Footer from '../homePage/components/footerSection/Footer';
@@ -9,12 +10,20 @@ import Header from '../homePage/components/headerComponent/Header';
 import { addBookData, getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
+import Modal from '../../components/modalComponent/Modal';
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
-  const [pageNo, setPageNo] = useState(undefined)
+  const [renderModal, setRenderModal] = useState(false);
   const token = useSelector(getUserData)?.token;
   const bookId = useParams()?.bookId;
+  const [pageNo, setPageNo] = useState(undefined)
+  const dispatch = useDispatch();
+
+  const handleRender = () => {
+    console.log('render my modal you piece of shit!!');
+    setRenderModal(true);
+  };
 
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
@@ -30,11 +39,11 @@ const OverviewPage = () => {
         setBook(response.data.data)
       }
     }
-  }
+  };
 
   useEffect(() => {
-    fetchBookDetail()
-  }, [])
+    fetchBookDetail();
+  }, []);
 
   return (
     <div>
@@ -44,10 +53,7 @@ const OverviewPage = () => {
           <section className={ styles.upperDiv }>
             <div className={ styles.containerDiv }>
               <div className={ styles.imageDiv }>
-                <img
-                  src={ book?.bookImg }
-                  alt={ book?.name }
-                />
+                <img src={ book?.bookImg } alt={ book?.name } />
               </div>
               <div className={ styles.textDiv }>
                 <h3>{book?.name}</h3>
@@ -55,7 +61,7 @@ const OverviewPage = () => {
                 <span className={ styles.spanTags }>
                   <p>{book?.tags?.join(' • ')}</p>
                 </span>
-                <ReadingButton bookId={ bookId } pageNo={ pageNo } />
+                <ReadingButton bookId={ bookId } handleClick={ handleRender } pageNo={ pageNo } />
               </div>
             </div>
           </section>
@@ -77,9 +83,10 @@ const OverviewPage = () => {
       ) : (
         <LoadingComponent />
       )}
+      {renderModal && <Modal />}
       <Footer />
     </div>
   );
-}
+};
 
 export default OverviewPage;

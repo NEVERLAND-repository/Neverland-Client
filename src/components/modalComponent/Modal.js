@@ -1,20 +1,30 @@
 import React from 'react'
-import styles from './Modal.module.css'
+import SecondaryButton from '../buttonComponent/SecondaryButton';
+import styles from './Modal.module.css';
 
-const Modal = () => {
+const Modal = ({ imageSrc, actionText }) => {
   return (
-    <div>
-      <div className={styles.imageContainer}>
-        <img src={props.imageSrc} alt='action icon' />
+    <div className={ styles.modalContainer }>
+      <div className={ styles.imageContainer }>
+        <img src={ imageSrc } alt='action icon' />
       </div>
 
       <div>
-        <p className={ styles.actionText }> {props.actionText} </p>
+        <p className={ actionText }>
+          {' '}
+          {actionText}
+          {' '}
+        </p>
       </div>
 
-      <div></div>
+      <div>
+        <SecondaryButton label='Cancel' transparent navigation='/' />
+        <SecondaryButton label='Add' navigation='/' />
+      </div>
+
+      <div />
     </div>
-  )
-}
+  );
+};
 
 export default Modal
