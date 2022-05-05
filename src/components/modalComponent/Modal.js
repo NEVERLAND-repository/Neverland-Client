@@ -1,15 +1,19 @@
 import React from 'react'
 import SecondaryButton from '../buttonComponent/SecondaryButton';
+import UtilityButton from '../buttonComponent/UtilityButton';
 import BellIcon from '../../assets/icons/bell.svg';
+import BinIcon from '../../assets/icons/bin.svg';
 import styles from './Modal.module.css';
 
-const Modal = ({ imageSrc, actionText }) => {
+const Modal = ({
+  actionText, remove, handleremoveModal,
+}) => {
   return (
-    <div className={styles.backdrop}>
-      <div className={ styles.modalContainer}>
+    <div className={ styles.backdrop }>
+      <div className={ styles.modalContainer }>
         <div className={ styles.modal }>
           <div className={ styles.imageContainer }>
-            <img src={ imageSrc } alt='action icon' />
+            <img src={ remove ? BinIcon : BellIcon } alt='action icon' />
           </div>
 
           <div>
@@ -21,7 +25,7 @@ const Modal = ({ imageSrc, actionText }) => {
           </div>
 
           <div className={ styles.buttonContainer }>
-            <SecondaryButton label='Cancel' transparent navigation='/' />
+            <UtilityButton label='Cancel' removeModal={ handleremoveModal } />
             <SecondaryButton label='Add' navigation='/' />
           </div>
         </div>

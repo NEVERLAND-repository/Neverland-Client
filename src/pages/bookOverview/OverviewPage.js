@@ -21,9 +21,13 @@ const OverviewPage = () => {
   const dispatch = useDispatch();
 
   const handleRender = () => {
-    console.log('render my modal you piece of shit!!');
     setRenderModal(true);
   };
+
+  const removeModal = () => {
+    console.log('Have fun and smoke weed!!!')
+    setRenderModal(false);
+  }
 
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
@@ -46,7 +50,7 @@ const OverviewPage = () => {
   }, []);
 
   return (
-    <div className={ styles.overviewPage}>
+    <div className={ styles.overviewPage }>
       <Header label='overviewPage' />
       {book ? (
         <>
@@ -61,7 +65,11 @@ const OverviewPage = () => {
                 <span className={ styles.spanTags }>
                   <p>{book?.tags?.join(' • ')}</p>
                 </span>
-                <ReadingButton bookId={ bookId } handleClick={ handleRender } pageNo={ pageNo } />
+                <ReadingButton
+                  bookId={ bookId }
+                  handleClick={ handleRender }
+                  pageNo={ pageNo }
+                />
               </div>
             </div>
           </section>
@@ -83,7 +91,13 @@ const OverviewPage = () => {
       ) : (
         <LoadingComponent />
       )}
-      {renderModal && <Modal actionText='Add to Library' />}
+      {renderModal && (
+        <Modal
+          actionText='Add to Library'
+          imageSrc='BellIcon'
+          handleremoveModal={ removeModal }
+        />
+      )}
       <Footer />
     </div>
   );
