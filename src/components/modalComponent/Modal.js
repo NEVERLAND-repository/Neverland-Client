@@ -1,29 +1,33 @@
 import React from 'react'
 import SecondaryButton from '../buttonComponent/SecondaryButton';
+import BellIcon from '../../assets/icons/bell.svg';
 import styles from './Modal.module.css';
 
 const Modal = ({ imageSrc, actionText }) => {
   return (
-    <div className={ styles.modalContainer }>
-      <div className={ styles.imageContainer }>
-        <img src={ imageSrc } alt='action icon' />
-      </div>
+    <div className={styles.backdrop}>
+      <div className={ styles.modalContainer}>
+        <div className={ styles.modal }>
+          <div className={ styles.imageContainer }>
+            <img src={ imageSrc } alt='action icon' />
+          </div>
 
-      <div>
-        <p className={ actionText }>
-          {' '}
-          {actionText}
-          {' '}
-        </p>
-      </div>
+          <div>
+            <p className={ styles.actionText }>
+              {' '}
+              {actionText}
+              {' '}
+            </p>
+          </div>
 
-      <div>
-        <SecondaryButton label='Cancel' transparent navigation='/' />
-        <SecondaryButton label='Add' navigation='/' />
+          <div className={ styles.buttonContainer }>
+            <SecondaryButton label='Cancel' transparent navigation='/' />
+            <SecondaryButton label='Add' navigation='/' />
+          </div>
+        </div>
       </div>
-
-      <div />
     </div>
+
   );
 };
 
