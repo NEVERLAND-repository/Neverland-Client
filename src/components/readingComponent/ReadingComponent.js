@@ -14,7 +14,7 @@ const ReadingComponent = () => {
   const [book, setBook] = useState(null)
   const [numPage, setNumPages] = useState(book?.pageTotal);
   const [pageNumber, setPageNumber] = useState(1);
-  const { bookId } = useParams();
+  const bookId = useParams()?.bookId;
   const url = book?.content;
 
   function onDocumentLoadSuccess({ numPages }) {
@@ -39,25 +39,25 @@ const ReadingComponent = () => {
       `api/v1/book/overview/${ bookId }`,
     )
 
+    console.log(response.data.data)
     if (response.data.status === 'success') {
       setBook(response.data.data);
-      console.log(response.data.data)
       setNumPages(response.data.data.pageTotal)
     }
   }
 
   // response.data.data.pageNo
   const savePage = async () => {
-    // const response = await getAxiosInstance(token).put(
-    //   `api/v1/book/read/${ bookId }`,
-    //   {},
-    // )
+    const response = await getAxiosInstance(token).put(
+      `api/v1/book/read/${ bookId }`,
+      { bookId, pageNo: pageNumber },
+    )
 
-    // if (response.data.status === 'success') {
-    //   setBook(response.data.data);
-    //   console.log(response.data.data)
-    //   setNumPages(response.data.data.pageTotal)
-    // }
+    console.log(response.data.data)
+    if (response.data.status === 'success') {
+      setBook(response.data.data);
+      setNumPages(response.data.data.pageTotal)
+    }
   }
 
   useEffect(() => {
@@ -85,7 +85,8 @@ const ReadingComponent = () => {
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              file='./sample'
+              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
               <Page pageNumber={ pageNumber } height600px />

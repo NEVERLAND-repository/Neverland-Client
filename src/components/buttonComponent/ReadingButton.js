@@ -8,7 +8,6 @@ import styles from './Button.module.css';
 const ReadingButton = ({ bookId, pageNo = undefined }) => {
   const token = useSelector(getUserData)?.token;
   const navigate = useNavigate();
-  console.log(pageNo);
 
   const addToLibrary = async () => {
     const response = await getAxiosInstance(token).post(

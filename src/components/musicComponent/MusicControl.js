@@ -26,23 +26,21 @@ const MusicControl = () => {
 
   return (
     <div className={ styles.musicWrapper }>
-      {/* <audio></audio> */}
       <AudioPlayer
         style={ {
           backgroundColor: 'var(--gray-background)', border: '0rem', display: 'block', boxShadow: 'none',
         } }
-                // style={ { borderRadius: '1rem' } }
-        autoPlay
+        // autoPlay={ false }
         layout='stacked-reverse'
         src={ musicTracks[trackIndex].src }
         onPlay={ (e) => console.log('onPlay') }
         showSkipControls
         showJumpControls={ false }
-                // header={ `Now playing: ${ musicTracks[trackIndex].name }` }
         onClickPrevious={ handleClickPrevious }
         onClickNext={ handleClickNext }
         onEnded={ handleClickNext }
       />
+      {/* <audio></audio> */}
       {/* <div className={ styles.musicControl }>
         <div className={ styles.control } onClick={ handleClickPrevious }>
           <img src={ previous } alt='previous' />

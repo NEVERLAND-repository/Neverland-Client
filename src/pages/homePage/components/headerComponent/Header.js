@@ -30,7 +30,7 @@ import styles from './Header.module.css';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
 import { deleteUser, getUserData } from '../../../../store/slice/neverlandUserSlice';
 import { USER_DATA } from '../../../../constants';
-// import { signout } from '../../../../services/utils';
+// import utils from '../../../../services/utils';
 
 const Header = ({ label }) => {
   const dispatch = useDispatch();
