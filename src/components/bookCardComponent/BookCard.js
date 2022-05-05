@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { MinusIcon } from '@chakra-ui/icons';
+import { useSelector } from 'react-redux';
 import styles from './BookCard.module.css';
 import getAxiosInstance from '../../services/axios';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
@@ -16,6 +17,13 @@ const BookCard = ({
   const token = useSelector(getUserData)?.token;
 
   const addToLibrary = async () => {
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/add/?bookId=${ id }`,
+    )
+    console.log('added', response);
+  }
+
+  const removeFromLibrary = async () => {
     const response = await getAxiosInstance(token).post(
       `api/v1/book/add/?bookId=${ id }`,
     )
@@ -68,11 +76,8 @@ const BookCard = ({
               fontSize='1.3rem'
               className={ styles.addIcon }
             >
-<<<<<<< HEAD
-              <AddIcon onClick={ addToLibrary } />
-=======
-              {library ? <MinusIcon /> : <AddIcon />}
->>>>>>> eab069ab9811ff975235956151456a74b1885fb2
+              {library ? <MinusIcon onClick={ removeFromLibrary } />
+                : <AddIcon onClick={ addToLibrary } /> }
             </Center>
           </Tooltip>
         </Box>
