@@ -42,7 +42,12 @@ const ReadingComponent = () => {
     if (response.data.status === 'success') {
       if (response.data.data.bookId) {
         setBook(response.data.data.bookId);
-        setPageNumber(response.data.data.pageNo);
+        if (response.data.data.pageNo === 0) {
+          const pageNo = response.data.data.pageNo + 1;
+          setPageNumber(pageNo);
+        } else {
+          setPageNumber(response.data.data.pageNo);
+        }
         setNumPages(response.data.data.bookId.pageTotal)
       } else {
         setBook(response.data.data);
@@ -81,8 +86,7 @@ const ReadingComponent = () => {
           <span>
             <Document
               // file='./../../../public/sample.pdf'
-              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
-              file={ url }
+              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
               <Page pageNumber={ pageNumber } height600px />
