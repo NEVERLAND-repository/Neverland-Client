@@ -21,6 +21,38 @@ export const fetchAsyncLogout = createAsyncThunk(
   async (accessToken) => {},
 );
 
+export const signup = createAsyncThunk(
+  'neverlandUser/signup',
+  async (userData, thunkAPI) => {
+    try {
+      return await userService.signup(userData)
+    } catch (error) {
+      const message = (error.response
+      && error.response.data
+      && error.response.data.message)
+    || error.message
+    || error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  },
+)
+
+export const login = createAsyncThunk(
+  'neverlandUser/login',
+  async (userData, thunkAPI) => {
+    try {
+      return await userService.login(userData)
+    } catch (error) {
+      const message = (error.response
+      && error.response.data
+      && error.response.data.message)
+    || error.message
+    || error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  },
+)
+
 // Update user
 export const updateUser = createAsyncThunk(
   'neverlandUser/update',

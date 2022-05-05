@@ -8,12 +8,12 @@ export const MobileNavigation = styled.header`
   align-items: center;
  
 
-  .hamburger:hover{
+  /* .hamburger:hover{
     transform: rotate(90deg);
     filter: invert(54%) sepia(94%) saturate(470%) hue-rotate(359deg)
         brightness(105%) contrast(92%);
     transition: all 0.50s;
-  };
+  }; */
 
   @media screen and (min-width: 48rem) {
     display: none;

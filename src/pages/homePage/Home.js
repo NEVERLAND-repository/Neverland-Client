@@ -16,6 +16,11 @@ const Home = () => {
   const dispatch = useDispatch()
   const category = useParams()?.category;
   const navigate = useNavigate();
+  const {
+    isLoaded, isError, isSuccess, message,
+  } = useSelector(
+    (state) => state.neverlandUser,
+  );
 
   const homeRoutes = ['comics', 'manga', 'novels', undefined]
 
@@ -40,6 +45,9 @@ const Home = () => {
     fetch()
   }, [token, category])
 
+  if (isLoaded) {
+    return <LoadingComponent />
+  }
   return (
     <div className={ styles.home }>
       <Header label='home' />
