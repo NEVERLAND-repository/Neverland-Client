@@ -18,7 +18,7 @@ import OverviewPage from './pages/bookOverview/OverviewPage';
 import { USER_DATA } from './constants';
 import { addUser } from './store/slice/neverlandUserSlice';
 import BookReading from './pages/bookReadingPage/BookReading';
-import 'react-toastify/dist/ReactToastify.css';
+// import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const dispatch = useDispatch();
