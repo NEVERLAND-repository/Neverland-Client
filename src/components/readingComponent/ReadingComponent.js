@@ -86,7 +86,8 @@ const ReadingComponent = () => {
           <span>
             <Document
               // file='./../../../public/sample.pdf'
-              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              file={ url }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
               <Page pageNumber={ pageNumber } height600px />
