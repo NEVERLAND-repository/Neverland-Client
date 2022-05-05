@@ -84,6 +84,7 @@ export const DashboardForm = styled.form`
 
   input[type='radio']:checked {
     border-color: #f49f0a;
+    color: orange;
     color: ${ ({ theme }) => theme.color.primaryColor } ;
   }
 
