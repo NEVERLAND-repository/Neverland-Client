@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import getAxiosInstance from '../../services/axios';
@@ -8,29 +8,6 @@ import styles from './Button.module.css';
 const ReadingButton = ({ bookId, handleClick, pageNo = undefined }) => {
   const token = useSelector(getUserData)?.token;
   const navigate = useNavigate();
-  console.log(pageNo);
-
-  const addToLibrary = async () => {
-    const response = await getAxiosInstance(token).post(
-      `api/v1/book/add/?bookId=${ bookId }`,
-    )
-    console.log('added', response)
-  }
-
-  const removeFromLibrary = async () => {
-    const response = await getAxiosInstance(token).post(
-      `api/v1/book/remove/?bookId=${ bookId }`,
-    )
-    console.log('removed', response)
-  }
-
-  const updateLibrary = () => {
-    if (pageNo === undefined) {
-      addToLibrary()
-    } else {
-      removeFromLibrary()
-    }
-  }
 
   return (
     <div className={ styles.readingButton }>

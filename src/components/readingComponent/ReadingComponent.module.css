@@ -2,7 +2,8 @@
     display: flex;
     width: 100%;
     height: 600px;
-    margin: 2.4rem auto;
+    margin: 0 auto;
+    margin-top: 2.4rem;
     background-color: var(--gray-background);
 }
 
@@ -34,13 +35,16 @@
 .readingPage {
     display: flex;
     flex: 2.5;
-    gap: 5px;
     flex-direction: column;
     align-items: center;
     width: 129.2rem;
     height: 100%;
     background-color: #fff;
 }
+
+.pageNo {
+    height: fit-content;
+} 
 
 .bookTitle {
     padding-top: 5px;
@@ -59,6 +63,7 @@
 .pdfDisplay {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     width: fit-content;
     height: 570px;
@@ -78,7 +83,6 @@
     .readingPage {
         width: 100vh;
         overflow-x: scroll;
-        border: 2px solid red;
     }
 
     .navigation1 {
@@ -86,6 +90,8 @@
         position: absolute;
         margin-top: 5px;
         left: 0;
+        padding-left: 5px;
+        margin-top: 95%;
     }
 
     .navigation2 {
@@ -93,5 +99,7 @@
         position: absolute;
         margin-top: 5px;
         right: 0;
+        padding-right: 5px;
+        margin-top: 95%;
     }
 }

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import arrowLeft from '../../assets/icons/arrow-left.svg'
 import arrowRight from '../../assets/icons/arrow-right.svg'
 import getAxiosInstance from '../../services/axios';
-import { getBook, getUserData } from '../../store/slice/neverlandUserSlice';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import LoadingComponent from '../loadingComponent/LoadingComponent';
 import styles from './ReadingComponent.module.css'
 
@@ -14,7 +14,7 @@ const ReadingComponent = () => {
   const [book, setBook] = useState(null)
   const [numPage, setNumPages] = useState(book?.pageTotal);
   const [pageNumber, setPageNumber] = useState(1);
-  const { bookId } = useParams();
+  const bookId = useParams()?.bookId;
   const url = book?.content;
 
   function onDocumentLoadSuccess({ numPages }) {
@@ -40,30 +40,33 @@ const ReadingComponent = () => {
     )
 
     if (response.data.status === 'success') {
-      setBook(response.data.data);
-      console.log(response.data.data)
-      setNumPages(response.data.data.pageTotal)
+      if (response.data.data.bookId) {
+        setBook(response.data.data.bookId);
+        setPageNumber(response.data.data.pageNo);
+        setNumPages(response.data.data.bookId.pageTotal)
+      } else {
+        setBook(response.data.data);
+        setNumPages(response.data.data.pageTotal)
+      }
     }
   }
 
-  // response.data.data.pageNo
   const savePage = async () => {
-    // const response = await getAxiosInstance(token).put(
-    //   `api/v1/book/read/${ bookId }`,
-    //   {},
-    // )
+    const response = await getAxiosInstance(token).put(
+      'api/v1/book/read',
+      { bookId, pageNo: pageNumber },
+    )
 
-    // if (response.data.status === 'success') {
-    //   setBook(response.data.data);
-    //   console.log(response.data.data)
-    //   setNumPages(response.data.data.pageTotal)
-    // }
+    if (response.data.status === 'success') {
+      setBook(response.data.data);
+      setNumPages(response.data.data.pageTotal)
+    }
   }
 
   useEffect(() => {
     fetchBookPdf()
     return () => {
-      savePage()
+      if (pageNumber !== 1) savePage();
     }
   }, [])
 
@@ -74,26 +77,19 @@ const ReadingComponent = () => {
       </span>
       <div className={ styles.readingPage }>
         <div className={ styles.bookTitle }>{book?.name}</div>
-        {/* {scroll
-          ? (
-            <Document file='/sample.pdf' onLoadSuccess={ onDocumentLoadSuccess }>
-              {Array.from(new Array(numPage), (el, index) => (
-                <Page key={ `page_${ index + 1 }` } pageNumber={ index + 1 } />
-              ))}
-            </Document>
-          ) : ( */}
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              // file='./../../../public/sample.pdf'
+              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
+              file={ url }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >
               <Page pageNumber={ pageNumber } height600px />
             </Document>
           </span>
         </div>
-        {/* )} */}
-        <p>{`${ pageNumber } of ${ numPage }`}</p>
+        <div className={ styles.pageNo }>{`${ pageNumber } of ${ numPage }`}</div>
       </div>
       <span className={ styles.navigation2 }>
         {pageNumber < numPage && <img onClick={ nextPage } src={ arrowRight } alt='Next Page' />}

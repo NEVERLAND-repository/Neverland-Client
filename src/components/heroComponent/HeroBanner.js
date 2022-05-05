@@ -19,6 +19,10 @@ const HeroBanner = () => {
     }
   })
 
+  const handleScroll = () => {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <section className={ styles.heroSection }>
       <div className={ styles.overlay } />
@@ -30,7 +34,7 @@ const HeroBanner = () => {
       </video>
 
       <nav className={ `${ styles.nav } ${ isActve ? styles.scroll : '' }` }>
-        <div className={ styles.navLogo }>
+        <div className={ styles.navLogo } onClick={ handleScroll }>
           <Link to='/'>
             <img src={ navLogo } alt='NeverLand-white-color-logo' className={ styles.imageLogo } />
           </Link>
