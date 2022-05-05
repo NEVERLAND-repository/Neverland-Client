@@ -122,7 +122,7 @@ const Header = ({ label }) => {
                       marginTop='2.5rem'
                       border='none'
                       outline='0'
-                      _focus={ { boxShadow: 'none' } }
+                      _focus={ { boxShadow: '0px 16px 32px rgb(0, 0, 0)' } }
                     >
                       <PopoverArrow />
                       <PopoverCloseButton p={ 10 } />
@@ -137,16 +137,20 @@ const Header = ({ label }) => {
                           >
                             <ListItem
                               padding='2'
-                              fontSize='20px'
+                              fontSize='2rem'
                               marginTop='20px'
                               _hover={ { cursor: 'pointer' } }
+                              display='flex'
+                              justifyContent='center'
+                              alignItems='center'
                             >
                               <Image
                                 src={ lib }
                                 alt='library'
-                                width='1.2rem'
+                                width='2rem'
                                 display='inline'
                                 marginRight='1rem'
+                                fill='red'
                               />
                               My Library
                             </ListItem>
@@ -161,16 +165,20 @@ const Header = ({ label }) => {
                             <ListItem
                               onClick={ signout }
                               padding='2'
-                              fontSize='20px'
+                              marginTop='2rem'
+                              fontSize='2rem'
                               _hover={ { cursor: 'pointer', bg: 'white' } }
-                              paddingTop={ 7 }
+                              display='flex'
+                              justifyContent='flex-start'
+                              alignItems='center'
                             >
                               <Image
                                 src={ logout }
                                 alt='logout'
-                                width='1.2rem'
+                                width='2.3rem'
                                 display='inline'
                                 marginRight='1rem'
+                                marginLeft='1rem'
                               />
                               Logout
                             </ListItem>

@@ -5,7 +5,7 @@ import Form from '../../components/formComponent/Form';
 
 import styles from './authPages.module.css';
 
-const LogIn = (props) => {
+const LogIn = () => {
   return (
     <section>
       <Card className={ styles.formContainer }>
