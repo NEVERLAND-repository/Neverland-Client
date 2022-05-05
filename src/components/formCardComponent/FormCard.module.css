@@ -10,6 +10,18 @@
   align-items: center;
   gap: 2.4rem;
 }
+.loginCard {
+  background: #fff;
+  width: 39.2rem;
+  height: 51.2rem;
+  border-radius: 1.6rem;
+  margin-right: 17.4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
 .formTitle{
   font-size: 3.3rem;
   font-weight: 700;
