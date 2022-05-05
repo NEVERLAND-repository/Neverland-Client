@@ -43,7 +43,7 @@ const Sidebar = () => {
   return (
     <SidebarWrapper>
       <SidebarNavigationButtons isShowing={ isShowing }>
-        <header className='header margin-b padding-l'>
+        <header className='sidebar-header margin-b padding-l'>
           <nav className='sidebar__navbar padding-l'>
             <NavLinkLogo to='/home'>
               <img src={ dashLogo } alt={ dashLogo } />
