@@ -5,8 +5,9 @@ import {
 import { useSelector } from 'react-redux';
 import { useMediaQuery } from '@chakra-ui/react';
 import BookCard from '../../../../components/bookCardComponent/BookCard';
-import { getHomePageData } from '../../../../store/slice/neverlandUserSlice';
+import { getHomePageData, getUserData } from '../../../../store/slice/neverlandUserSlice';
 import LoadingComponent from '../../../../components/loadingComponent/LoadingComponent';
+import getAxiosInstance from '../../../../services/axios';
 
 export const Books = ({ category = 'comics' }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');

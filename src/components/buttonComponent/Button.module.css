@@ -36,6 +36,9 @@
   background: var(--button-hover-color);
   color: #fff;
 }
+.buttonCTA a:hover {
+  background: green;
+}
 .readingButton{
   width: fit-content;
   display: flex;
