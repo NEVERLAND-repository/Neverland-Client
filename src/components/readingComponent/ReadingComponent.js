@@ -16,7 +16,6 @@ const ReadingComponent = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const bookId = useParams()?.bookId;
   const url = book?.content;
-  console.log(book);
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -40,20 +39,26 @@ const ReadingComponent = () => {
       `api/v1/book/overview/${ bookId }`,
     )
 
-    console.log(response.data.data)
+    console.log(response.data)
+
     if (response.data.status === 'success') {
-      setBook(response.data.data);
-      setNumPages(response.data.data.pageTotal)
+      if (response.data.data.bookId) {
+        setBook(response.data.data.bookId);
+        setPageNumber(response.data.data.pageNo);
+        setNumPages(response.data.data.bookId.pageTotal)
+      } else {
+        setBook(response.data.data);
+        setNumPages(response.data.data.pageTotal)
+      }
     }
   }
 
-  // response.data.data.pageNo
   const savePage = async () => {
     const response = await getAxiosInstance(token).put(
       'api/v1/book/read',
       { bookId, pageNo: pageNumber },
     )
-    console.log(response)
+
     if (response.data.status === 'success') {
       setBook(response.data.data);
       setNumPages(response.data.data.pageTotal)
@@ -63,7 +68,7 @@ const ReadingComponent = () => {
   useEffect(() => {
     fetchBookPdf()
     return () => {
-      savePage()
+      if (pageNumber !== 1) savePage();
     }
   }, [])
 

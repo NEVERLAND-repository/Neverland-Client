@@ -2,13 +2,15 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import SecondaryButton from '../buttonComponent/SecondaryButton';
+import UtilityButton from '../buttonComponent/UtilityButton';
 import BellIcon from '../../assets/icons/bell.svg';
+import BinIcon from '../../assets/icons/bin.svg';
 import styles from './Modal.module.css';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
 
 const Modal = ({
-  imageSrc, actionText, bookId, handleClick,
+  actionText, remove, handleremoveModal, bookId,
 }) => {
   const token = useSelector(getUserData)?.token;
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ const Modal = ({
       <div className={ styles.modalContainer }>
         <div className={ styles.modal }>
           <div className={ styles.imageContainer }>
-            <img src={ imageSrc } alt='action icon' />
+            <img src={ remove ? BinIcon : BellIcon } alt='action icon' />
           </div>
 
           <div>
@@ -44,7 +46,7 @@ const Modal = ({
           </div>
 
           <div className={ styles.buttonContainer }>
-            <SecondaryButton label='Cancel' transparent navigation='/' onClick={ handleClick } />
+            <UtilityButton label='Cancel' removeModal={ handleremoveModal } />
             <SecondaryButton label='Add' navigation='/' callback={ addToLibrary } />
           </div>
         </div>
