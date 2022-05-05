@@ -71,14 +71,13 @@
 
 .pdfDisplay::-webkit-scrollbar-thumb {
     border-radius: 10px;
-	background-color: var(--primary-color);
+	background-color: var(--gray-color);
 }
 
 @media screen and (max-width: 640px) {
     .readingPage {
         width: 100vh;
         overflow-x: scroll;
-        border: 2px solid red;
     }
 
     .navigation1 {

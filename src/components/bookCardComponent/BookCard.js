@@ -38,11 +38,12 @@ const BookCard = ({
       >
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <Box
-            fontWeight='semibold'
+            fontWeight='700'
             fontSize='2rem'
             as='h2'
             lineHeight='tight'
             isTruncated
+            color='var(--primary-color)'
           >
             {title}
           </Box>
@@ -65,11 +66,11 @@ const BookCard = ({
         </Box>
 
         <Box>
-          <Text fontSize='1.6rem' color='gray.600' py='1rem'>
+          <Text fontSize='1.6rem' fontWeight='500' color='black' py='1rem' marginTop='-2.5rem'>
             {author}
           </Text>
           <div className={ styles.bookDetails }>
-            <Text fontSize='1.6rem'>
+            <Text fontSize='1.4rem'>
               {description.slice(0, 100)}
               {' '}
               <Link
