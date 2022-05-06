@@ -4,7 +4,6 @@
     max-width: 80rem;
     height: 60rem;
     margin: 0 auto;
-    margin-top: 2.4rem;
     background-color: var(--gray-background);
 }
 
@@ -48,7 +47,7 @@
     height: fit-content;
 }
 .bookTitle {
-    padding-top: 5px;
+    padding: 1rem 0;
     font-weight: 600;
     color: var(--primary-color);
 }
