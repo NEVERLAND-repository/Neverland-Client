@@ -16,6 +16,7 @@ const ReadingComponent = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const bookId = useParams()?.bookId;
   const url = book?.content;
+  const PAGE_COUNT = 'PageCount'
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -24,6 +25,8 @@ const ReadingComponent = () => {
 
   function changePage(offset) {
     setPageNumber((prevPageNumber) => prevPageNumber + offset);
+    console.log('changePage')
+    localStorage.setItem(PAGE_COUNT, pageNumber)
   }
 
   function previousPage() {
@@ -38,11 +41,18 @@ const ReadingComponent = () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
+    console.log(response.data.data.bookId)
+    console.log(response.data.data)
 
     if (response.data.status === 'success') {
       if (response.data.data.bookId) {
         setBook(response.data.data.bookId);
-        setPageNumber(response.data.data.pageNo);
+        if (response.data.data.pageNo === 0) {
+          const pageNo = response.data.data.pageNo + 1;
+          setPageNumber(pageNo);
+        } else {
+          setPageNumber(response.data.data.pageNo);
+        }
         setNumPages(response.data.data.bookId.pageTotal)
       } else {
         setBook(response.data.data);
@@ -52,11 +62,12 @@ const ReadingComponent = () => {
   }
 
   const savePage = async () => {
+    const no = localStorage.getItem(PAGE_COUNT)
     const response = await getAxiosInstance(token).put(
       'api/v1/book/read',
-      { bookId, pageNo: pageNumber },
+      { bookId, pageNo: no },
     )
-
+    console.log(no, response)
     if (response.data.status === 'success') {
       setBook(response.data.data);
       setNumPages(response.data.data.pageTotal)
@@ -66,7 +77,8 @@ const ReadingComponent = () => {
   useEffect(() => {
     fetchBookPdf()
     return () => {
-      if (pageNumber !== 1) savePage();
+      console.log(pageNumber)
+      savePage();
     }
   }, [])
 
@@ -80,8 +92,6 @@ const ReadingComponent = () => {
         <div className={ styles.pdfDisplay }>
           <span>
             <Document
-              // file='./../../../public/sample.pdf'
-              // file={ `https://cors-anywhere.herokuapp.com/${ url }` }
               file={ url }
               onDocumentLoadSuccess={ onDocumentLoadSuccess }
             >

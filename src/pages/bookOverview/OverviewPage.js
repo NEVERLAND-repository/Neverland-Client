@@ -13,11 +13,13 @@ import Modal from '../../components/modalComponent/Modal';
 const OverviewPage = () => {
   const [book, setBook] = useState('');
   const [renderModal, setRenderModal] = useState(false);
+  const [isRemove, setIsRemove] = useState(true)
   const token = useSelector(getUserData)?.token;
   const bookId = useParams()?.bookId;
   const [pageNo, setPageNo] = useState(undefined);
 
-  const handleRender = () => {
+  const handleRender = (remove) => {
+    setIsRemove(remove)
     setRenderModal(true);
   };
 
@@ -86,13 +88,29 @@ const OverviewPage = () => {
       ) : (
         <LoadingComponent />
       )}
-      {renderModal && (
-        <Modal
-          actionText='Add to Library'
-          imageSrc='BellIcon'
-          handleremoveModal={ removeModal }
-          bookId={ bookId }
-        />
+      {renderModal
+      && (
+      <>
+        {
+          isRemove
+            ? (
+              <Modal
+                actionText='Remove from Library'
+                imageSrc='BellIcon'
+                remove
+                handleremoveModal={ removeModal }
+                bookId={ bookId }
+              />
+            ) : (
+              <Modal
+                actionText='Add to Library'
+                imageSrc='BellIcon'
+                handleremoveModal={ removeModal }
+                bookId={ bookId }
+              />
+            )
+        }
+      </>
       )}
       <Footer />
     </div>

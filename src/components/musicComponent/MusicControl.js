@@ -21,7 +21,7 @@ const MusicControl = () => {
     <div className={ styles.musicWrapper }>
       <AudioPlayer
         style={ {
-          backgroundColor: '#fff', border: '0rem', display: 'block', boxShadow: 'none',
+          backgroundColor: '#fff', border: '0rem', display: 'block', boxShadow: 'none', maxWidth: '800px',
         } }
         // autoPlay={ false }
         layout='stacked-reverse'

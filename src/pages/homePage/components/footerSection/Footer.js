@@ -49,9 +49,17 @@ const Footer = () => {
 
       <div className={ styles.bottomDiv }>
         <div className={ styles.copyright }>
-          <p>neverland-world.netlify.app</p>
-          <a href='tel:+2348035678900'> +2348035678900 </a>
-          <a href='mailto:info@neverland.com'> info@neverland.com </a>
+          <p className={ styles.url }>neverland-world.netlify.app</p>
+          <a href='tel:+2348035678900' className={ styles.phoneNumber }>
+            {' '}
+            +2348035678900
+            {' '}
+          </a>
+          <a href='mailto:info@neverland.com' className={ styles.emailAddress }>
+            {' '}
+            info@neverland.com
+            {' '}
+          </a>
         </div>
         <div className={ styles.iconMobile }>
           <a href='#'>

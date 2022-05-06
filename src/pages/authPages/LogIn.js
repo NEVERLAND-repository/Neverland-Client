@@ -5,7 +5,7 @@ import Form from '../../components/formComponent/Form';
 
 import styles from './authPages.module.css';
 
-const LogIn = (props) => {
+const LogIn = () => {
   return (
     <section>
       <Card className={ styles.formContainer }>
@@ -13,8 +13,8 @@ const LogIn = (props) => {
           formTitle='Welcome Back!'
           bottomText={ 'Don\'t have an account? ' }
           altAction='Sign up'
-          classNames={ styles.loginCard }
           route='/register'
+          login
         >
 
           <Form label='Log In' />
