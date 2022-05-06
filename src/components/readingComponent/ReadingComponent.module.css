@@ -76,6 +76,7 @@
 
 .pdfDisplay canvas {
     width: 100% !important;
+    height: fit-content;
 }
 
 .pdfDisplay::-webkit-scrollbar {
