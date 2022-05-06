@@ -4,7 +4,8 @@
     align-items: center;
     margin: 0 auto;
     margin-bottom: 20px;
-    width: 52%;
+    width: 80%;
+    max-width: 640px !important;
     height: 100px;
 }
 
@@ -21,7 +22,7 @@
     height: 100%;
 }
 
-.control:active{
+.control:active {
     transform: scale(1.05);
 }
 
@@ -33,6 +34,6 @@
 
 @media screen and (max-width: 640px) {
     .musicWrapper {
-    width: 90%;
-}
+        width: 100%;
+    }
 }

@@ -7,7 +7,7 @@ const FormCard = ({
   formTitle, bottomText, altAction, children, route, login,
 }) => {
   return (
-    <div className={`${login ? styles.loginCard : styles.card} ` }>
+    <div className={ `${ login ? styles.loginCard : styles.card } ` }>
       <p className={ styles.formTitle }>
         {formTitle}
       </p>

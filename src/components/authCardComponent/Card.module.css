@@ -30,7 +30,6 @@
   }
   .card {
     background: url(../../assets/images/authBgImageSmall.png);
-    /* background-position-y: -200%; */
     background-size: 100%;
     background-repeat: no-repeat;
     background-origin: content-box;

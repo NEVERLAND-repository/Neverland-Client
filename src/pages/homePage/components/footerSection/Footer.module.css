@@ -33,6 +33,18 @@ footer a:hover{
   width: 100%;
   justify-content: space-between;
 }
+.phoneNumber,.url,.emailAddress{
+  flex: 1;
+  cursor: pointer;
+}
+.emailAddress{
+  display: flex;
+  justify-content: flex-end;
+}
+.phoneNumber{
+  display: flex;
+  margin-left: 12rem;
+}
 
 .iconContainer {
   display: flex;
@@ -45,6 +57,7 @@ footer a:hover{
 
 .logoContainer {
   padding: 0.5rem;
+  cursor: pointer;
 }
 
 .line {
@@ -108,6 +121,10 @@ footer a:hover{
 
   .logoContainer{
     width: 9rem;
+  }
+  .phoneNumber {
+    display: flex;
+    margin-left: 0rem;
   }
 
 }
