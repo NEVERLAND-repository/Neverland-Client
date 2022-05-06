@@ -19,15 +19,14 @@ const BookReading = () => {
   }, [])
 
   return (
-    <>
+    <div>
       <Header />
       <div className={ styles.wrapper }>
         <ReadingComponent />
         <MusicControl />
         <Footer />
       </div>
-
-    </>
+    </div>
   )
 }
 
