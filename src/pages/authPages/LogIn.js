@@ -13,7 +13,7 @@ const LogIn = (props) => {
           formTitle='Welcome Back!'
           bottomText={ 'Don\'t have an account? ' }
           altAction='Sign up'
-          className={ styles.loginCard }
+          classNames={ styles.loginCard }
           route='/register'
         >
 

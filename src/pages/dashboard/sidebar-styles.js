@@ -8,7 +8,15 @@ export const SidebarWrapper = styled.div`
   }
   
   .sidebar-header a{
+    background: none;
     text-decoration: none;
+    display:block;
+
+    &:hover{
+    background: none;
+    text-decoration: none;
+    display:block;
+    }
   }
 
   .side-component-wrapper{
@@ -119,8 +127,13 @@ export const Main = styled.main`
 `;
 
 export const NavLinkLogo = styled(Link)`
-  display: block;
+  /* display: block; */
   height: 100%;
+  background: none;
+
+  &:hover{
+    background: none; 
+  }
 
   img {
     width: 100%;

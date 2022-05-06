@@ -2,12 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import styles from './FormCard.module.css';
+import styles2 from '../../pages/authPages/authPages.module.css'
 
 const FormCard = ({
-  formTitle, bottomText, altAction, children, className, route,
+  formTitle, bottomText, altAction, children, route,
 }) => {
   return (
-    <div className={ `${ styles.card } ${ className }` }>
+    <div className={ `${ styles.card } ${ styles2.loginCard }` }>
       <p className={ styles.formTitle }>
         {formTitle}
       </p>
