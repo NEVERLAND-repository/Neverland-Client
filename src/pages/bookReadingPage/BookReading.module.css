@@ -1,9 +1,11 @@
-.wrapper {
+/* .wrapper {
+  height: calc(100% - 10rem);
   background-color: var(--gray-background);
+  border: 2px solid red;
 }
 
 @media screen and (max-width: 640px) {
   .wrapper {
     height: 100%;
   }
-}
+} */
