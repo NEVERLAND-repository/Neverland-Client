@@ -91,8 +91,7 @@ const Header = ({ label }) => {
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
                       to={ `/home/${ path }` }
-                      className={ `${ styles.navLink } ${
-                        path === activePath ? styles.active : ''
+                      className={ `${ styles.navLink } ${ path === activePath ? styles.active : ''
                       }` }
                     >
                       {name}
@@ -112,7 +111,7 @@ const Header = ({ label }) => {
                   <PopoverTrigger>
                     <Wrap>
                       <WrapItem>
-                        <Avatar size='lg' name='User' src={ profile } />
+                        <Avatar size='md' name='User' src={ profile } />
                       </WrapItem>
                     </Wrap>
                   </PopoverTrigger>
@@ -133,7 +132,7 @@ const Header = ({ label }) => {
                             to='/dashboard'
                             className={ styles.navLink }
                             activeClassName={ styles.active }
-                            onClick={ () => {} }
+                            onClick={ () => { } }
                           >
                             <ListItem
                               padding='2'
@@ -160,7 +159,7 @@ const Header = ({ label }) => {
                             to=''
                             className={ styles.navLink }
                             activeClassName={ styles.active }
-                            onClick={ () => {} }
+                            onClick={ () => { } }
                           >
                             <ListItem
                               onClick={ signout }
@@ -189,7 +188,9 @@ const Header = ({ label }) => {
                   </Portal>
                 </Popover>
               ) : (
-                <SecondaryButton label='Get Started' navigation='/login' />
+                <span className={ styles.btn }>
+                  <SecondaryButton label='Get Started' navigation='/login' />
+                </span>
               )}
             </div>
           </nav>

@@ -114,9 +114,11 @@
     .logo {
         width: 7rem;
     }
-
-    .navBtn {
+    .btn {
         display: none;
+    }
+    .navBtn {
+        padding-right: .9rem;
     }
 
     .navbarItem {
