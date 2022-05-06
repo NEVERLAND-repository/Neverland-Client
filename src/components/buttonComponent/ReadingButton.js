@@ -9,6 +9,14 @@ const ReadingButton = ({ bookId, handleClick, pageNo = undefined }) => {
   const token = useSelector(getUserData)?.token;
   const navigate = useNavigate();
 
+  const handleChange = () => {
+    if (pageNo === undefined) {
+      handleClick(false)
+    } else {
+      handleClick(true)
+    }
+  }
+
   return (
     <div className={ styles.readingButton }>
       <div className={ styles.firstDiv }>
@@ -23,7 +31,7 @@ const ReadingButton = ({ bookId, handleClick, pageNo = undefined }) => {
       </div>
 
       <div
-        onClick={ token ? handleClick : navigate('/login') }
+        onClick={ token ? handleChange : navigate('/login') }
         className={ styles.secondDiv }
       >
         <button className={ styles.libraryLink }>

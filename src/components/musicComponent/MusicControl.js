@@ -18,20 +18,20 @@ const MusicControl = () => {
   };
 
   return (
-    <div className={styles.musicWrapper}>
+    <div className={ styles.musicWrapper }>
       <AudioPlayer
-        style={{
+        style={ {
           backgroundColor: '#fff', border: '0rem', display: 'block', boxShadow: 'none', maxWidth: '800px',
-        }}
+        } }
         // autoPlay={ false }
         layout='stacked-reverse'
-        src={musicTracks[trackIndex].src}
-        onPlay={(e) => console.log('onPlay')}
+        src={ musicTracks[trackIndex].src }
+        onPlay={ (e) => console.log('onPlay') }
         showSkipControls
-        showJumpControls={false}
-        onClickPrevious={handleClickPrevious}
-        onClickNext={handleClickNext}
-        onEnded={handleClickNext}
+        showJumpControls={ false }
+        onClickPrevious={ handleClickPrevious }
+        onClickNext={ handleClickNext }
+        onEnded={ handleClickNext }
       />
     </div>
   )
