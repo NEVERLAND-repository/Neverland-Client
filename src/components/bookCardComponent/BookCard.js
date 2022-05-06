@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { toast } from 'react-toastify';
 import { Link, useNavigate } from 'react-router-dom';
 import {
@@ -6,23 +6,16 @@ import {
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { MinusIcon } from '@chakra-ui/icons';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import styles from './BookCard.module.css';
 import getAxiosInstance from '../../services/axios';
-import {
-  getChange, getLoader, getUserData,
-} from '../../store/slice/neverlandUserSlice';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const BookCard = ({
-  id, imageUrl, title, author, type, genre, rated, description, library,
+  id, imageUrl, title, author, type, genre, rated, description, library, callback,
 }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
   const token = useSelector(getUserData)?.token;
-  // console.log(token)
-  // const state = useSelector(getChange)?.state;
-  // console.log(state);
-  // const [changeState, setChangeState] = useState(false)
-  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const addToLibrary = async () => {
@@ -31,8 +24,8 @@ const BookCard = ({
     )
     console.log('added', response);
     if (response.data.status === 'success') {
+      callback()
       toast.success('Book added to library');
-      // dispatch(changeState(!change))
     }
 
     if (response.data.status === 'error') {
@@ -46,8 +39,8 @@ const BookCard = ({
     )
     console.log('remove', response);
     if (response.data.status === 'success') {
-      toast.success('Book removed from library')
-      // dispatch(changeState(!change))
+      callback();
+      toast.success('Book removed from library');
     }
 
     if (response.data.status === 'error') {
@@ -121,7 +114,7 @@ const BookCard = ({
                 as={ Link }
                 className={ styles.bookDetailsLink }
               >
-                continue reading
+                {library ? 'continue reading' : 'start reading'}
               </Link>
             </Text>
           </div>

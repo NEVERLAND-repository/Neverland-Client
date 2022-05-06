@@ -4,7 +4,6 @@
     max-width: 80rem;
     height: 60rem;
     margin: 0 auto;
-    margin-top: 2.4rem;
     background-color: var(--gray-background);
 }
 
@@ -31,7 +30,6 @@
 .navigation2 img {
     width: 30px;
     height: 30px;
-    color: blue;
 }
 
 .readingPage {
@@ -41,6 +39,7 @@
     align-items: center;
     min-width: 80%;
     height: 100%;
+    margin-top: 2rem;
     background-color: #fff;
 }
 

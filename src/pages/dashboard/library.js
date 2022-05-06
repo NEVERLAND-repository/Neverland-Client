@@ -12,6 +12,7 @@ const Library = () => {
   const token = useSelector(getUserData)?.token;
   const [keepReading, setKeepReading] = useState(null);
   const [yetToRead, setYetToRead] = useState(null);
+  const [state, setState] = useState(true)
 
   const getLibrary = async () => {
     const response = await getAxiosInstance(token).get(
@@ -24,10 +25,14 @@ const Library = () => {
     }
   }
 
+  const changeState = () => {
+    setState(!state)
+  }
+
   useEffect(() => {
     window.scrollTo(0, 0);
     getLibrary()
-  }, [])
+  }, [state])
 
   return (
     <>
@@ -64,6 +69,7 @@ const Library = () => {
                   keepReading && keepReading.map((book) => (
                     <BookCard
                       library
+                      callback={ changeState }
                       id={ book.bookId._id }
                       imageUrl={ book.bookId.bookImg }
                       title={ book.bookId.name }
@@ -80,6 +86,7 @@ const Library = () => {
                   yetToRead && yetToRead.map((book) => (
                     <BookCard
                       library
+                      callback={ changeState }
                       id={ book.bookId._id }
                       imageUrl={ book.bookId.bookImg }
                       title={ book.bookId.name }

@@ -19,8 +19,8 @@ const OverviewPage = () => {
   const [pageNo, setPageNo] = useState(undefined);
 
   const handleRender = (remove) => {
-    setRenderModal(true);
     setIsRemove(remove)
+    setRenderModal(true);
   };
 
   const removeModal = () => {
@@ -95,7 +95,7 @@ const OverviewPage = () => {
           isRemove
             ? (
               <Modal
-                actionText='Add to Library'
+                actionText='Remove from Library'
                 imageSrc='BellIcon'
                 remove
                 handleremoveModal={ removeModal }

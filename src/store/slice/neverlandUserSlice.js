@@ -37,7 +37,7 @@ const neverlandUserSlice = createSlice({
         isLoaded: false,
         homePageData: {},
         book: {},
-        change: {state: false},
+        change: false,
       };
     },
     addHomepageData: (state, { payload }) => {

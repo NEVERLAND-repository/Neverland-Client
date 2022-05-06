@@ -19,12 +19,15 @@ const BookReading = () => {
   }, [])
 
   return (
-    <div className={ styles.wrapper }>
+    <>
       <Header />
-      <ReadingComponent />
-      <MusicControl />
-      <Footer />
-    </div>
+      <div className={ styles.wrapper }>
+        <ReadingComponent />
+        <MusicControl />
+        <Footer />
+      </div>
+
+    </>
   )
 }
 

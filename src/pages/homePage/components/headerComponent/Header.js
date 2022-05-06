@@ -103,7 +103,7 @@ const Header = ({ label }) => {
               {isAuth ? (
                 <Popover
                   arrowSize='10px'
-                  zIndex='10000'
+                  zIndex='20000'
                   placement='bottom-end'
                   marginTop='0'
                   border='none'
@@ -115,7 +115,7 @@ const Header = ({ label }) => {
                       </WrapItem>
                     </Wrap>
                   </PopoverTrigger>
-                  <Portal zIndex='10000'>
+                  <Portal zIndex='20000'>
                     <PopoverContent
                       fontSize='1.5rem'
                       marginTop='2.5rem'
@@ -211,7 +211,7 @@ const Header = ({ label }) => {
                   {navLinks.map(({ name, path }) => (
                     <li key={ name } className={ styles.menu_item }>
                       <NavLink
-                        to={ path }
+                        to={ `/home/${ path }` }
                         className={ styles.menu_link }
                         activeClassName={ styles.active }
                       >
