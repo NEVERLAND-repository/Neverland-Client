@@ -35,7 +35,7 @@ const ReadingButton = ({ bookId, handleClick, pageNo = undefined }) => {
         className={ styles.secondDiv }
       >
         <button className={ styles.libraryLink }>
-          {pageNo === undefined ? '+' : '--'}
+          {pageNo === undefined ? '+' : '-'}
         </button>
       </div>
     </div>
