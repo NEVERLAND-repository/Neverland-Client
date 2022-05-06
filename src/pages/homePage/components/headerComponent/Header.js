@@ -121,7 +121,7 @@ const Header = ({ label }) => {
                       marginTop='2.5rem'
                       border='none'
                       outline='0'
-                      _focus={ { boxShadow: '0px 16px 32px rgb(0, 0, 0)' } }
+                      _focus={ { boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px' } }
                     >
                       <PopoverArrow />
                       <PopoverCloseButton p={ 10 } />
@@ -220,16 +220,6 @@ const Header = ({ label }) => {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div
-                className={ styles.menu_footer }
-                onClick={ toggleMenu }
-                onKeyDown={ toggleMenu }
-                role='get_started_button'
-              >
-                <div className={ styles.navBtn }>
-                  <SecondaryButton label='Get Started' navigation='/signup' />
-                </div>
               </div>
             </span>
           </span>
