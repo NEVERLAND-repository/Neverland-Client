@@ -5,6 +5,7 @@
     margin: 0 auto;
     margin-bottom: 20px;
     width: 80%;
+    max-width: 640px !important;
     height: 100px;
 }
 
