@@ -38,7 +38,7 @@ const Hero = () => {
 
                 </Heading>
                 <Text className={ styles.bottomText }>{book?.description.slice(0, 200).concat('...')}</Text>
-                <SecondaryButton label='Get Started' navigation={ token ? '/dashboard' : '/login' } />
+                <SecondaryButton label='Get Started' navigation={ token ? `/overview/${ book._id }` : '/login' } />
               </Stack>
             </Container>
           </div>
