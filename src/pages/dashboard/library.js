@@ -33,7 +33,7 @@ const Library = () => {
     <>
       <LibraryWapper>
         <div className='library-search'>
-          <SearchBar placeholder='Search for books' query='user' />
+          <SearchBar placeholder='Search for books in your Library' query='user' />
         </div>
         <div className='tab-group'>
           <h1 className='title library-title'>Library</h1>

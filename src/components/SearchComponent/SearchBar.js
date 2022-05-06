@@ -10,7 +10,6 @@ const SearchBar = ({ placeholder, query }) => {
   const token = useSelector(getUserData)?.token;
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
-  console.log(`api/v1/${ query }/search`)
 
   const handleFilter = async (event) => {
     const searchWord = event.target.value;
@@ -22,8 +21,10 @@ const SearchBar = ({ placeholder, query }) => {
 
     if (searchWord === '') {
       setFilteredData([]);
-    } else {
+    } else if (response.data.data.userBooksSearchResults) {
       setFilteredData(response.data.data.userBooksSearchResults);
+    } else {
+      setFilteredData(response.data.data);
     }
   };
 
