@@ -39,7 +39,10 @@
 }
 .altAction a{
   color: var(--secondary-color);
-  /* display: none; */
+}
+.altAction a:hover{
+  background: none;
+  font-weight: 600;
 }
 
 
