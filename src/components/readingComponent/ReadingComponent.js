@@ -16,6 +16,7 @@ const ReadingComponent = () => {
   const [pageNumber, setPageNumber] = useState(1);
   const bookId = useParams()?.bookId;
   const url = book?.content;
+  const PAGE_COUNT = 'PageCount'
 
   function onDocumentLoadSuccess({ numPages }) {
     setNumPages(numPages);
@@ -24,6 +25,8 @@ const ReadingComponent = () => {
 
   function changePage(offset) {
     setPageNumber((prevPageNumber) => prevPageNumber + offset);
+    console.log('changePage')
+    localStorage.setItem(PAGE_COUNT, pageNumber)
   }
 
   function previousPage() {
@@ -38,6 +41,8 @@ const ReadingComponent = () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
+    console.log(response.data.data.bookId)
+    console.log(response.data.data)
 
     if (response.data.status === 'success') {
       if (response.data.data.bookId) {
@@ -57,12 +62,12 @@ const ReadingComponent = () => {
   }
 
   const savePage = async () => {
+    const no = localStorage.getItem(PAGE_COUNT)
     const response = await getAxiosInstance(token).put(
       'api/v1/book/read',
-      { bookId, pageNo: pageNumber },
+      { bookId, pageNo: no },
     )
-    console.log(pageNumber)
-    console.log(response.data)
+    console.log(no, response)
     if (response.data.status === 'success') {
       setBook(response.data.data);
       setNumPages(response.data.data.pageTotal)

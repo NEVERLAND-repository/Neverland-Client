@@ -20,7 +20,6 @@ const Modal = ({
     const response = await getAxiosInstance(token).post(
       `api/v1/book/add/?bookId=${ bookId }`,
     )
-    console.log('added', response)
     if (response.data.status === 'success') {
       toast.success('Book added to library');
       handleremoveModal();

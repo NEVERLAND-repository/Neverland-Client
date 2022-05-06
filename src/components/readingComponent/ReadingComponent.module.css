@@ -30,7 +30,6 @@
 .navigation2 img {
     width: 30px;
     height: 30px;
-    color: blue;
 }
 
 .readingPage {
@@ -40,6 +39,7 @@
     align-items: center;
     min-width: 80%;
     height: 100%;
+    margin-top: 2rem;
     background-color: #fff;
 }
 
