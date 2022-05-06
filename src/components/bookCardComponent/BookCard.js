@@ -1,33 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
 import { MinusIcon } from '@chakra-ui/icons';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styles from './BookCard.module.css';
 import getAxiosInstance from '../../services/axios';
-import { getUserData } from '../../store/slice/neverlandUserSlice';
+import {
+  getChange, getLoader, getUserData,
+} from '../../store/slice/neverlandUserSlice';
 
 const BookCard = ({
   id, imageUrl, title, author, type, genre, rated, description, library,
 }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
   const token = useSelector(getUserData)?.token;
+  // console.log(token)
+  // const state = useSelector(getChange)?.state;
+  // console.log(state);
+  // const [changeState, setChangeState] = useState(false)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const addToLibrary = async () => {
     const response = await getAxiosInstance(token).post(
       `api/v1/book/add/?bookId=${ id }`,
     )
     console.log('added', response);
+    if (response.data.status === 'success') {
+      toast.success('Book added to library');
+      // dispatch(changeState(!change))
+    }
+
+    if (response.data.status === 'error') {
+      toast.error('Book already exists')
+    }
   }
 
   const removeFromLibrary = async () => {
     const response = await getAxiosInstance(token).post(
-      `api/v1/book/add/?bookId=${ id }`,
+      `api/v1/book/remove/?bookId=${ id }`,
     )
-    console.log('added', response);
+    console.log('remove', response);
+    if (response.data.status === 'success') {
+      toast.success('Book removed from library')
+      // dispatch(changeState(!change))
+    }
+
+    if (response.data.status === 'error') {
+      toast.success('Book doesn\'t exist in the library')
+    }
   }
 
   return (
@@ -80,11 +105,8 @@ const BookCard = ({
               fontSize='1.3rem'
               className={ styles.addIcon }
             >
-              {library ? (
-                <MinusIcon onClick={ removeFromLibrary } />
-              ) : (
-                <AddIcon onClick={ addToLibrary } />
-              )}
+              {library ? <MinusIcon onClick={ token ? removeFromLibrary : navigate('/login') } />
+                : <AddIcon onClick={ token ? addToLibrary : navigate('/login') } /> }
             </Center>
           </Tooltip>
         </Box>
