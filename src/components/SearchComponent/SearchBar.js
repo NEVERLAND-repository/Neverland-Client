@@ -6,23 +6,24 @@ import getAxiosInstance from '../../services/axios';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
 import styles from './SearchBar.module.css';
 
-const SearchBar = ({ placeholder }) => {
+const SearchBar = ({ placeholder, query }) => {
   const token = useSelector(getUserData)?.token;
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState('');
+  console.log(`api/v1/${ query }/search`)
 
   const handleFilter = async (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
 
     const response = await getAxiosInstance(token).get(
-      `api/v1/home/search?searchQuery=${ searchWord?.toLowerCase() || '' }`,
+      `api/v1/${ query }/search?searchQuery=${ searchWord?.toLowerCase() || '' }`,
     )
 
     if (searchWord === '') {
       setFilteredData([]);
     } else {
-      setFilteredData(response.data.data);
+      setFilteredData(response.data.data.userBooksSearchResults);
     }
   };
 
@@ -41,16 +42,16 @@ const SearchBar = ({ placeholder }) => {
           onChange={ handleFilter }
         />
         <div className={ styles.searchIcon }>
-          {filteredData.length === 0 ? (
+          {filteredData?.length === 0 ? (
             <SearchIcon />
           ) : (
             <CloseIcon id='clearBtn' onClick={ clearInput } />
           )}
         </div>
       </div>
-      {filteredData.length !== 0 && (
+      {filteredData?.length !== 0 && (
         <div className={ styles.dataResult }>
-          {filteredData.map((value, key) => {
+          {filteredData?.map((value, key) => {
             return (
               <div key={ key } className={ styles.dataResultItem }>
                 <img src={ value.bookImg } alt={ value.title } />
@@ -65,7 +66,6 @@ const SearchBar = ({ placeholder }) => {
                   <p>{ value.author }</p>
                 </div>
               </div>
-
             );
           })}
         </div>

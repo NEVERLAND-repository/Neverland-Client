@@ -70,7 +70,26 @@ export const updateUser = createAsyncThunk(
     }
   },
 );
+
 // logout
 export const logout = createAsyncThunk('neverlandUser/logout', async () => {
   await userService.logout()
 } )
+
+// update page count
+// export const updatePageCount = createAsyncThunk(
+//   'neverlandUser/pageCount',
+//   (userData, thunkAPI) => {
+//     try {
+//       const { token } = thunkAPI.getState().neverlandUser.userData;
+//       return userService.updateUser(userData, token);
+//     } catch (error) {
+//       const message = (error.response
+//         && error.response.data
+//         && error.response.data.message)
+//         || error.message
+//         || error.toString();
+//       return thunkAPI.rejectWithValue(message);
+//     }
+//   },
+// )

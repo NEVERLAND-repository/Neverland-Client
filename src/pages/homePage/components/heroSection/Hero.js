@@ -15,7 +15,7 @@ const Hero = () => {
 
   return (
     <section className={ styles.heroSection }>
-      <SearchBar placeholder='Search for books' />
+      <SearchBar placeholder='Search for books' query='home' />
       {trendingBooks?.length !== 0 && (
       <Carousel interval={ 5000 } className={ styles.carousel }>
         {trendingBooks?.map((book) => (
@@ -38,7 +38,7 @@ const Hero = () => {
 
                 </Heading>
                 <Text className={ styles.bottomText }>{book?.description.slice(0, 200).concat('...')}</Text>
-                <SecondaryButton label='Get Started' navigation={ token ? '/dashboard' : '/login' } />
+                <SecondaryButton label='Get Started' navigation={ token ? `/overview/${ book._id }` : '/login' } />
               </Stack>
             </Container>
           </div>
