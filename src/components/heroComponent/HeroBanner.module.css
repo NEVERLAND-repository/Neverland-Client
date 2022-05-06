@@ -50,6 +50,9 @@
   margin: auto;
   text-align: center;
 }
+.imageLogo:hover{
+  background: var(--primary-color);
+}
 .textContainer {
   display: flex;
   flex-direction: column;

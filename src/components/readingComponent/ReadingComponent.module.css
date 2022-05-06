@@ -1,16 +1,18 @@
 .wrapper {
     display: flex;
     width: 100%;
+    max-width: 800px;
     height: 600px;
-    margin: 2.4rem auto;
+    margin: 0 auto;
+    margin-top: 2.4rem;
     background-color: var(--gray-background);
 }
 
 .navigation1 {
     display: flex;
-    width: 40px;
-    height: 100%;
-    margin-right: 20px;
+    width: 20%;
+    height: 100vh;
+    margin-right: .5%;
     flex: 1;
     justify-content: flex-end;
     align-items: center;
@@ -18,9 +20,9 @@
 
 .navigation2 {
     display: flex;
-    width: 40px;
-    height: 100%;
-    margin-left: 20px;
+    width: 20%;
+    height: 100vh;
+    margin-left: .5%;
     flex: 1;
     align-items: center;
 }
@@ -29,17 +31,21 @@
 .navigation2 img {
     width: 30px;
     height: 30px;
+    color: blue;
 }
 
 .readingPage {
     display: flex;
     flex: 2.5;
-    gap: 5px;
     flex-direction: column;
     align-items: center;
-    width: 129.2rem;
+    min-width: 80%;
     height: 100%;
     background-color: #fff;
+}
+
+.pageNo {
+    height: fit-content;
 }
 
 .bookTitle {
@@ -59,39 +65,51 @@
 .pdfDisplay {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
-    width: fit-content;
+    width: 100%;
     height: 570px;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
-.pdfDisplay::-webkit-scrollbar{
-	width: 3px;
+.pdfDisplay canvas {
+    width: 100% !important;
+}
+
+.pdfDisplay::-webkit-scrollbar {
+    width: 3px;
 }
 
 .pdfDisplay::-webkit-scrollbar-thumb {
     border-radius: 10px;
-	background-color: var(--primary-color);
+    background-color: var(--gray-color);
 }
 
 @media screen and (max-width: 640px) {
     .readingPage {
-        width: 100vh;
+        width: 100%;
         overflow-x: scroll;
-        border: 2px solid red;
     }
 
     .navigation1 {
         display: block;
         position: absolute;
-        margin-top: 5px;
-        left: 0;
+        margin-top: 45%;
+        left: 3%;
+        padding-left: 5px;
+        margin-top: 70%;
+        z-index: 1000;
     }
 
     .navigation2 {
         display: block;
         position: absolute;
-        margin-top: 5px;
+        margin-top: 45%;
         right: 0;
+        padding-left: 30px;
+        margin-top: 70%;
     }
+
+
 }

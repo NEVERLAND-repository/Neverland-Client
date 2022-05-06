@@ -4,13 +4,31 @@ import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
 import { AddIcon } from '@chakra-ui/icons';
+import { MinusIcon } from '@chakra-ui/icons';
+import { useSelector } from 'react-redux';
 import styles from './BookCard.module.css';
+import getAxiosInstance from '../../services/axios';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const BookCard = ({
-  id, imageUrl, title, author, type, genre, rated, description,
+  id, imageUrl, title, author, type, genre, rated, description, library,
 }) => {
-  // const [style, setStyle] = useState({display: 'none'});
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
+  const token = useSelector(getUserData)?.token;
+
+  const addToLibrary = async () => {
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/add/?bookId=${ id }`,
+    )
+    console.log('added', response);
+  }
+
+  const removeFromLibrary = async () => {
+    const response = await getAxiosInstance(token).post(
+      `api/v1/book/add/?bookId=${ id }`,
+    )
+    console.log('added', response);
+  }
 
   return (
     <Box
@@ -37,11 +55,12 @@ const BookCard = ({
       >
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <Box
-            fontWeight='semibold'
+            fontWeight='700'
             fontSize='2rem'
             as='h2'
             lineHeight='tight'
             isTruncated
+            color='var(--primary-color)'
           >
             {title}
           </Box>
@@ -50,21 +69,26 @@ const BookCard = ({
               margin='4'
               padding='4'
               borderRadius='50%'
-              color='white'
-              backgroundColor='var(--primary-color)'
+              border={ `${ library ? '1px solid var(--primary-color)' : 'none' }` }
+              color={ `${ library ? 'var(--primary-color)' : 'white' }` }
+              backgroundColor={ `${
+                library ? 'transparent' : 'var(--primary-color)'
+              }` }
               fontSize='1.3rem'
+              className={ styles.addIcon }
             >
-              <AddIcon />
+              {library ? <MinusIcon onClick={ removeFromLibrary } />
+                : <AddIcon onClick={ addToLibrary } /> }
             </Center>
           </Tooltip>
         </Box>
 
         <Box>
-          <Text fontSize='1.6rem' color='gray.600' py='1rem'>
+          <Text fontSize='1.6rem' fontWeight='500' color='black' py='1rem' marginTop='-2.5rem'>
             {author}
           </Text>
           <div className={ styles.bookDetails }>
-            <Text fontSize='1.6rem'>
+            <Text fontSize='1.4rem'>
               {description.slice(0, 100)}
               {' '}
               <Link
@@ -90,7 +114,6 @@ const BookCard = ({
             {type}
             {' '}
             &bull;
-            {' '}
             {genre}
           </Box>
         </Box>

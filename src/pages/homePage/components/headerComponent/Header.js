@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import {
-  NavLink, Link, useNavigate, useParams,
+  NavLink,
+  Link,
+  useNavigate,
+  useParams,
+  useLocation,
 } from 'react-router-dom';
 import {
   Popover,
@@ -19,7 +23,6 @@ import {
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import lib from '../../../../assets/icons/book.svg';
-import pro from '../../../../assets/icons/pro-icon.svg';
 import logout from '../../../../assets/icons/log-out.svg';
 import burger from '../../../../assets/icons/burger.svg';
 import close from '../../../../assets/icons/cross.svg';
@@ -28,13 +31,18 @@ import { NavContainer } from '../../../../components/container/NavContainer';
 import navLogo from '../../../../assets/images/neverLandLogo-orange.png';
 import styles from './Header.module.css';
 import SecondaryButton from '../../../../components/buttonComponent/SecondaryButton';
-import { deleteUser, getUserData } from '../../../../store/slice/neverlandUserSlice';
+import {
+  deleteUser,
+  getUserData,
+} from '../../../../store/slice/neverlandUserSlice';
 import { USER_DATA } from '../../../../constants';
-// import { signout } from '../../../../services/utils';
+// import utils from '../../../../services/utils';
 
 const Header = ({ label }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const activePath = pathname.split('/')[2];
 
   const navLinks = [
     { name: 'Comics', path: 'comics' },
@@ -59,9 +67,9 @@ const Header = ({ label }) => {
 
   const signout = () => {
     localStorage.removeItem(USER_DATA);
-    dispatch(deleteUser())
-    navigate('/home')
-  }
+    dispatch(deleteUser());
+    navigate('/home');
+  };
 
   const icon = isMenuOpen ? close : burger;
 
@@ -70,8 +78,12 @@ const Header = ({ label }) => {
       <header className={ styles.header }>
         <NavContainer>
           <nav className={ styles.navbar }>
-            <Link to='/' className={ styles.logo }>
-              <img src={ navLogo } alt='NeverLand-orange-color-logo' />
+            <Link to='/home' className={ styles.logo }>
+              <img
+                src={ navLogo }
+                alt='NeverLand-orange-color-logo'
+                className={ styles.imgLogo }
+              />
             </Link>
             <ul className={ styles.navbarList }>
               {label
@@ -79,8 +91,9 @@ const Header = ({ label }) => {
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
                       to={ `/home/${ path }` }
-                      className={ styles.navLink }
-                      activeClassName={ styles.active }
+                      className={ `${ styles.navLink } ${
+                        path === activePath ? styles.active : ''
+                      }` }
                     >
                       {name}
                     </NavLink>
@@ -89,7 +102,13 @@ const Header = ({ label }) => {
             </ul>
             <div className={ styles.navBtn }>
               {isAuth ? (
-                <Popover arrowSize='16' zIndex='10000' placement='bottom-end'>
+                <Popover
+                  arrowSize='10px'
+                  zIndex='10000'
+                  placement='bottom-end'
+                  marginTop='0'
+                  border='none'
+                >
                   <PopoverTrigger>
                     <Wrap>
                       <WrapItem>
@@ -99,14 +118,15 @@ const Header = ({ label }) => {
                   </PopoverTrigger>
                   <Portal zIndex='10000'>
                     <PopoverContent
-                      fontSize='1.6rem'
-                      marginTop='2.8rem'
+                      fontSize='1.5rem'
+                      marginTop='2.5rem'
                       border='none'
                       outline='0'
+                      _focus={ { boxShadow: '0px 16px 32px rgb(0, 0, 0)' } }
                     >
                       <PopoverArrow />
                       <PopoverCloseButton p={ 10 } />
-                      <PopoverBody border='none' padding={ 10 }>
+                      <PopoverBody border='none' padding={ 4 }>
                         <List gap='10' p='4'>
                           <Link
                             as='button'
@@ -117,16 +137,20 @@ const Header = ({ label }) => {
                           >
                             <ListItem
                               padding='2'
-                              fontSize='20px'
+                              fontSize='2rem'
                               marginTop='20px'
                               _hover={ { cursor: 'pointer' } }
+                              display='flex'
+                              justifyContent='center'
+                              alignItems='center'
                             >
                               <Image
                                 src={ lib }
                                 alt='library'
-                                width='1.2rem'
+                                width='2rem'
                                 display='inline'
                                 marginRight='1rem'
+                                fill='red'
                               />
                               My Library
                             </ListItem>
@@ -141,15 +165,20 @@ const Header = ({ label }) => {
                             <ListItem
                               onClick={ signout }
                               padding='2'
-                              fontSize='20px'
+                              marginTop='2rem'
+                              fontSize='2rem'
                               _hover={ { cursor: 'pointer', bg: 'white' } }
+                              display='flex'
+                              justifyContent='flex-start'
+                              alignItems='center'
                             >
                               <Image
                                 src={ logout }
                                 alt='logout'
-                                width='1.2rem'
+                                width='2.3rem'
                                 display='inline'
                                 marginRight='1rem'
+                                marginLeft='1rem'
                               />
                               Logout
                             </ListItem>
@@ -198,9 +227,7 @@ const Header = ({ label }) => {
                 role='get_started_button'
               >
                 <div className={ styles.navBtn }>
-                  <button className={ styles.navBtnLink }>
-                    <Link to='/signup'>Get Started</Link>
-                  </button>
+                  <SecondaryButton label='Get Started' navigation='/signup' />
                 </div>
               </div>
             </span>
@@ -209,6 +236,6 @@ const Header = ({ label }) => {
       </header>
     </>
   );
-}
+};
 
 export default Header;

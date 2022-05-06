@@ -4,10 +4,23 @@
   --primary-color: #f49f0a;
   --secondary-color: #00a6a6;
   --button-hover-color: #eb9a0c;
+  --alert-color: #EB4920;
   --gray-color: #c4c4c4;
   --white-color: #fff;
   --black-color: #000;
   --gray-background: #e5e5e5;
+}
+.header {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky !important;
+  top: 0;
+  background-color: #fff;
+  box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1000;
 }
 
 * {
@@ -22,9 +35,10 @@ html {
   font-family: "Inter", sans-serif;
 }
 
-body{
+.app {
   min-height: 100vh;
-  max-width: 2160px;
+  max-width: 1840px;
+  margin: 0 auto;
 }
 
 ul {
@@ -35,6 +49,9 @@ ul {
 
 a {
   text-decoration: none;
+}
+a:hover{
+  background: none;
 }
 
 body::-webkit-scrollbar-track {
@@ -51,4 +68,18 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: var(--gray-color);
+}
+
+@media screen and (max-width: 540px) {
+  .header {
+    display: flex;
+    align-items: center;
+    position: sticky !important;
+    top: 0;
+    align-items: center;
+    height: 7rem;
+    box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    z-index: 20000;
+  }
 }

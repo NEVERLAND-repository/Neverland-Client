@@ -75,6 +75,10 @@
 .bookDetailsLink {
     color: var(--primary-color);
 }
+.bookDetailsLink:hover{
+    background: none;
+    font-weight: 700;
+}
 
 @media screen and (max-width: 767px) {
     .bookCard {

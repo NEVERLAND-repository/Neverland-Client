@@ -1,5 +1,9 @@
 export const musicTracks = [
   {
+    name: 'Give Me Something',
+    src: 'https://neverland-api.s3.amazonaws.com/music/Beyonc%C3%A9+-+Partition.m4a',
+  },
+  {
     name: 'Memories',
     src: 'https://www.bensound.com/bensound-music/bensound-memories.mp3',
   },

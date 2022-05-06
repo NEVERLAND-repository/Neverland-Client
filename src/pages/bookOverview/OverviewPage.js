@@ -1,49 +1,58 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import ReadingButton from '../../components/buttonComponent/ReadingButton';
 import styles from './OverviewPage.module.css';
 import Footer from '../homePage/components/footerSection/Footer';
-// import BookImage from '../../assets/images/bookImage.png';
 import Header from '../homePage/components/headerComponent/Header';
-import { addBookData, getUserData } from '../../store/slice/neverlandUserSlice';
+import { getUserData } from '../../store/slice/neverlandUserSlice';
 import getAxiosInstance from '../../services/axios';
 import LoadingComponent from '../../components/loadingComponent/LoadingComponent';
+import Modal from '../../components/modalComponent/Modal';
 
 const OverviewPage = () => {
   const [book, setBook] = useState('');
+  const [renderModal, setRenderModal] = useState(false);
   const token = useSelector(getUserData)?.token;
   const bookId = useParams()?.bookId;
-  const dispatch = useDispatch()
+  const [pageNo, setPageNo] = useState(undefined);
+
+  const handleRender = () => {
+    setRenderModal(true);
+  };
+
+  const removeModal = () => {
+    setRenderModal(false);
+  }
 
   const fetchBookDetail = async () => {
     const response = await getAxiosInstance(token).get(
       `api/v1/book/overview/${ bookId }`,
     )
-    console.log(response.data)
 
     if (response.data.status === 'success') {
-      setBook(response.data.data)
-      // dispatch(addBookData(response.data.data))
+      if (response.data.data?.bookId) {
+        setBook(response.data.data.bookId)
+        setPageNo(response.data.data.pageNo)
+      } else {
+        setBook(response.data.data)
+      }
     }
-  }
+  };
 
   useEffect(() => {
-    fetchBookDetail()
-  }, [])
+    fetchBookDetail();
+  }, []);
 
   return (
-    <div>
+    <div className={ styles.overviewPage }>
       <Header label='overviewPage' />
       {book ? (
         <>
           <section className={ styles.upperDiv }>
             <div className={ styles.containerDiv }>
               <div className={ styles.imageDiv }>
-                <img
-                  src={ book?.bookImg }
-                  alt={ book?.name }
-                />
+                <img src={ book?.bookImg } alt={ book?.name } />
               </div>
               <div className={ styles.textDiv }>
                 <h3>{book?.name}</h3>
@@ -51,7 +60,11 @@ const OverviewPage = () => {
                 <span className={ styles.spanTags }>
                   <p>{book?.tags?.join(' • ')}</p>
                 </span>
-                <ReadingButton bookId={ bookId } />
+                <ReadingButton
+                  bookId={ bookId }
+                  handleClick={ handleRender }
+                  pageNo={ pageNo }
+                />
               </div>
             </div>
           </section>
@@ -65,7 +78,7 @@ const OverviewPage = () => {
             </div>
             <div className={ styles.buttonDiv }>
               {' '}
-              <ReadingButton bookId={ bookId } />
+              <ReadingButton bookId={ bookId } handleClick={ handleRender } pageNo={ pageNo } />
               {' '}
             </div>
           </section>
@@ -73,9 +86,17 @@ const OverviewPage = () => {
       ) : (
         <LoadingComponent />
       )}
+      {renderModal && (
+        <Modal
+          actionText='Add to Library'
+          imageSrc='BellIcon'
+          handleremoveModal={ removeModal }
+          bookId={ bookId }
+        />
+      )}
       <Footer />
     </div>
   );
-}
+};
 
 export default OverviewPage;

@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import styles from './FormCard.module.css';
 
 const FormCard = ({
-  formTitle, bottomText, altAction, children, className, route,
+  formTitle, bottomText, altAction, children, route, login,
 }) => {
   return (
-    <div className={ `${ styles.card } ${ className }` }>
+    <div className={ `${ login ? styles.loginCard : styles.card } ` }>
       <p className={ styles.formTitle }>
         {formTitle}
       </p>
