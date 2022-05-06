@@ -64,7 +64,10 @@ const BookCard = ({
           >
             {title}
           </Box>
-          <Tooltip label='Add to my library!' aria-label='A tooltip'>
+          <Tooltip
+            label={ `${ library ? 'Remove from library' : 'Add to my library' }` }
+            aria-label='A tooltip'
+          >
             <Center
               margin='4'
               padding='4'
@@ -77,14 +80,23 @@ const BookCard = ({
               fontSize='1.3rem'
               className={ styles.addIcon }
             >
-              {library ? <MinusIcon onClick={ removeFromLibrary } />
-                : <AddIcon onClick={ addToLibrary } /> }
+              {library ? (
+                <MinusIcon onClick={ removeFromLibrary } />
+              ) : (
+                <AddIcon onClick={ addToLibrary } />
+              )}
             </Center>
           </Tooltip>
         </Box>
 
         <Box>
-          <Text fontSize='1.6rem' fontWeight='500' color='black' py='1rem' marginTop='-2.5rem'>
+          <Text
+            fontSize='1.6rem'
+            fontWeight='500'
+            color='black'
+            py='1rem'
+            marginTop='-2.5rem'
+          >
             {author}
           </Text>
           <div className={ styles.bookDetails }>
