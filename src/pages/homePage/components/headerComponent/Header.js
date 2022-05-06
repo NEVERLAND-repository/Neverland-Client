@@ -91,8 +91,7 @@ const Header = ({ label }) => {
                   <li key={ name } className={ styles.navbarItem }>
                     <NavLink
                       to={ `/home/${ path }` }
-                      className={ `${ styles.navLink } ${
-                        path === activePath ? styles.active : ''
+                      className={ `${ styles.navLink } ${ path === activePath ? styles.active : ''
                       }` }
                     >
                       {name}
@@ -104,7 +103,7 @@ const Header = ({ label }) => {
               {isAuth ? (
                 <Popover
                   arrowSize='10px'
-                  zIndex='10000'
+                  zIndex='20000'
                   placement='bottom-end'
                   marginTop='0'
                   border='none'
@@ -112,17 +111,17 @@ const Header = ({ label }) => {
                   <PopoverTrigger>
                     <Wrap>
                       <WrapItem>
-                        <Avatar size='lg' name='User' src={ profile } />
+                        <Avatar size='md' name='User' src={ profile } />
                       </WrapItem>
                     </Wrap>
                   </PopoverTrigger>
-                  <Portal zIndex='10000'>
+                  <Portal zIndex='20000'>
                     <PopoverContent
                       fontSize='1.5rem'
                       marginTop='2.5rem'
                       border='none'
                       outline='0'
-                      _focus={ { boxShadow: '0px 16px 32px rgb(0, 0, 0)' } }
+                      _focus={ { boxShadow: 'rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px' } }
                     >
                       <PopoverArrow />
                       <PopoverCloseButton p={ 10 } />
@@ -133,7 +132,7 @@ const Header = ({ label }) => {
                             to='/dashboard'
                             className={ styles.navLink }
                             activeClassName={ styles.active }
-                            onClick={ () => {} }
+                            onClick={ () => { } }
                           >
                             <ListItem
                               padding='2'
@@ -160,7 +159,7 @@ const Header = ({ label }) => {
                             to=''
                             className={ styles.navLink }
                             activeClassName={ styles.active }
-                            onClick={ () => {} }
+                            onClick={ () => { } }
                           >
                             <ListItem
                               onClick={ signout }
@@ -189,7 +188,9 @@ const Header = ({ label }) => {
                   </Portal>
                 </Popover>
               ) : (
-                <SecondaryButton label='Get Started' navigation='/login' />
+                <span className={ styles.btn }>
+                  <SecondaryButton label='Get Started' navigation='/login' />
+                </span>
               )}
             </div>
           </nav>
@@ -210,7 +211,7 @@ const Header = ({ label }) => {
                   {navLinks.map(({ name, path }) => (
                     <li key={ name } className={ styles.menu_item }>
                       <NavLink
-                        to={ path }
+                        to={ `/home/${ path }` }
                         className={ styles.menu_link }
                         activeClassName={ styles.active }
                       >
@@ -219,16 +220,6 @@ const Header = ({ label }) => {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div
-                className={ styles.menu_footer }
-                onClick={ toggleMenu }
-                onKeyDown={ toggleMenu }
-                role='get_started_button'
-              >
-                <div className={ styles.navBtn }>
-                  <SecondaryButton label='Get Started' navigation='/signup' />
-                </div>
               </div>
             </span>
           </span>

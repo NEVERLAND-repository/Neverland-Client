@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Box, Text, Image, Center, Tooltip, useMediaQuery,
 } from '@chakra-ui/react';
@@ -11,23 +12,40 @@ import getAxiosInstance from '../../services/axios';
 import { getUserData } from '../../store/slice/neverlandUserSlice';
 
 const BookCard = ({
-  id, imageUrl, title, author, type, genre, rated, description, library,
+  id, imageUrl, title, author, type, genre, rated, description, library, callback,
 }) => {
   const [isLesserThan740] = useMediaQuery('(max-width: 740px)');
   const token = useSelector(getUserData)?.token;
+  const navigate = useNavigate();
 
   const addToLibrary = async () => {
     const response = await getAxiosInstance(token).post(
       `api/v1/book/add/?bookId=${ id }`,
     )
     console.log('added', response);
+    if (response.data.status === 'success') {
+      callback()
+      toast.success('Book added to library');
+    }
+
+    if (response.data.status === 'error') {
+      toast.error('Book already exists')
+    }
   }
 
   const removeFromLibrary = async () => {
     const response = await getAxiosInstance(token).post(
-      `api/v1/book/add/?bookId=${ id }`,
+      `api/v1/book/remove/?bookId=${ id }`,
     )
-    console.log('added', response);
+    console.log('remove', response);
+    if (response.data.status === 'success') {
+      callback();
+      toast.success('Book removed from library');
+    }
+
+    if (response.data.status === 'error') {
+      toast.success('Book doesn\'t exist in the library')
+    }
   }
 
   return (
@@ -64,7 +82,10 @@ const BookCard = ({
           >
             {title}
           </Box>
-          <Tooltip label='Add to my library!' aria-label='A tooltip'>
+          <Tooltip
+            label={ `${ library ? 'Remove from library' : 'Add to my library' }` }
+            aria-label='A tooltip'
+          >
             <Center
               margin='4'
               padding='4'
@@ -77,14 +98,20 @@ const BookCard = ({
               fontSize='1.3rem'
               className={ styles.addIcon }
             >
-              {library ? <MinusIcon onClick={ removeFromLibrary } />
-                : <AddIcon onClick={ addToLibrary } /> }
+              {library ? <MinusIcon onClick={ token ? removeFromLibrary : navigate('/login') } />
+                : <AddIcon onClick={ token ? addToLibrary : navigate('/login') } /> }
             </Center>
           </Tooltip>
         </Box>
 
         <Box>
-          <Text fontSize='1.6rem' fontWeight='500' color='black' py='1rem' marginTop='-2.5rem'>
+          <Text
+            fontSize='1.6rem'
+            fontWeight='500'
+            color='black'
+            py='1rem'
+            marginTop='-2.5rem'
+          >
             {author}
           </Text>
           <div className={ styles.bookDetails }>
@@ -96,7 +123,7 @@ const BookCard = ({
                 as={ Link }
                 className={ styles.bookDetailsLink }
               >
-                continue reading
+                {library ? 'continue reading' : 'start reading'}
               </Link>
             </Text>
           </div>

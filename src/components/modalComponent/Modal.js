@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 import SecondaryButton from '../buttonComponent/SecondaryButton';
 import UtilityButton from '../buttonComponent/UtilityButton';
 import BellIcon from '../../assets/icons/bell.svg';
@@ -19,14 +20,27 @@ const Modal = ({
     const response = await getAxiosInstance(token).post(
       `api/v1/book/add/?bookId=${ bookId }`,
     )
-    console.log('added', 'response')
+    if (response.data.status === 'success') {
+      toast.success('Book added to library');
+      handleremoveModal();
+    } else {
+      toast.error('Book already in library')
+      handleremoveModal();
+    }
   }
 
   const removeFromLibrary = async () => {
     const response = await getAxiosInstance(token).post(
       `api/v1/book/remove/?bookId=${ bookId }`,
     )
-    console.log('removed', 'response')
+    console.log('removed', response)
+    if (response.data.status === 'success') {
+      toast.success('Book removed from library');
+      handleremoveModal();
+    } else {
+      toast.error('Book doesn\'t exist in library')
+      handleremoveModal();
+    }
   }
 
   return (
@@ -47,7 +61,9 @@ const Modal = ({
 
           <div className={ styles.buttonContainer }>
             <UtilityButton label='Cancel' removeModal={ handleremoveModal } />
-            <SecondaryButton label={ remove ? 'Remove' : 'Add' } navigation='/' alert={ remove ? true : undefined } callback={ addToLibrary } />
+            <span onClick={ remove ? removeFromLibrary : addToLibrary }>
+              <SecondaryButton label={ remove ? 'Remove' : 'Add' } navigation={ `/overview/${ bookId }` } alert={ remove ? true : undefined } />
+            </span>
           </div>
         </div>
       </div>
